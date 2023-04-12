@@ -553,6 +553,8 @@ export default class DemoScene extends Phaser.Scene {
             this.heartSprites.pop()?.destroy();
           }
 
+          this.cameras.main.shake(250, 0.01);
+
           body.gameObject.destroy();
           this.balls--;
           this.lives--;
