@@ -1,3 +1,9 @@
+##### Breakout-style game made with:
+
+Phaser - Game engine\
+Aesprite - Drawing pixel art assets\
+Tiled - Tile map making tool
+
 ### Main Library: Phaser - 3.55
 
 [https://phaser.io](https://phaser.io/)
@@ -31,7 +37,7 @@ Open source, easy to use, flexible level editor\
 
 Laighter\
 Generate normal maps for 2D textures, with little effort\
-[https://azagaya.itch.io/laigter](https://azagaya.itch.io/laigter)\
+[https://azagaya.itch.io/laigter](https://azagaya.itch.io/laigter)
 
 ---
 
@@ -50,22 +56,5 @@ Generate normal maps for 2D textures, with little effort\
 [https://pixabay.com/sound-effects/rock-smash-6304 (cropped as "rock")](https://pixabay.com/sound-effects/rock-smash-6304/)\
 [https://pixabay.com/sound-effects/cartoon-kiss-cjohnstone-6381 (cropped as "kiss")](https://pixabay.com/sound-effects/cartoon-kiss-cjohnstone-6381/)\
 [https://pixabay.com/sound-effects/laser-gun-72558 (cropped as "laser")](https://pixabay.com/sound-effects/laser-gun-72558/)
-
----
-
-For the object layers, if we are creating sprites from them, we must adjust the x and y locations because in Tiled the x and y locations refer to the bottom left corner of the object, where as in phaser a sprite x and y location refer to the center of the sprite
-
-I found two ways to account for this:
-
-1.  <pre><code>blockSprite.setOrigin(0, 1);</pre></code>
-
-    Origin of sprite no longer at center\
-    if we want todo something at the center of the sprite later\
-    We may not want to change the origin this way
-
-2.  <pre><code>myBlock.x += map.tileWidth x 0.5;
-               myBlock.y -= map.tileHeight x 0.5;</pre></code>
-    Set x and y location to be half a tile right and up\
-    Origin of sprite still at center
 
 ---
