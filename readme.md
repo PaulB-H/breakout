@@ -56,5 +56,6 @@ Generate normal maps for 2D textures, with little effort\
 [https://pixabay.com/sound-effects/rock-smash-6304 (cropped as "rock")](https://pixabay.com/sound-effects/rock-smash-6304/)\
 [https://pixabay.com/sound-effects/cartoon-kiss-cjohnstone-6381 (cropped as "kiss")](https://pixabay.com/sound-effects/cartoon-kiss-cjohnstone-6381/)\
 [https://pixabay.com/sound-effects/laser-gun-72558 (cropped as "laser")](https://pixabay.com/sound-effects/laser-gun-72558/)
+[https://pixabay.com/sound-effects/hurt-c-08-102842/ (as "hurt")](https://pixabay.com/sound-effects/hurt-c-08-102842/)
 
 ---
