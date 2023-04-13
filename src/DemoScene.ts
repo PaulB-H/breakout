@@ -61,6 +61,7 @@ export default class DemoScene extends Phaser.Scene {
       { key: "electricSound", url: "assets/sounds/electric.mp3" },
       { key: "kissSound", url: "assets/sounds/kiss.mp3" },
       { key: "laserSound", url: "assets/sounds/laser.mp3" },
+      { key: "hurtSound", url: "assets/sounds/hurt.mp3" },
     ]);
   }
 
@@ -549,8 +550,15 @@ export default class DemoScene extends Phaser.Scene {
     this.physics.world.on("worldbounds", (body: Phaser.Physics.Arcade.Body) => {
       if (body.gameObject && ballGroup.contains(body.gameObject)) {
         if (body.blocked.down) {
-          if (this.lives > 1) {
-            this.heartSprites.pop()?.destroy();
+          if (this.lives > 1 && this.heartSprites.length > 1) {
+            const targetHeart =
+              this.heartSprites.pop() as Phaser.GameObjects.Sprite;
+
+            createPuff(targetHeart.x, targetHeart.y, 32);
+
+            this.sound.play("hurtSound");
+
+            targetHeart.destroy();
           }
 
           this.cameras.main.shake(250, 0.01);
