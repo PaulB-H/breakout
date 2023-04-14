@@ -288,8 +288,8 @@ export default class DemoScene extends Phaser.Scene {
         case "slow":
           ballGroup.getChildren().forEach((ball) => {
             const myBall = ball as Ball;
-            myBall.setVelocityX(myBall.body.velocity.x * 0.95);
-            myBall.setVelocityY(myBall.body.velocity.y * 0.95);
+            myBall.setVelocityX(myBall.body.velocity.x * 0.5);
+            myBall.setVelocityY(myBall.body.velocity.y * 0.5);
           });
           power.destroy();
           break;
@@ -297,8 +297,8 @@ export default class DemoScene extends Phaser.Scene {
         case "fast":
           ballGroup.getChildren().forEach((ball) => {
             const myBall = ball as Ball;
-            myBall.setVelocityX(myBall.body.velocity.x * 1.05);
-            myBall.setVelocityY(myBall.body.velocity.y * 1.05);
+            myBall.setVelocityX(myBall.body.velocity.x * 1.5);
+            myBall.setVelocityY(myBall.body.velocity.y * 1.5);
           });
           power.destroy();
           break;
