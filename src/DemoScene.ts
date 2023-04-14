@@ -21,7 +21,7 @@ export default class DemoScene extends Phaser.Scene {
   clickListener!: (event: MouseEvent) => void;
 
   player!: Phaser.Physics.Arcade.Sprite;
-  ball!: Phaser.Physics.Arcade.Sprite;
+  newBall!: Phaser.Physics.Arcade.Sprite | null;
 
   constructor() {
     super("game");
@@ -253,15 +253,15 @@ export default class DemoScene extends Phaser.Scene {
       const speedIncrease = 25;
 
       if (ball.body.velocity.x > 0) {
-        myBall.setVelocityX(this.ball.body.velocity.x + speedIncrease);
+        myBall.setVelocityX(myBall.body.velocity.x + speedIncrease);
       } else {
-        myBall.setVelocityX(this.ball.body.velocity.x - speedIncrease);
+        myBall.setVelocityX(myBall.body.velocity.x - speedIncrease);
       }
 
       if (ball.body.velocity.y > 0) {
-        myBall.setVelocityY(this.ball.body.velocity.y + speedIncrease);
+        myBall.setVelocityY(myBall.body.velocity.y + speedIncrease);
       } else {
-        myBall.setVelocityY(this.ball.body.velocity.y - speedIncrease);
+        myBall.setVelocityY(myBall.body.velocity.y - speedIncrease);
       }
 
       block.destroy();
@@ -286,14 +286,20 @@ export default class DemoScene extends Phaser.Scene {
           break;
 
         case "slow":
-          this.ball.setVelocityX(this.ball.body.velocity.x * 0.95);
-          this.ball.setVelocityY(this.ball.body.velocity.y * 0.95);
+          ballGroup.getChildren().forEach((ball) => {
+            const myBall = ball as Ball;
+            myBall.setVelocityX(myBall.body.velocity.x * 0.95);
+            myBall.setVelocityY(myBall.body.velocity.y * 0.95);
+          });
           power.destroy();
           break;
 
         case "fast":
-          this.ball.setVelocityX(this.ball.body.velocity.x * 1.05);
-          this.ball.setVelocityY(this.ball.body.velocity.y * 1.05);
+          ballGroup.getChildren().forEach((ball) => {
+            const myBall = ball as Ball;
+            myBall.setVelocityX(myBall.body.velocity.x * 1.05);
+            myBall.setVelocityY(myBall.body.velocity.y * 1.05);
+          });
           power.destroy();
           break;
 
@@ -362,9 +368,8 @@ export default class DemoScene extends Phaser.Scene {
       });
 
       this.input.on("pointerdown", () => {
-        if (this.clamped) {
-          this.ball.setVelocityY(-50);
-          this.ball.setVelocityX(this.player.body.velocity.x);
+        if (this.clamped && this.newBall) {
+          this.newBall.setVelocityY(-50);
           this.clamped = false;
         }
       });
@@ -383,9 +388,8 @@ export default class DemoScene extends Phaser.Scene {
       };
 
       this.clickListener = () => {
-        if (this.clamped) {
-          this.ball.setVelocityY(-50);
-          this.ball.setVelocityX(this.player.body.velocity.x);
+        if (this.clamped && this.newBall) {
+          this.newBall.setVelocityY(-50);
           this.clamped = false;
         }
       };
@@ -447,7 +451,7 @@ export default class DemoScene extends Phaser.Scene {
         myBall.gid - 1
       );
 
-      this.ball = newBall;
+      this.newBall = newBall;
     });
 
     interface iBlockSprite extends Phaser.Physics.Arcade.Sprite {
@@ -572,7 +576,7 @@ export default class DemoScene extends Phaser.Scene {
           body.gameObject.destroy();
           this.balls--;
           this.lives--;
-          this.ball = new Ball(
+          this.newBall = new Ball(
             this,
             this.player.x + 16,
             this.player.y - 6,
@@ -662,23 +666,23 @@ export default class DemoScene extends Phaser.Scene {
   update(t: number) {
     // We need to set min velocity this way...
     // no way to set min velocity on a physics group...
-    if (this.ball.body !== undefined && !this.clamped) {
-      if (Math.abs(this.ball.body.velocity.y) - 10 <= 0) {
-        this.ball.setVelocityY(20);
-      }
-    }
+    // if (this.ball.body !== undefined && !this.clamped) {
+    //   if (Math.abs(this.ball.body.velocity.y) - 10 <= 0) {
+    //     this.ball.setVelocityY(20);
+    //   }
+    // }
 
-    if (this.clamped) {
-      this.ball.x = this.player.x;
+    if (this.clamped && this.newBall) {
+      this.newBall.x = this.player.x;
     }
 
     // My "AI"
     // Using "LERP" we get a more natural AI
     // That can actually miss the ball sometimes
     if (this.ai.active) {
-      if (this.clamped) {
+      if (this.clamped && this.newBall) {
+        this.newBall.setVelocityY(-50);
         this.clamped = false;
-        this.ball.setVelocityY(-50);
       }
 
       if (!this.ai.lastUpdate) {
@@ -692,7 +696,7 @@ export default class DemoScene extends Phaser.Scene {
       }
 
       const LERP = 0.5;
-      const targetX = this.ball.x + this.ai.x;
+      const targetX = this.newBall!.x + this.ai.x;
       const currentX = this.player.x;
       const newX = Phaser.Math.Linear(currentX, targetX, LERP);
       this.player.x = newX;
