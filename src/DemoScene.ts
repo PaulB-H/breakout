@@ -486,25 +486,33 @@ export default class DemoScene extends Phaser.Scene {
     });
 
     // World bounds event to destroy balls that hit the bottom
+    // The object itself must be emitting worldbounds events to trigger this
     this.physics.world.on("worldbounds", (body: Phaser.Physics.Arcade.Body) => {
       if (body.gameObject && ballGroup.contains(body.gameObject)) {
         if (body.blocked.down) {
-          if (this.lives > 1 && this.heartSprites.length > 1) {
+          this.cameras.main.shake(250, 0.005);
+          body.gameObject.destroy();
+          this.balls--;
+
+          // Only lose a life if out of balls
+          if (this.lives >= 1 && this.balls <= 0) {
+            // More than 1 life left, pop a heart
             const targetHeart =
               this.heartSprites.pop() as Phaser.GameObjects.Sprite;
 
-            createPuff(targetHeart.x, targetHeart.y, 32);
+            // .. Just make sure targetHeart exists..
+            if (targetHeart) {
+              createPuff(targetHeart.x, targetHeart.y, 32);
+              targetHeart.destroy();
+            }
 
+            // Larger shake and sound on life lost
+            this.cameras.main.shake(250, 0.01);
             this.sound.play("hurtSound");
 
-            targetHeart.destroy();
+            this.lives--;
           }
 
-          this.cameras.main.shake(250, 0.01);
-
-          body.gameObject.destroy();
-          this.balls--;
-          this.lives--;
           this.newBall = new Ball(
             this,
             this.player.x + 16,
