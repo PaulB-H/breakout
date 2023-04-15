@@ -50,7 +50,8 @@ A tiny Node CLI (and library) to extrude tiles in tilesets\
 [https://pixabay.com/sound-effects/electric-zap-001-6374 (as "electric")](https://pixabay.com/sound-effects/electric-zap-001-6374/)\
 [https://pixabay.com/sound-effects/cartoon-kiss-cjohnstone-6381 (cropped as "kiss")](https://pixabay.com/sound-effects/cartoon-kiss-cjohnstone-6381/)\
 [https://pixabay.com/sound-effects/laser-gun-72558 (cropped as "laser")](https://pixabay.com/sound-effects/laser-gun-72558/)\
-[https://pixabay.com/sound-effects/hurt-c-08-102842 (as "hurt")](https://pixabay.com/sound-effects/hurt-c-08-102842/)
+[https://pixabay.com/sound-effects/hurt-c-08-102842 (as "hurt")](https://pixabay.com/sound-effects/hurt-c-08-102842/)\
+[https://pixabay.com/sound-effects/planks-clattering-14700 (cropped as "planks")](https://pixabay.com/sound-effects/planks-clattering-14700/)
 
 <!-- [https://pixabay.com/sound-effects/rock-smash-6304 (cropped as "rock")](https://pixabay.com/sound-effects/rock-smash-6304/)\ -->
 

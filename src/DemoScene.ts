@@ -73,6 +73,7 @@ export default class DemoScene extends Phaser.Scene {
       { key: AUDIO_KEYS.KISSSOUND, url: "assets/sounds/kiss.mp3" },
       { key: AUDIO_KEYS.LASERSOUND, url: "assets/sounds/laser.mp3" },
       { key: AUDIO_KEYS.HURTSOUND, url: "assets/sounds/hurt.mp3" },
+      { key: AUDIO_KEYS.PLANKSOUND, url: "assets/sounds/planks.mp3" },
     ]);
 
     this.load.atlas(
@@ -246,6 +247,10 @@ export default class DemoScene extends Phaser.Scene {
         case "purple":
           createPuff(myBlock.x, myBlock.y, 51);
           this.sound.play(AUDIO_KEYS.LASERSOUND);
+          break;
+        case "wood":
+          createPuff(myBlock.x, myBlock.y, 19);
+          this.sound.play(AUDIO_KEYS.PLANKSOUND);
           break;
         default:
           break;
