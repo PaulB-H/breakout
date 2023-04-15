@@ -5,6 +5,7 @@ import { iBlockSprite, iBlock } from "./objects/Block";
 import { CloudTimer } from "./objects/Deco/Clouds";
 import { iPlayer } from "./objects/Player";
 import Power from "./objects/Power";
+import { AUDIO_KEYS } from "./constants";
 
 export default class DemoScene extends Phaser.Scene {
   balls = 0;
@@ -65,13 +66,13 @@ export default class DemoScene extends Phaser.Scene {
     }
 
     this.load.audio([
-      { key: "fireSound", url: "assets/sounds/fire.mp3" },
-      { key: "bubbleSound", url: "assets/sounds/bubble.mp3" },
-      { key: "leafSound", url: "assets/sounds/leaf.mp3" },
-      { key: "electricSound", url: "assets/sounds/electric.mp3" },
-      { key: "kissSound", url: "assets/sounds/kiss.mp3" },
-      { key: "laserSound", url: "assets/sounds/laser.mp3" },
-      { key: "hurtSound", url: "assets/sounds/hurt.mp3" },
+      { key: AUDIO_KEYS.FIRESOUND, url: "assets/sounds/fire.mp3" },
+      { key: AUDIO_KEYS.BUBBLESOUND, url: "assets/sounds/bubble.mp3" },
+      { key: AUDIO_KEYS.LEAFSOUND, url: "assets/sounds/leaf.mp3" },
+      { key: AUDIO_KEYS.ELECTRICSOUND, url: "assets/sounds/electric.mp3" },
+      { key: AUDIO_KEYS.KISSSOUND, url: "assets/sounds/kiss.mp3" },
+      { key: AUDIO_KEYS.LASERSOUND, url: "assets/sounds/laser.mp3" },
+      { key: AUDIO_KEYS.HURTSOUND, url: "assets/sounds/hurt.mp3" },
     ]);
 
     this.load.atlas(
@@ -221,30 +222,30 @@ export default class DemoScene extends Phaser.Scene {
       switch (color) {
         case "green":
           createPuff(myBlock.x, myBlock.y, 35);
-          this.sound.play("leafSound");
+          this.sound.play(AUDIO_KEYS.LEAFSOUND);
           break;
         case "red":
           createPuff(myBlock.x, myBlock.y, 42);
-          this.sound.play("fireSound");
+          this.sound.play(AUDIO_KEYS.FIRESOUND);
           break;
         case "blue":
           createPuff(myBlock.x, myBlock.y, 44);
-          this.sound.play("bubbleSound", {
+          this.sound.play(AUDIO_KEYS.BUBBLESOUND, {
             name: "bubbleSound",
             start: 0.5,
           });
           break;
         case "yellow":
           createPuff(myBlock.x, myBlock.y, 53);
-          this.sound.play("electricSound");
+          this.sound.play(AUDIO_KEYS.ELECTRICSOUND);
           break;
         case "pink":
           createPuff(myBlock.x, myBlock.y, 41);
-          this.sound.play("kissSound", { volume: 2 });
+          this.sound.play(AUDIO_KEYS.KISSSOUND, { volume: 2 });
           break;
         case "purple":
           createPuff(myBlock.x, myBlock.y, 51);
-          this.sound.play("laserSound");
+          this.sound.play(AUDIO_KEYS.LASERSOUND);
           break;
         default:
           break;
@@ -508,7 +509,7 @@ export default class DemoScene extends Phaser.Scene {
 
             // Larger shake and sound on life lost
             this.cameras.main.shake(250, 0.01);
-            this.sound.play("hurtSound");
+            this.sound.play(AUDIO_KEYS.HURTSOUND);
 
             this.lives--;
           }
