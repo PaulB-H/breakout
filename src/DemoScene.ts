@@ -570,7 +570,7 @@ export default class DemoScene extends Phaser.Scene {
       this.player.x = newX;
     }
 
-    if (this.blocks === 0 || this.lives === 0) {
+    if (this.blocks <= 0 || this.lives <= 0) {
       document.removeEventListener("touchmove", this.touchListener);
       document.removeEventListener("mousedown", this.clickListener);
       this.scene.restart();
