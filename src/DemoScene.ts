@@ -1,5 +1,11 @@
 import Phaser from "phaser";
 
+import { Ball, iBall } from "./objects/Ball";
+import { iBlockSprite, iBlock } from "./objects/Block";
+import { CloudTimer } from "./objects/Deco/Clouds";
+import { iPlayer } from "./objects/Player";
+import Power from "./objects/Power";
+
 export default class DemoScene extends Phaser.Scene {
   balls = 0;
   blocks = 0;
@@ -22,6 +28,10 @@ export default class DemoScene extends Phaser.Scene {
 
   player!: Phaser.Physics.Arcade.Sprite;
   newBall!: Phaser.Physics.Arcade.Sprite | null;
+
+  ballGroup!: Phaser.Physics.Arcade.Group;
+  blockGroup!: Phaser.Physics.Arcade.Group;
+  powerGroup!: Phaser.Physics.Arcade.Group;
 
   constructor() {
     super("game");
@@ -136,6 +146,7 @@ export default class DemoScene extends Phaser.Scene {
     const blockGroup = this.physics.add.group({
       immovable: true,
     });
+    this.blockGroup = blockGroup;
 
     const ballGroup = this.physics.add.group({
       collideWorldBounds: true,
@@ -144,6 +155,7 @@ export default class DemoScene extends Phaser.Scene {
       maxVelocityX: 199,
       maxVelocityY: 200,
     });
+    this.ballGroup = ballGroup;
 
     const playerGroup = this.physics.add.group({
       immovable: true,
@@ -152,6 +164,7 @@ export default class DemoScene extends Phaser.Scene {
     const powerGroup = this.physics.add.group({
       collideWorldBounds: true,
     });
+    this.powerGroup = powerGroup;
 
     this.physics.add.collider(playerGroup, ballGroup, (player, ball) => {
       const playerSprite = player as Phaser.Physics.Arcade.Sprite;
@@ -244,7 +257,8 @@ export default class DemoScene extends Phaser.Scene {
           myBlock.x,
           myBlock.y,
           undefined,
-          Math.floor(Math.random() * 4) + 12
+          Math.floor(Math.random() * 4) + 12,
+          tileset
         );
       }
 
@@ -340,11 +354,6 @@ export default class DemoScene extends Phaser.Scene {
     // Creating Objects from Object Layers
     /**********************************************/
 
-    interface iPlayer extends Phaser.Types.Tilemaps.TiledObject {
-      x: number;
-      y: number;
-      gid: number;
-    }
     playerLayer.objects.forEach((player) => {
       const myPlayer = player as iPlayer;
 
@@ -399,44 +408,6 @@ export default class DemoScene extends Phaser.Scene {
       document.addEventListener("touchmove", this.touchListener);
     });
 
-    class Ball extends Phaser.Physics.Arcade.Sprite {
-      gid: number;
-      constructor(
-        scene: DemoScene,
-        x: number,
-        y: number,
-        texture: string,
-        frame: number
-      ) {
-        super(scene, x, y, texture, frame);
-
-        this.gid = frame;
-
-        scene.add.existing(this);
-        scene.physics.add.existing(this);
-
-        scene.balls++;
-
-        this.setCircle(4, 4, 4);
-
-        ballGroup.add(this);
-
-        // TS says read-only property - type assertion resolved
-        (this.body as Phaser.Physics.Arcade.Body).onWorldBounds = true;
-
-        // this.setFriction(1);
-
-        if (scene.clamped) {
-          this.x = scene.player.x;
-          this.setVelocityY(0);
-        }
-      }
-    }
-    interface iBall extends Phaser.Types.Tilemaps.TiledObject {
-      x: number;
-      y: number;
-      gid: number;
-    }
     ballLayer.objects.forEach((ball) => {
       const myBall = ball as iBall;
 
@@ -454,15 +425,6 @@ export default class DemoScene extends Phaser.Scene {
       this.newBall = newBall;
     });
 
-    interface iBlockSprite extends Phaser.Physics.Arcade.Sprite {
-      properties: { [key: string]: any };
-    }
-    interface iBlock extends Phaser.Types.Tilemaps.TiledObject {
-      x: number;
-      y: number;
-      gid: number;
-      properties: { name: string; value: any }[];
-    }
     blocksLayer.objects.forEach((block) => {
       const myBlock = block as iBlock;
 
@@ -491,48 +453,8 @@ export default class DemoScene extends Phaser.Scene {
       blockGroup.add(blockSprite);
     });
 
-    class Power extends Phaser.Physics.Arcade.Sprite {
-      gid: number;
-      properties: { power: string };
-
-      // todo - hardcode in texture better
-      // right now you must pass in undefined for texture
-
-      constructor(
-        scene: DemoScene,
-        x: number,
-        y: number,
-        texture = "tiles",
-        frame: number
-      ) {
-        super(scene, x, y, texture, frame);
-
-        this.gid = frame;
-
-        interface TileProperties {
-          [key: number]: {
-            power: string;
-          };
-        }
-
-        const tileProperties = tileset.tileProperties as TileProperties;
-
-        this.properties = {
-          power: tileProperties[this.gid].power,
-        };
-
-        powerGroup.add(this);
-
-        (this.body as Phaser.Physics.Arcade.Body).onWorldBounds = true;
-
-        scene.add.existing(this);
-        scene.physics.add.existing(this);
-
-        this.setVelocityY(Math.floor(Math.random() * 31) + 30);
-      }
-    }
     // Create a platform-expand power
-    new Power(this, 10, 10, undefined, 12);
+    new Power(this, 10, 10, undefined, 12, tileset);
     // Not really using this layer
     powersLayer.objects.forEach((power) => {
       // (power.properties[0].name);
@@ -546,7 +468,14 @@ export default class DemoScene extends Phaser.Scene {
       powerTile.x += map.tileWidth * 0.5;
       powerTile.y -= map.tileHeight * 0.5;
 
-      new Power(this, powerTile.x, powerTile.y, undefined, powerTile.gid - 1);
+      new Power(
+        this,
+        powerTile.x,
+        powerTile.y,
+        undefined,
+        powerTile.gid - 1,
+        tileset
+      );
     });
 
     // World bounds event to destroy powers that hit the bottom
@@ -591,75 +520,6 @@ export default class DemoScene extends Phaser.Scene {
     /**********************************************/
     // Background Clouds
     /**********************************************/
-
-    class Cloud extends Phaser.Physics.Arcade.Sprite {
-      constructor(scene: Phaser.Scene) {
-        super(
-          scene,
-          -50,
-          -50,
-          "cloud-atlas",
-          `cloud${Math.floor(Math.random() * 3 + 1)}.png`
-        );
-
-        const worldLeft = scene.physics.world.bounds.left;
-        const worldHeight = scene.physics.world.bounds.height;
-
-        this.setPosition(
-          worldLeft - 32,
-          Math.floor(Math.random() * worldHeight)
-        );
-
-        scene.add.existing(this);
-        scene.physics.add.existing(this);
-
-        this.setDepth(-1);
-
-        this.setVelocityX(Math.floor(Math.random() * 30) + 15);
-      }
-
-      preUpdate() {
-        const worldRight = this.scene.physics.world.bounds.right;
-        if (this.x > worldRight + 64) {
-          this.destroy();
-        }
-      }
-    }
-
-    class CloudTimer {
-      scene: Phaser.Scene;
-      interval: number;
-      timerEvent: Phaser.Time.TimerEvent | null;
-
-      constructor(scene: Phaser.Scene, interval: number) {
-        this.scene = scene;
-        this.interval = interval;
-        this.timerEvent = null;
-      }
-
-      start() {
-        if (!this.timerEvent) {
-          this.timerEvent = this.scene.time.addEvent({
-            delay: this.interval,
-            loop: true,
-            callback: this.onInterval,
-            callbackScope: this,
-          });
-        }
-      }
-
-      stop() {
-        if (this.timerEvent) {
-          this.timerEvent.destroy();
-          this.timerEvent = null;
-        }
-      }
-
-      onInterval() {
-        new Cloud(this.scene);
-      }
-    }
-
     new CloudTimer(this, 1250).start();
   }
 
