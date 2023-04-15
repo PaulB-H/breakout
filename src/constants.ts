@@ -7,3 +7,8 @@ export const AUDIO_KEYS = {
   LASERSOUND: "laserSound",
   HURTSOUND: "hurtSound",
 };
+
+export const FONT_KEYS = {
+  VCR_WHITE: "vcr-white",
+  VCR_BLACK: "vcr-black",
+};

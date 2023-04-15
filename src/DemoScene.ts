@@ -5,7 +5,7 @@ import { iBlockSprite, iBlock } from "./objects/Block";
 import { CloudTimer } from "./objects/Deco/Clouds";
 import { iPlayer } from "./objects/Player";
 import Power from "./objects/Power";
-import { AUDIO_KEYS } from "./constants";
+import { AUDIO_KEYS, FONT_KEYS } from "./constants";
 
 export default class DemoScene extends Phaser.Scene {
   balls = 0;
@@ -50,12 +50,12 @@ export default class DemoScene extends Phaser.Scene {
 
     const fonts = [
       {
-        key: "vcr-white",
+        key: FONT_KEYS.VCR_WHITE,
         png: "assets/font/vcr-white/vcr-white.png",
         xml: "assets/font/vcr-white/vcr-white.xml",
       },
       {
-        key: "vcr-black",
+        key: FONT_KEYS.VCR_BLACK,
         png: "assets/font/vcr-black/vcr-black.png",
         xml: "assets/font/vcr-black/vcr-black.xml",
       },
