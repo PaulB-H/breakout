@@ -1,13 +1,13 @@
-export const AUDIO_KEYS = {
-  FIRESOUND: "fireSound",
-  BUBBLESOUND: "bubbleSound",
-  LEAFSOUND: "leafSound",
-  ELECTRICSOUND: "electricSound",
-  KISSSOUND: "kissSound",
-  LASERSOUND: "laserSound",
-  HURTSOUND: "hurtSound",
-  PLANKSOUND: "plankSound",
-  BEEPSOUND: "beepSound",
+export const AUDIO = {
+  FIRE: "fireSound",
+  BUBBLE: "bubbleSound",
+  LEAF: "leafSound",
+  ELECTRIC: "electricSound",
+  KISS: "kissSound",
+  LASER: "laserSound",
+  HURT: "hurtSound",
+  PLANK: "plankSound",
+  BEEP: "beepSound",
 };
 
 export const FONT_KEYS = {

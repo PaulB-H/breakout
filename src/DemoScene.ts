@@ -5,7 +5,7 @@ import { iBlockSprite, iBlock } from "./objects/Block";
 import { CloudTimer } from "./objects/Deco/Clouds";
 import { iPlayer } from "./objects/Player";
 import Power from "./objects/Power";
-import { AUDIO_KEYS, FONT_KEYS } from "./constants";
+import { AUDIO, FONT_KEYS } from "./constants";
 
 export default class DemoScene extends Phaser.Scene {
   balls = 0;
@@ -66,15 +66,15 @@ export default class DemoScene extends Phaser.Scene {
     }
 
     this.load.audio([
-      { key: AUDIO_KEYS.FIRESOUND, url: "assets/sounds/fire.mp3" },
-      { key: AUDIO_KEYS.BUBBLESOUND, url: "assets/sounds/bubble.mp3" },
-      { key: AUDIO_KEYS.LEAFSOUND, url: "assets/sounds/leaf.mp3" },
-      { key: AUDIO_KEYS.ELECTRICSOUND, url: "assets/sounds/electric.mp3" },
-      { key: AUDIO_KEYS.KISSSOUND, url: "assets/sounds/kiss.mp3" },
-      { key: AUDIO_KEYS.LASERSOUND, url: "assets/sounds/laser.mp3" },
-      { key: AUDIO_KEYS.HURTSOUND, url: "assets/sounds/hurt.mp3" },
-      { key: AUDIO_KEYS.PLANKSOUND, url: "assets/sounds/planks.mp3" },
-      { key: AUDIO_KEYS.BEEPSOUND, url: "assets/sounds/beep.mp3" },
+      { key: AUDIO.FIRE, url: "assets/sounds/fire.mp3" },
+      { key: AUDIO.BUBBLE, url: "assets/sounds/bubble.mp3" },
+      { key: AUDIO.LEAF, url: "assets/sounds/leaf.mp3" },
+      { key: AUDIO.ELECTRIC, url: "assets/sounds/electric.mp3" },
+      { key: AUDIO.KISS, url: "assets/sounds/kiss.mp3" },
+      { key: AUDIO.LASER, url: "assets/sounds/laser.mp3" },
+      { key: AUDIO.HURT, url: "assets/sounds/hurt.mp3" },
+      { key: AUDIO.PLANK, url: "assets/sounds/planks.mp3" },
+      { key: AUDIO.BEEP, url: "assets/sounds/beep.mp3" },
     ]);
 
     this.load.atlas(
@@ -173,7 +173,7 @@ export default class DemoScene extends Phaser.Scene {
       const playerSprite = player as Phaser.Physics.Arcade.Sprite;
       const ballSprite = ball as Phaser.Physics.Arcade.Sprite;
 
-      this.sound.play(AUDIO_KEYS.BEEPSOUND, { volume: 0.75 });
+      this.sound.play(AUDIO.BEEP, { volume: 0.75 });
 
       // Only proceed with custom re-direction logic if ball bottom hits platform
       if (!ballSprite.body.blocked.down) return;
@@ -231,34 +231,34 @@ export default class DemoScene extends Phaser.Scene {
       switch (color) {
         case "green":
           createPuff(myBlock.x, myBlock.y, 35);
-          this.sound.play(AUDIO_KEYS.LEAFSOUND);
+          this.sound.play(AUDIO.LEAF);
           break;
         case "red":
           createPuff(myBlock.x, myBlock.y, 42);
-          this.sound.play(AUDIO_KEYS.FIRESOUND);
+          this.sound.play(AUDIO.FIRE);
           break;
         case "blue":
           createPuff(myBlock.x, myBlock.y, 44);
-          this.sound.play(AUDIO_KEYS.BUBBLESOUND, {
+          this.sound.play(AUDIO.BUBBLE, {
             name: "bubbleSound",
             start: 0.5,
           });
           break;
         case "yellow":
           createPuff(myBlock.x, myBlock.y, 53);
-          this.sound.play(AUDIO_KEYS.ELECTRICSOUND);
+          this.sound.play(AUDIO.ELECTRIC);
           break;
         case "pink":
           createPuff(myBlock.x, myBlock.y, 41);
-          this.sound.play(AUDIO_KEYS.KISSSOUND, { volume: 2 });
+          this.sound.play(AUDIO.KISS, { volume: 2 });
           break;
         case "purple":
           createPuff(myBlock.x, myBlock.y, 5);
-          this.sound.play(AUDIO_KEYS.LASERSOUND);
+          this.sound.play(AUDIO.LASER);
           break;
         case "wood":
           createPuff(myBlock.x, myBlock.y, 19);
-          this.sound.play(AUDIO_KEYS.PLANKSOUND);
+          this.sound.play(AUDIO.PLANK);
           break;
         default:
           break;
@@ -522,7 +522,7 @@ export default class DemoScene extends Phaser.Scene {
 
             // Larger shake and sound on life lost
             this.cameras.main.shake(250, 0.01);
-            this.sound.play(AUDIO_KEYS.HURTSOUND);
+            this.sound.play(AUDIO.HURT);
 
             this.lives--;
           }
@@ -536,7 +536,7 @@ export default class DemoScene extends Phaser.Scene {
           );
           this.clamped = true;
         } else if (!this.clamped) {
-          this.sound.play(AUDIO_KEYS.BEEPSOUND, { volume: 0.75 });
+          this.sound.play(AUDIO.BEEP, { volume: 0.75 });
         }
       }
     });
