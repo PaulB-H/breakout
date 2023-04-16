@@ -535,7 +535,7 @@ export default class DemoScene extends Phaser.Scene {
             11
           );
           this.clamped = true;
-        } else {
+        } else if (!this.clamped) {
           this.sound.play(AUDIO_KEYS.BEEPSOUND, { volume: 0.75 });
         }
       }
