@@ -8,6 +8,7 @@ export const AUDIO = {
   HURT: "hurtSound",
   PLANK: "plankSound",
   BEEP: "beepSound",
+  GLASS: "glassSound",
 };
 
 export const FONT_KEYS = {

@@ -77,6 +77,7 @@ export default class DemoScene extends Phaser.Scene {
       { key: AUDIO.HURT, url: "assets/sounds/hurt.mp3" },
       { key: AUDIO.PLANK, url: "assets/sounds/planks.mp3" },
       { key: AUDIO.BEEP, url: "assets/sounds/beep.mp3" },
+      { key: AUDIO.GLASS, url: "assets/sounds/glass.mp3" },
     ]);
 
     this.load.atlas(
@@ -272,6 +273,10 @@ export default class DemoScene extends Phaser.Scene {
         case "wood":
           createPuff(myBlock.x, myBlock.y, 19);
           this.sound.play(AUDIO.PLANK);
+          break;
+        case "glass":
+          createPuff(myBlock.x, myBlock.y, 9);
+          this.sound.play(AUDIO.GLASS);
           break;
         default:
           break;
