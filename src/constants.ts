@@ -9,6 +9,8 @@ export const AUDIO = {
   PLANK: "plankSound",
   BEEP: "beepSound",
   GLASS: "glassSound",
+  METAL: "metalSound",
+  METALBREAK: "metalBreakSound",
 };
 
 export const FONT_KEYS = {

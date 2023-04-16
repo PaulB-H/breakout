@@ -78,6 +78,8 @@ export default class DemoScene extends Phaser.Scene {
       { key: AUDIO.PLANK, url: "assets/sounds/planks.mp3" },
       { key: AUDIO.BEEP, url: "assets/sounds/beep.mp3" },
       { key: AUDIO.GLASS, url: "assets/sounds/glass.mp3" },
+      { key: AUDIO.METAL, url: "assets/sounds/metal.mp3" },
+      { key: AUDIO.METALBREAK, url: "assets/sounds/metalbreak.mp3" },
     ]);
 
     this.load.atlas(
@@ -278,6 +280,33 @@ export default class DemoScene extends Phaser.Scene {
           createPuff(myBlock.x, myBlock.y, 9);
           this.sound.play(AUDIO.GLASS);
           break;
+        case "armored":
+          myBlock.properties.health--;
+          switch (myBlock.properties.health) {
+            case 0:
+              createPuff(myBlock.x, myBlock.y, 27);
+              this.sound.play(AUDIO.METALBREAK);
+              break;
+            case 1:
+              myBlock.setFrame(26);
+              this.sound.play(AUDIO.METAL);
+              break;
+            case 2:
+              myBlock.setFrame(17);
+              this.sound.play(AUDIO.METAL);
+              break;
+            case 3:
+              myBlock.setFrame(16);
+              this.sound.play(AUDIO.METAL);
+              break;
+            case 4:
+              myBlock.setFrame(7);
+              this.sound.play(AUDIO.METAL);
+              break;
+            default:
+              break;
+          }
+          break;
         default:
           break;
       }
@@ -294,24 +323,29 @@ export default class DemoScene extends Phaser.Scene {
         );
       }
 
-      // this.player.scaleX += 0.1;
+      if (myBlock.properties.color !== "armored") {
+        const speedIncrease = 25;
 
-      const speedIncrease = 25;
+        if (ball.body.velocity.x > 0) {
+          myBall.setVelocityX(myBall.body.velocity.x + speedIncrease);
+        } else {
+          myBall.setVelocityX(myBall.body.velocity.x - speedIncrease);
+        }
 
-      if (ball.body.velocity.x > 0) {
-        myBall.setVelocityX(myBall.body.velocity.x + speedIncrease);
-      } else {
-        myBall.setVelocityX(myBall.body.velocity.x - speedIncrease);
+        if (ball.body.velocity.y > 0) {
+          myBall.setVelocityY(myBall.body.velocity.y + speedIncrease);
+        } else {
+          myBall.setVelocityY(myBall.body.velocity.y - speedIncrease);
+        }
       }
 
-      if (ball.body.velocity.y > 0) {
-        myBall.setVelocityY(myBall.body.velocity.y + speedIncrease);
-      } else {
-        myBall.setVelocityY(myBall.body.velocity.y - speedIncrease);
+      if (
+        (myBlock.properties.health && myBlock.properties.health <= 0) ||
+        !myBlock.properties.health
+      ) {
+        block.destroy();
+        this.blocks--;
       }
-
-      block.destroy();
-      this.blocks--;
     });
 
     this.physics.add.collider(playerGroup, powerGroup, (player, power) => {

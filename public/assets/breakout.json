@@ -498,61 +498,6 @@
                 {
                  "gid":19,
                  "height":16,
-                 "id":55,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":80,
-                 "y":16
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":57,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":112,
-                 "y":16
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":59,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":144,
-                 "y":16
-                },
-            
-                {
-                 "gid":19,
-                 "height":16,
                  "id":61,
                  "name":"",
                  "properties":[
@@ -603,25 +548,8 @@
                  "width":16,
                  "x":144,
                  "y":112
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
-                 "id":66,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":144,
-                 "y":128
-                }, 
+                },
+            
                 {
                  "gid":9,
                  "height":16,
@@ -661,60 +589,6 @@
                 {
                  "gid":9,
                  "height":16,
-                 "id":69,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":128,
-                 "y":16
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
-                 "id":70,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":96,
-                 "y":16
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
-                 "id":71,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":64,
-                 "y":16
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
                  "id":72,
                  "name":"",
                  "properties":[
@@ -729,8 +603,7 @@
                  "width":16,
                  "x":0,
                  "y":32
-                },
-            
+                }, 
                 {
                  "gid":9,
                  "height":16,
@@ -856,7 +729,8 @@
                  "width":16,
                  "x":64,
                  "y":128
-                }, 
+                },
+            
                 {
                  "gid":9,
                  "height":16,
@@ -878,61 +752,6 @@
                 {
                  "gid":9,
                  "height":16,
-                 "id":82,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":96,
-                 "y":128
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
-                 "id":83,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":112,
-                 "y":128
-                },
-            
-                {
-                 "gid":9,
-                 "height":16,
-                 "id":84,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":128,
-                 "y":128
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
                  "id":85,
                  "name":"",
                  "properties":[
@@ -947,6 +766,98 @@
                  "width":16,
                  "x":144,
                  "y":96
+                }, 
+                {
+                 "gid":7,
+                 "height":16,
+                 "id":86,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"armored"
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"int",
+                         "value":5
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":144,
+                 "y":128
+                }, 
+                {
+                 "gid":7,
+                 "height":16,
+                 "id":87,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"armored"
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"int",
+                         "value":5
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":128,
+                 "y":128
+                }, 
+                {
+                 "gid":7,
+                 "height":16,
+                 "id":88,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"armored"
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"int",
+                         "value":5
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":112,
+                 "y":128
+                }, 
+                {
+                 "gid":7,
+                 "height":16,
+                 "id":89,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"armored"
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"int",
+                         "value":5
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":128
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1048,7 +959,7 @@
          "y":0
         }],
  "nextlayerid":11,
- "nextobjectid":86,
+ "nextobjectid":90,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",
@@ -1126,7 +1037,12 @@
                         {
                          "name":"color",
                          "type":"string",
-                         "value":""
+                         "value":"armored"
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"int",
+                         "value":5
                         }]
                 }, 
                 {
