@@ -253,7 +253,7 @@ export default class DemoScene extends Phaser.Scene {
           this.sound.play(AUDIO_KEYS.KISSSOUND, { volume: 2 });
           break;
         case "purple":
-          createPuff(myBlock.x, myBlock.y, 51);
+          createPuff(myBlock.x, myBlock.y, 5);
           this.sound.play(AUDIO_KEYS.LASERSOUND);
           break;
         case "wood":
