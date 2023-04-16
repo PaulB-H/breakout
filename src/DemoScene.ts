@@ -178,11 +178,11 @@ export default class DemoScene extends Phaser.Scene {
 
       const playerWidth = playerSprite.width;
 
-      const leftTip = playerSprite.x - playerWidth - 2;
-      const rightTip = playerSprite.x + playerWidth + 2;
+      const leftTip = playerSprite.x - playerWidth / 2 + 2;
+      const rightTip = playerSprite.x + playerWidth / 2 - 2;
 
       if (ballSprite.x < playerSprite.x - 2) {
-        if (ballSprite.x < leftTip + 2) {
+        if (ballSprite.x < leftTip) {
           // ("left tip hit");
           ballSprite.setVelocityX(-(halfVelocity + halfVelocity / 2));
           ballSprite.setVelocityY(-(halfVelocity / 2));
@@ -192,7 +192,7 @@ export default class DemoScene extends Phaser.Scene {
           ballSprite.setVelocityY(-halfVelocity);
         }
       } else if (ballSprite.x > playerSprite.x + 2) {
-        if (ballSprite.x > rightTip - 2) {
+        if (ballSprite.x > rightTip) {
           // ("right tip hit");
           ballSprite.setVelocityX(halfVelocity + halfVelocity / 2);
           ballSprite.setVelocityY(-(halfVelocity / 2));
