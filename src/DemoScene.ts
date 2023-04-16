@@ -172,8 +172,13 @@ export default class DemoScene extends Phaser.Scene {
       const playerSprite = player as Phaser.Physics.Arcade.Sprite;
       const ballSprite = ball as Phaser.Physics.Arcade.Sprite;
 
+      // Only proceed with custom re-direction logic if ball bottom hits platform
+      if (!ballSprite.body.blocked.down) return;
+
       const halfVelocity = Math.floor(
-        (Math.abs(ball.body.velocity.x) + Math.abs(ball.body.velocity.y)) / 2
+        (Math.abs(ballSprite.body.velocity.x) +
+          Math.abs(ballSprite.body.velocity.y)) /
+          2
       );
 
       const playerWidth = playerSprite.width;
