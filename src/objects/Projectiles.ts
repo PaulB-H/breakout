@@ -32,7 +32,7 @@ export class LightningBolt extends Phaser.Physics.Arcade.Sprite {
 
     this.setSize(9, 16);
 
-    this.setVelocityY(100);
+    this.setVelocityY(250);
   }
 }
 
