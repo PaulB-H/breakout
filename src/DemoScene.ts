@@ -101,7 +101,7 @@ export default class DemoScene extends Phaser.Scene {
 
     // add heart sprites for every life...
     for (let i = 1; i < this.lives + 1; i++) {
-      this.heartSprites.push(this.add.sprite(16 * i, 10, "tiles", 32));
+      this.heartSprites.push(this.add.sprite(16 * i - 1, 8, "tiles", 32));
     }
 
     /**********************************************/
