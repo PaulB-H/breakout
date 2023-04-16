@@ -538,16 +538,16 @@ export default class DemoScene extends Phaser.Scene {
             this.sound.play(AUDIO.HURT);
 
             this.lives--;
-          }
 
-          this.newBall = new Ball(
-            this,
-            this.player.x + 16,
-            this.player.y - 6,
-            "tiles",
-            11
-          );
-          this.clamped = true;
+            this.newBall = new Ball(
+              this,
+              this.player.x + 16,
+              this.player.y - 6,
+              "tiles",
+              11
+            );
+            this.clamped = true;
+          }
         } else if (!this.clamped) {
           this.sound.play(AUDIO.BEEP, { volume: 0.75 });
         }
