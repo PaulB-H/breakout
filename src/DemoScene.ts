@@ -7,6 +7,8 @@ import { iPlayer } from "./objects/Player";
 import Power from "./objects/Power";
 import { AUDIO, FONT_KEYS } from "./constants";
 
+import { FireBall, LaserBeam, LightningBolt } from "./objects/Projectiles";
+
 export default class DemoScene extends Phaser.Scene {
   balls = 0;
   blocks = 0;
@@ -236,6 +238,7 @@ export default class DemoScene extends Phaser.Scene {
         case "red":
           createPuff(myBlock.x, myBlock.y, 42);
           this.sound.play(AUDIO.FIRE);
+          new FireBall(this, myBlock.x, myBlock.y);
           break;
         case "blue":
           createPuff(myBlock.x, myBlock.y, 44);
@@ -247,6 +250,7 @@ export default class DemoScene extends Phaser.Scene {
         case "yellow":
           createPuff(myBlock.x, myBlock.y, 53);
           this.sound.play(AUDIO.ELECTRIC);
+          new LightningBolt(this, myBlock.x, myBlock.y);
           break;
         case "pink":
           createPuff(myBlock.x, myBlock.y, 41);
@@ -255,6 +259,7 @@ export default class DemoScene extends Phaser.Scene {
         case "purple":
           createPuff(myBlock.x, myBlock.y, 5);
           this.sound.play(AUDIO.LASER);
+          new LaserBeam(this, myBlock.x, myBlock.y);
           break;
         case "wood":
           createPuff(myBlock.x, myBlock.y, 19);
