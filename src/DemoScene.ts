@@ -328,13 +328,13 @@ export default class DemoScene extends Phaser.Scene {
 
         if (ball.body.velocity.x > 0) {
           myBall.setVelocityX(myBall.body.velocity.x + speedIncrease);
-        } else {
+        } else if (ball.body.velocity.x < 0) {
           myBall.setVelocityX(myBall.body.velocity.x - speedIncrease);
         }
 
         if (ball.body.velocity.y > 0) {
           myBall.setVelocityY(myBall.body.velocity.y + speedIncrease);
-        } else {
+        } else if (ball.body.velocity.y < 0) {
           myBall.setVelocityY(myBall.body.velocity.y - speedIncrease);
         }
       }
