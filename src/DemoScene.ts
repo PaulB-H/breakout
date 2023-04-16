@@ -246,6 +246,14 @@ export default class DemoScene extends Phaser.Scene {
             name: "bubbleSound",
             start: 0.5,
           });
+
+          const newBall = new Ball(this, myBlock.x, myBlock.y, "tiles", 47);
+
+          const randX = Phaser.Math.RND.pick([-37, 37]);
+          const randY = Phaser.Math.RND.pick([-37, 37]);
+
+          newBall.setVelocity(randX, randY);
+
           break;
         case "yellow":
           createPuff(myBlock.x, myBlock.y, 53);
