@@ -74,6 +74,7 @@ export default class DemoScene extends Phaser.Scene {
       { key: AUDIO_KEYS.LASERSOUND, url: "assets/sounds/laser.mp3" },
       { key: AUDIO_KEYS.HURTSOUND, url: "assets/sounds/hurt.mp3" },
       { key: AUDIO_KEYS.PLANKSOUND, url: "assets/sounds/planks.mp3" },
+      { key: AUDIO_KEYS.BEEPSOUND, url: "assets/sounds/beep.mp3" },
     ]);
 
     this.load.atlas(
@@ -171,6 +172,8 @@ export default class DemoScene extends Phaser.Scene {
     this.physics.add.collider(playerGroup, ballGroup, (player, ball) => {
       const playerSprite = player as Phaser.Physics.Arcade.Sprite;
       const ballSprite = ball as Phaser.Physics.Arcade.Sprite;
+
+      this.sound.play(AUDIO_KEYS.BEEPSOUND, { volume: 0.75 });
 
       // Only proceed with custom re-direction logic if ball bottom hits platform
       if (!ballSprite.body.blocked.down) return;
@@ -532,6 +535,8 @@ export default class DemoScene extends Phaser.Scene {
             11
           );
           this.clamped = true;
+        } else {
+          this.sound.play(AUDIO_KEYS.BEEPSOUND, { volume: 0.75 });
         }
       }
     });
