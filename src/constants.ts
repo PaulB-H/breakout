@@ -11,6 +11,7 @@ export const AUDIO = {
   GLASS: "glassSound",
   METAL: "metalSound",
   METALBREAK: "metalBreakSound",
+  ROCK: "rockSound",
 };
 
 export const FONT_KEYS = {

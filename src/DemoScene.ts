@@ -80,6 +80,7 @@ export default class DemoScene extends Phaser.Scene {
       { key: AUDIO.GLASS, url: "assets/sounds/glass.mp3" },
       { key: AUDIO.METAL, url: "assets/sounds/metal.mp3" },
       { key: AUDIO.METALBREAK, url: "assets/sounds/metalbreak.mp3" },
+      { key: AUDIO.ROCK, url: "assets/sounds/rock.mp3" },
     ]);
 
     this.load.atlas(
@@ -279,6 +280,10 @@ export default class DemoScene extends Phaser.Scene {
         case "glass":
           createPuff(myBlock.x, myBlock.y, 9);
           this.sound.play(AUDIO.GLASS);
+          break;
+        case "rock":
+          createPuff(myBlock.x, myBlock.y, 9);
+          this.sound.play(AUDIO.ROCK);
           break;
         case "armored":
           myBlock.properties.health--;
@@ -513,6 +518,13 @@ export default class DemoScene extends Phaser.Scene {
           {} as { [key: string]: any }
         );
         blockSprite.properties = blockProperties;
+      }
+
+      if (
+        blockSprite.properties.color &&
+        blockSprite.properties.color === "rock"
+      ) {
+        blockSprite.setCircle(8);
       }
 
       this.blocks++;
