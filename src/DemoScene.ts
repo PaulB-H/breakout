@@ -328,20 +328,19 @@ export default class DemoScene extends Phaser.Scene {
         );
       }
 
-      if (myBlock.properties.color !== "armored") {
-        const speedIncrease = 25;
+      let speedIncrease: 25 | 5 = 25;
+      if (myBlock.properties.color === "armored") speedIncrease = 5;
 
-        if (ball.body.velocity.x > 0) {
-          myBall.setVelocityX(myBall.body.velocity.x + speedIncrease);
-        } else if (ball.body.velocity.x < 0) {
-          myBall.setVelocityX(myBall.body.velocity.x - speedIncrease);
-        }
+      if (ball.body.velocity.x > 0) {
+        myBall.setVelocityX(myBall.body.velocity.x + speedIncrease);
+      } else if (ball.body.velocity.x < 0) {
+        myBall.setVelocityX(myBall.body.velocity.x - speedIncrease);
+      }
 
-        if (ball.body.velocity.y > 0) {
-          myBall.setVelocityY(myBall.body.velocity.y + speedIncrease);
-        } else if (ball.body.velocity.y < 0) {
-          myBall.setVelocityY(myBall.body.velocity.y - speedIncrease);
-        }
+      if (ball.body.velocity.y > 0) {
+        myBall.setVelocityY(myBall.body.velocity.y + speedIncrease);
+      } else if (ball.body.velocity.y < 0) {
+        myBall.setVelocityY(myBall.body.velocity.y - speedIncrease);
       }
 
       if (
