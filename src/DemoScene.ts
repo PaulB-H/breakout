@@ -15,6 +15,15 @@ export default class DemoScene extends Phaser.Scene {
   lives = 3;
   heartSprites: Phaser.GameObjects.Sprite[] = [];
   clamped = true;
+  playerStatus: {
+    isStunned: boolean;
+    lastStunned: number | null;
+    stunnedX: number | null;
+  } = {
+    isStunned: false,
+    lastStunned: null,
+    stunnedX: null,
+  };
 
   ai: {
     active: boolean;
@@ -35,6 +44,7 @@ export default class DemoScene extends Phaser.Scene {
   ballGroup!: Phaser.Physics.Arcade.Group;
   blockGroup!: Phaser.Physics.Arcade.Group;
   powerGroup!: Phaser.Physics.Arcade.Group;
+  projectileGroup!: Phaser.Physics.Arcade.Group;
 
   constructor() {
     super("game");
@@ -103,6 +113,11 @@ export default class DemoScene extends Phaser.Scene {
       active: false,
       lastUpdate: null,
       x: 0,
+    };
+    this.playerStatus = {
+      isStunned: false,
+      lastStunned: null,
+      stunnedX: null,
     };
 
     // add heart sprites for every life...
@@ -174,6 +189,49 @@ export default class DemoScene extends Phaser.Scene {
       collideWorldBounds: true,
     });
     this.powerGroup = powerGroup;
+
+    const projectileGroup = this.physics.add.group();
+    this.projectileGroup = projectileGroup;
+
+    this.physics.add.collider(
+      playerGroup,
+      projectileGroup,
+      // @ts-ignore
+      (player, projectile) => {
+        switch (projectile.type) {
+          case "fireball":
+            if (this.lives >= 1) {
+              const targetHeart =
+                this.heartSprites.pop() as Phaser.GameObjects.Sprite;
+
+              if (targetHeart) {
+                createPuff(targetHeart.x, targetHeart.y, 32);
+                targetHeart.destroy();
+              }
+
+              this.cameras.main.shake(250, 0.01);
+              this.sound.play(AUDIO.HURT);
+
+              this.lives--;
+            }
+            projectile.destroy();
+            break;
+          case "lightningbolt":
+            this.playerStatus.isStunned = true;
+            this.playerStatus.lastStunned = this.time.now;
+            this.playerStatus.stunnedX = this.player.x;
+            this.player.setFrame(20);
+            projectile.destroy();
+            break;
+          case "laserbeam":
+            this.scene.restart();
+            projectile.destroy();
+            break;
+          default:
+            break;
+        }
+      }
+    );
 
     this.physics.add.collider(playerGroup, ballGroup, (player, ball) => {
       const playerSprite = player as Phaser.Physics.Arcade.Sprite;
@@ -619,6 +677,20 @@ export default class DemoScene extends Phaser.Scene {
     //   }
     // }
 
+    if (
+      this.playerStatus.isStunned &&
+      this.playerStatus.lastStunned &&
+      this.playerStatus.stunnedX
+    ) {
+      this.player.x = this.playerStatus.stunnedX;
+      if (this.time.now - this.playerStatus.lastStunned > 1000) {
+        this.playerStatus.isStunned = false;
+        this.playerStatus.lastStunned = null;
+        this.playerStatus.stunnedX = null;
+        this.player.setFrame(10);
+      }
+    }
+
     if (this.clamped && this.newBall) {
       this.newBall.x = this.player.x;
     }
@@ -640,7 +712,7 @@ export default class DemoScene extends Phaser.Scene {
     // My "AI"
     // Using "LERP" we get a more natural AI
     // That can actually miss the ball sometimes
-    if (this.ai.active) {
+    if (this.ai.active && !this.playerStatus.isStunned) {
       if (this.clamped && this.newBall) {
         this.newBall.setVelocityY(-50);
         this.clamped = false;

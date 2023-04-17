@@ -1,6 +1,9 @@
+import DemoScene from "../DemoScene";
+
 export class FireBall extends Phaser.Physics.Arcade.Sprite {
+  type = "fireball";
   constructor(
-    scene: Phaser.Scene,
+    scene: DemoScene,
     x: number,
     y: number,
     texture = "tiles",
@@ -11,6 +14,8 @@ export class FireBall extends Phaser.Physics.Arcade.Sprite {
     scene.physics.add.existing(this);
     scene.add.existing(this);
 
+    scene.projectileGroup.add(this);
+
     this.setSize(14, 13);
 
     this.setVelocityY(100);
@@ -18,8 +23,9 @@ export class FireBall extends Phaser.Physics.Arcade.Sprite {
 }
 
 export class LightningBolt extends Phaser.Physics.Arcade.Sprite {
+  type = "lightningbolt";
   constructor(
-    scene: Phaser.Scene,
+    scene: DemoScene,
     x: number,
     y: number,
     texture = "tiles",
@@ -30,6 +36,8 @@ export class LightningBolt extends Phaser.Physics.Arcade.Sprite {
     scene.physics.add.existing(this);
     scene.add.existing(this);
 
+    scene.projectileGroup.add(this);
+
     this.setSize(9, 16);
 
     this.setVelocityY(250);
@@ -37,8 +45,9 @@ export class LightningBolt extends Phaser.Physics.Arcade.Sprite {
 }
 
 export class LaserBeam extends Phaser.Physics.Arcade.Sprite {
+  type = "laserbeam";
   constructor(
-    scene: Phaser.Scene,
+    scene: DemoScene,
     x: number,
     y: number,
     texture = "tiles",
@@ -48,6 +57,8 @@ export class LaserBeam extends Phaser.Physics.Arcade.Sprite {
 
     scene.physics.add.existing(this);
     scene.add.existing(this);
+
+    scene.projectileGroup.add(this);
 
     this.setSize(3, 14);
 
