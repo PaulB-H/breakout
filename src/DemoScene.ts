@@ -340,7 +340,7 @@ export default class DemoScene extends Phaser.Scene {
           this.sound.play(AUDIO.GLASS);
           break;
         case "rock":
-          createPuff(myBlock.x, myBlock.y, 9);
+          createPuff(myBlock.x, myBlock.y, 58);
           this.sound.play(AUDIO.ROCK);
           break;
         case "armored":
