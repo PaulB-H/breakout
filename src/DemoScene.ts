@@ -216,7 +216,6 @@ export default class DemoScene extends Phaser.Scene {
           case "lightningbolt":
             this.playerStatus.isStunned = true;
             this.playerStatus.lastStunned = this.time.now;
-            this.playerStatus.stunnedX = this.player.x;
             this.player.setFrame(20);
             projectile.destroy();
             break;
