@@ -4,16 +4,16 @@
       "frame": {
         "x": 0,
         "y": 0,
-        "w": 56,
-        "h": 46
+        "w": 55,
+        "h": 45
       },
       "rotated": false,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 2,
-        "y": 7,
-        "w": 56,
-        "h": 46
+        "y": 8,
+        "w": 55,
+        "h": 45
       },
       "sourceSize": {
         "w": 64,
@@ -26,18 +26,18 @@
     },
     "cloud1.png": {
       "frame": {
-        "x": 56,
+        "x": 55,
         "y": 0,
         "w": 53,
-        "h": 31
+        "h": 30
       },
       "rotated": false,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 5,
-        "y": 1,
+        "y": 2,
         "w": 53,
-        "h": 31
+        "h": 30
       },
       "sourceSize": {
         "w": 64,
@@ -50,7 +50,7 @@
     },
     "cloud2.png": {
       "frame": {
-        "x": 109,
+        "x": 108,
         "y": 0,
         "w": 31,
         "h": 13
@@ -79,8 +79,8 @@
     "image": "cloud-atlas.png",
     "format": "RGBA8888",
     "size": {
-      "w": 140,
-      "h": 46
+      "w": 139,
+      "h": 45
     },
     "scale": 1
   }
