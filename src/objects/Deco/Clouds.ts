@@ -12,7 +12,10 @@ class Cloud extends Phaser.Physics.Arcade.Sprite {
     const worldLeft = scene.physics.world.bounds.left;
     const worldHeight = scene.physics.world.bounds.height;
 
-    this.setPosition(worldLeft - 32, Math.floor(Math.random() * worldHeight));
+    this.setPosition(
+      worldLeft - 32,
+      Math.floor(Math.random() * worldHeight) - 75
+    );
 
     scene.add.existing(this);
     scene.physics.add.existing(this);
