@@ -387,7 +387,7 @@ export default class DemoScene extends Phaser.Scene {
         );
       }
 
-      let speedIncrease: 25 | 5 = 25;
+      let speedIncrease: 15 | 5 = 15;
       if (myBlock.properties.color === "armored") speedIncrease = 5;
 
       if (ball.body.velocity.x > 0) {
