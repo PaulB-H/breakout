@@ -498,6 +498,28 @@ export default class DemoScene extends Phaser.Scene {
       );
       sprite.setSize(16, 3);
 
+      // This ship sprite (non physics) "attaches" to the
+      // platform by matching its x position in preUpdate(){}
+      class Ship extends Phaser.GameObjects.Sprite {
+        platform: Phaser.Physics.Arcade.Sprite;
+        constructor(
+          scene: Phaser.Scene,
+          x: number,
+          y: number,
+          platform: Phaser.Physics.Arcade.Sprite
+        ) {
+          super(scene, x, y + 10, "tiles", 40);
+
+          this.platform = platform;
+
+          scene.add.existing(this);
+        }
+        preUpdate() {
+          this.x = this.platform.x;
+        }
+      }
+      new Ship(this, myPlayer.x, myPlayer.y, sprite);
+
       playerGroup.add(sprite);
 
       this.player = sprite;
