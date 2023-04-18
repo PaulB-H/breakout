@@ -96,6 +96,11 @@ export default class DemoScene extends Phaser.Scene {
       "assets/clouds/cloud-atlas.png",
       "assets/clouds/cloud-atlas.json"
     );
+
+    this.load.spritesheet("volcanobg", "/assets/volcanobg.png", {
+      frameWidth: 160,
+      frameHeight: 240,
+    });
   }
 
   create() {
@@ -662,9 +667,21 @@ export default class DemoScene extends Phaser.Scene {
     });
 
     /**********************************************/
-    // Background Clouds
+    // Background
     /**********************************************/
     new CloudTimer(this, 1250).start();
+
+    const volcanobg = this.add.sprite(80, 120, "volcanobg").setDepth(-10);
+    this.anims.create({
+      key: "volcanobg_anim",
+      frames: this.anims.generateFrameNumbers("volcanobg", {
+        start: 0,
+        end: 5,
+      }),
+      frameRate: 3,
+      repeat: -1,
+    });
+    volcanobg.anims.play("volcanobg_anim");
   }
 
   update(t: number) {
