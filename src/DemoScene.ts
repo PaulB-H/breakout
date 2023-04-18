@@ -498,6 +498,8 @@ export default class DemoScene extends Phaser.Scene {
       );
       sprite.setSize(16, 3);
 
+      sprite.scaleX += 1;
+
       // This ship sprite (non physics) "attaches" to the
       // platform by matching its x position in preUpdate(){}
       class Ship extends Phaser.GameObjects.Sprite {
@@ -614,8 +616,8 @@ export default class DemoScene extends Phaser.Scene {
       blockGroup.add(blockSprite);
     });
 
-    // Create a platform-expand power
-    new Power(this, 10, 10, undefined, 12, tileset);
+    // // Create a platform-expand power
+    // new Power(this, 10, 10, undefined, 12, tileset);
     // Not really using this layer
     powersLayer.objects.forEach((power) => {
       // (power.properties[0].name);
