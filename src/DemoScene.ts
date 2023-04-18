@@ -18,11 +18,9 @@ export default class DemoScene extends Phaser.Scene {
   playerStatus: {
     isStunned: boolean;
     lastStunned: number | null;
-    stunnedX: number | null;
   } = {
     isStunned: false,
     lastStunned: null,
-    stunnedX: null,
   };
 
   ai: {
@@ -117,7 +115,6 @@ export default class DemoScene extends Phaser.Scene {
     this.playerStatus = {
       isStunned: false,
       lastStunned: null,
-      stunnedX: null,
     };
 
     // add heart sprites for every life...
@@ -482,6 +479,7 @@ export default class DemoScene extends Phaser.Scene {
     // Creating Objects from Object Layers
     /**********************************************/
 
+    // Psst! Controls are in here too...
     playerLayer.objects.forEach((player) => {
       const myPlayer = player as iPlayer;
 
@@ -500,39 +498,41 @@ export default class DemoScene extends Phaser.Scene {
 
       this.player = sprite;
 
+      /***********************************************/
+      // Controls... how did these end up in here...
+      /***********************************************/
       this.input.on("pointermove", (pointer: Phaser.Input.Pointer) => {
-        sprite.x = pointer.worldX;
+        if (!this.playerStatus.isStunned) {
+          sprite.x = pointer.worldX;
+        }
       });
-
       this.input.on("pointerdown", () => {
         if (this.clamped && this.newBall) {
           this.newBall.setVelocityY(-50);
           this.clamped = false;
         }
       });
-
       this.touchListener = (event: TouchEvent) => {
-        const canvasRect = this.game.canvas.getBoundingClientRect();
-        const scaleFactor =
-          this.game.canvas.width / this.game.canvas.offsetWidth;
+        if (!this.playerStatus.isStunned) {
+          const canvasRect = this.game.canvas.getBoundingClientRect();
+          const scaleFactor =
+            this.game.canvas.width / this.game.canvas.offsetWidth;
 
-        const touchX =
-          (event.changedTouches[0].clientX - canvasRect.left) * scaleFactor;
-        // @ts-ignore
-        // const touchY = (event.changedTouches[0].clientY - canvasRect.top) * scaleFactor;
+          const touchX =
+            (event.changedTouches[0].clientX - canvasRect.left) * scaleFactor;
+          // @ts-ignore
+          // const touchY = (event.changedTouches[0].clientY - canvasRect.top) * scaleFactor;
 
-        sprite.x = touchX;
+          sprite.x = touchX;
+        }
       };
-
       this.clickListener = () => {
         if (this.clamped && this.newBall) {
           this.newBall.setVelocityY(-50);
           this.clamped = false;
         }
       };
-
       document.addEventListener("mousedown", this.clickListener);
-
       document.addEventListener("touchmove", this.touchListener);
     });
 
@@ -677,16 +677,10 @@ export default class DemoScene extends Phaser.Scene {
     //   }
     // }
 
-    if (
-      this.playerStatus.isStunned &&
-      this.playerStatus.lastStunned &&
-      this.playerStatus.stunnedX
-    ) {
-      this.player.x = this.playerStatus.stunnedX;
+    if (this.playerStatus.isStunned && this.playerStatus.lastStunned) {
       if (this.time.now - this.playerStatus.lastStunned > 1000) {
         this.playerStatus.isStunned = false;
         this.playerStatus.lastStunned = null;
-        this.playerStatus.stunnedX = null;
         this.player.setFrame(10);
       }
     }
