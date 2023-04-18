@@ -97,7 +97,7 @@ export default class DemoScene extends Phaser.Scene {
       "assets/clouds/cloud-atlas.json"
     );
 
-    this.load.spritesheet("volcanobg", "/assets/volcanobg.png", {
+    this.load.spritesheet("volcanobg", "assets/volcanobg.png", {
       frameWidth: 160,
       frameHeight: 240,
     });
