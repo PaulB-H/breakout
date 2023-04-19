@@ -105,6 +105,8 @@ export default class DemoScene extends Phaser.Scene {
       frameWidth: 160,
       frameHeight: 240,
     });
+
+    this.load.image("bluegradientbg", "assets/bluegradientbg.png");
   }
 
   create() {
@@ -723,6 +725,9 @@ export default class DemoScene extends Phaser.Scene {
       repeat: -1,
     });
     volcanobg.anims.play("volcanobg_anim");
+
+    const gradient = this.add.image(80, 120, "bluegradientbg");
+    gradient.setDepth(-100);
   }
 
   update(t: number) {
