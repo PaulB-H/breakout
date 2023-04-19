@@ -8,6 +8,7 @@ import Power from "./objects/Power";
 import { AUDIO, FONT_KEYS } from "./constants";
 
 import { FireBall, LaserBeam, LightningBolt } from "./objects/Projectiles";
+import { buildWall } from "./objects/LeafWall";
 
 export default class DemoScene extends Phaser.Scene {
   balls = 0;
@@ -43,6 +44,8 @@ export default class DemoScene extends Phaser.Scene {
   blockGroup!: Phaser.Physics.Arcade.Group;
   powerGroup!: Phaser.Physics.Arcade.Group;
   projectileGroup!: Phaser.Physics.Arcade.Group;
+  leafWallGroup!: Phaser.Physics.Arcade.Group;
+  leafWallTimer!: Phaser.Time.TimerEvent;
 
   constructor() {
     super("game");
@@ -89,6 +92,7 @@ export default class DemoScene extends Phaser.Scene {
       { key: AUDIO.METAL, url: "assets/sounds/metal.mp3" },
       { key: AUDIO.METALBREAK, url: "assets/sounds/metalbreak.mp3" },
       { key: AUDIO.ROCK, url: "assets/sounds/rock.mp3" },
+      { key: AUDIO.CREAK, url: "assets/sounds/woodcreak.mp3" },
     ]);
 
     this.load.atlas(
@@ -195,6 +199,9 @@ export default class DemoScene extends Phaser.Scene {
     const projectileGroup = this.physics.add.group();
     this.projectileGroup = projectileGroup;
 
+    const leafWallGroup = this.physics.add.group();
+    this.leafWallGroup = leafWallGroup;
+
     this.physics.add.collider(
       playerGroup,
       projectileGroup,
@@ -281,6 +288,10 @@ export default class DemoScene extends Phaser.Scene {
       }
     });
 
+    this.physics.add.collider(ballGroup, leafWallGroup, () => {
+      this.sound.play(AUDIO.CREAK);
+    });
+
     // We haven't enabled multiple-ball powers yet, but I think I want them to collide with each other
     this.physics.add.collider(ballGroup, ballGroup);
 
@@ -297,6 +308,7 @@ export default class DemoScene extends Phaser.Scene {
         case "green":
           createPuff(myBlock.x, myBlock.y, 35);
           this.sound.play(AUDIO.LEAF);
+          buildWall(this);
           break;
         case "red":
           createPuff(myBlock.x, myBlock.y, 42);

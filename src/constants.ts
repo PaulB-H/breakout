@@ -12,6 +12,7 @@ export const AUDIO = {
   METAL: "metalSound",
   METALBREAK: "metalBreakSound",
   ROCK: "rockSound",
+  CREAK: "creakSound",
 };
 
 export const FONT_KEYS = {
