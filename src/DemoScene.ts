@@ -173,7 +173,7 @@ export default class DemoScene extends Phaser.Scene {
     }
 
     /**********************************************/
-    // Physics groups & Colliders
+    // Physics Groups
     /**********************************************/
     const blockGroup = this.physics.add.group({
       immovable: true,
@@ -204,9 +204,12 @@ export default class DemoScene extends Phaser.Scene {
     const leafWallGroup = this.physics.add.group();
     this.leafWallGroup = leafWallGroup;
 
-    this.physics.add.collider(
-      playerGroup,
-      projectileGroup,
+    /**********************************************/
+    // Colliders
+    /**********************************************/
+
+    // prettier-ignore
+    this.physics.add.collider(playerGroup, projectileGroup,
       // @ts-ignore
       (player, projectile) => {
         switch (projectile.type) {
@@ -248,6 +251,14 @@ export default class DemoScene extends Phaser.Scene {
       const ballSprite = ball as Phaser.Physics.Arcade.Sprite;
 
       this.sound.play(AUDIO.BEEP, { volume: 0.75 });
+
+      this.tweens.add({
+        targets: playerSprite,
+        y: playerSprite.y + 1,
+        duration: 100,
+        yoyo: true,
+        repeat: 0,
+      });
 
       // Only proceed with custom re-direction logic if ball bottom hits platform
       if (!ballSprite.body.blocked.down) return;
@@ -294,7 +305,6 @@ export default class DemoScene extends Phaser.Scene {
       this.sound.play(AUDIO.CREAK);
     });
 
-    // We haven't enabled multiple-ball powers yet, but I think I want them to collide with each other
     this.physics.add.collider(ballGroup, ballGroup);
 
     this.physics.add.collider(blockGroup, ballGroup, (block, ball) => {
@@ -544,6 +554,8 @@ export default class DemoScene extends Phaser.Scene {
       playerGroup.add(sprite);
 
       this.player = sprite;
+
+      sprite.setDepth(10);
 
       /***********************************************/
       // Controls... how did these end up in here...
