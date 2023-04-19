@@ -19,9 +19,11 @@ export default class DemoScene extends Phaser.Scene {
   playerStatus: {
     isStunned: boolean;
     lastStunned: number | null;
+    lastPos: Phaser.Math.Vector2 | null;
   } = {
     isStunned: false,
     lastStunned: null,
+    lastPos: null,
   };
 
   ai: {
@@ -38,6 +40,7 @@ export default class DemoScene extends Phaser.Scene {
   clickListener!: (event: MouseEvent) => void;
 
   player!: Phaser.Physics.Arcade.Sprite;
+  ship!: Phaser.GameObjects.Sprite;
   newBall!: Phaser.Physics.Arcade.Sprite | null;
 
   ballGroup!: Phaser.Physics.Arcade.Group;
@@ -126,6 +129,7 @@ export default class DemoScene extends Phaser.Scene {
     this.playerStatus = {
       isStunned: false,
       lastStunned: null,
+      lastPos: null,
     };
 
     // add heart sprites for every life...
@@ -549,11 +553,13 @@ export default class DemoScene extends Phaser.Scene {
           this.x = this.platform.x;
         }
       }
-      new Ship(this, myPlayer.x, myPlayer.y, sprite);
+      this.ship = new Ship(this, myPlayer.x, myPlayer.y, sprite);
 
       playerGroup.add(sprite);
 
       this.player = sprite;
+
+      this.playerStatus.lastPos = new Phaser.Math.Vector2(sprite.x, sprite.y);
 
       sprite.setDepth(10);
 
@@ -808,5 +814,29 @@ export default class DemoScene extends Phaser.Scene {
       document.removeEventListener("mousedown", this.clickListener);
       this.scene.restart();
     }
+
+    // Rough way to change sprite based on direction of player movement
+    // NOT using velocity, since player moves without using it
+
+    const currentPosition = new Phaser.Math.Vector2(
+      this.player.x,
+      this.player.y
+    );
+
+    const distance = Phaser.Math.Distance.BetweenPoints(
+      currentPosition,
+      this.playerStatus.lastPos!
+    );
+
+    if (distance > 0) {
+      if (currentPosition.x > this.playerStatus.lastPos!.x) {
+        this.ship.setFrame(60);
+      } else if (currentPosition.x < this.playerStatus.lastPos!.x) {
+        this.ship.setFrame(50);
+      }
+    } else {
+      this.ship.setFrame(40);
+    }
+    this.playerStatus.lastPos!.copy(currentPosition);
   }
 }
