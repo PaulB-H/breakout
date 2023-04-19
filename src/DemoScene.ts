@@ -338,6 +338,11 @@ export default class DemoScene extends Phaser.Scene {
         case "pink":
           createPuff(myBlock.x, myBlock.y, 41);
           this.sound.play(AUDIO.KISS, { volume: 2 });
+          this.lives++;
+          this.heartSprites.push(
+            this.add.sprite(16 * this.lives - 1, 8, "tiles", 32)
+          );
+
           break;
         case "purple":
           createPuff(myBlock.x, myBlock.y, 5);
