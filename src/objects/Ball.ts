@@ -3,6 +3,7 @@ import DemoScene from "../DemoScene";
 
 export class Ball extends Phaser.Physics.Arcade.Sprite {
   gid: number;
+  ballLight: Phaser.GameObjects.Light | null;
   constructor(
     scene: DemoScene,
     x: number,
@@ -21,6 +22,11 @@ export class Ball extends Phaser.Physics.Arcade.Sprite {
 
     scene.ballGroup.add(this);
 
+    this.ballLight = null;
+    this.ballLight = scene.lights.addLight(80, 120, 100, 0xffffff, 0.5);
+
+    // this.setPipeline("Light2D");
+
     this.setCircle(4, 4, 4);
 
     this.setBounce(1);
@@ -31,6 +37,16 @@ export class Ball extends Phaser.Physics.Arcade.Sprite {
     if (scene.clamped) {
       this.x = scene.player.x;
       this.setVelocityY(0);
+    }
+  }
+  preUpdate() {
+    if (this.ballLight) this.ballLight.setPosition(this.x, this.y);
+  }
+
+  destroy() {
+    if (this.scene) {
+      if (this.ballLight) this.scene.lights.removeLight(this.ballLight);
+      super.destroy(true);
     }
   }
 }

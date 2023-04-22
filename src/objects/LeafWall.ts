@@ -11,6 +11,8 @@ class LeafWall extends Phaser.Physics.Arcade.Sprite {
 
     scene.leafWallGroup.add(this);
 
+    this.setPipeline("Light2D");
+
     this.setImmovable(true);
 
     this.setSize(16, 13);

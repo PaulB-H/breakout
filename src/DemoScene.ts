@@ -55,11 +55,16 @@ export default class DemoScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.spritesheet("tiles", "assets/breakout-extruded.png", {
-      frameWidth: 16,
-      frameHeight: 16,
-      spacing: 2,
-      margin: 1,
+    this.load.spritesheet({
+      key: "tiles",
+      url: "assets/breakout-extruded.png",
+      normalMap: "assets/breakout-extruded_n.png",
+      frameConfig: {
+        frameWidth: 16,
+        frameHeight: 16,
+        spacing: 2,
+        margin: 1,
+      },
     });
 
     this.load.tilemapTiledJSON("map", "assets/breakout.json");
@@ -98,11 +103,12 @@ export default class DemoScene extends Phaser.Scene {
       { key: AUDIO.CREAK, url: "assets/sounds/woodcreak.mp3" },
     ]);
 
-    this.load.atlas(
-      "cloud-atlas",
-      "assets/clouds/cloud-atlas.png",
-      "assets/clouds/cloud-atlas.json"
-    );
+    this.load.atlas({
+      key: "cloud-atlas",
+      textureURL: "assets/clouds/cloud-atlas.png",
+      normalMap: "assets/clouds/cloud-atlas_n.png",
+      atlasURL: "assets/clouds/cloud-atlas.json",
+    });
 
     this.load.spritesheet("volcanobg", "assets/volcanobg.png", {
       frameWidth: 160,
@@ -110,7 +116,11 @@ export default class DemoScene extends Phaser.Scene {
     });
 
     this.load.image("bluegradientbg", "assets/bluegradientbg.png");
-    this.load.image("mountainbg", "assets/mountainbg.png");
+
+    this.load.image("mountainbg", [
+      "assets/mountainbg.png",
+      "assets/mountainbg_n.png",
+    ]);
   }
 
   create() {
@@ -139,7 +149,27 @@ export default class DemoScene extends Phaser.Scene {
     }
 
     /**********************************************/
-    // Sound & Music
+    // #Lighting
+    /**********************************************/
+
+    // enable 2D light pipeline
+    // this.lights.enable().setAmbientColor(0xffffff);
+    this.lights.enable().setAmbientColor(0x7f7f7f); // Med intensity ambient
+    // this.lights.enable().setAmbientColor(0x3f3f3f);
+
+    this.lights.addLight(80, 0, 300, 0xffffff, 0.25);
+    this.lights.addLight(40, 0, 300, 0xffffff, 0.25);
+    this.lights.addLight(120, 0, 300, 0xffffff, 0.25);
+
+    // // Light to follow pointer
+    // const pointerLight = this.lights.addLight(500, 250, 300).setIntensity(0);
+    // this.input.on("pointermove", (pointer: Phaser.Input.Pointer) => {
+    //   pointerLight.x = pointer.x;
+    //   pointerLight.y = pointer.y;
+    // });
+
+    /**********************************************/
+    // #Sound & Music
     /**********************************************/
 
     // Already loaded in preload!
@@ -147,38 +177,41 @@ export default class DemoScene extends Phaser.Scene {
     // with background music we could do it here
 
     /**********************************************/
-    // Particles
+    // #Particles
     /**********************************************/
+
+    // Need to re-work for phaser 3.6!
 
     // Create particle emitter - Will be re-used for each effect
-    const puffEmitter = this.add
-      .particles("tiles")
-      .setDepth(100)
-      .createEmitter({
-        x: 0,
-        y: 0,
-        speed: { min: -100, max: 100 },
-        angle: { min: 0, max: 360 },
-        scale: { start: 0.5, end: 0 },
-        // blendMode: "ADD",
-        blendMode: "NORMAL",
-        lifespan: 750,
-        frequency: 50,
-        frame: 36, // Change depending on particle needed
-        quantity: 10,
-      })
-      .stop();
+    // const myEmit = new ParticleEmitter
+    // const puffEmitter = this.add
+    //   .particles("tiles")
+    //   .setDepth(100)
+    //   .createEmitter({
+    //     x: 0,
+    //     y: 0,
+    //     speed: { min: -100, max: 100 },
+    //     angle: { min: 0, max: 360 },
+    //     scale: { start: 0.5, end: 0 },
+    //     // blendMode: "ADD",
+    //     blendMode: "NORMAL",
+    //     lifespan: 750,
+    //     frequency: 50,
+    //     frame: 36, // Change depending on particle needed
+    //     quantity: 10,
+    //   })
+    //   .stop();
 
-    // Make a puff of particles
-    function createPuff(x: number, y: number, frame: number) {
-      puffEmitter.setPosition(x, y);
-      puffEmitter.setFrame(frame);
-      puffEmitter.emitParticle();
-      puffEmitter.stop();
-    }
+    // // Make a puff of particles
+    // function createPuff(x: number, y: number, frame: number) {
+    //   puffEmitter.setPosition(x, y);
+    //   puffEmitter.setFrame(frame);
+    //   puffEmitter.emitParticle();
+    //   puffEmitter.stop();
+    // }
 
     /**********************************************/
-    // Physics Groups
+    // #Groups
     /**********************************************/
     const blockGroup = this.physics.add.group({
       immovable: true,
@@ -210,21 +243,21 @@ export default class DemoScene extends Phaser.Scene {
     this.leafWallGroup = leafWallGroup;
 
     /**********************************************/
-    // Colliders
+    // #Colliders
     /**********************************************/
 
     // prettier-ignore
     this.physics.add.collider(playerGroup, projectileGroup,
       // @ts-ignore
       (player, projectile) => {
-        switch (projectile.type) {
+        switch ((projectile as any).type) {
           case "fireball":
             if (this.lives >= 1) {
               const targetHeart =
                 this.heartSprites.pop() as Phaser.GameObjects.Sprite;
 
               if (targetHeart) {
-                createPuff(targetHeart.x, targetHeart.y, 32);
+                // createPuff(targetHeart.x, targetHeart.y, 32);
                 targetHeart.destroy();
               }
 
@@ -266,11 +299,11 @@ export default class DemoScene extends Phaser.Scene {
       });
 
       // Only proceed with custom re-direction logic if ball bottom hits platform
-      if (!ballSprite.body.blocked.down) return;
+      if (ballSprite.body && !ballSprite.body.blocked.down) return;
 
       const halfVelocity = Math.floor(
-        (Math.abs(ballSprite.body.velocity.x) +
-          Math.abs(ballSprite.body.velocity.y)) /
+        (Math.abs(ballSprite.body!.velocity.x) +
+          Math.abs(ballSprite.body!.velocity.y)) /
           2
       );
 
@@ -323,17 +356,17 @@ export default class DemoScene extends Phaser.Scene {
       // depending on block color / properties
       switch (color) {
         case "green":
-          createPuff(myBlock.x, myBlock.y, 35);
+          // createPuff(myBlock.x, myBlock.y, 35);
           this.sound.play(AUDIO.LEAF);
           buildWall(this);
           break;
         case "red":
-          createPuff(myBlock.x, myBlock.y, 42);
+          // createPuff(myBlock.x, myBlock.y, 42);
           this.sound.play(AUDIO.FIRE);
           new FireBall(this, myBlock.x, myBlock.y);
           break;
         case "blue":
-          createPuff(myBlock.x, myBlock.y, 44);
+          // createPuff(myBlock.x, myBlock.y, 44);
           this.sound.play(AUDIO.BUBBLE, {
             name: "bubbleSound",
             start: 0.5,
@@ -348,12 +381,12 @@ export default class DemoScene extends Phaser.Scene {
 
           break;
         case "yellow":
-          createPuff(myBlock.x, myBlock.y, 53);
+          // createPuff(myBlock.x, myBlock.y, 53);
           this.sound.play(AUDIO.ELECTRIC);
           new LightningBolt(this, myBlock.x, myBlock.y);
           break;
         case "pink":
-          createPuff(myBlock.x, myBlock.y, 41);
+          // createPuff(myBlock.x, myBlock.y, 41);
           this.sound.play(AUDIO.KISS, { volume: 2 });
           this.lives++;
           this.heartSprites.push(
@@ -362,27 +395,27 @@ export default class DemoScene extends Phaser.Scene {
 
           break;
         case "purple":
-          createPuff(myBlock.x, myBlock.y, 5);
+          // createPuff(myBlock.x, myBlock.y, 5);
           this.sound.play(AUDIO.LASER);
           new LaserBeam(this, myBlock.x, myBlock.y);
           break;
         case "wood":
-          createPuff(myBlock.x, myBlock.y, 19);
+          // createPuff(myBlock.x, myBlock.y, 19);
           this.sound.play(AUDIO.PLANK);
           break;
         case "glass":
-          createPuff(myBlock.x, myBlock.y, 9);
+          // createPuff(myBlock.x, myBlock.y, 9);
           this.sound.play(AUDIO.GLASS);
           break;
         case "rock":
-          createPuff(myBlock.x, myBlock.y, 58);
+          // createPuff(myBlock.x, myBlock.y, 58);
           this.sound.play(AUDIO.ROCK);
           break;
         case "armored":
           myBlock.properties.health--;
           switch (myBlock.properties.health) {
             case 0:
-              createPuff(myBlock.x, myBlock.y, 27);
+              // createPuff(myBlock.x, myBlock.y, 27);
               this.sound.play(AUDIO.METALBREAK);
               break;
             case 1:
@@ -424,16 +457,18 @@ export default class DemoScene extends Phaser.Scene {
       let speedIncrease: 15 | 5 = 15;
       if (myBlock.properties.color === "armored") speedIncrease = 5;
 
-      if (ball.body.velocity.x > 0) {
-        myBall.setVelocityX(myBall.body.velocity.x + speedIncrease);
-      } else if (ball.body.velocity.x < 0) {
-        myBall.setVelocityX(myBall.body.velocity.x - speedIncrease);
-      }
+      if (myBall.body) {
+        if (myBall.body.velocity.x > 0) {
+          myBall.setVelocityX(myBall.body.velocity.x + speedIncrease);
+        } else if (myBall.body.velocity.x < 0) {
+          myBall.setVelocityX(myBall.body.velocity.x - speedIncrease);
+        }
 
-      if (ball.body.velocity.y > 0) {
-        myBall.setVelocityY(myBall.body.velocity.y + speedIncrease);
-      } else if (ball.body.velocity.y < 0) {
-        myBall.setVelocityY(myBall.body.velocity.y - speedIncrease);
+        if (myBall.body.velocity.y > 0) {
+          myBall.setVelocityY(myBall.body.velocity.y + speedIncrease);
+        } else if (myBall.body.velocity.y < 0) {
+          myBall.setVelocityY(myBall.body.velocity.y - speedIncrease);
+        }
       }
 
       if (
@@ -465,6 +500,7 @@ export default class DemoScene extends Phaser.Scene {
         case "slow":
           ballGroup.getChildren().forEach((ball) => {
             const myBall = ball as Ball;
+            if (!myBall.body) return;
             myBall.setVelocityX(myBall.body.velocity.x * 0.5);
             myBall.setVelocityY(myBall.body.velocity.y * 0.5);
           });
@@ -474,6 +510,7 @@ export default class DemoScene extends Phaser.Scene {
         case "fast":
           ballGroup.getChildren().forEach((ball) => {
             const myBall = ball as Ball;
+            if (!myBall.body) return;
             myBall.setVelocityX(myBall.body.velocity.x * 1.5);
             myBall.setVelocityY(myBall.body.velocity.y * 1.5);
           });
@@ -490,7 +527,7 @@ export default class DemoScene extends Phaser.Scene {
     });
 
     /***********************************************/
-    // Map & Layers
+    // #Map & Layers
     /***********************************************/
 
     // Create Tilemap
@@ -502,7 +539,9 @@ export default class DemoScene extends Phaser.Scene {
     map.addTilesetImage("breakout-extruded", "tiles");
 
     // Create reference to tileset & its data
-    const tileset = map.getTileset("breakout-extruded");
+    const tileset = map.getTileset(
+      "breakout-extruded"
+    ) as Phaser.Tilemaps.Tileset;
 
     // Get object layers
     const blocksLayer = map.getObjectLayer("blocks");
@@ -510,11 +549,14 @@ export default class DemoScene extends Phaser.Scene {
     const ballLayer = map.getObjectLayer("ball");
     const powersLayer = map.getObjectLayer("powers");
 
+    if (!blocksLayer || !playerLayer || !ballLayer || !powersLayer || !tileset)
+      return;
+
     // Draw on the decoration layer (just spikes right now)
-    map.createLayer("deco", tileset);
+    map.createLayer("deco", tileset)!.setPipeline("Light2D");
 
     /**********************************************/
-    // Creating Objects from Object Layers
+    // #Creating Objects from Object Layers
     /**********************************************/
 
     // Psst! Controls are in here too...
@@ -524,15 +566,31 @@ export default class DemoScene extends Phaser.Scene {
       myPlayer.x += map.tileWidth * 0.5;
       myPlayer.y -= map.tileHeight * 0.5;
 
-      const sprite = this.physics.add.sprite(
-        myPlayer.x,
-        myPlayer.y,
-        "tiles",
-        myPlayer.gid - 1
-      );
+      class PlayerSprite extends Phaser.Physics.Arcade.Sprite {
+        shiplight: Phaser.GameObjects.Light | null;
+
+        constructor(scene: DemoScene, x: number, y: number) {
+          super(scene, x, y, "tiles", 10);
+
+          // this.shiplight = scene.lights.addLight(80, 120, 1000, 0x7f0000, 1);
+          this.shiplight = null;
+        }
+
+        preUpdate() {
+          if (this.shiplight) this.shiplight.setPosition(this.x, this.y);
+        }
+      }
+
+      const sprite = new PlayerSprite(this, myPlayer.x, myPlayer.y);
+
+      this.physics.add.existing(sprite);
+      this.add.existing(sprite);
+
       sprite.setSize(16, 3);
 
       sprite.scaleX += 1;
+
+      sprite.setPipeline("Light2D");
 
       // This ship sprite (non physics) "attaches" to the
       // platform by matching its x position in preUpdate(){}
@@ -555,6 +613,8 @@ export default class DemoScene extends Phaser.Scene {
         }
       }
       this.ship = new Ship(this, myPlayer.x, myPlayer.y, sprite);
+
+      this.ship.setPipeline("Light2D");
 
       playerGroup.add(sprite);
 
@@ -650,6 +710,8 @@ export default class DemoScene extends Phaser.Scene {
         blockSprite.setCircle(8);
       }
 
+      blockSprite.setPipeline("Light2D");
+
       this.blocks++;
       blockGroup.add(blockSprite);
     });
@@ -703,7 +765,7 @@ export default class DemoScene extends Phaser.Scene {
 
             // .. Just make sure targetHeart exists..
             if (targetHeart) {
-              createPuff(targetHeart.x, targetHeart.y, 32);
+              // createPuff(targetHeart.x, targetHeart.y, 32);
               targetHeart.destroy();
             }
 
@@ -729,7 +791,7 @@ export default class DemoScene extends Phaser.Scene {
     });
 
     /**********************************************/
-    // Background
+    // #Background / Deco
     /**********************************************/
     new CloudTimer(this, 1250).start();
 
@@ -745,7 +807,7 @@ export default class DemoScene extends Phaser.Scene {
     // });
     // volcanobg.anims.play("volcanobg_anim");
 
-    this.add.image(80, 120, "mountainbg").setDepth(-10);
+    this.add.image(80, 120, "mountainbg").setDepth(-10).setPipeline("Light2D");
 
     const gradient = this.add.image(80, 120, "bluegradientbg");
     gradient.setDepth(-100);

@@ -20,6 +20,8 @@ class Cloud extends Phaser.Physics.Arcade.Sprite {
     scene.add.existing(this);
     scene.physics.add.existing(this);
 
+    this.setPipeline("Light2D");
+
     this.setDepth(-1);
 
     this.setVelocityX(Math.floor(Math.random() * 30) + 15);
