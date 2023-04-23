@@ -12,10 +12,18 @@ import { buildWall } from "./objects/LeafWall";
 
 export default class DemoScene extends Phaser.Scene {
   private balls = 0;
+  increaseBallCnt() {
+    this.balls++;
+  }
+
   private blocks = 0;
   private lives = 3;
   private heartSprites: Phaser.GameObjects.Sprite[] = [];
   private clamped = true;
+  isClamped() {
+    return this.clamped;
+  }
+
   private playerStatus: {
     isStunned: boolean;
     lastStunned: number | null;
@@ -40,35 +48,37 @@ export default class DemoScene extends Phaser.Scene {
   private clickListener!: (event: MouseEvent) => void;
 
   private player!: Phaser.Physics.Arcade.Sprite;
-  private ship!: Phaser.GameObjects.Sprite;
-  private newBall!: Phaser.Physics.Arcade.Sprite | null;
-
-  private ballGroup!: Phaser.Physics.Arcade.Group;
-  private blockGroup!: Phaser.Physics.Arcade.Group;
-  private powerGroup!: Phaser.Physics.Arcade.Group;
-  private projectileGroup!: Phaser.Physics.Arcade.Group;
-  private leafWallGroup!: Phaser.Physics.Arcade.Group;
-  private leafWallTimer!: Phaser.Time.TimerEvent;
-
-  constructor() {
-    super("game");
-  }
-
-  increaseBallCnt() {
-    this.balls++;
-  }
-  addBallToGroup(ball: Ball) {
-    this.ballGroup.add(ball);
-  }
-  isClamped() {
-    return this.clamped;
-  }
   getPlayerX() {
     return this.player.x;
   }
+
+  private ship!: Phaser.GameObjects.Sprite;
+  private newBall!: Phaser.Physics.Arcade.Sprite | null;
+  private ballGroup!: Phaser.Physics.Arcade.Group;
+  addBallToGroup(ball: Ball) {
+    this.ballGroup.add(ball);
+  }
+
+  private blockGroup!: Phaser.Physics.Arcade.Group;
+  private powerGroup!: Phaser.Physics.Arcade.Group;
+  addToPowerGrp(sprite: Phaser.Physics.Arcade.Sprite) {
+    this.powerGroup.add(sprite);
+  }
+
+  private projectileGroup!: Phaser.Physics.Arcade.Group;
+  addToProjectileGrp(sprite: Phaser.Physics.Arcade.Sprite) {
+    this.projectileGroup.add(sprite);
+  }
+
+  private leafWallGroup!: Phaser.Physics.Arcade.Group;
   addToLeafWallGrp(sprite: Phaser.Physics.Arcade.Sprite) {
     this.leafWallGroup.add(sprite);
   }
+  destroyLeafWall() {
+    this.leafWallGroup.clear(true, true);
+  }
+
+  private leafWallTimer!: Phaser.Time.TimerEvent;
   getLeafWallTimer() {
     return this.leafWallTimer;
   }
@@ -78,14 +88,9 @@ export default class DemoScene extends Phaser.Scene {
   destroyleafWallTimer() {
     this.leafWallTimer.remove();
   }
-  destroyLeafWall() {
-    this.leafWallGroup.clear(true, true);
-  }
-  addToPowerGrp(sprite: Phaser.Physics.Arcade.Sprite) {
-    this.powerGroup.add(sprite);
-  }
-  addToProjectileGrp(sprite: Phaser.Physics.Arcade.Sprite) {
-    this.projectileGroup.add(sprite);
+
+  constructor() {
+    super("game");
   }
 
   preload() {
