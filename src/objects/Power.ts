@@ -1,4 +1,4 @@
-import DemoScene from "../DemoScene";
+import DemoScene from "../scenes/DemoScene";
 
 export default class Power extends Phaser.Physics.Arcade.Sprite {
   gid: number;

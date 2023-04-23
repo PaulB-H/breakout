@@ -1,14 +1,14 @@
 import Phaser from "phaser";
 
-import { Ball, iBall } from "./objects/Ball";
-import { iBlockSprite, iBlock } from "./objects/Block";
-import { CloudTimer } from "./objects/Deco/Clouds";
-import { iPlayer } from "./objects/Player";
-import Power from "./objects/Power";
-import { AUDIO, FONT_KEYS } from "./constants";
+import { Ball, iBall } from "../objects/Ball";
+import { iBlockSprite, iBlock } from "../objects/Block";
+import { CloudTimer } from "../objects/Deco/Clouds";
+import { iPlayer } from "../objects/Player";
+import Power from "../objects/Power";
+import { AUDIO, FONT_KEYS } from "../constants";
 
-import { FireBall, LaserBeam, LightningBolt } from "./objects/Projectiles";
-import { buildWall } from "./objects/LeafWall";
+import { FireBall, LaserBeam, LightningBolt } from "../objects/Projectiles";
+import { buildWall } from "../objects/LeafWall";
 
 export default class DemoScene extends Phaser.Scene {
   private balls = 0;

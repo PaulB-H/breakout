@@ -1,5 +1,5 @@
 // Classes need to know about the custom properties on DemoScene
-import DemoScene from "../DemoScene";
+import DemoScene from "../scenes/DemoScene";
 
 export class Ball extends Phaser.Physics.Arcade.Sprite {
   gid: number;

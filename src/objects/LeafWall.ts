@@ -1,4 +1,4 @@
-import DemoScene from "../DemoScene";
+import DemoScene from "../scenes/DemoScene";
 
 class LeafWall extends Phaser.Physics.Arcade.Sprite {
   constructor(scene: DemoScene, x: number, y: number) {

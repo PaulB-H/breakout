@@ -1,4 +1,4 @@
-import DemoScene from "../DemoScene";
+import DemoScene from "../scenes/DemoScene";
 
 export class FireBall extends Phaser.Physics.Arcade.Sprite {
   type = "fireball";
