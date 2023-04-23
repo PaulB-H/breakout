@@ -2,6 +2,8 @@ import Phaser from "phaser";
 
 import DemoScene from "./scenes/DemoScene";
 
+import PreloaderScene from "./scenes/PreloaderScene";
+
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   parent: "app",
@@ -17,7 +19,7 @@ const config: Phaser.Types.Core.GameConfig = {
       debug: false,
     },
   },
-  scene: [DemoScene],
+  scene: [PreloaderScene, DemoScene],
   scale: {
     zoom: 1,
     mode: Phaser.Scale.FIT,
