@@ -97,8 +97,8 @@ export default class DemoScene extends Phaser.Scene {
     // "tiles"
     this.load.spritesheet({
       key: "tiles",
-      url: "assets/breakout-extruded.png",
-      normalMap: "assets/breakout-extruded_n.png",
+      url: "assets/main-tileset/breakout-extruded.png",
+      normalMap: "assets/main-tileset/breakout-extruded_n.png",
       frameConfig: {
         frameWidth: 16,
         frameHeight: 16,
@@ -107,7 +107,7 @@ export default class DemoScene extends Phaser.Scene {
       },
     });
 
-    this.load.tilemapTiledJSON("map", "assets/breakout.json");
+    this.load.tilemapTiledJSON("map", "assets/levels/breakout.json");
 
     const fonts = [
       {
@@ -151,16 +151,16 @@ export default class DemoScene extends Phaser.Scene {
       atlasURL: "assets/clouds/cloud-atlas.json",
     });
 
-    this.load.spritesheet("volcanobg", "assets/volcanobg.png", {
+    this.load.spritesheet("volcanobg", "assets/backgrounds/volcanobg.png", {
       frameWidth: 160,
       frameHeight: 240,
     });
 
-    this.load.image("bluegradientbg", "assets/bluegradientbg.png");
+    this.load.image("bluegradientbg", "assets/backgrounds/bluegradientbg.png");
 
     this.load.image("mountainbg", [
-      "assets/mountainbg.png",
-      "assets/mountainbg_n.png",
+      "assets/backgrounds/mountainbg.png",
+      "assets/backgrounds/mountainbg_n.png",
     ]);
   }
 
