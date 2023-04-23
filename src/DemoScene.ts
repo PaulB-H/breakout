@@ -66,6 +66,27 @@ export default class DemoScene extends Phaser.Scene {
   getPlayerX() {
     return this.player.x;
   }
+  addToLeafWallGrp(sprite: Phaser.Physics.Arcade.Sprite) {
+    this.leafWallGroup.add(sprite);
+  }
+  getLeafWallTimer() {
+    return this.leafWallTimer;
+  }
+  setLeafWallTimer(timer: Phaser.Time.TimerEvent) {
+    this.leafWallTimer = timer;
+  }
+  destroyleafWallTimer() {
+    this.leafWallTimer.remove();
+  }
+  destroyLeafWall() {
+    this.leafWallGroup.clear(true, true);
+  }
+  addToPowerGrp(sprite: Phaser.Physics.Arcade.Sprite) {
+    this.powerGroup.add(sprite);
+  }
+  addToProjectileGrp(sprite: Phaser.Physics.Arcade.Sprite) {
+    this.projectileGroup.add(sprite);
+  }
 
   preload() {
     // "tiles"

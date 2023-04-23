@@ -32,12 +32,12 @@ export default class Power extends Phaser.Physics.Arcade.Sprite {
       power: tileProperties[this.gid].power,
     };
 
-    scene.powerGroup.add(this);
+    scene.add.existing(this);
+    scene.physics.add.existing(this);
 
     (this.body as Phaser.Physics.Arcade.Body).onWorldBounds = true;
 
-    scene.add.existing(this);
-    scene.physics.add.existing(this);
+    scene.addToPowerGrp(this);
 
     this.setVelocityY(Math.floor(Math.random() * 31) + 30);
   }

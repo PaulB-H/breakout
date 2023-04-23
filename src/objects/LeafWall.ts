@@ -9,7 +9,7 @@ class LeafWall extends Phaser.Physics.Arcade.Sprite {
     scene.physics.add.existing(this);
     scene.add.existing(this);
 
-    scene.leafWallGroup.add(this);
+    scene.addToLeafWallGrp(this);
 
     this.setPipeline("Light2D");
 
@@ -38,12 +38,15 @@ export const buildWall = (scene: DemoScene) => {
   new LeafWall(scene, rightEdge - 16 * 3, 50);
   new LeafWall(scene, rightEdge - 16 * 4, 50);
 
-  if (scene.leafWallTimer) scene.leafWallTimer.remove();
-  scene.leafWallTimer = scene.time.delayedCall(5000, () => {
-    breakWall(scene);
-  });
+  if (scene.getLeafWallTimer()) scene.destroyleafWallTimer();
+
+  scene.setLeafWallTimer(
+    scene.time.delayedCall(5000, () => {
+      breakWall(scene);
+    })
+  );
 };
 
 const breakWall = (scene: DemoScene) => {
-  scene.leafWallGroup.clear(true, true);
+  scene.destroyLeafWall();
 };

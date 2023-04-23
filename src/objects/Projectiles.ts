@@ -14,7 +14,7 @@ export class FireBall extends Phaser.Physics.Arcade.Sprite {
     scene.physics.add.existing(this);
     scene.add.existing(this);
 
-    scene.projectileGroup.add(this);
+    scene.addToProjectileGrp(this);
 
     this.setSize(14, 13);
 
@@ -36,7 +36,7 @@ export class LightningBolt extends Phaser.Physics.Arcade.Sprite {
     scene.physics.add.existing(this);
     scene.add.existing(this);
 
-    scene.projectileGroup.add(this);
+    scene.addToProjectileGrp(this);
 
     this.setSize(9, 16);
 
@@ -58,7 +58,7 @@ export class LaserBeam extends Phaser.Physics.Arcade.Sprite {
     scene.physics.add.existing(this);
     scene.add.existing(this);
 
-    scene.projectileGroup.add(this);
+    scene.addToProjectileGrp(this);
 
     this.setSize(3, 14);
 
