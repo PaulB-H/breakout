@@ -11,12 +11,12 @@ import { FireBall, LaserBeam, LightningBolt } from "./objects/Projectiles";
 import { buildWall } from "./objects/LeafWall";
 
 export default class DemoScene extends Phaser.Scene {
-  balls = 0;
-  blocks = 0;
-  lives = 3;
-  heartSprites: Phaser.GameObjects.Sprite[] = [];
-  clamped = true;
-  playerStatus: {
+  private balls = 0;
+  private blocks = 0;
+  private lives = 3;
+  private heartSprites: Phaser.GameObjects.Sprite[] = [];
+  private clamped = true;
+  private playerStatus: {
     isStunned: boolean;
     lastStunned: number | null;
     lastPos: Phaser.Math.Vector2 | null;
@@ -26,7 +26,7 @@ export default class DemoScene extends Phaser.Scene {
     lastPos: null,
   };
 
-  ai: {
+  private ai: {
     active: boolean;
     lastUpdate: null | number;
     x: number;
@@ -36,22 +36,35 @@ export default class DemoScene extends Phaser.Scene {
     x: 0,
   };
 
-  touchListener!: (event: TouchEvent) => void;
-  clickListener!: (event: MouseEvent) => void;
+  private touchListener!: (event: TouchEvent) => void;
+  private clickListener!: (event: MouseEvent) => void;
 
-  player!: Phaser.Physics.Arcade.Sprite;
-  ship!: Phaser.GameObjects.Sprite;
-  newBall!: Phaser.Physics.Arcade.Sprite | null;
+  private player!: Phaser.Physics.Arcade.Sprite;
+  private ship!: Phaser.GameObjects.Sprite;
+  private newBall!: Phaser.Physics.Arcade.Sprite | null;
 
-  ballGroup!: Phaser.Physics.Arcade.Group;
-  blockGroup!: Phaser.Physics.Arcade.Group;
-  powerGroup!: Phaser.Physics.Arcade.Group;
-  projectileGroup!: Phaser.Physics.Arcade.Group;
-  leafWallGroup!: Phaser.Physics.Arcade.Group;
-  leafWallTimer!: Phaser.Time.TimerEvent;
+  private ballGroup!: Phaser.Physics.Arcade.Group;
+  private blockGroup!: Phaser.Physics.Arcade.Group;
+  private powerGroup!: Phaser.Physics.Arcade.Group;
+  private projectileGroup!: Phaser.Physics.Arcade.Group;
+  private leafWallGroup!: Phaser.Physics.Arcade.Group;
+  private leafWallTimer!: Phaser.Time.TimerEvent;
 
   constructor() {
     super("game");
+  }
+
+  increaseBallCnt() {
+    this.balls++;
+  }
+  addBallToGroup(ball: Ball) {
+    this.ballGroup.add(ball);
+  }
+  isClamped() {
+    return this.clamped;
+  }
+  getPlayerX() {
+    return this.player.x;
   }
 
   preload() {
@@ -229,41 +242,37 @@ export default class DemoScene extends Phaser.Scene {
     /**********************************************/
     // _Groups
     /**********************************************/
-    const blockGroup = this.physics.add.group({
+    this.blockGroup = this.physics.add.group({
       immovable: true,
     });
-    this.blockGroup = blockGroup;
 
-    const ballGroup = this.physics.add.group({
+    this.ballGroup = this.physics.add.group({
       collideWorldBounds: true,
       bounceX: 1,
       bounceY: 1,
       maxVelocityX: 199,
       maxVelocityY: 200,
     });
-    this.ballGroup = ballGroup;
 
     const playerGroup = this.physics.add.group({
       immovable: true,
     });
 
-    const powerGroup = this.physics.add.group({
+    this.powerGroup = this.physics.add.group({
       collideWorldBounds: true,
     });
-    this.powerGroup = powerGroup;
 
     const projectileGroup = this.physics.add.group();
     this.projectileGroup = projectileGroup;
 
-    const leafWallGroup = this.physics.add.group();
-    this.leafWallGroup = leafWallGroup;
+    this.leafWallGroup = this.physics.add.group();
 
     /**********************************************/
     // _Colliders
     /**********************************************/
 
     // prettier-ignore
-    this.physics.add.collider(playerGroup, projectileGroup,
+    this.physics.add.collider(playerGroup, this.projectileGroup,
       // @ts-ignore
       (player, projectile) => {
         switch ((projectile as any).type) {
@@ -300,7 +309,7 @@ export default class DemoScene extends Phaser.Scene {
       }
     );
 
-    this.physics.add.collider(playerGroup, ballGroup, (player, ball) => {
+    this.physics.add.collider(playerGroup, this.ballGroup, (player, ball) => {
       const playerSprite = player as Phaser.Physics.Arcade.Sprite;
       const ballSprite = ball as Phaser.Physics.Arcade.Sprite;
 
@@ -355,148 +364,152 @@ export default class DemoScene extends Phaser.Scene {
       }
     });
 
-    this.physics.add.collider(ballGroup, leafWallGroup, () => {
+    this.physics.add.collider(this.ballGroup, this.leafWallGroup, () => {
       this.sound.play(AUDIO.CREAK);
     });
 
-    this.physics.add.collider(ballGroup, ballGroup);
+    this.physics.add.collider(this.ballGroup, this.ballGroup);
 
-    this.physics.add.collider(blockGroup, ballGroup, (block, ball) => {
-      const myBall = ball as Ball;
+    this.physics.add.collider(
+      this.blockGroup,
+      this.ballGroup,
+      (block, ball) => {
+        const myBall = ball as Ball;
 
-      const myBlock = block as iBlockSprite;
+        const myBlock = block as iBlockSprite;
 
-      const color = myBlock.properties.color;
+        const color = myBlock.properties.color;
 
-      // Create sound and spawn particles
-      // depending on block color / properties
-      switch (color) {
-        case "green":
-          // createPuff(myBlock.x, myBlock.y, 35);
-          this.sound.play(AUDIO.LEAF);
-          buildWall(this);
-          break;
-        case "red":
-          // createPuff(myBlock.x, myBlock.y, 42);
-          this.sound.play(AUDIO.FIRE);
-          new FireBall(this, myBlock.x, myBlock.y);
-          break;
-        case "blue":
-          // createPuff(myBlock.x, myBlock.y, 44);
-          this.sound.play(AUDIO.BUBBLE, {
-            name: "bubbleSound",
-            start: 0.5,
-          });
+        // Create sound and spawn particles
+        // depending on block color / properties
+        switch (color) {
+          case "green":
+            // createPuff(myBlock.x, myBlock.y, 35);
+            this.sound.play(AUDIO.LEAF);
+            buildWall(this);
+            break;
+          case "red":
+            // createPuff(myBlock.x, myBlock.y, 42);
+            this.sound.play(AUDIO.FIRE);
+            new FireBall(this, myBlock.x, myBlock.y);
+            break;
+          case "blue":
+            // createPuff(myBlock.x, myBlock.y, 44);
+            this.sound.play(AUDIO.BUBBLE, {
+              name: "bubbleSound",
+              start: 0.5,
+            });
 
-          const newBall = new Ball(this, myBlock.x, myBlock.y, "tiles", 47);
+            const newBall = new Ball(this, myBlock.x, myBlock.y, "tiles", 47);
 
-          const randX = Phaser.Math.RND.pick([-37, 37]);
-          const randY = Phaser.Math.RND.pick([-37, 37]);
+            const randX = Phaser.Math.RND.pick([-37, 37]);
+            const randY = Phaser.Math.RND.pick([-37, 37]);
 
-          newBall.setVelocity(randX, randY);
+            newBall.setVelocity(randX, randY);
 
-          break;
-        case "yellow":
-          // createPuff(myBlock.x, myBlock.y, 53);
-          this.sound.play(AUDIO.ELECTRIC);
-          new LightningBolt(this, myBlock.x, myBlock.y);
-          break;
-        case "pink":
-          // createPuff(myBlock.x, myBlock.y, 41);
-          this.sound.play(AUDIO.KISS, { volume: 2 });
-          this.lives++;
-          this.heartSprites.push(
-            this.add.sprite(16 * this.lives - 1, 8, "tiles", 32)
+            break;
+          case "yellow":
+            // createPuff(myBlock.x, myBlock.y, 53);
+            this.sound.play(AUDIO.ELECTRIC);
+            new LightningBolt(this, myBlock.x, myBlock.y);
+            break;
+          case "pink":
+            // createPuff(myBlock.x, myBlock.y, 41);
+            this.sound.play(AUDIO.KISS, { volume: 2 });
+            this.lives++;
+            this.heartSprites.push(
+              this.add.sprite(16 * this.lives - 1, 8, "tiles", 32)
+            );
+
+            break;
+          case "purple":
+            // createPuff(myBlock.x, myBlock.y, 5);
+            this.sound.play(AUDIO.LASER);
+            new LaserBeam(this, myBlock.x, myBlock.y);
+            break;
+          case "wood":
+            // createPuff(myBlock.x, myBlock.y, 19);
+            this.sound.play(AUDIO.PLANK);
+            break;
+          case "glass":
+            // createPuff(myBlock.x, myBlock.y, 9);
+            this.sound.play(AUDIO.GLASS);
+            break;
+          case "rock":
+            // createPuff(myBlock.x, myBlock.y, 58);
+            this.sound.play(AUDIO.ROCK);
+            break;
+          case "armored":
+            myBlock.properties.health--;
+            switch (myBlock.properties.health) {
+              case 0:
+                // createPuff(myBlock.x, myBlock.y, 27);
+                this.sound.play(AUDIO.METALBREAK);
+                break;
+              case 1:
+                myBlock.setFrame(26);
+                this.sound.play(AUDIO.METAL);
+                break;
+              case 2:
+                myBlock.setFrame(17);
+                this.sound.play(AUDIO.METAL);
+                break;
+              case 3:
+                myBlock.setFrame(16);
+                this.sound.play(AUDIO.METAL);
+                break;
+              case 4:
+                myBlock.setFrame(7);
+                this.sound.play(AUDIO.METAL);
+                break;
+              default:
+                break;
+            }
+            break;
+          default:
+            break;
+        }
+
+        // 10%-ish chance of spawning power
+        if (Math.random() <= 0.1) {
+          new Power(
+            this,
+            myBlock.x,
+            myBlock.y,
+            undefined,
+            Math.floor(Math.random() * 4) + 12,
+            tileset
           );
+        }
 
-          break;
-        case "purple":
-          // createPuff(myBlock.x, myBlock.y, 5);
-          this.sound.play(AUDIO.LASER);
-          new LaserBeam(this, myBlock.x, myBlock.y);
-          break;
-        case "wood":
-          // createPuff(myBlock.x, myBlock.y, 19);
-          this.sound.play(AUDIO.PLANK);
-          break;
-        case "glass":
-          // createPuff(myBlock.x, myBlock.y, 9);
-          this.sound.play(AUDIO.GLASS);
-          break;
-        case "rock":
-          // createPuff(myBlock.x, myBlock.y, 58);
-          this.sound.play(AUDIO.ROCK);
-          break;
-        case "armored":
-          myBlock.properties.health--;
-          switch (myBlock.properties.health) {
-            case 0:
-              // createPuff(myBlock.x, myBlock.y, 27);
-              this.sound.play(AUDIO.METALBREAK);
-              break;
-            case 1:
-              myBlock.setFrame(26);
-              this.sound.play(AUDIO.METAL);
-              break;
-            case 2:
-              myBlock.setFrame(17);
-              this.sound.play(AUDIO.METAL);
-              break;
-            case 3:
-              myBlock.setFrame(16);
-              this.sound.play(AUDIO.METAL);
-              break;
-            case 4:
-              myBlock.setFrame(7);
-              this.sound.play(AUDIO.METAL);
-              break;
-            default:
-              break;
+        let speedIncrease: 15 | 5 = 15;
+        if (myBlock.properties.color === "armored") speedIncrease = 5;
+
+        if (myBall.body) {
+          if (myBall.body.velocity.x > 0) {
+            myBall.setVelocityX(myBall.body.velocity.x + speedIncrease);
+          } else if (myBall.body.velocity.x < 0) {
+            myBall.setVelocityX(myBall.body.velocity.x - speedIncrease);
           }
-          break;
-        default:
-          break;
-      }
 
-      // 10%-ish chance of spawning power
-      if (Math.random() <= 0.1) {
-        new Power(
-          this,
-          myBlock.x,
-          myBlock.y,
-          undefined,
-          Math.floor(Math.random() * 4) + 12,
-          tileset
-        );
-      }
-
-      let speedIncrease: 15 | 5 = 15;
-      if (myBlock.properties.color === "armored") speedIncrease = 5;
-
-      if (myBall.body) {
-        if (myBall.body.velocity.x > 0) {
-          myBall.setVelocityX(myBall.body.velocity.x + speedIncrease);
-        } else if (myBall.body.velocity.x < 0) {
-          myBall.setVelocityX(myBall.body.velocity.x - speedIncrease);
+          if (myBall.body.velocity.y > 0) {
+            myBall.setVelocityY(myBall.body.velocity.y + speedIncrease);
+          } else if (myBall.body.velocity.y < 0) {
+            myBall.setVelocityY(myBall.body.velocity.y - speedIncrease);
+          }
         }
 
-        if (myBall.body.velocity.y > 0) {
-          myBall.setVelocityY(myBall.body.velocity.y + speedIncrease);
-        } else if (myBall.body.velocity.y < 0) {
-          myBall.setVelocityY(myBall.body.velocity.y - speedIncrease);
+        if (
+          (myBlock.properties.health && myBlock.properties.health <= 0) ||
+          !myBlock.properties.health
+        ) {
+          block.destroy();
+          this.blocks--;
         }
       }
+    );
 
-      if (
-        (myBlock.properties.health && myBlock.properties.health <= 0) ||
-        !myBlock.properties.health
-      ) {
-        block.destroy();
-        this.blocks--;
-      }
-    });
-
-    this.physics.add.collider(playerGroup, powerGroup, (player, power) => {
+    this.physics.add.collider(playerGroup, this.powerGroup, (player, power) => {
       const playerSprite = player as Phaser.Physics.Arcade.Sprite;
       const powerSprite = power as Power;
 
@@ -514,7 +527,7 @@ export default class DemoScene extends Phaser.Scene {
           break;
 
         case "slow":
-          ballGroup.getChildren().forEach((ball) => {
+          this.ballGroup.getChildren().forEach((ball) => {
             const myBall = ball as Ball;
             if (!myBall.body) return;
             myBall.setVelocityX(myBall.body.velocity.x * 0.5);
@@ -524,7 +537,7 @@ export default class DemoScene extends Phaser.Scene {
           break;
 
         case "fast":
-          ballGroup.getChildren().forEach((ball) => {
+          this.ballGroup.getChildren().forEach((ball) => {
             const myBall = ball as Ball;
             if (!myBall.body) return;
             myBall.setVelocityX(myBall.body.velocity.x * 1.5);
@@ -729,7 +742,7 @@ export default class DemoScene extends Phaser.Scene {
       blockSprite.setPipeline("Light2D");
 
       this.blocks++;
-      blockGroup.add(blockSprite);
+      this.blockGroup.add(blockSprite);
     });
 
     // // Create a platform-expand power
@@ -759,7 +772,7 @@ export default class DemoScene extends Phaser.Scene {
 
     // World bounds event to destroy powers that hit the bottom
     this.physics.world.on("worldbounds", (body: Phaser.Physics.Arcade.Body) => {
-      if (powerGroup.contains(body.gameObject)) {
+      if (this.powerGroup.contains(body.gameObject)) {
         body.gameObject.destroy();
       }
     });
@@ -767,7 +780,7 @@ export default class DemoScene extends Phaser.Scene {
     // World bounds event to destroy balls that hit the bottom
     // The object itself must be emitting worldbounds events to trigger this
     this.physics.world.on("worldbounds", (body: Phaser.Physics.Arcade.Body) => {
-      if (body.gameObject && ballGroup.contains(body.gameObject)) {
+      if (body.gameObject && this.ballGroup.contains(body.gameObject)) {
         if (body.blocked.down) {
           this.cameras.main.shake(250, 0.005);
           body.gameObject.destroy();

@@ -18,9 +18,9 @@ export class Ball extends Phaser.Physics.Arcade.Sprite {
     scene.add.existing(this);
     scene.physics.add.existing(this);
 
-    scene.balls++;
+    scene.increaseBallCnt();
 
-    scene.ballGroup.add(this);
+    scene.addBallToGroup(this);
 
     this.ballLight = null;
     this.ballLight = scene.lights.addLight(80, 120, 100, 0xffffff, 0.5);
@@ -34,8 +34,8 @@ export class Ball extends Phaser.Physics.Arcade.Sprite {
     // TS says read-only property - type assertion resolved
     (this.body as Phaser.Physics.Arcade.Body).onWorldBounds = true;
 
-    if (scene.clamped) {
-      this.x = scene.player.x;
+    if (scene.isClamped()) {
+      this.x = scene.getPlayerX();
       this.setVelocityY(0);
     }
   }
