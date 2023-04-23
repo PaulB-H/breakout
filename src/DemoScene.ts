@@ -55,6 +55,7 @@ export default class DemoScene extends Phaser.Scene {
   }
 
   preload() {
+    // "tiles"
     this.load.spritesheet({
       key: "tiles",
       url: "assets/breakout-extruded.png",
@@ -103,6 +104,7 @@ export default class DemoScene extends Phaser.Scene {
       { key: AUDIO.CREAK, url: "assets/sounds/woodcreak.mp3" },
     ]);
 
+    // "cloud-atlas"
     this.load.atlas({
       key: "cloud-atlas",
       textureURL: "assets/clouds/cloud-atlas.png",
@@ -124,8 +126,22 @@ export default class DemoScene extends Phaser.Scene {
   }
 
   create() {
+    /*
+      _Contents
+
+      _Default values
+      _Lighting
+      _Sound & Music
+      _Particles
+      _Groups
+      _Colliders
+      _Map & Layers
+      _Creating Objects from Object Layers
+      _Background / Deco
+    */
+
     /**********************************************/
-    // Set/Re-Set Default Values
+    // Set/Re-Set _Default Values
     /**********************************************/
     this.blocks = 0;
     this.balls = 0;
@@ -149,7 +165,7 @@ export default class DemoScene extends Phaser.Scene {
     }
 
     /**********************************************/
-    // #Lighting
+    // _Lighting
     /**********************************************/
 
     // enable 2D light pipeline
@@ -169,7 +185,7 @@ export default class DemoScene extends Phaser.Scene {
     // });
 
     /**********************************************/
-    // #Sound & Music
+    // _Sound & Music
     /**********************************************/
 
     // Already loaded in preload!
@@ -177,7 +193,7 @@ export default class DemoScene extends Phaser.Scene {
     // with background music we could do it here
 
     /**********************************************/
-    // #Particles
+    // _Particles
     /**********************************************/
 
     // Need to re-work for phaser 3.6!
@@ -211,7 +227,7 @@ export default class DemoScene extends Phaser.Scene {
     // }
 
     /**********************************************/
-    // #Groups
+    // _Groups
     /**********************************************/
     const blockGroup = this.physics.add.group({
       immovable: true,
@@ -243,7 +259,7 @@ export default class DemoScene extends Phaser.Scene {
     this.leafWallGroup = leafWallGroup;
 
     /**********************************************/
-    // #Colliders
+    // _Colliders
     /**********************************************/
 
     // prettier-ignore
@@ -527,7 +543,7 @@ export default class DemoScene extends Phaser.Scene {
     });
 
     /***********************************************/
-    // #Map & Layers
+    // _Map & Layers
     /***********************************************/
 
     // Create Tilemap
@@ -556,7 +572,7 @@ export default class DemoScene extends Phaser.Scene {
     map.createLayer("deco", tileset)!.setPipeline("Light2D");
 
     /**********************************************/
-    // #Creating Objects from Object Layers
+    // _Creating Objects from Object Layers
     /**********************************************/
 
     // Psst! Controls are in here too...
@@ -791,7 +807,7 @@ export default class DemoScene extends Phaser.Scene {
     });
 
     /**********************************************/
-    // #Background / Deco
+    // _Background / Deco
     /**********************************************/
     new CloudTimer(this, 1250).start();
 
