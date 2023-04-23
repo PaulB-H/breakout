@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="121">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="173">
  <editorsettings>
   <export target="breakout.json" format="json"/>
  </editorsettings>
@@ -187,7 +187,7 @@
   </tile>
   <tile id="34">
    <properties>
-    <property name="color" value=""/>
+    <property name="color" value="vines"/>
    </properties>
   </tile>
   <tile id="35">
@@ -517,173 +517,61 @@
   </tile>
  </tileset>
  <objectgroup id="2" name="blocks">
-  <object id="2" gid="1" x="16" y="112" width="16" height="16">
-   <properties>
-    <property name="color" value="green"/>
-   </properties>
-  </object>
-  <object id="4" gid="1" x="48" y="112" width="16" height="16">
-   <properties>
-    <property name="color" value="green"/>
-   </properties>
-  </object>
-  <object id="10" gid="2" x="144" y="96" width="16" height="16">
-   <properties>
-    <property name="color" value="blue"/>
-   </properties>
-  </object>
-  <object id="12" gid="3" x="64" y="80" width="16" height="16">
-   <properties>
-    <property name="color" value="red"/>
-   </properties>
-  </object>
-  <object id="14" gid="3" x="32" y="80" width="16" height="16">
-   <properties>
-    <property name="color" value="red"/>
-   </properties>
-  </object>
-  <object id="20" gid="5" x="48" y="48" width="16" height="16">
-   <properties>
-    <property name="color" value="pink"/>
-   </properties>
-  </object>
-  <object id="22" gid="5" x="16" y="48" width="16" height="16">
-   <properties>
-    <property name="color" value="pink"/>
-   </properties>
-  </object>
-  <object id="24" gid="6" x="96" y="32" width="16" height="16">
-   <properties>
-    <property name="color" value="purple"/>
-   </properties>
-  </object>
-  <object id="26" gid="6" x="128" y="32" width="16" height="16">
-   <properties>
-    <property name="color" value="purple"/>
-   </properties>
-  </object>
-  <object id="38" gid="4" x="80" y="64" width="16" height="16">
-   <properties>
-    <property name="color" value="yellow"/>
-   </properties>
-  </object>
-  <object id="40" gid="4" x="112" y="64" width="16" height="16">
-   <properties>
-    <property name="color" value="yellow"/>
-   </properties>
-  </object>
-  <object id="44" gid="19" x="0" y="112" width="16" height="16">
-   <properties>
-    <property name="color" value="wood"/>
-   </properties>
-  </object>
-  <object id="46" gid="19" x="0" y="80" width="16" height="16">
-   <properties>
-    <property name="color" value="wood"/>
-   </properties>
-  </object>
-  <object id="48" gid="19" x="0" y="48" width="16" height="16">
-   <properties>
-    <property name="color" value="wood"/>
-   </properties>
-  </object>
-  <object id="61" gid="19" x="144" y="48" width="16" height="16">
-   <properties>
-    <property name="color" value="wood"/>
-   </properties>
-  </object>
-  <object id="63" gid="19" x="144" y="80" width="16" height="16">
-   <properties>
-    <property name="color" value="wood"/>
-   </properties>
-  </object>
-  <object id="65" gid="19" x="144" y="112" width="16" height="16">
-   <properties>
-    <property name="color" value="wood"/>
-   </properties>
-  </object>
-  <object id="67" gid="9" x="144" y="64" width="16" height="16">
-   <properties>
-    <property name="color" value="glass"/>
-   </properties>
-  </object>
-  <object id="68" gid="9" x="144" y="32" width="16" height="16">
-   <properties>
-    <property name="color" value="glass"/>
-   </properties>
-  </object>
-  <object id="72" gid="9" x="0" y="32" width="16" height="16">
-   <properties>
-    <property name="color" value="glass"/>
-   </properties>
-  </object>
-  <object id="73" gid="9" x="0" y="64" width="16" height="16">
-   <properties>
-    <property name="color" value="glass"/>
-   </properties>
-  </object>
-  <object id="75" gid="9" x="0" y="96" width="16" height="16">
-   <properties>
-    <property name="color" value="glass"/>
-   </properties>
-  </object>
-  <object id="86" gid="7" x="112" y="96" width="16" height="16">
-   <properties>
-    <property name="color" value="armored"/>
-    <property name="health" type="int" value="5"/>
-   </properties>
-  </object>
-  <object id="87" gid="7" x="144" y="128" width="16" height="16">
-   <properties>
-    <property name="color" value="armored"/>
-    <property name="health" type="int" value="5"/>
-   </properties>
-  </object>
-  <object id="88" gid="7" x="80" y="96" width="16" height="16">
-   <properties>
-    <property name="color" value="armored"/>
-    <property name="health" type="int" value="5"/>
-   </properties>
-  </object>
-  <object id="89" gid="7" x="112" y="128" width="16" height="16">
-   <properties>
-    <property name="color" value="armored"/>
-    <property name="health" type="int" value="5"/>
-   </properties>
-  </object>
-  <object id="90" gid="2" x="96" y="96" width="16" height="16"/>
-  <object id="94" gid="59" x="80" y="128" width="16" height="16"/>
-  <object id="95" gid="59" x="48" y="128" width="16" height="16"/>
-  <object id="96" gid="59" x="16" y="128" width="16" height="16"/>
-  <object id="97" gid="59" x="0" y="128" width="16" height="16"/>
-  <object id="98" gid="59" x="32" y="128" width="16" height="16"/>
-  <object id="99" gid="59" x="64" y="128" width="16" height="16"/>
-  <object id="100" gid="59" x="96" y="128" width="16" height="16"/>
-  <object id="101" gid="59" x="128" y="128" width="16" height="16"/>
-  <object id="103" gid="19" x="96" y="64" width="16" height="16"/>
-  <object id="104" gid="19" x="80" y="32" width="16" height="16"/>
-  <object id="105" gid="19" x="112" y="32" width="16" height="16"/>
-  <object id="106" gid="19" x="128" y="64" width="16" height="16"/>
-  <object id="107" gid="19" x="48" y="80" width="16" height="16"/>
-  <object id="108" gid="19" x="16" y="80" width="16" height="16"/>
-  <object id="109" gid="19" x="32" y="112" width="16" height="16"/>
-  <object id="110" gid="19" x="64" y="112" width="16" height="16"/>
-  <object id="112" gid="19" x="32" y="48" width="16" height="16"/>
-  <object id="113" gid="19" x="64" y="48" width="16" height="16"/>
-  <object id="120" gid="19" x="128" y="96" width="16" height="16"/>
+  <object id="123" gid="9" x="0" y="32" width="16" height="16"/>
+  <object id="124" gid="9" x="0" y="64" width="16" height="16"/>
+  <object id="125" gid="9" x="0" y="48" width="16" height="16"/>
+  <object id="126" gid="9" x="0" y="80" width="16" height="16"/>
+  <object id="127" gid="9" x="0" y="96" width="16" height="16"/>
+  <object id="128" gid="9" x="0" y="112" width="16" height="16"/>
+  <object id="129" gid="59" x="0" y="128" width="16" height="16"/>
+  <object id="130" gid="59" x="16" y="128" width="16" height="16"/>
+  <object id="131" gid="59" x="32" y="128" width="16" height="16"/>
+  <object id="132" gid="59" x="48" y="128" width="16" height="16"/>
+  <object id="133" gid="59" x="64" y="128" width="16" height="16"/>
+  <object id="134" gid="59" x="80" y="128" width="16" height="16"/>
+  <object id="135" gid="59" x="96" y="128" width="16" height="16"/>
+  <object id="136" gid="59" x="112" y="128" width="16" height="16"/>
+  <object id="137" gid="59" x="128" y="128" width="16" height="16"/>
+  <object id="138" gid="59" x="144" y="128" width="16" height="16"/>
+  <object id="139" gid="9" x="144" y="112" width="16" height="16"/>
+  <object id="140" gid="9" x="144" y="96" width="16" height="16"/>
+  <object id="141" gid="9" x="144" y="80" width="16" height="16"/>
+  <object id="142" gid="9" x="144" y="64" width="16" height="16"/>
+  <object id="143" gid="9" x="144" y="48" width="16" height="16"/>
+  <object id="144" gid="9" x="144" y="32" width="16" height="16"/>
+  <object id="145" gid="19" x="112" y="32" width="16" height="16"/>
+  <object id="146" gid="19" x="80" y="32" width="16" height="16"/>
+  <object id="147" gid="19" x="32" y="48" width="16" height="16"/>
+  <object id="148" gid="19" x="64" y="48" width="16" height="16"/>
+  <object id="149" gid="19" x="96" y="64" width="16" height="16"/>
+  <object id="150" gid="19" x="128" y="64" width="16" height="16"/>
+  <object id="151" gid="19" x="48" y="80" width="16" height="16"/>
+  <object id="152" gid="19" x="16" y="80" width="16" height="16"/>
+  <object id="153" gid="19" x="112" y="96" width="16" height="16"/>
+  <object id="154" gid="19" x="80" y="96" width="16" height="16"/>
+  <object id="155" gid="19" x="64" y="112" width="16" height="16"/>
+  <object id="156" gid="19" x="32" y="112" width="16" height="16"/>
+  <object id="157" gid="1" x="16" y="112" width="16" height="16"/>
+  <object id="160" gid="3" x="48" y="112" width="16" height="16"/>
+  <object id="161" gid="3" x="16" y="48" width="16" height="16"/>
+  <object id="162" gid="5" x="48" y="48" width="16" height="16"/>
+  <object id="163" gid="5" x="128" y="96" width="16" height="16"/>
+  <object id="164" gid="4" x="32" y="80" width="16" height="16"/>
+  <object id="165" gid="4" x="96" y="96" width="16" height="16"/>
+  <object id="166" gid="6" x="128" y="32" width="16" height="16"/>
+  <object id="167" gid="6" x="96" y="32" width="16" height="16"/>
+  <object id="168" gid="2" x="64" y="80" width="16" height="16"/>
+  <object id="169" gid="1" x="80" y="64" width="16" height="16"/>
+  <object id="170" gid="2" x="112" y="64" width="16" height="16"/>
  </objectgroup>
- <objectgroup id="8" name="powers" locked="1"/>
- <objectgroup id="6" name="player" locked="1">
-  <object id="27" gid="11" x="72" y="208" width="16" height="16"/>
+ <objectgroup id="8" name="powers"/>
+ <objectgroup id="6" name="player">
+  <object id="171" gid="11" x="72" y="217" width="16" height="16"/>
  </objectgroup>
- <objectgroup id="7" name="ball" locked="1" opacity="0.96">
-  <object id="28" gid="12" x="72" y="202" width="16" height="16">
-   <properties>
-    <property name="mystring" value="Hello World"/>
-   </properties>
-  </object>
+ <objectgroup id="7" name="ball" opacity="0.96">
+  <object id="172" gid="12" x="72" y="211" width="16" height="16"/>
  </objectgroup>
- <layer id="10" name="deco" width="10" height="15" locked="1">
+ <layer id="10" name="deco" width="10" height="15">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,

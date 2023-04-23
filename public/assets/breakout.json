@@ -8,9 +8,624 @@
          "name":"blocks",
          "objects":[
                 {
+                 "gid":9,
+                 "height":16,
+                 "id":123,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"glass"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":0,
+                 "y":32
+                }, 
+                {
+                 "gid":9,
+                 "height":16,
+                 "id":124,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"glass"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":0,
+                 "y":64
+                }, 
+                {
+                 "gid":9,
+                 "height":16,
+                 "id":125,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"glass"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":0,
+                 "y":48
+                }, 
+                {
+                 "gid":9,
+                 "height":16,
+                 "id":126,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"glass"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":0,
+                 "y":80
+                }, 
+                {
+                 "gid":9,
+                 "height":16,
+                 "id":127,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"glass"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":0,
+                 "y":96
+                }, 
+                {
+                 "gid":9,
+                 "height":16,
+                 "id":128,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"glass"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":0,
+                 "y":112
+                }, 
+                {
+                 "gid":59,
+                 "height":16,
+                 "id":129,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"rock"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":0,
+                 "y":128
+                }, 
+                {
+                 "gid":59,
+                 "height":16,
+                 "id":130,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"rock"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":16,
+                 "y":128
+                }, 
+                {
+                 "gid":59,
+                 "height":16,
+                 "id":131,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"rock"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":32,
+                 "y":128
+                }, 
+                {
+                 "gid":59,
+                 "height":16,
+                 "id":132,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"rock"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":48,
+                 "y":128
+                },
+            
+                {
+                 "gid":59,
+                 "height":16,
+                 "id":133,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"rock"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":64,
+                 "y":128
+                }, 
+                {
+                 "gid":59,
+                 "height":16,
+                 "id":134,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"rock"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":128
+                }, 
+                {
+                 "gid":59,
+                 "height":16,
+                 "id":135,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"rock"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":128
+                }, 
+                {
+                 "gid":59,
+                 "height":16,
+                 "id":136,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"rock"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":112,
+                 "y":128
+                }, 
+                {
+                 "gid":59,
+                 "height":16,
+                 "id":137,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"rock"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":128,
+                 "y":128
+                }, 
+                {
+                 "gid":59,
+                 "height":16,
+                 "id":138,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"rock"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":144,
+                 "y":128
+                }, 
+                {
+                 "gid":9,
+                 "height":16,
+                 "id":139,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"glass"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":144,
+                 "y":112
+                }, 
+                {
+                 "gid":9,
+                 "height":16,
+                 "id":140,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"glass"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":144,
+                 "y":96
+                }, 
+                {
+                 "gid":9,
+                 "height":16,
+                 "id":141,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"glass"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":144,
+                 "y":80
+                }, 
+                {
+                 "gid":9,
+                 "height":16,
+                 "id":142,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"glass"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":144,
+                 "y":64
+                },
+            
+                {
+                 "gid":9,
+                 "height":16,
+                 "id":143,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"glass"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":144,
+                 "y":48
+                }, 
+                {
+                 "gid":9,
+                 "height":16,
+                 "id":144,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"glass"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":144,
+                 "y":32
+                }, 
+                {
+                 "gid":19,
+                 "height":16,
+                 "id":145,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"wood"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":112,
+                 "y":32
+                }, 
+                {
+                 "gid":19,
+                 "height":16,
+                 "id":146,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"wood"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":32
+                }, 
+                {
+                 "gid":19,
+                 "height":16,
+                 "id":147,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"wood"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":32,
+                 "y":48
+                }, 
+                {
+                 "gid":19,
+                 "height":16,
+                 "id":148,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"wood"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":64,
+                 "y":48
+                }, 
+                {
+                 "gid":19,
+                 "height":16,
+                 "id":149,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"wood"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":64
+                }, 
+                {
+                 "gid":19,
+                 "height":16,
+                 "id":150,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"wood"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":128,
+                 "y":64
+                }, 
+                {
+                 "gid":19,
+                 "height":16,
+                 "id":151,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"wood"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":48,
+                 "y":80
+                }, 
+                {
+                 "gid":19,
+                 "height":16,
+                 "id":152,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"wood"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":16,
+                 "y":80
+                },
+            
+                {
+                 "gid":19,
+                 "height":16,
+                 "id":153,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"wood"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":112,
+                 "y":96
+                }, 
+                {
+                 "gid":19,
+                 "height":16,
+                 "id":154,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"wood"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":96
+                }, 
+                {
+                 "gid":19,
+                 "height":16,
+                 "id":155,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"wood"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":64,
+                 "y":112
+                }, 
+                {
+                 "gid":19,
+                 "height":16,
+                 "id":156,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"wood"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":32,
+                 "y":112
+                }, 
+                {
                  "gid":1,
                  "height":16,
-                 "id":2,
+                 "id":157,
                  "name":"",
                  "properties":[
                         {
@@ -26,15 +641,15 @@
                  "y":112
                 }, 
                 {
-                 "gid":1,
+                 "gid":3,
                  "height":16,
-                 "id":4,
+                 "id":160,
                  "name":"",
                  "properties":[
                         {
                          "name":"color",
                          "type":"string",
-                         "value":"green"
+                         "value":"red"
                         }],
                  "rotation":0,
                  "type":"",
@@ -44,27 +659,9 @@
                  "y":112
                 }, 
                 {
-                 "gid":2,
-                 "height":16,
-                 "id":10,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"blue"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":144,
-                 "y":96
-                }, 
-                {
                  "gid":3,
                  "height":16,
-                 "id":12,
+                 "id":161,
                  "name":"",
                  "properties":[
                         {
@@ -76,31 +673,13 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":64,
-                 "y":80
-                }, 
-                {
-                 "gid":3,
-                 "height":16,
-                 "id":14,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"red"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":32,
-                 "y":80
+                 "x":16,
+                 "y":48
                 }, 
                 {
                  "gid":5,
                  "height":16,
-                 "id":20,
+                 "id":162,
                  "name":"",
                  "properties":[
                         {
@@ -118,7 +697,7 @@
                 {
                  "gid":5,
                  "height":16,
-                 "id":22,
+                 "id":163,
                  "name":"",
                  "properties":[
                         {
@@ -130,31 +709,50 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":16,
-                 "y":48
+                 "x":128,
+                 "y":96
                 }, 
                 {
-                 "gid":6,
+                 "gid":4,
                  "height":16,
-                 "id":24,
+                 "id":164,
                  "name":"",
                  "properties":[
                         {
                          "name":"color",
                          "type":"string",
-                         "value":"purple"
+                         "value":"yellow"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":32,
+                 "y":80
+                },
+            
+                {
+                 "gid":4,
+                 "height":16,
+                 "id":165,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"yellow"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
                  "x":96,
-                 "y":32
+                 "y":96
                 }, 
                 {
                  "gid":6,
                  "height":16,
-                 "id":26,
+                 "id":166,
                  "name":"",
                  "properties":[
                         {
@@ -170,337 +768,27 @@
                  "y":32
                 }, 
                 {
-                 "gid":4,
+                 "gid":6,
                  "height":16,
-                 "id":38,
+                 "id":167,
                  "name":"",
                  "properties":[
                         {
                          "name":"color",
                          "type":"string",
-                         "value":"yellow"
+                         "value":"purple"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":80,
-                 "y":64
-                },
-            
-                {
-                 "gid":4,
-                 "height":16,
-                 "id":40,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"yellow"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":112,
-                 "y":64
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":44,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":0,
-                 "y":112
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":46,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":0,
-                 "y":80
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":48,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":0,
-                 "y":48
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":61,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":144,
-                 "y":48
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":63,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":144,
-                 "y":80
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":65,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":144,
-                 "y":112
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
-                 "id":67,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":144,
-                 "y":64
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
-                 "id":68,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":144,
+                 "x":96,
                  "y":32
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
-                 "id":72,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":0,
-                 "y":32
-                },
-            
-                {
-                 "gid":9,
-                 "height":16,
-                 "id":73,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":0,
-                 "y":64
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
-                 "id":75,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":0,
-                 "y":96
-                }, 
-                {
-                 "gid":7,
-                 "height":16,
-                 "id":86,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"armored"
-                        }, 
-                        {
-                         "name":"health",
-                         "type":"int",
-                         "value":5
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":112,
-                 "y":96
-                }, 
-                {
-                 "gid":7,
-                 "height":16,
-                 "id":87,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"armored"
-                        }, 
-                        {
-                         "name":"health",
-                         "type":"int",
-                         "value":5
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":144,
-                 "y":128
-                }, 
-                {
-                 "gid":7,
-                 "height":16,
-                 "id":88,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"armored"
-                        }, 
-                        {
-                         "name":"health",
-                         "type":"int",
-                         "value":5
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":80,
-                 "y":96
-                }, 
-                {
-                 "gid":7,
-                 "height":16,
-                 "id":89,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"armored"
-                        }, 
-                        {
-                         "name":"health",
-                         "type":"int",
-                         "value":5
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":112,
-                 "y":128
                 }, 
                 {
                  "gid":2,
                  "height":16,
-                 "id":90,
+                 "id":168,
                  "name":"",
                  "properties":[
                         {
@@ -512,352 +800,44 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":96,
-                 "y":96
+                 "x":64,
+                 "y":80
                 }, 
                 {
-                 "gid":59,
+                 "gid":1,
                  "height":16,
-                 "id":94,
+                 "id":169,
                  "name":"",
                  "properties":[
                         {
                          "name":"color",
                          "type":"string",
-                         "value":"rock"
+                         "value":"green"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
                  "x":80,
-                 "y":128
-                }, 
-                {
-                 "gid":59,
-                 "height":16,
-                 "id":95,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"rock"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":48,
-                 "y":128
-                }, 
-                {
-                 "gid":59,
-                 "height":16,
-                 "id":96,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"rock"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":16,
-                 "y":128
-                },
-            
-                {
-                 "gid":59,
-                 "height":16,
-                 "id":97,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"rock"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":0,
-                 "y":128
-                }, 
-                {
-                 "gid":59,
-                 "height":16,
-                 "id":98,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"rock"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":32,
-                 "y":128
-                }, 
-                {
-                 "gid":59,
-                 "height":16,
-                 "id":99,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"rock"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":64,
-                 "y":128
-                }, 
-                {
-                 "gid":59,
-                 "height":16,
-                 "id":100,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"rock"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":96,
-                 "y":128
-                }, 
-                {
-                 "gid":59,
-                 "height":16,
-                 "id":101,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"rock"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":128,
-                 "y":128
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":103,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":96,
                  "y":64
                 }, 
                 {
-                 "gid":19,
+                 "gid":2,
                  "height":16,
-                 "id":104,
+                 "id":170,
                  "name":"",
                  "properties":[
                         {
                          "name":"color",
                          "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":80,
-                 "y":32
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":105,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
+                         "value":"blue"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
                  "x":112,
-                 "y":32
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":106,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":128,
                  "y":64
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":107,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":48,
-                 "y":80
-                },
-            
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":108,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":16,
-                 "y":80
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":109,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":32,
-                 "y":112
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":110,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":64,
-                 "y":112
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":112,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":32,
-                 "y":48
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":113,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":64,
-                 "y":48
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":120,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":128,
-                 "y":96
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -868,7 +848,6 @@
         {
          "draworder":"topdown",
          "id":8,
-         "locked":true,
          "name":"powers",
          "objects":[],
          "opacity":1,
@@ -880,13 +859,12 @@
         {
          "draworder":"topdown",
          "id":6,
-         "locked":true,
          "name":"player",
          "objects":[
                 {
                  "gid":11,
                  "height":16,
-                 "id":27,
+                 "id":171,
                  "name":"",
                  "properties":[
                         {
@@ -899,7 +877,7 @@
                  "visible":true,
                  "width":16,
                  "x":72,
-                 "y":208
+                 "y":217
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -910,31 +888,25 @@
         {
          "draworder":"topdown",
          "id":7,
-         "locked":true,
          "name":"ball",
          "objects":[
                 {
                  "gid":12,
                  "height":16,
-                 "id":28,
+                 "id":172,
                  "name":"",
                  "properties":[
                         {
                          "name":"color",
                          "type":"string",
                          "value":""
-                        }, 
-                        {
-                         "name":"mystring",
-                         "type":"string",
-                         "value":"Hello World"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
                  "x":72,
-                 "y":202
+                 "y":211
                 }],
          "opacity":0.96,
          "type":"objectgroup",
@@ -960,7 +932,6 @@
             63, 63, 63, 63, 63, 63, 63, 63, 63, 63],
          "height":15,
          "id":10,
-         "locked":true,
          "name":"deco",
          "opacity":1,
          "type":"tilelayer",
@@ -970,7 +941,7 @@
          "y":0
         }],
  "nextlayerid":11,
- "nextobjectid":121,
+ "nextobjectid":173,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",
@@ -1366,7 +1337,7 @@
                         {
                          "name":"color",
                          "type":"string",
-                         "value":""
+                         "value":"vines"
                         }]
                 }, 
                 {
