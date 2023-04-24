@@ -781,7 +781,10 @@ export default class DemoScene extends Phaser.Scene {
     /**********************************************/
     new CloudTimer(this, 1250).start();
 
-    // const volcanobg = this.add.sprite(80, 120, "volcanobg").setDepth(-10);
+    // const volcanobg = this.add
+    //   .sprite(80, 120, "volcanobg")
+    //   .setDepth(-8)
+    //   .setPipeline("Light2D");
     // this.anims.create({
     //   key: "volcanobg_anim",
     //   frames: this.anims.generateFrameNumbers("volcanobg", {

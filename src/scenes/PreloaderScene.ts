@@ -63,9 +63,14 @@ export default class PreloaderScene extends Phaser.Scene {
       atlasURL: "assets/clouds/cloud-atlas.json",
     });
 
-    this.load.spritesheet("volcanobg", "assets/backgrounds/volcanobg.png", {
-      frameWidth: 160,
-      frameHeight: 240,
+    this.load.spritesheet({
+      key: "volcanobg",
+      url: "assets/backgrounds/volcanobg.png",
+      normalMap: "assets/backgrounds/volcanobg_n.png",
+      frameConfig: {
+        frameWidth: 160,
+        frameHeight: 240,
+      },
     });
 
     this.load.image("bluegradientbg", "assets/backgrounds/bluegradientbg.png");
