@@ -385,11 +385,17 @@
   <properties>
    <property name="color" value=""/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="7" y="0" width="2" height="16"/>
+  </objectgroup>
  </tile>
  <tile id="75">
   <properties>
    <property name="color" value=""/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0" y="7" width="16" height="2"/>
+  </objectgroup>
  </tile>
  <tile id="76">
   <properties>
