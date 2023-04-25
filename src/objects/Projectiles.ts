@@ -1,9 +1,9 @@
-import DemoScene from "../scenes/DemoScene";
+import BaseScene from "../scenes/BaseScene";
 
 export class FireBall extends Phaser.Physics.Arcade.Sprite {
   type = "fireball";
   constructor(
-    scene: DemoScene,
+    scene: BaseScene,
     x: number,
     y: number,
     texture = "tiles",
@@ -25,7 +25,7 @@ export class FireBall extends Phaser.Physics.Arcade.Sprite {
 export class LightningBolt extends Phaser.Physics.Arcade.Sprite {
   type = "lightningbolt";
   constructor(
-    scene: DemoScene,
+    scene: BaseScene,
     x: number,
     y: number,
     texture = "tiles",
@@ -47,7 +47,7 @@ export class LightningBolt extends Phaser.Physics.Arcade.Sprite {
 export class LaserBeam extends Phaser.Physics.Arcade.Sprite {
   type = "laserbeam";
   constructor(
-    scene: DemoScene,
+    scene: BaseScene,
     x: number,
     y: number,
     texture = "tiles",

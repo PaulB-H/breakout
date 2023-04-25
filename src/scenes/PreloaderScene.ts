@@ -21,6 +21,10 @@ export default class PreloaderScene extends Phaser.Scene {
 
     this.load.tilemapTiledJSON("map", "assets/levels/breakout.json");
 
+    this.load.tilemapTiledJSON("Level_1", "assets/levels/level-1.json");
+
+    this.load.tilemapTiledJSON("Level_2", "assets/levels/level-2.json");
+
     const fonts = [
       {
         key: FONT_KEYS.VCR_WHITE,
@@ -82,6 +86,6 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   create() {
-    this.scene.start("DemoScene");
+    this.scene.start("Level_1");
   }
 }

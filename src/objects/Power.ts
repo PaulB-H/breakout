@@ -1,4 +1,4 @@
-import DemoScene from "../scenes/DemoScene";
+import BaseScene from "../scenes/BaseScene";
 
 export default class Power extends Phaser.Physics.Arcade.Sprite {
   gid: number;
@@ -8,7 +8,7 @@ export default class Power extends Phaser.Physics.Arcade.Sprite {
   // right now you must pass in undefined for texture
 
   constructor(
-    scene: DemoScene,
+    scene: BaseScene,
     x: number,
     y: number,
     texture = "tiles",

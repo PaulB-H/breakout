@@ -1,14 +1,9 @@
-// import Phaser from "phaser";
+import BaseScene from "../BaseScene";
+import { parseMap } from "../../utility/parseMap";
 
-import BaseScene from "./BaseScene";
-
-// import { AUDIO } from "../../constants";
-
-import { parseMap } from "../utility/parseMap";
-
-export default class DemoScene extends BaseScene {
+export default class Level_1 extends BaseScene {
   constructor() {
-    super("DemoScene");
+    super("Level_1");
   }
 
   preload() {
@@ -17,9 +12,10 @@ export default class DemoScene extends BaseScene {
 
   create() {
     super.create();
+
     // Create Tilemap
     const map = this.make.tilemap({
-      key: "map",
+      key: "Level_1",
       tileWidth: 16,
       tileHeight: 16,
     });
@@ -32,6 +28,7 @@ export default class DemoScene extends BaseScene {
 
     parseMap(this, map);
 
+    // Create deco layer
     map.createLayer("deco", tileset)!.setPipeline("Light2D");
   }
 

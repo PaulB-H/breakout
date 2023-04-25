@@ -1,7 +1,7 @@
-import DemoScene from "../scenes/DemoScene";
+import BaseScene from "../scenes/BaseScene";
 
 class LeafWall extends Phaser.Physics.Arcade.Sprite {
-  constructor(scene: DemoScene, x: number, y: number) {
+  constructor(scene: BaseScene, x: number, y: number) {
     super(scene, x, y, "tiles", 34);
 
     this.setY((scene.game.config.height as number) - 8);
@@ -20,7 +20,7 @@ class LeafWall extends Phaser.Physics.Arcade.Sprite {
   }
 }
 
-export const buildWall = (scene: DemoScene) => {
+export const buildWall = (scene: BaseScene) => {
   // This is split awkwardly into two groups, because I wanted to
   // build it out from each edge. Will come back to this later...
 
@@ -47,6 +47,6 @@ export const buildWall = (scene: DemoScene) => {
   );
 };
 
-const breakWall = (scene: DemoScene) => {
+const breakWall = (scene: BaseScene) => {
   scene.destroyLeafWall();
 };

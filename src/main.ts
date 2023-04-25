@@ -1,8 +1,9 @@
 import Phaser from "phaser";
 
 import DemoScene from "./scenes/DemoScene";
-
 import PreloaderScene from "./scenes/PreloaderScene";
+import Level_1 from "./scenes/levels/Level_1";
+import Level_2 from "./scenes/levels/Level_2";
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -19,7 +20,7 @@ const config: Phaser.Types.Core.GameConfig = {
       debug: false,
     },
   },
-  scene: [PreloaderScene, DemoScene],
+  scene: [PreloaderScene, Level_1, Level_2, DemoScene],
   scale: {
     zoom: 1,
     mode: Phaser.Scale.FIT,

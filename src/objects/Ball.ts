@@ -1,11 +1,11 @@
 // Classes need to know about the custom properties on DemoScene
-import DemoScene from "../scenes/DemoScene";
+import BaseScene from "../scenes/BaseScene";
 
 export class Ball extends Phaser.Physics.Arcade.Sprite {
   gid: number;
   ballLight: Phaser.GameObjects.Light | null;
   constructor(
-    scene: DemoScene,
+    scene: BaseScene,
     x: number,
     y: number,
     texture: string,
