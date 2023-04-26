@@ -522,6 +522,9 @@ export default class BaseScene extends Phaser.Scene {
           (myBlock.properties.health && myBlock.properties.health <= 0) ||
           !myBlock.properties.health
         ) {
+          this.blockGroup.remove(block as Phaser.Physics.Arcade.Sprite);
+          this.wallGroup.add(block as Phaser.Physics.Arcade.Sprite);
+
           this.time.delayedCall(25, () => {
             block.destroy();
             this.blocks--;
