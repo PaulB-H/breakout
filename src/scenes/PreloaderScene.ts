@@ -1,4 +1,4 @@
-import { AUDIO, FONT_KEYS } from "../constants";
+import { AUDIO, FONT_KEYS, SCENES } from "../constants";
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
@@ -19,11 +19,16 @@ export default class PreloaderScene extends Phaser.Scene {
       },
     });
 
-    this.load.tilemapTiledJSON("map", "assets/levels/breakout.json");
+    this.load.tilemapTiledJSON("DemoScene", "assets/levels/breakout.json");
 
-    this.load.tilemapTiledJSON("Level_1", "assets/levels/level-1.json");
+    this.load.tilemapTiledJSON(SCENES.Level_1, "assets/levels/level-1.json");
+    this.load.tilemapTiledJSON(SCENES.Level_2, "assets/levels/level-2.json");
+    this.load.tilemapTiledJSON(SCENES.Level_3, "assets/levels/level-3.json");
 
-    this.load.tilemapTiledJSON("Level_2", "assets/levels/level-2.json");
+    this.load.tilemapTiledJSON(
+      SCENES.Test_Nudge,
+      "assets/levels/test-ai-nudge.json"
+    );
 
     const fonts = [
       {
@@ -86,6 +91,6 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   create() {
-    this.scene.start("Level_1");
+    this.scene.start(SCENES.DemoScene);
   }
 }

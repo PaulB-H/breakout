@@ -19,3 +19,21 @@ export const FONT_KEYS = {
   VCR_WHITE: "vcr-white",
   VCR_BLACK: "vcr-black",
 };
+
+export const SCENES = {
+  Level_1: "Level_1",
+  Level_2: "Level_2",
+  Level_3: "Level_3",
+  Test_Nudge: "Test_Nudge",
+  DemoScene: "DemoScene",
+};
+
+// Currently we are using the same key for
+/* the scene & map, but we don't need to */
+// export const MAPS = {
+//   Level_1_Map: "Level_1_Map",
+//   Level_2_Map: "Level_2_Map",
+//   Level_3_Map: "Level_3_Map",
+//   Test_Nudge_Map: "Test_Nudge_Map",
+//   DemoScene_Map: "DemoScene_Map",
+// }

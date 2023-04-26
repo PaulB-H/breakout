@@ -19,7 +19,7 @@ export default class DemoScene extends BaseScene {
     super.create();
     // Create Tilemap
     const map = this.make.tilemap({
-      key: "map",
+      key: "DemoScene",
       tileWidth: 16,
       tileHeight: 16,
     });
