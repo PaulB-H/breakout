@@ -53,10 +53,12 @@ export default class BaseScene extends Phaser.Scene {
   private ai: {
     active: boolean;
     lastUpdate: null | number;
+    lastNudgeAmnt: null | number;
     x: number;
   } = {
     active: false,
     lastUpdate: null,
+    lastNudgeAmnt: null,
     x: 0,
   };
 
@@ -168,6 +170,7 @@ export default class BaseScene extends Phaser.Scene {
     this.ai = {
       active: false,
       lastUpdate: null,
+      lastNudgeAmnt: null,
       x: 0,
     };
     this.playerStatus = {
@@ -739,11 +742,13 @@ export default class BaseScene extends Phaser.Scene {
 
       if (!this.ai.lastUpdate) {
         this.ai.lastUpdate = t;
+        this.ai.lastNudgeAmnt = Phaser.Math.RND.pick([-4, -2, 0, 2, 4]);
       }
 
       if (t - this.ai.lastUpdate > 3000) {
-        // ("Over 5 seconds, nudge loc");
+        // ("Over 3 seconds, nudge loc");
         this.ai.x = Math.floor(Math.random() * 21) - 10;
+        this.ai.lastNudgeAmnt = Phaser.Math.RND.pick([-4, -2, 0, 2, 4]);
         this.ai.lastUpdate = t;
       }
 
@@ -764,7 +769,7 @@ export default class BaseScene extends Phaser.Scene {
       }
 
       const LERP = 0.5;
-      const targetX = targetBall.x;
+      const targetX = targetBall.x + this.ai.lastNudgeAmnt!;
       const currentX = this.player.x;
       const newX = Phaser.Math.Linear(currentX, targetX, LERP);
       this.player.x = newX;
