@@ -514,8 +514,10 @@ export default class BaseScene extends Phaser.Scene {
           (myBlock.properties.health && myBlock.properties.health <= 0) ||
           !myBlock.properties.health
         ) {
-          block.destroy();
-          this.blocks--;
+          this.time.delayedCall(25, () => {
+            block.destroy();
+            this.blocks--;
+          });
         }
       }
     );
