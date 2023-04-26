@@ -674,13 +674,28 @@ export default class BaseScene extends Phaser.Scene {
   }
 
   update(t: number) {
-    // We need to set min velocity this way...
-    // no way to set min velocity on a physics group...
-    // if (this.ball.body !== undefined && !this.clamped) {
-    //   if (Math.abs(this.ball.body.velocity.y) - 10 <= 0) {
-    //     this.ball.setVelocityY(20);
-    //   }
-    // }
+    // Increase ball Y velocity if under 30
+    this.ballGroup.getChildren().forEach((ball) => {
+      const myBall = ball as Phaser.Physics.Arcade.Sprite;
+      if (!myBall.body) return;
+      if (Math.abs(myBall.body.velocity.y) < 30 && !this.clamped) {
+        if (myBall.body.velocity.y < 0) {
+          // Ball go up
+          myBall.setVelocityY(myBall.body.velocity.y - 5);
+        } else {
+          // Ball go down
+          myBall.setVelocityY(myBall.body.velocity.y + 5);
+        }
+        if (myBall.body.velocity.x === 0) return;
+        if (myBall.body.velocity.x > 0) {
+          // Ball go right
+          myBall.setVelocityX(myBall.body.velocity.x + 5);
+        } else {
+          // Ball go left
+          myBall.setVelocityX(myBall.body.velocity.x - 5);
+        }
+      }
+    });
 
     if (this.playerStatus.isStunned && this.playerStatus.lastStunned) {
       if (this.time.now - this.playerStatus.lastStunned > 1000) {
