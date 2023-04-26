@@ -278,15 +278,19 @@ export default class BaseScene extends Phaser.Scene {
     // _Colliders
     /**********************************************/
 
-    // prettier-ignore
-    this.physics.add.collider(this.playerGroup, this.projectileGroup,
-      // @ts-ignore
+    // player & projectiles
+    this.physics.add.collider(
+      this.playerGroup,
+      this.projectileGroup,
       (player, projectile) => {
-        switch ((projectile as any).type) {
+        const myPlayer = player as Phaser.Physics.Arcade.Sprite;
+        interface iProjectile extends Phaser.Physics.Arcade.Sprite {
+          type: string;
+        }
+        switch ((projectile as iProjectile).type) {
           case "fireball":
             if (this.lives >= 1) {
-              const targetHeart =
-                this.heartSprites.pop() as Phaser.GameObjects.Sprite;
+              const targetHeart = this.heartSprites.pop();
 
               if (targetHeart) {
                 // createPuff(targetHeart.x, targetHeart.y, 32);
@@ -303,12 +307,12 @@ export default class BaseScene extends Phaser.Scene {
           case "lightningbolt":
             this.playerStatus.isStunned = true;
             this.playerStatus.lastStunned = this.time.now;
-            this.player.setFrame(20);
+            myPlayer.setFrame(20);
             projectile.destroy();
             break;
           case "laserbeam":
-            this.scene.restart();
             projectile.destroy();
+            this.scene.restart();
             break;
           default:
             break;
@@ -316,6 +320,7 @@ export default class BaseScene extends Phaser.Scene {
       }
     );
 
+    // player & balls
     this.physics.add.collider(
       this.playerGroup,
       this.ballGroup,
@@ -375,12 +380,15 @@ export default class BaseScene extends Phaser.Scene {
       }
     );
 
+    // balls & leafWalls
     this.physics.add.collider(this.ballGroup, this.leafWallGroup, () => {
       this.sound.play(AUDIO.CREAK);
     });
 
+    // balls & balls
     this.physics.add.collider(this.ballGroup, this.ballGroup);
 
+    // blocks & balls
     this.physics.add.collider(
       this.blockGroup,
       this.ballGroup,
@@ -522,8 +530,10 @@ export default class BaseScene extends Phaser.Scene {
       }
     );
 
+    // balls & walls
     this.physics.add.collider(this.ballGroup, this.wallGroup);
 
+    // player & powers
     this.physics.add.collider(
       this.playerGroup,
       this.powerGroup,
