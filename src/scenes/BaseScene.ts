@@ -716,7 +716,7 @@ export default class BaseScene extends Phaser.Scene {
     // My "AI"
     // Using "LERP" we get a more natural AI
     // That can actually miss the ball sometimes
-    if (this.ai.active && !this.playerStatus.isStunned) {
+    if (this.ai.active && !this.checkIfStunned()) {
       if (this.clamped && this.newBall) {
         this.newBall.setVelocityY(-50);
         this.clamped = false;
@@ -732,11 +732,27 @@ export default class BaseScene extends Phaser.Scene {
         this.ai.lastUpdate = t;
       }
 
-      // const LERP = 0.5;
-      // const targetX = this.newBall!.x + this.ai.x;
-      // const currentX = this.player.x;
-      // const newX = Phaser.Math.Linear(currentX, targetX, LERP);
-      // this.player.x = newX;
+      let targetBall: Phaser.Physics.Arcade.Sprite | { x: number } | null =
+        null;
+      let closestBall = 0;
+      this.ballGroup.getChildren().forEach((ball) => {
+        const myBall = ball as Phaser.Physics.Arcade.Sprite;
+        if (!myBall || myBall.body!.velocity.y < 0) return;
+        if (myBall.y > closestBall) {
+          closestBall = myBall.y;
+          targetBall = myBall;
+        }
+      });
+
+      if (!targetBall) {
+        targetBall = { x: 80 };
+      }
+
+      const LERP = 0.5;
+      const targetX = targetBall.x;
+      const currentX = this.player.x;
+      const newX = Phaser.Math.Linear(currentX, targetX, LERP);
+      this.player.x = newX;
     }
 
     if (this.blocks <= 0 || this.lives <= 0) {
