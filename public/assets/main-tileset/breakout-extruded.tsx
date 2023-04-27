@@ -441,11 +441,47 @@
   <properties>
    <property name="color" value=""/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="14" y="0" width="2" height="1"/>
+   <object id="2" x="13" y="1" width="2" height="1"/>
+   <object id="3" x="12" y="2" width="2" height="1"/>
+   <object id="4" x="11" y="3" width="2" height="1"/>
+   <object id="5" x="10" y="4" width="2" height="1"/>
+   <object id="6" x="9" y="5" width="2" height="1"/>
+   <object id="7" x="8" y="6" width="2" height="1"/>
+   <object id="8" x="7" y="7" width="2" height="1"/>
+   <object id="9" x="6" y="8" width="2" height="1"/>
+   <object id="10" x="5" y="9" width="2" height="1"/>
+   <object id="11" x="4" y="10" width="2" height="1"/>
+   <object id="12" x="3" y="11" width="2" height="1"/>
+   <object id="13" x="2" y="12" width="2" height="1"/>
+   <object id="14" x="1" y="13" width="2" height="1"/>
+   <object id="15" x="0" y="14" width="2" height="1"/>
+   <object id="16" x="0" y="15" width="1" height="1"/>
+  </objectgroup>
  </tile>
  <tile id="85">
   <properties>
    <property name="color" value=""/>
   </properties>
+  <objectgroup draworder="index" id="3">
+   <object id="2" x="0" y="0" width="2" height="1"/>
+   <object id="4" x="1" y="1" width="2" height="1"/>
+   <object id="5" x="2" y="2" width="2" height="1"/>
+   <object id="6" x="3" y="3" width="2" height="1"/>
+   <object id="7" x="4" y="4" width="2" height="1"/>
+   <object id="8" x="5" y="5" width="2" height="1"/>
+   <object id="9" x="6" y="6" width="2" height="1"/>
+   <object id="10" x="7" y="7" width="2" height="1"/>
+   <object id="11" x="8" y="8" width="2" height="1"/>
+   <object id="12" x="9" y="9" width="2" height="1"/>
+   <object id="13" x="10" y="10" width="2" height="1"/>
+   <object id="14" x="11" y="11" width="2" height="1"/>
+   <object id="15" x="12" y="12" width="2" height="1"/>
+   <object id="16" x="13" y="13" width="2" height="1"/>
+   <object id="17" x="14" y="14" width="2" height="1"/>
+   <object id="18" x="15" y="15" width="1" height="1"/>
+  </objectgroup>
  </tile>
  <tile id="86">
   <properties>

@@ -4,7 +4,7 @@
   <export target="breakout.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="breakout-extruded" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="100" columns="10">
-  <image source="breakout-extruded.png" width="180" height="180"/>
+  <image source="../main-tileset/breakout-extruded.png" width="180" height="180"/>
   <tile id="0">
    <properties>
     <property name="color" value="green"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="144">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="147">
  <editorsettings>
   <export target="level-2.json" format="json"/>
  </editorsettings>
@@ -584,31 +584,29 @@
   <object id="24" gid="4" x="16" y="80" width="16" height="16"/>
   <object id="25" gid="4" x="64" y="32" width="16" height="16"/>
   <object id="26" gid="4" x="16" y="160" width="16" height="16"/>
-  <object id="49" gid="59" x="134" y="108" width="16" height="16"/>
-  <object id="88" gid="19" x="144" y="168" width="16" height="16"/>
+  <object id="49" gid="59" x="133" y="93" width="16" height="16"/>
   <object id="107" gid="2" x="89" y="151" width="16" height="16"/>
   <object id="131" gid="2" x="67" y="183" width="16" height="16"/>
   <object id="132" gid="2" x="83" y="183" width="16" height="16"/>
   <object id="133" gid="2" x="99" y="183" width="16" height="16"/>
  </objectgroup>
+ <objectgroup id="8" name="deco-objects">
+  <object id="146" gid="35" x="144" y="168" width="16" height="16"/>
+ </objectgroup>
  <objectgroup id="3" name="player">
-  <object id="1" gid="11" x="56" y="217" width="16" height="16"/>
+  <object id="1" gid="11" x="72" y="218" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="7" name="walls">
   <object id="27" gid="75" x="71" y="64" width="16" height="16"/>
   <object id="30" gid="76" x="80" y="71" width="16" height="16"/>
-  <object id="31" gid="76" x="94" y="71" width="16" height="16"/>
-  <object id="32" gid="76" x="110" y="71" width="16" height="16"/>
+  <object id="31" gid="76" x="96" y="71" width="16" height="16"/>
   <object id="35" gid="76" x="80" y="57" width="16" height="16"/>
-  <object id="36" gid="76" x="94" y="57" width="16" height="16"/>
-  <object id="37" gid="76" x="110" y="57" width="16" height="16"/>
+  <object id="36" gid="76" x="96" y="57" width="16" height="16"/>
   <object id="38" gid="75" x="25" y="112" width="16" height="16"/>
   <object id="41" gid="76" x="16" y="119" width="16" height="16"/>
   <object id="42" gid="76" x="0" y="119" width="16" height="16"/>
   <object id="44" gid="76" x="16" y="105" width="16" height="16"/>
   <object id="45" gid="76" x="0" y="105" width="16" height="16"/>
-  <object id="47" gid="76" x="112" y="57" width="16" height="16"/>
-  <object id="48" gid="76" x="112" y="71" width="16" height="16"/>
   <object id="64" gid="59" x="154" y="9" width="16" height="16"/>
   <object id="65" gid="59" x="125" y="5" width="16" height="16"/>
   <object id="66" gid="59" x="117" y="5" width="16" height="16"/>
@@ -619,7 +617,7 @@
   <object id="71" gid="59" x="27" y="3" width="16" height="16"/>
   <object id="72" gid="59" x="18" y="5" width="16" height="16"/>
   <object id="73" gid="59" x="-8" y="7" width="16" height="16"/>
-  <object id="74" gid="75" x="121" y="64" width="16" height="16"/>
+  <object id="74" gid="75" x="105" y="64" width="16" height="16"/>
   <object id="85" gid="76" x="144" y="159" width="16" height="16"/>
   <object id="86" gid="76" x="144" y="177" width="16" height="16"/>
   <object id="87" gid="75" x="135" y="172" width="16" height="16"/>
@@ -628,19 +626,9 @@
   <object id="91" gid="75" x="135" y="164" width="16" height="16"/>
   <object id="92" gid="75" x="133" y="164" width="16" height="16"/>
   <object id="93" gid="75" x="133" y="172" width="16" height="16"/>
-  <object id="134" gid="76" x="144" y="224" width="16" height="16"/>
-  <object id="135" gid="76" x="128" y="224" width="16" height="16"/>
-  <object id="136" gid="76" x="96" y="224" width="16" height="16"/>
-  <object id="137" gid="76" x="112" y="224" width="16" height="16"/>
-  <object id="138" gid="76" x="80" y="224" width="16" height="16"/>
-  <object id="139" gid="76" x="64" y="224" width="16" height="16"/>
-  <object id="140" gid="76" x="48" y="224" width="16" height="16"/>
-  <object id="141" gid="76" x="32" y="224" width="16" height="16"/>
-  <object id="142" gid="76" x="16" y="224" width="16" height="16"/>
-  <object id="143" gid="76" x="0" y="224" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="4" name="ball">
-  <object id="2" gid="12" x="56" y="211" width="16" height="16"/>
+  <object id="2" gid="12" x="72" y="212" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="5" name="power"/>
  <layer id="6" name="deco" width="10" height="15">
@@ -648,7 +636,7 @@
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,35,35,35,0,0,
+0,0,0,0,0,35,35,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
 35,35,0,0,0,0,0,0,0,0,

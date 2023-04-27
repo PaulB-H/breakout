@@ -51,26 +51,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":64,
-                 "y":32
-                }, 
-                {
-                 "gid":19,
-                 "height":16,
-                 "id":26,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"wood"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":80,
-                 "y":32
+                 "x":72,
+                 "y":40
                 }],
          "opacity":1,
          "type":"objectgroup",

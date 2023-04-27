@@ -562,8 +562,7 @@
   <object id="3" gid="11" x="72" y="218" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="5" name="blocks">
-  <object id="25" gid="19" x="64" y="32" width="16" height="16"/>
-  <object id="26" gid="19" x="80" y="32" width="16" height="16"/>
+  <object id="25" gid="19" x="72" y="40" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="3" name="walls">
   <object id="4" gid="76" x="0" y="224" width="16" height="16"/>
