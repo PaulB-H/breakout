@@ -4,7 +4,7 @@ import { Ball } from "../objects/Ball";
 import { iBlockSprite } from "../objects/Block";
 import { CloudTimer } from "../objects/Deco/Clouds";
 import Power from "../objects/Power";
-import { AUDIO } from "../constants";
+import { AUDIO, IMAGES, SCENES, SHEETS } from "../constants";
 
 import { FireBall, LaserBeam, LightningBolt } from "../objects/Projectiles";
 import { buildWall } from "../objects/LeafWall";
@@ -181,7 +181,7 @@ export default class BaseScene extends Phaser.Scene {
 
     // add heart sprites for every life...
     for (let i = 1; i < this.lives + 1; i++) {
-      this.heartSprites.push(this.add.sprite(16 * i - 1, 8, "tiles", 32));
+      this.heartSprites.push(this.add.sprite(16 * i - 8, 10, SHEETS.Tiles, 32));
     }
 
     /**********************************************/
@@ -422,7 +422,13 @@ export default class BaseScene extends Phaser.Scene {
               start: 0.5,
             });
 
-            const newBall = new Ball(this, myBlock.x, myBlock.y, "tiles", 47);
+            const newBall = new Ball(
+              this,
+              myBlock.x,
+              myBlock.y,
+              SHEETS.Tiles,
+              47
+            );
 
             const randX = Phaser.Math.RND.pick([-37, 37]);
             const randY = Phaser.Math.RND.pick([-37, 37]);
@@ -440,7 +446,7 @@ export default class BaseScene extends Phaser.Scene {
             this.sound.play(AUDIO.KISS, { volume: 2 });
             this.lives++;
             this.heartSprites.push(
-              this.add.sprite(16 * this.lives - 1, 8, "tiles", 32)
+              this.add.sprite(16 * this.lives - 1, 8, SHEETS.Tiles, 32)
             );
 
             break;
@@ -639,7 +645,7 @@ export default class BaseScene extends Phaser.Scene {
               this,
               this.player.x + 16,
               this.player.y - 6,
-              "tiles",
+              SHEETS.Tiles,
               11
             );
             this.clamped = true;
@@ -670,9 +676,12 @@ export default class BaseScene extends Phaser.Scene {
     // });
     // volcanobg.anims.play("volcanobg_anim");
 
-    this.add.image(80, 120, "mountainbg").setDepth(-10).setPipeline("Light2D");
+    this.add
+      .image(80, 120, IMAGES.MountainBG)
+      .setDepth(-10)
+      .setPipeline("Light2D");
 
-    const gradient = this.add.image(80, 120, "bluegradientbg");
+    const gradient = this.add.image(80, 120, IMAGES.BlueGradBG);
     gradient.setDepth(-100);
   }
 

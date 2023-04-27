@@ -15,7 +15,7 @@ export const AUDIO = {
   CREAK: "creakSound",
 };
 
-export const FONT_KEYS = {
+export const FONTS = {
   VCR_WHITE: "vcr-white",
   VCR_BLACK: "vcr-black",
 };
@@ -37,3 +37,18 @@ export const SCENES = {
 //   Test_Nudge_Map: "Test_Nudge_Map",
 //   DemoScene_Map: "DemoScene_Map",
 // }
+
+export const SHEETS = {
+  Tiles: "tiles",
+  VolcanoBG: "volcanobg",
+};
+
+export const ATLAS = {
+  Cloud: "cloud-atlas",
+};
+
+export const IMAGES = {
+  BlueGradBG: "bluegradientbg",
+  MountainBG: "mountainbg",
+  BreakoutExtruded: "breakout-extruded",
+};

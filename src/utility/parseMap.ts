@@ -5,6 +5,8 @@ import { Ball, iBall } from "../objects/Ball";
 
 import { iBlock, iBlockSprite } from "../objects/Block";
 
+import { SHEETS } from "../constants";
+
 export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
   // Get object layers
   const blocksLayer = map.getObjectLayer("blocks");
@@ -25,7 +27,7 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
         shiplight: Phaser.GameObjects.Light | null;
 
         constructor(scene: BaseScene, x: number, y: number) {
-          super(scene, x, y, "tiles", 10);
+          super(scene, x, y, SHEETS.Tiles, 10);
 
           // this.shiplight = scene.lights.addLight(80, 120, 1000, 0x7f0000, 1);
           this.shiplight = null;
@@ -57,7 +59,7 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
           y: number,
           platform: Phaser.Physics.Arcade.Sprite
         ) {
-          super(scene, x, y + 10, "tiles", 40);
+          super(scene, x, y + 10, SHEETS.Tiles, 40);
 
           this.platform = platform;
 
@@ -133,7 +135,7 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
         scene,
         myBall.x,
         myBall.y,
-        "tiles",
+        SHEETS.Tiles,
         myBall.gid - 1
       );
 
@@ -151,7 +153,7 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
       const blockSprite = scene.physics.add.sprite(
         myBlock.x,
         myBlock.y,
-        "tiles",
+        SHEETS.Tiles,
         myBlock.gid - 1
       ) as iBlockSprite;
 
@@ -248,7 +250,7 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
           const wallSprite = scene.physics.add.sprite(
             (wall.x! += wall.width! / 2),
             (wall.y! += wall.height! / 2),
-            "tiles",
+            SHEETS.Tiles,
             wall.gid! - 1
           );
 
@@ -265,18 +267,27 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
               object.height
             );
 
-          const newZone = scene.add.zone(
-            objectX + object.width / 2,
-            objectY + object.height / 2,
-            object.width,
-            object.height
-          );
+          // const newZone = scene.add.zone(
+          //   objectX + object.width / 2,
+          //   objectY + object.height / 2,
+          //   object.width,
+          //   object.height
+          // );
 
           const pos = (object.width / 2 + object.height / 2) / 2;
 
-          const myobj: any = scene.physics.add.existing(newZone, true);
+          // const myobj: any = scene.physics.add.existing(newZone, true);
 
-          myobj.body.setCircle(pos);
+          const wallSprite = scene.physics.add.sprite(
+            (wall.x! += wall.width! / 2),
+            (wall.y! += wall.height! / 2),
+            SHEETS.Tiles,
+            wall.gid! - 1
+          );
+
+          scene.addToWallGroup(wallSprite);
+
+          wallSprite.setCircle(pos);
         }
       }
     });

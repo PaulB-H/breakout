@@ -1,4 +1,4 @@
-import { AUDIO, FONT_KEYS, SCENES } from "../constants";
+import { AUDIO, FONTS, SCENES, SHEETS, ATLAS, IMAGES } from "../constants";
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
@@ -8,7 +8,7 @@ export default class PreloaderScene extends Phaser.Scene {
   preload() {
     // "tiles"
     this.load.spritesheet({
-      key: "tiles",
+      key: SHEETS.Tiles,
       url: "assets/main-tileset/breakout-extruded.png",
       normalMap: "assets/main-tileset/breakout-extruded_n.png",
       frameConfig: {
@@ -19,25 +19,22 @@ export default class PreloaderScene extends Phaser.Scene {
       },
     });
 
-    this.load.tilemapTiledJSON("DemoScene", "assets/levels/breakout.json");
-
+    this.load.tilemapTiledJSON(SCENES.DemoScene, "assets/levels/breakout.json");
     this.load.tilemapTiledJSON(SCENES.Level_1, "assets/levels/level-1.json");
     this.load.tilemapTiledJSON(SCENES.Level_2, "assets/levels/level-2.json");
     this.load.tilemapTiledJSON(SCENES.Level_3, "assets/levels/level-3.json");
-
-    this.load.tilemapTiledJSON(
-      SCENES.Test_Nudge,
-      "assets/levels/test-ai-nudge.json"
-    );
+    // prettier-ignore
+    this.load.tilemapTiledJSON(SCENES.Test_Nudge, 
+      "assets/levels/test-ai-nudge.json");
 
     const fonts = [
       {
-        key: FONT_KEYS.VCR_WHITE,
+        key: FONTS.VCR_WHITE,
         png: "assets/font/vcr-white/vcr-white.png",
         xml: "assets/font/vcr-white/vcr-white.xml",
       },
       {
-        key: FONT_KEYS.VCR_BLACK,
+        key: FONTS.VCR_BLACK,
         png: "assets/font/vcr-black/vcr-black.png",
         xml: "assets/font/vcr-black/vcr-black.xml",
       },
@@ -66,14 +63,15 @@ export default class PreloaderScene extends Phaser.Scene {
 
     // "cloud-atlas"
     this.load.atlas({
-      key: "cloud-atlas",
+      key: ATLAS.Cloud,
       textureURL: "assets/clouds/cloud-atlas.png",
       normalMap: "assets/clouds/cloud-atlas_n.png",
       atlasURL: "assets/clouds/cloud-atlas.json",
     });
 
+    // volcanobg
     this.load.spritesheet({
-      key: "volcanobg",
+      key: SHEETS.VolcanoBG,
       url: "assets/backgrounds/volcanobg.png",
       normalMap: "assets/backgrounds/volcanobg_n.png",
       frameConfig: {
@@ -82,15 +80,15 @@ export default class PreloaderScene extends Phaser.Scene {
       },
     });
 
-    this.load.image("bluegradientbg", "assets/backgrounds/bluegradientbg.png");
+    this.load.image(IMAGES.BlueGradBG, "assets/backgrounds/bluegradientbg.png");
 
-    this.load.image("mountainbg", [
+    this.load.image(IMAGES.MountainBG, [
       "assets/backgrounds/mountainbg.png",
       "assets/backgrounds/mountainbg_n.png",
     ]);
   }
 
   create() {
-    this.scene.start(SCENES.DemoScene);
+    this.scene.start(SCENES.Level_1);
   }
 }

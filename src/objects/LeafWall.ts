@@ -1,8 +1,10 @@
 import BaseScene from "../scenes/BaseScene";
 
+import { SHEETS } from "../constants";
+
 class LeafWall extends Phaser.Physics.Arcade.Sprite {
   constructor(scene: BaseScene, x: number, y: number) {
-    super(scene, x, y, "tiles", 34);
+    super(scene, x, y, SHEETS.Tiles, 34);
 
     this.setY((scene.game.config.height as number) - 8);
 

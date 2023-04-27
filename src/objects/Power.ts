@@ -1,5 +1,7 @@
 import BaseScene from "../scenes/BaseScene";
 
+import { SHEETS } from "../constants";
+
 export default class Power extends Phaser.Physics.Arcade.Sprite {
   gid: number;
   properties: { power: string };
@@ -11,7 +13,7 @@ export default class Power extends Phaser.Physics.Arcade.Sprite {
     scene: BaseScene,
     x: number,
     y: number,
-    texture = "tiles",
+    texture = SHEETS.Tiles,
     frame: number,
     tileset: Phaser.Tilemaps.Tileset
   ) {

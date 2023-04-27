@@ -1,3 +1,5 @@
+import { ATLAS } from "../../constants";
+
 // Dont need to export this since its just made with CloudTimer
 class Cloud extends Phaser.Physics.Arcade.Sprite {
   constructor(scene: Phaser.Scene) {
@@ -5,7 +7,7 @@ class Cloud extends Phaser.Physics.Arcade.Sprite {
       scene,
       -50,
       -50,
-      "cloud-atlas",
+      ATLAS.Cloud,
       `cloud${Math.floor(Math.random() * 3 + 1)}.png`
     );
 

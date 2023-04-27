@@ -1,12 +1,14 @@
 import BaseScene from "../scenes/BaseScene";
 
+import { SHEETS } from "../constants";
+
 export class FireBall extends Phaser.Physics.Arcade.Sprite {
   type = "fireball";
   constructor(
     scene: BaseScene,
     x: number,
     y: number,
-    texture = "tiles",
+    texture = SHEETS.Tiles,
     frame = 42
   ) {
     super(scene, x, y, texture, frame);
@@ -28,7 +30,7 @@ export class LightningBolt extends Phaser.Physics.Arcade.Sprite {
     scene: BaseScene,
     x: number,
     y: number,
-    texture = "tiles",
+    texture = SHEETS.Tiles,
     frame = 53
   ) {
     super(scene, x, y, texture, frame);
@@ -50,7 +52,7 @@ export class LaserBeam extends Phaser.Physics.Arcade.Sprite {
     scene: BaseScene,
     x: number,
     y: number,
-    texture = "tiles",
+    texture = SHEETS.Tiles,
     frame = 49
   ) {
     super(scene, x, y, texture, frame);

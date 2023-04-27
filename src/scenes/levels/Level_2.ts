@@ -1,9 +1,10 @@
 import BaseScene from "../BaseScene";
 import { parseMap } from "../../utility/parseMap";
+import { SCENES, IMAGES, SHEETS } from "../../constants";
 
 export default class Level_2 extends BaseScene {
   constructor() {
-    super("Level_2");
+    super(SCENES.Level_2);
   }
 
   preload() {
@@ -14,15 +15,15 @@ export default class Level_2 extends BaseScene {
     super.create();
     // Create Tilemap
     const map = this.make.tilemap({
-      key: "Level_2",
+      key: SCENES.Level_2,
       tileWidth: 16,
       tileHeight: 16,
     });
-    map.addTilesetImage("breakout-extruded", "tiles");
+    map.addTilesetImage(IMAGES.BreakoutExtruded, SHEETS.Tiles);
 
     // Create reference to tileset & its data
     const tileset = map.getTileset(
-      "breakout-extruded"
+      IMAGES.BreakoutExtruded
     ) as Phaser.Tilemaps.Tileset;
 
     parseMap(this, map);

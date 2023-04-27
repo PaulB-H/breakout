@@ -1,14 +1,10 @@
-// import Phaser from "phaser";
-
 import BaseScene from "./BaseScene";
-
-// import { AUDIO } from "../../constants";
-
+import { SCENES, IMAGES, SHEETS } from "../constants";
 import { parseMap } from "../utility/parseMap";
 
 export default class DemoScene extends BaseScene {
   constructor() {
-    super("DemoScene");
+    super(SCENES.DemoScene);
   }
 
   preload() {
@@ -19,15 +15,15 @@ export default class DemoScene extends BaseScene {
     super.create();
     // Create Tilemap
     const map = this.make.tilemap({
-      key: "DemoScene",
+      key: SCENES.DemoScene,
       tileWidth: 16,
       tileHeight: 16,
     });
-    map.addTilesetImage("breakout-extruded", "tiles");
+    map.addTilesetImage(IMAGES.BreakoutExtruded, SHEETS.Tiles);
 
     // Create reference to tileset & its data
     const tileset = map.getTileset(
-      "breakout-extruded"
+      IMAGES.BreakoutExtruded
     ) as Phaser.Tilemaps.Tileset;
 
     parseMap(this, map);
