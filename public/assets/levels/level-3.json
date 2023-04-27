@@ -81,7 +81,7 @@
                  "visible":true,
                  "width":16,
                  "x":0,
-                 "y":119
+                 "y":144
                 }, 
                 {
                  "gid":1,
@@ -99,7 +99,7 @@
                  "visible":true,
                  "width":16,
                  "x":32,
-                 "y":119
+                 "y":144
                 }, 
                 {
                  "gid":1,
@@ -117,7 +117,7 @@
                  "visible":true,
                  "width":16,
                  "x":64,
-                 "y":119
+                 "y":144
                 }, 
                 {
                  "gid":1,
@@ -135,7 +135,7 @@
                  "visible":true,
                  "width":16,
                  "x":96,
-                 "y":119
+                 "y":144
                 }, 
                 {
                  "gid":1,
@@ -153,7 +153,7 @@
                  "visible":true,
                  "width":16,
                  "x":128,
-                 "y":119
+                 "y":144
                 }, 
                 {
                  "gid":59,
@@ -171,7 +171,7 @@
                  "visible":true,
                  "width":16,
                  "x":40,
-                 "y":125
+                 "y":128
                 }, 
                 {
                  "gid":59,
@@ -189,7 +189,7 @@
                  "visible":true,
                  "width":16,
                  "x":72,
-                 "y":125
+                 "y":128
                 }, 
                 {
                  "gid":59,
@@ -207,7 +207,7 @@
                  "visible":true,
                  "width":16,
                  "x":105,
-                 "y":125
+                 "y":128
                 }, 
                 {
                  "gid":59,
@@ -225,7 +225,7 @@
                  "visible":true,
                  "width":16,
                  "x":136,
-                 "y":125
+                 "y":128
                 }, 
                 {
                  "gid":59,
@@ -243,7 +243,7 @@
                  "visible":true,
                  "width":16,
                  "x":9,
-                 "y":125
+                 "y":128
                 },
             
                 {
@@ -262,7 +262,7 @@
                  "visible":true,
                  "width":16,
                  "x":144,
-                 "y":119
+                 "y":144
                 }, 
                 {
                  "gid":2,
@@ -280,7 +280,7 @@
                  "visible":true,
                  "width":16,
                  "x":112,
-                 "y":119
+                 "y":144
                 }, 
                 {
                  "gid":2,
@@ -298,7 +298,7 @@
                  "visible":true,
                  "width":16,
                  "x":80,
-                 "y":119
+                 "y":144
                 }, 
                 {
                  "gid":2,
@@ -316,7 +316,7 @@
                  "visible":true,
                  "width":16,
                  "x":48,
-                 "y":119
+                 "y":144
                 }, 
                 {
                  "gid":2,
@@ -334,7 +334,7 @@
                  "visible":true,
                  "width":16,
                  "x":16,
-                 "y":119
+                 "y":144
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -363,7 +363,7 @@
                  "visible":true,
                  "width":16,
                  "x":48,
-                 "y":110
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -381,7 +381,7 @@
                  "visible":true,
                  "width":16,
                  "x":0,
-                 "y":110
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -399,7 +399,7 @@
                  "visible":true,
                  "width":16,
                  "x":16,
-                 "y":110
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -417,7 +417,7 @@
                  "visible":true,
                  "width":16,
                  "x":32,
-                 "y":110
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -435,7 +435,7 @@
                  "visible":true,
                  "width":16,
                  "x":64,
-                 "y":110
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -453,7 +453,7 @@
                  "visible":true,
                  "width":16,
                  "x":80,
-                 "y":110
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -471,7 +471,7 @@
                  "visible":true,
                  "width":16,
                  "x":96,
-                 "y":110
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -489,7 +489,7 @@
                  "visible":true,
                  "width":16,
                  "x":112,
-                 "y":110
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -507,7 +507,7 @@
                  "visible":true,
                  "width":16,
                  "x":128,
-                 "y":110
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -525,15 +525,29 @@
                  "visible":true,
                  "width":16,
                  "x":144,
-                 "y":110
+                 "y":119
                 }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "compression":"zlib",
+         "data":"eJxjYBgFo4B4YE8kBgA4fAJ3",
+         "encoding":"base64",
+         "height":15,
+         "id":6,
+         "name":"deco",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":10,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":6,
+ "nextlayerid":7,
  "nextobjectid":45,
  "orientation":"orthogonal",
  "renderorder":"right-down",
