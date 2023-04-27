@@ -754,13 +754,13 @@ export default class BaseScene extends Phaser.Scene {
 
       if (!this.ai.lastUpdate) {
         this.ai.lastUpdate = t;
-        this.ai.lastNudgeAmnt = Phaser.Math.RND.pick([-4, -2, 0, 2, 4]);
+        this.ai.lastNudgeAmnt = Phaser.Math.RND.pick([-8, -4, 0, 4, 8]);
       }
 
       if (t - this.ai.lastUpdate > 3000) {
         // ("Over 3 seconds, nudge loc");
         this.ai.x = Math.floor(Math.random() * 21) - 10;
-        this.ai.lastNudgeAmnt = Phaser.Math.RND.pick([-4, -2, 0, 2, 4]);
+        this.ai.lastNudgeAmnt = Phaser.Math.RND.pick([-8, -4, 0, 4, 8]);
         this.ai.lastUpdate = t;
       }
 
