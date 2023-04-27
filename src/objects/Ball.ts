@@ -25,7 +25,7 @@ export class Ball extends Phaser.Physics.Arcade.Sprite {
     this.ballLight = null;
     this.ballLight = scene.lights.addLight(80, 120, 100, 0xffffff, 0.5);
 
-    // this.setPipeline("Light2D");
+    this.setPipeline("Light2D");
 
     this.setCircle(4, 4, 4);
 
