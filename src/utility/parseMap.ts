@@ -14,6 +14,7 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
   const ballLayer = map.getObjectLayer("ball");
   // const powersLayer = map.getObjectLayer("powers");
   const wallsLayer = map.getObjectLayer("walls");
+  const decoObjLayer = map.getObjectLayer("deco-objects");
 
   // Psst! Controls are in here too...
   if (playerLayer) {
@@ -290,6 +291,15 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
           wallSprite.setCircle(pos);
         }
       }
+    });
+  }
+
+  if (decoObjLayer) {
+    decoObjLayer.objects.forEach((decoObj: any) => {
+      decoObj.x += map.tileWidth / 2;
+      decoObj.y -= map.tileHeight / 2;
+
+      scene.add.sprite(decoObj.x, decoObj.y, SHEETS.Tiles, decoObj.gid - 1);
     });
   }
 };
