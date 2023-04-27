@@ -339,6 +339,9 @@ export default class BaseScene extends Phaser.Scene {
           duration: 100,
           yoyo: true,
           repeat: 0,
+          onComplete: () => {
+            playerSprite.y = 210;
+          },
         });
 
         // Only proceed with custom re-direction logic if ball bottom hits platform
