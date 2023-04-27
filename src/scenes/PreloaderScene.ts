@@ -23,6 +23,7 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.tilemapTiledJSON(SCENES.Level_1, "assets/levels/level-1.json");
     this.load.tilemapTiledJSON(SCENES.Level_2, "assets/levels/level-2.json");
     this.load.tilemapTiledJSON(SCENES.Level_3, "assets/levels/level-3.json");
+    this.load.tilemapTiledJSON(SCENES.Level_4, "assets/levels/level-4.json");
     // prettier-ignore
     this.load.tilemapTiledJSON(SCENES.Test_Nudge, 
       "assets/levels/test-ai-nudge.json");

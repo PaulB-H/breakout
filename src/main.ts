@@ -5,6 +5,8 @@ import PreloaderScene from "./scenes/PreloaderScene";
 import Level_1 from "./scenes/levels/Level_1";
 import Level_2 from "./scenes/levels/Level_2";
 import Level_3 from "./scenes/levels/Level_3";
+import Level_4 from "./scenes/levels/Level_4";
+
 import Test_Nudge from "./scenes/levels/Test_Nudge";
 
 const config: Phaser.Types.Core.GameConfig = {
@@ -22,7 +24,15 @@ const config: Phaser.Types.Core.GameConfig = {
       debug: false,
     },
   },
-  scene: [PreloaderScene, DemoScene, Test_Nudge, Level_1, Level_2, Level_3],
+  scene: [
+    PreloaderScene,
+    Test_Nudge,
+    Level_1,
+    Level_2,
+    Level_3,
+    Level_4,
+    DemoScene,
+  ],
   scale: {
     zoom: 1,
     mode: Phaser.Scale.FIT,
