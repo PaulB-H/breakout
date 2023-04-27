@@ -22,7 +22,7 @@ const config: Phaser.Types.Core.GameConfig = {
       debug: false,
     },
   },
-  scene: [PreloaderScene, Level_1, Level_2, Level_3, DemoScene, Test_Nudge],
+  scene: [PreloaderScene, DemoScene, Test_Nudge, Level_1, Level_2, Level_3],
   scale: {
     zoom: 1,
     mode: Phaser.Scale.FIT,
