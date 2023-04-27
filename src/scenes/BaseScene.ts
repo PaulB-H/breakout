@@ -729,19 +729,20 @@ export default class BaseScene extends Phaser.Scene {
     // Since we move blocks out of blockGroup before
     // destruction now this needs updating
     /**********************************************/
-    // if (this.blocks === 1) {
-    //   const target = this.blockGroup.children
-    //     .entries[0] as Phaser.Physics.Arcade.Sprite;
+    if (this.blocks === 1) {
+      const target = this.blockGroup.children
+        .entries[0] as Phaser.Physics.Arcade.Sprite;
+      if (!target) return;
 
-    //   this.ballGroup.getChildren().forEach((ball) => {
-    //     const myBall = ball as Phaser.Physics.Arcade.Sprite;
-    //     const newX = Phaser.Math.Linear(myBall.x, target.x, 0.075);
-    //     const newY = Phaser.Math.Linear(myBall.y, target.y, 0.075);
-    //     myBall.setVelocity(0, 0);
-    //     myBall.x = newX;
-    //     myBall.y = newY;
-    //   });
-    // }
+      this.ballGroup.getChildren().forEach((ball) => {
+        const myBall = ball as Phaser.Physics.Arcade.Sprite;
+        const newX = Phaser.Math.Linear(myBall.x, target.x, 0.075);
+        const newY = Phaser.Math.Linear(myBall.y, target.y, 0.075);
+        myBall.setVelocity(0, 0);
+        myBall.x = newX;
+        myBall.y = newY;
+      });
+    }
 
     // My "AI"
     // Using "LERP" we get a more natural AI
