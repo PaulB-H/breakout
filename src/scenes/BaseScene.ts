@@ -790,7 +790,22 @@ export default class BaseScene extends Phaser.Scene {
     if (this.blocks <= 0 || this.lives <= 0) {
       document.removeEventListener("touchmove", this.touchMoveFunc);
       document.removeEventListener("mousedown", this.clickFunc);
-      this.scene.start("Level_2");
+
+      const currentIndex = this.scene.getIndex();
+
+      const scenesLength = this.scene.manager.getScenes(false).length - 1;
+
+      if (currentIndex === scenesLength) {
+        // Last Scene, start scene 1
+        this.scene.start(SCENES.Level_1);
+      } else {
+        const nextSceneKey =
+          this.scene.manager.scenes[currentIndex + 1].scene.key;
+        this.scene.start(nextSceneKey);
+      }
+
+      // this.scene.switch(nextSceneKey);
+      // this.scene.start(nextSceneKey);
     }
 
     /* Rough way to change sprite based on direction of player movement
