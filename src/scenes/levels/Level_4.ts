@@ -22,15 +22,7 @@ export default class Level_4 extends BaseScene {
     });
     map.addTilesetImage(IMAGES.BreakoutExtruded, SHEETS.Tiles);
 
-    // Create reference to tileset & its data
-    // const tileset = map.getTileset(
-    //   IMAGES.BreakoutExtruded
-    // ) as Phaser.Tilemaps.Tileset;
-
     parseMap(this, map);
-
-    // Create deco layer
-    // map.createLayer("deco", tileset)!.setPipeline("Light2D");
   }
 
   update(t: number) {

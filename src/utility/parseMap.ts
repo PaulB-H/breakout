@@ -5,7 +5,7 @@ import { Ball, iBall } from "../objects/Ball";
 
 import { iBlock, iBlockSprite } from "../objects/Block";
 
-import { SHEETS } from "../constants";
+import { IMAGES, SHEETS } from "../constants";
 
 export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
   // Get object layers
@@ -301,5 +301,10 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
 
       scene.add.sprite(decoObj.x, decoObj.y, SHEETS.Tiles, decoObj.gid - 1);
     });
+  }
+
+  if (map.getLayer("deco")) {
+    const decoLayer = map.createLayer("deco", IMAGES.BreakoutExtruded);
+    if (decoLayer) decoLayer.setPipeline("Light2D");
   }
 };

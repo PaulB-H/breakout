@@ -13,6 +13,7 @@ export default class Level_2 extends BaseScene {
 
   create() {
     super.create();
+
     // Create Tilemap
     const map = this.make.tilemap({
       key: SCENES.Level_2,
@@ -21,14 +22,7 @@ export default class Level_2 extends BaseScene {
     });
     map.addTilesetImage(IMAGES.BreakoutExtruded, SHEETS.Tiles);
 
-    // Create reference to tileset & its data
-    const tileset = map.getTileset(
-      IMAGES.BreakoutExtruded
-    ) as Phaser.Tilemaps.Tileset;
-
     parseMap(this, map);
-
-    map.createLayer("deco", tileset)!.setPipeline("Light2D");
   }
 
   update(t: number) {

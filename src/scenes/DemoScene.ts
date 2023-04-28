@@ -21,14 +21,7 @@ export default class DemoScene extends BaseScene {
     });
     map.addTilesetImage(IMAGES.BreakoutExtruded, SHEETS.Tiles);
 
-    // Create reference to tileset & its data
-    const tileset = map.getTileset(
-      IMAGES.BreakoutExtruded
-    ) as Phaser.Tilemaps.Tileset;
-
     parseMap(this, map);
-
-    map.createLayer("deco", tileset)!.setPipeline("Light2D");
   }
 
   update(t: number) {
