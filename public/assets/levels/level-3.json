@@ -80,8 +80,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":0,
-                 "y":144
+                 "x":16,
+                 "y":128
                 }, 
                 {
                  "gid":1,
@@ -98,8 +98,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":32,
-                 "y":144
+                 "x":48,
+                 "y":128
                 }, 
                 {
                  "gid":1,
@@ -116,8 +116,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":64,
-                 "y":144
+                 "x":80,
+                 "y":128
                 }, 
                 {
                  "gid":1,
@@ -134,8 +134,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":96,
-                 "y":144
+                 "x":112,
+                 "y":128
                 }, 
                 {
                  "gid":1,
@@ -152,8 +152,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":128,
-                 "y":144
+                 "x":144,
+                 "y":128
                 }, 
                 {
                  "gid":59,
@@ -170,7 +170,7 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":40,
+                 "x":32,
                  "y":128
                 }, 
                 {
@@ -188,7 +188,7 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":72,
+                 "x":64,
                  "y":128
                 }, 
                 {
@@ -206,7 +206,7 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":105,
+                 "x":96,
                  "y":128
                 }, 
                 {
@@ -224,7 +224,7 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":136,
+                 "x":128,
                  "y":128
                 }, 
                 {
@@ -242,99 +242,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":9,
+                 "x":0,
                  "y":128
-                },
-            
-                {
-                 "gid":2,
-                 "height":16,
-                 "id":29,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"blue"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":144,
-                 "y":144
-                }, 
-                {
-                 "gid":2,
-                 "height":16,
-                 "id":30,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"blue"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":112,
-                 "y":144
-                }, 
-                {
-                 "gid":2,
-                 "height":16,
-                 "id":31,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"blue"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":80,
-                 "y":144
-                }, 
-                {
-                 "gid":2,
-                 "height":16,
-                 "id":32,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"blue"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":48,
-                 "y":144
-                }, 
-                {
-                 "gid":2,
-                 "height":16,
-                 "id":33,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"blue"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":16,
-                 "y":144
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -534,9 +443,21 @@
          "y":0
         }, 
         {
-         "compression":"zlib",
-         "data":"eJxjYBgFo4B4YE8kBgA4fAJ3",
-         "encoding":"base64",
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            35, 35, 35, 35, 35, 35, 35, 35, 35, 35,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            63, 63, 63, 63, 63, 63, 63, 63, 63, 63],
          "height":15,
          "id":6,
          "name":"deco",

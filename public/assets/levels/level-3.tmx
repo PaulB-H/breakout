@@ -565,21 +565,16 @@
   <object id="3" gid="12" x="72" y="212" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="4" name="blocks">
-  <object id="14" gid="1" x="0" y="144" width="16" height="16"/>
-  <object id="15" gid="1" x="32" y="144" width="16" height="16"/>
-  <object id="16" gid="1" x="64" y="144" width="16" height="16"/>
-  <object id="17" gid="1" x="96" y="144" width="16" height="16"/>
-  <object id="18" gid="1" x="128" y="144" width="16" height="16"/>
-  <object id="24" gid="59" x="40" y="128" width="16" height="16"/>
-  <object id="25" gid="59" x="72" y="128" width="16" height="16"/>
-  <object id="26" gid="59" x="105" y="128" width="16" height="16"/>
-  <object id="27" gid="59" x="136" y="128" width="16" height="16"/>
-  <object id="28" gid="59" x="9" y="128" width="16" height="16"/>
-  <object id="29" gid="2" x="144" y="144" width="16" height="16"/>
-  <object id="30" gid="2" x="112" y="144" width="16" height="16"/>
-  <object id="31" gid="2" x="80" y="144" width="16" height="16"/>
-  <object id="32" gid="2" x="48" y="144" width="16" height="16"/>
-  <object id="33" gid="2" x="16" y="144" width="16" height="16"/>
+  <object id="14" gid="1" x="16" y="128" width="16" height="16"/>
+  <object id="15" gid="1" x="48" y="128" width="16" height="16"/>
+  <object id="16" gid="1" x="80" y="128" width="16" height="16"/>
+  <object id="17" gid="1" x="112" y="128" width="16" height="16"/>
+  <object id="18" gid="1" x="144" y="128" width="16" height="16"/>
+  <object id="24" gid="59" x="32" y="128" width="16" height="16"/>
+  <object id="25" gid="59" x="64" y="128" width="16" height="16"/>
+  <object id="26" gid="59" x="96" y="128" width="16" height="16"/>
+  <object id="27" gid="59" x="128" y="128" width="16" height="16"/>
+  <object id="28" gid="59" x="0" y="128" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="5" name="walls">
   <object id="4" gid="76" x="48" y="119" width="16" height="16"/>
@@ -594,8 +589,22 @@
   <object id="13" gid="76" x="144" y="119" width="16" height="16"/>
  </objectgroup>
  <layer id="6" name="deco" width="10" height="15">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo4B4YE8kBgA4fAJ3
-  </data>
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+35,35,35,35,35,35,35,35,35,35,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+63,63,63,63,63,63,63,63,63,63
+</data>
  </layer>
 </map>

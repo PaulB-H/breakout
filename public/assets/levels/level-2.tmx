@@ -572,7 +572,7 @@
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,
+35,35,35,35,35,35,35,35,35,35,
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
@@ -584,32 +584,27 @@
 </data>
  </layer>
  <objectgroup id="5" name="walls">
-  <object id="29" gid="76" x="0" y="103" width="16" height="16"/>
-  <object id="30" gid="76" x="16" y="103" width="16" height="16"/>
-  <object id="31" gid="76" x="32" y="103" width="16" height="16"/>
-  <object id="32" gid="76" x="48" y="103" width="16" height="16"/>
-  <object id="33" gid="76" x="64" y="103" width="16" height="16"/>
-  <object id="34" gid="76" x="80" y="103" width="16" height="16"/>
-  <object id="35" gid="76" x="96" y="103" width="16" height="16"/>
-  <object id="36" gid="76" x="112" y="103" width="16" height="16"/>
-  <object id="37" gid="76" x="128" y="103" width="16" height="16"/>
-  <object id="38" gid="76" x="144" y="103" width="16" height="16"/>
+  <object id="29" gid="76" x="0" y="119" width="16" height="16"/>
+  <object id="30" gid="76" x="16" y="119" width="16" height="16"/>
+  <object id="31" gid="76" x="32" y="119" width="16" height="16"/>
+  <object id="32" gid="76" x="48" y="119" width="16" height="16"/>
+  <object id="33" gid="76" x="64" y="119" width="16" height="16"/>
+  <object id="34" gid="76" x="80" y="119" width="16" height="16"/>
+  <object id="35" gid="76" x="96" y="119" width="16" height="16"/>
+  <object id="36" gid="76" x="112" y="119" width="16" height="16"/>
+  <object id="37" gid="76" x="128" y="119" width="16" height="16"/>
+  <object id="38" gid="76" x="144" y="119" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="6" name="blocks">
-  <object id="24" gid="4" x="16" y="112" width="16" height="16"/>
-  <object id="25" gid="4" x="48" y="112" width="16" height="16"/>
-  <object id="26" gid="4" x="80" y="112" width="16" height="16"/>
-  <object id="27" gid="4" x="112" y="112" width="16" height="16"/>
-  <object id="28" gid="4" x="144" y="112" width="16" height="16"/>
-  <object id="39" gid="9" x="144" y="128" width="16" height="16"/>
+  <object id="24" gid="4" x="16" y="128" width="16" height="16"/>
+  <object id="25" gid="4" x="48" y="128" width="16" height="16"/>
+  <object id="26" gid="4" x="80" y="128" width="16" height="16"/>
+  <object id="27" gid="4" x="112" y="128" width="16" height="16"/>
+  <object id="28" gid="4" x="144" y="128" width="16" height="16"/>
   <object id="40" gid="9" x="128" y="128" width="16" height="16"/>
-  <object id="41" gid="9" x="112" y="128" width="16" height="16"/>
   <object id="42" gid="9" x="96" y="128" width="16" height="16"/>
-  <object id="43" gid="9" x="80" y="128" width="16" height="16"/>
   <object id="44" gid="9" x="64" y="128" width="16" height="16"/>
-  <object id="45" gid="9" x="48" y="128" width="16" height="16"/>
   <object id="46" gid="9" x="32" y="128" width="16" height="16"/>
-  <object id="47" gid="9" x="16" y="128" width="16" height="16"/>
   <object id="48" gid="9" x="0" y="128" width="16" height="16"/>
  </objectgroup>
 </map>

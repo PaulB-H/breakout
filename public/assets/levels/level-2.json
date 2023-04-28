@@ -67,7 +67,7 @@
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            35, 35, 35, 35, 35, 35, 35, 35, 35, 35,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -107,7 +107,7 @@
                  "visible":true,
                  "width":16,
                  "x":0,
-                 "y":103
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -125,7 +125,7 @@
                  "visible":true,
                  "width":16,
                  "x":16,
-                 "y":103
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -143,7 +143,7 @@
                  "visible":true,
                  "width":16,
                  "x":32,
-                 "y":103
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -161,7 +161,7 @@
                  "visible":true,
                  "width":16,
                  "x":48,
-                 "y":103
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -179,7 +179,7 @@
                  "visible":true,
                  "width":16,
                  "x":64,
-                 "y":103
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -197,7 +197,7 @@
                  "visible":true,
                  "width":16,
                  "x":80,
-                 "y":103
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -215,7 +215,7 @@
                  "visible":true,
                  "width":16,
                  "x":96,
-                 "y":103
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -233,7 +233,7 @@
                  "visible":true,
                  "width":16,
                  "x":112,
-                 "y":103
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -251,7 +251,7 @@
                  "visible":true,
                  "width":16,
                  "x":128,
-                 "y":103
+                 "y":119
                 }, 
                 {
                  "gid":76,
@@ -269,7 +269,7 @@
                  "visible":true,
                  "width":16,
                  "x":144,
-                 "y":103
+                 "y":119
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -298,7 +298,7 @@
                  "visible":true,
                  "width":16,
                  "x":16,
-                 "y":112
+                 "y":128
                 }, 
                 {
                  "gid":4,
@@ -316,7 +316,7 @@
                  "visible":true,
                  "width":16,
                  "x":48,
-                 "y":112
+                 "y":128
                 }, 
                 {
                  "gid":4,
@@ -334,7 +334,7 @@
                  "visible":true,
                  "width":16,
                  "x":80,
-                 "y":112
+                 "y":128
                 }, 
                 {
                  "gid":4,
@@ -352,7 +352,7 @@
                  "visible":true,
                  "width":16,
                  "x":112,
-                 "y":112
+                 "y":128
                 }, 
                 {
                  "gid":4,
@@ -364,24 +364,6 @@
                          "name":"color",
                          "type":"string",
                          "value":"yellow"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":144,
-                 "y":112
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
-                 "id":39,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
                         }],
                  "rotation":0,
                  "type":"",
@@ -411,24 +393,6 @@
                 {
                  "gid":9,
                  "height":16,
-                 "id":41,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":112,
-                 "y":128
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
                  "id":42,
                  "name":"",
                  "properties":[
@@ -444,25 +408,6 @@
                  "x":96,
                  "y":128
                 }, 
-                {
-                 "gid":9,
-                 "height":16,
-                 "id":43,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":80,
-                 "y":128
-                },
-            
                 {
                  "gid":9,
                  "height":16,
@@ -484,24 +429,6 @@
                 {
                  "gid":9,
                  "height":16,
-                 "id":45,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":48,
-                 "y":128
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
                  "id":46,
                  "name":"",
                  "properties":[
@@ -515,24 +442,6 @@
                  "visible":true,
                  "width":16,
                  "x":32,
-                 "y":128
-                }, 
-                {
-                 "gid":9,
-                 "height":16,
-                 "id":47,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"glass"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":16,
                  "y":128
                 }, 
                 {
