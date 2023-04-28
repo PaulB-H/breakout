@@ -18,6 +18,8 @@ export class FireBall extends Phaser.Physics.Arcade.Sprite {
 
     scene.addToProjectileGrp(this);
 
+    this.setPipeline("Light2D");
+
     this.setSize(14, 13);
 
     this.setVelocityY(100);
@@ -39,6 +41,8 @@ export class LightningBolt extends Phaser.Physics.Arcade.Sprite {
     scene.add.existing(this);
 
     scene.addToProjectileGrp(this);
+
+    this.setPipeline("Light2D");
 
     this.setSize(9, 16);
 
