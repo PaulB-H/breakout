@@ -61,6 +61,12 @@ export default class BaseScene extends Phaser.Scene {
     lastNudgeAmnt: null,
     x: 0,
   };
+  checkAiEnabled() {
+    return this.ai.active;
+  }
+  toggleAi() {
+    this.ai.active = !this.checkAiEnabled();
+  }
 
   private touchMoveFunc: any;
   setTouchMoveFunc(passedFunc: any) {
