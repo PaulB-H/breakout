@@ -86,7 +86,7 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
       // Controls... how did these end up in here...
       /***********************************************/
       scene.input.on("pointermove", (pointer: Phaser.Input.Pointer) => {
-        if (!scene.checkIfStunned()) {
+        if (!scene.checkIfStunned() && !scene.checkAiEnabled()) {
           sprite.x = pointer.worldX;
         }
       });
@@ -98,7 +98,7 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
       });
 
       const touchMoveFunc = (e: TouchEvent) => {
-        if (!scene.checkIfStunned()) {
+        if (!scene.checkIfStunned() && !scene.checkAiEnabled()) {
           const canvasRect = scene.game.canvas.getBoundingClientRect();
           const scaleFactor =
             scene.game.canvas.width / scene.game.canvas.offsetWidth;
