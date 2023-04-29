@@ -805,7 +805,8 @@ Reloading page...`
         targetBall = { x: 80 };
       }
 
-      const LERP = 0.5;
+      let LERP = 0.5;
+      if (targetBall.x === 80) LERP = 0.1;
       const targetX = targetBall.x + this.ai.lastNudgeAmnt!;
       const currentX = this.player.x;
       const newX = Phaser.Math.Linear(currentX, targetX, LERP);
