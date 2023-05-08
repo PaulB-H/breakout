@@ -240,35 +240,23 @@ Reloading page...`
     // _Particles
     /**********************************************/
 
-    // Need to re-work for phaser 3.6!
+    // const myVar: Phaser.Types.GameObjects.Particles.ParticleEmitterConfig;
+    // const myVar: Phaser.GameObjects.Particles.ParticleEmitter;
 
-    // Create particle emitter - Will be re-used for each effect
-    // const myEmit = new ParticleEmitter
-    // const puffEmitter = this.add
-    //   .particles("tiles")
-    //   .setDepth(100)
-    //   .createEmitter({
-    //     x: 0,
-    //     y: 0,
-    //     speed: { min: -100, max: 100 },
-    //     angle: { min: 0, max: 360 },
-    //     scale: { start: 0.5, end: 0 },
-    //     // blendMode: "ADD",
-    //     blendMode: "NORMAL",
-    //     lifespan: 750,
-    //     frequency: 50,
-    //     frame: 36, // Change depending on particle needed
-    //     quantity: 10,
-    //   })
-    //   .stop();
-
-    // // Make a puff of particles
-    // function createPuff(x: number, y: number, frame: number) {
-    //   puffEmitter.setPosition(x, y);
-    //   puffEmitter.setFrame(frame);
-    //   puffEmitter.emitParticle();
-    //   puffEmitter.stop();
-    // }
+    const emitter = this.add
+      .particles(0, 0, SHEETS.Tiles, {
+        lifespan: 750,
+        speed: { min: 10, max: 100 },
+        scale: { start: 1, end: 0 },
+        rotate: {
+          min: 0,
+          max: 360,
+        },
+        radial: true,
+        gravityY: 100,
+        emitting: false,
+      })
+      .setDepth(100);
 
     /**********************************************/
     // _Groups
@@ -433,17 +421,18 @@ Reloading page...`
         // depending on block color / properties
         switch (color) {
           case "green":
-            // createPuff(myBlock.x, myBlock.y, 35);
+            emitter.setEmitterFrame(94);
+            emitter.explode(10, myBlock.x, myBlock.y);
             this.sound.play(AUDIO.LEAF);
             buildWall(this);
             break;
           case "red":
-            // createPuff(myBlock.x, myBlock.y, 42);
+            emitter.setEmitterFrame(37);
+            emitter.explode(10, myBlock.x, myBlock.y);
             this.sound.play(AUDIO.FIRE);
             new FireBall(this, myBlock.x, myBlock.y);
             break;
           case "blue":
-            // createPuff(myBlock.x, myBlock.y, 44);
             this.sound.play(AUDIO.BUBBLE, {
               name: AUDIO.BUBBLE,
               start: 0.5,
@@ -464,12 +453,12 @@ Reloading page...`
 
             break;
           case "yellow":
-            // createPuff(myBlock.x, myBlock.y, 53);
             this.sound.play(AUDIO.ELECTRIC);
             new LightningBolt(this, myBlock.x, myBlock.y);
             break;
           case "pink":
-            // createPuff(myBlock.x, myBlock.y, 41);
+            emitter.setEmitterFrame(43);
+            emitter.explode(10, myBlock.x, myBlock.y);
             this.sound.play(AUDIO.KISS, { volume: 2 });
             this.lives++;
             this.heartSprites.push(
@@ -478,20 +467,24 @@ Reloading page...`
 
             break;
           case "purple":
-            // createPuff(myBlock.x, myBlock.y, 5);
             this.sound.play(AUDIO.LASER);
             new LaserBeam(this, myBlock.x, myBlock.y);
             break;
           case "wood":
-            // createPuff(myBlock.x, myBlock.y, 19);
+            emitter.setEmitterFrame(19);
+            emitter.explode(10, myBlock.x, myBlock.y);
             this.sound.play(AUDIO.PLANK);
             break;
           case "glass":
-            // createPuff(myBlock.x, myBlock.y, 9);
+            emitter.setEmitterFrame(9);
+            emitter.setAlpha(0.75);
+            emitter.explode(4, myBlock.x, myBlock.y);
             this.sound.play(AUDIO.GLASS);
+            emitter.setAlpha(1);
             break;
           case "rock":
-            // createPuff(myBlock.x, myBlock.y, 58);
+            emitter.setEmitterFrame(59);
+            emitter.explode(5, myBlock.x, myBlock.y);
             this.sound.play(AUDIO.ROCK);
             break;
           case "armored":
