@@ -6,19 +6,41 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
-    // "tiles"
-    this.load.spritesheet({
-      key: SHEETS.Tiles,
-      url: "assets/main-tileset/breakout-extruded.png",
-      normalMap: "assets/main-tileset/breakout-extruded_n.png",
-      frameConfig: {
-        frameWidth: 16,
-        frameHeight: 16,
-        spacing: 2,
-        margin: 1,
-        startFrame: 0,
-        endFrame: 99,
-      },
+    // // "tiles"
+    // this.load.spritesheet({
+    //   key: SHEETS.Tiles,
+    //   url: "assets/main-tileset/breakout-extruded.png",
+    //   normalMap: "assets/main-tileset/breakout-extruded_n.png",
+    //   frameConfig: {
+    //     frameWidth: 16,
+    //     frameHeight: 16,
+    //     spacing: 2,
+    //     margin: 1,
+    //     startFrame: 0,
+    //     endFrame: 99,
+    //   },
+    // });
+
+    this.load.image(
+      "breakout-extruded_n",
+      "assets/main-tileset/breakout-extruded_n.png"
+    );
+    this.load.spritesheet(
+      SHEETS.Tiles,
+      "assets/main-tileset/breakout-extruded.png",
+      { frameWidth: 16, frameHeight: 16, margin: 1, spacing: 2 }
+    );
+    this.load.once("complete", function (loader: Phaser.Loader.LoaderPlugin) {
+      const sheet = loader.textureManager.get(SHEETS.Tiles);
+      const normalMap = loader.textureManager.get("breakout-extruded_n");
+      const normalMapSrcImg = normalMap.getSourceImage();
+
+      if (
+        normalMapSrcImg instanceof HTMLImageElement ||
+        normalMapSrcImg instanceof HTMLCanvasElement
+      ) {
+        sheet.setDataSource(normalMapSrcImg);
+      }
     });
 
     this.load.tilemapTiledJSON(SCENES.DemoScene, "assets/levels/breakout.json");
