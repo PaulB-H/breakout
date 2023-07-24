@@ -1,4 +1,12 @@
-import { AUDIO, FONTS, SCENES, SHEETS, ATLAS, IMAGES } from "../constants";
+import {
+  AUDIO,
+  FONTS,
+  SCENES,
+  SHEETS,
+  ATLAS,
+  IMAGES,
+  BUTTONS,
+} from "../constants";
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
@@ -111,9 +119,12 @@ export default class PreloaderScene extends Phaser.Scene {
       "assets/backgrounds/mountainbg.png",
       "assets/backgrounds/mountainbg_n.png",
     ]);
+
+    this.load.image(BUTTONS.MenuBTN, "assets/ui/menu-btn.png");
+    this.load.image(BUTTONS.ResumeBTN, "assets/ui/resume-btn.png");
   }
 
   create() {
-    this.scene.start(SCENES.Level_1);
+    this.scene.start(SCENES.StartScene);
   }
 }

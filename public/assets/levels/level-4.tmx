@@ -577,7 +577,7 @@
   <object id="24" gid="4" x="32" y="80" width="16" height="16"/>
   <object id="25" gid="4" x="64" y="32" width="16" height="16"/>
   <object id="26" gid="4" x="32" y="160" width="16" height="16"/>
-  <object id="49" gid="59" x="133" y="93" width="16" height="16"/>
+  <object id="49" gid="59" x="89" y="153" width="16" height="16"/>
   <object id="107" gid="2" x="48" y="144" width="16" height="16"/>
   <object id="131" gid="2" x="48" y="64" width="16" height="16"/>
   <object id="132" gid="2" x="96" y="96" width="16" height="16"/>

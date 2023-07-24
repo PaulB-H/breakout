@@ -4,7 +4,7 @@ import { Ball } from "../objects/Ball";
 import { iBlockSprite } from "../objects/Block";
 import { CloudTimer } from "../objects/Deco/Clouds";
 import Power from "../objects/Power";
-import { AUDIO, IMAGES, SCENES, SHEETS } from "../constants";
+import { AUDIO, IMAGES, SCENES, SHEETS, BUTTONS } from "../constants";
 
 import { FireBall, LaserBeam, LightningBolt } from "../objects/Projectiles";
 import { buildWall } from "../objects/LeafWall";
@@ -151,6 +151,15 @@ export default class BaseScene extends Phaser.Scene {
   preload() {}
 
   create() {
+    const menuBtn = this.add.sprite(140, 10, BUTTONS.MenuBTN).setDepth(2);
+    menuBtn.setInteractive();
+    // menuBtn.setActive(true);
+    // if (menuBtn.input) menuBtn.input.enabled = true;
+    menuBtn.on("pointerdown", () => {
+      this.scene.pause();
+      this.scene.launch(SCENES.PauseScene, { pauseKey: this.scene.key });
+    });
+
     // Emergency workaround to fix missing frame
     // https://github.com/PaulB-H/breakout/issues/1
     if (this.textures.get(SHEETS.Tiles).frameTotal < 101) {

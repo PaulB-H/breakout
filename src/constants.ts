@@ -27,6 +27,8 @@ export const SCENES = {
   Level_4: "Level_4",
   Test_Nudge: "Test_Nudge",
   DemoScene: "DemoScene",
+  StartScene: "StartScene",
+  PauseScene: "PauseScene",
 };
 
 // Currently we are using the same key for
@@ -52,4 +54,9 @@ export const IMAGES = {
   BlueGradBG: "bluegradientbg",
   MountainBG: "mountainbg",
   BreakoutExtruded: "breakout-extruded",
+};
+
+export const BUTTONS = {
+  MenuBTN: "menubtn",
+  ResumeBTN: "resumebtn",
 };

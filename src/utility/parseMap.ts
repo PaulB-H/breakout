@@ -16,7 +16,7 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
   const wallsLayer = map.getObjectLayer("walls");
   const decoObjLayer = map.getObjectLayer("deco-objects");
 
-  // Psst! Controls are in here too...
+  // Player Layer - Psst! Controls are in here too...
   if (playerLayer) {
     playerLayer.objects.forEach((player) => {
       const myPlayer = player as iPlayer;
@@ -91,10 +91,16 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
         }
       });
       scene.input.on("pointerdown", () => {
-        if (scene.isClamped() && scene.getNewBall()) {
-          scene.launchBall(-60);
-          scene.setClamped(false);
-        }
+        setTimeout(() => {
+          if (
+            !scene.scene.isPaused() &&
+            scene.isClamped() &&
+            scene.getNewBall()
+          ) {
+            scene.launchBall(-60);
+            scene.setClamped(false);
+          }
+        }, 100);
       });
 
       const touchMoveFunc = (e: TouchEvent) => {
@@ -115,10 +121,16 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
       document.addEventListener("touchmove", touchMoveFunc);
 
       const clickListenFunc = () => {
-        if (scene.isClamped() && scene.getNewBall()) {
-          scene.launchBall(-60);
-          scene.setClamped(false);
-        }
+        setTimeout(() => {
+          if (
+            !scene.scene.isPaused() &&
+            scene.isClamped() &&
+            scene.getNewBall()
+          ) {
+            scene.launchBall(-60);
+            scene.setClamped(false);
+          }
+        }, 100);
       };
       scene.setClickFunc(clickListenFunc);
       document.addEventListener("mousedown", clickListenFunc);
