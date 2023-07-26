@@ -625,17 +625,6 @@ Reloading page...`
       }
     );
 
-    /***********************************************/
-    // _Map & Layers
-    /***********************************************/
-
-    // Draw on the decoration layer (just spikes right now)
-    // map.createLayer("deco", tileset)!.setPipeline("Light2D");
-
-    /**********************************************/
-    // _Creating Objects from Object Layers
-    /**********************************************/
-
     // World bounds event to destroy powers that hit the bottom
     this.physics.world.on("worldbounds", (body: Phaser.Physics.Arcade.Body) => {
       if (this.powerGroup.contains(body.gameObject)) {
@@ -684,6 +673,13 @@ Reloading page...`
         }
       }
     });
+
+    /***********************************************/
+    // _Map & Layers
+    /***********************************************/
+
+    // Draw on the decoration layer (just spikes right now)
+    // map.createLayer("deco", tileset)!.setPipeline("Light2D");
 
     /**********************************************/
     // _Background / Deco
