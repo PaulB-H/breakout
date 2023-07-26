@@ -528,16 +528,16 @@ Reloading page...`
         }
 
         // 10%-ish chance of spawning power
-        // if (Math.random() <= 0.1) {
-        //   new Power(
-        //     this,
-        //     myBlock.x,
-        //     myBlock.y,
-        //     undefined,
-        //     Math.floor(Math.random() * 4) + 12,
-        //     tileset
-        //   );
-        // }
+        if (Math.random() <= 0.1) {
+          new Power(
+            this,
+            myBlock.x,
+            myBlock.y,
+            undefined,
+            Math.floor(Math.random() * 4) + 12,
+            this.cache.tilemap.get(SCENES.Level_1)
+          );
+        }
 
         let speedIncrease: 15 | 5 = 15;
         if (myBlock.properties.color === "armored") speedIncrease = 5;
