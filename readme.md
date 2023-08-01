@@ -1,6 +1,6 @@
-# New Document# Breakout-style game made with:
+##### A [Breakout ](<https://en.wikipedia.org/wiki/Breakout_(video_game)>) style game made with:
 
-### Phaser - 3.55
+### Phaser
 
 [https://phaser.io](https://phaser.io/)
 
@@ -62,44 +62,3 @@ A tiny Node CLI (and library) to extrude tiles in tilesets\
 <!-- [https://pixabay.com/sound-effects/2018-08-02-17971 (as "music")](https://pixabay.com/sound-effects/2018-08-02-17971/)\ -->
 
 ---
-
-==============
-TODO
-==============
-
-Score System
-
-Moving Blocks / Groups of blocks
-
-Will hearts reset each level? - Tentative yes
-
-Local progress saving (for level unlocking)
-
-Level select interface
-
-Bomb Blocks
-
-Upgrades?
-
-~~!!Fix power ups!!~~
-
-==============
-TODO Details
-==============
-
-Score system:
-
-- Make each ball & heart leftover add extra points
-- Faster time = more points \
-  **Extra**
-- Some kind of hidden order or puzzle for bonus, maybe you need to hit a certain key to access an area with bonus points
-
-Upgrades:
-
-Powerups more frequent
-
-Debuffs less frequent
-
-Increase stating platform width
-
-Increase vine wall duration
