@@ -54,10 +54,15 @@ export const ATLAS = {
 export const IMAGES = {
   BlueGradBG: "bluegradientbg",
   MountainBG: "mountainbg",
+  VolcanoBG: "volcanobg",
   BreakoutExtruded: "breakout-extruded",
 };
 
 export const BUTTONS = {
   MenuBTN: "menubtn",
   ResumeBTN: "resumebtn",
+};
+
+export const ANIMS = {
+  VolcanoBG_Anim: "volcanobg_anim",
 };

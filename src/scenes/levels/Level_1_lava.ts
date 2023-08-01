@@ -1,6 +1,6 @@
 import BaseScene from "../BaseScene";
 import { parseMap } from "../../utility/parseMap";
-import { SCENES, IMAGES, SHEETS } from "../../constants";
+import { SCENES, IMAGES, SHEETS, ANIMS } from "../../constants";
 
 export default class Level_1_lava extends BaseScene {
   constructor() {
@@ -30,19 +30,19 @@ export default class Level_1_lava extends BaseScene {
     }
 
     const volcanobg = this.add
-      .sprite(80, 120, "volcanobg")
+      .sprite(80, 120, IMAGES.VolcanoBG)
       .setDepth(-8)
       .setPipeline("Light2D");
     this.anims.create({
-      key: "volcanobg_anim",
-      frames: this.anims.generateFrameNumbers("volcanobg", {
+      key: ANIMS.VolcanoBG_Anim,
+      frames: this.anims.generateFrameNumbers(IMAGES.VolcanoBG, {
         start: 0,
         end: 5,
       }),
       frameRate: 3,
       repeat: -1,
     });
-    volcanobg.anims.play("volcanobg_anim");
+    volcanobg.anims.play(ANIMS.VolcanoBG_Anim);
   }
 
   update(t: number) {
