@@ -436,7 +436,7 @@ Reloading page...`
             buildWall(this);
             break;
           case "red":
-            emitter.setEmitterFrame(37);
+            emitter.setEmitterFrame(42);
             emitter.explode(10, myBlock.x, myBlock.y);
             this.sound.play(AUDIO.FIRE);
             new FireBall(this, myBlock.x, myBlock.y);
