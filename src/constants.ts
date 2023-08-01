@@ -25,6 +25,7 @@ export const SCENES = {
   Level_2: "Level_2",
   Level_3: "Level_3",
   Level_4: "Level_4",
+  Level_1_lava: "Level_1_lava",
   Test_Nudge: "Test_Nudge",
   DemoScene: "DemoScene",
   StartScene: "StartScene",

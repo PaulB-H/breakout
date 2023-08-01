@@ -148,6 +148,8 @@ export default class BaseScene extends Phaser.Scene {
     super(key);
   }
 
+  backgroundImage!: any;
+
   preload() {}
 
   create() {
@@ -701,7 +703,7 @@ Reloading page...`
     // });
     // volcanobg.anims.play("volcanobg_anim");
 
-    this.add
+    this.backgroundImage = this.add
       .image(80, 120, IMAGES.MountainBG)
       .setDepth(-10)
       .setPipeline("Light2D");
