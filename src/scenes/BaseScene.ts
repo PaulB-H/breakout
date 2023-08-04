@@ -26,6 +26,14 @@ export default class BaseScene extends Phaser.Scene {
 
   private lives = 3;
   private heartSprites: Phaser.GameObjects.Sprite[] = [];
+
+  addHeart() {
+    this.lives++;
+    this.heartSprites.push(
+      this.add.sprite(16 * this.lives - 1, 8, SHEETS.Tiles, 32)
+    );
+  }
+
   private clamped = true;
   isClamped() {
     return this.clamped;
