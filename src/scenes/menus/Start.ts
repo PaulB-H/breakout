@@ -1,6 +1,11 @@
-import { FONTS, SHEETS, SCENES } from "../../constants";
+import BaseScene from "../BaseScene";
 
-export default class StartScene extends Phaser.Scene {
+import TransitionManager from "../TransitionManager";
+
+import { FONTS, SCENES } from "../../constants";
+import BaseUIDiv from "../BaseUIDiv";
+
+export default class StartScene extends BaseScene {
   constructor() {
     super("StartScene");
   }
@@ -13,22 +18,7 @@ export default class StartScene extends Phaser.Scene {
     let gameHeight = this.sys.game.config.height;
     if (typeof gameHeight === "string") gameHeight = parseInt(gameHeight);
 
-    const startBtn = this.add
-      .sprite(gameWidth / 2, gameHeight / 2 + 20, SHEETS.Tiles, 91)
-      .setScale(6, 2);
-    const startBtnTxt = this.add.bitmapText(
-      gameWidth / 2,
-      gameHeight / 2 + 10,
-      FONTS.VCR_BLACK,
-      "START",
-      21
-    );
-    startBtnTxt.setX(startBtnTxt.x - startBtnTxt.width / 2);
-
-    startBtn.setInteractive();
-    startBtn.on("pointerdown", () => {
-      this.scene.start(SCENES.Level_1);
-    });
+    const transitionManager = new TransitionManager(this);
 
     const title = this.add.bitmapText(
       gameWidth / 2,
@@ -38,6 +28,36 @@ export default class StartScene extends Phaser.Scene {
       21
     );
     title.setX(title.x - title.width / 2);
+
+    const startUIDiv = new BaseUIDiv("start-ui").getDiv();
+
+    const startButton = document.createElement("button");
+    startButton.innerText = "START";
+
+    startButton.style.cssText = `
+      width: 50%;
+      font-size: 10cqw;
+      padding: 5px;
+      margin-top: 80%;
+      margin-left: 25%;
+    `;
+
+    document
+      .querySelector("#app")
+      ?.insertAdjacentElement("beforeend", startUIDiv);
+
+    startUIDiv.insertAdjacentElement("afterbegin", startButton);
+
+    startButton.addEventListener("pointerup", () => {
+      startUIDiv.style.animation = "swipeOut 0.75s";
+
+      startUIDiv.addEventListener("animationend", () => {
+        if (BaseUIDiv.getInstance(startUIDiv))
+          BaseUIDiv.getInstance(startUIDiv)!.customRemove();
+
+        transitionManager.startTransition(SCENES.Level_1);
+      });
+    });
   }
 
   update() {}
