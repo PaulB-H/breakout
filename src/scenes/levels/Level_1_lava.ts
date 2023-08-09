@@ -1,6 +1,6 @@
 import BaseScene from "../BaseScene";
 import { parseMap } from "../../utility/parseMap";
-import { SCENES, IMAGES, SHEETS, ANIMS } from "../../constants";
+import { SCENES, IMAGES, SHEETS, ANIMS, PIPELINES } from "../../constants";
 
 export default class Level_1_lava extends BaseScene {
   constructor() {
@@ -32,7 +32,7 @@ export default class Level_1_lava extends BaseScene {
     const volcanobg = this.add
       .sprite(80, 120, SHEETS.VolcanoBG)
       .setDepth(-8)
-      .setPipeline("Light2D");
+      .setPipeline(PIPELINES.Light2D);
 
     this.anims.create({
       key: ANIMS.VolcanoBG_Anim,
@@ -64,7 +64,7 @@ export default class Level_1_lava extends BaseScene {
         angle: { min: 180, max: 180 }, // Set angle to 180 (downwards)
       })
       .setDepth(-9)
-      .setPipeline("Light2D");
+      .setPipeline(PIPELINES.Light2D);
 
     const myfunc = () => {
       sceneEmitter.setEmitterFrame(Phaser.Math.Between(51, 52));

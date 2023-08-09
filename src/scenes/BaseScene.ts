@@ -4,7 +4,15 @@ import { Ball } from "../objects/Ball";
 import { iBlockSprite } from "../objects/Block";
 import { CloudTimer } from "../objects/Deco/Clouds";
 import Power from "../objects/Power";
-import { AUDIO, IMAGES, SCENES, SHEETS, BUTTONS } from "../constants";
+import {
+  AUDIO,
+  IMAGES,
+  SCENES,
+  SHEETS,
+  BUTTONS,
+  REGISTRY,
+  PIPELINES,
+} from "../constants";
 
 import { FireBall, LaserBeam, LightningBolt } from "../objects/Projectiles";
 import { buildWall } from "../objects/LeafWall";
@@ -276,9 +284,8 @@ Reloading page...`
         gravityY: 100,
         emitting: false,
       })
-      .setDepth(100);
       .setDepth(100)
-      .setPipeline("Light2D");
+      .setPipeline(PIPELINES.Light2D);
 
     /**********************************************/
     // _Groups

@@ -1,6 +1,6 @@
 import BaseScene from "../scenes/BaseScene";
 
-import { SCENES, SHEETS } from "../constants";
+import { PIPELINES, SCENES, SHEETS } from "../constants";
 
 export default class Power extends Phaser.Physics.Arcade.Sprite {
   gid: number;
@@ -48,6 +48,6 @@ export default class Power extends Phaser.Physics.Arcade.Sprite {
 
     this.setVelocityY(Math.floor(Math.random() * 31) + 30);
 
-    this.setPipeline("Light2D");
+    this.setPipeline(PIPELINES.Light2D);
   }
 }
