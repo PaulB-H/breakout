@@ -106,15 +106,23 @@ export default class PreloaderScene extends Phaser.Scene {
       atlasURL: "assets/clouds/cloud-atlas.json",
     });
 
-    // volcanobg
-    this.load.spritesheet({
-      key: SHEETS.VolcanoBG,
-      url: "assets/backgrounds/volcanobg.png",
-      normalMap: "assets/backgrounds/volcanobg_n.png",
-      frameConfig: {
-        frameWidth: 160,
-        frameHeight: 240,
-      },
+    this.load.image("volcanobg_n", "assets/backgrounds/volcanobg_n.png");
+    this.load.spritesheet(
+      SHEETS.VolcanoBG,
+      "assets/backgrounds/volcanobg.png",
+      { frameWidth: 160, frameHeight: 240 }
+    );
+    this.load.once("complete", function (loader: Phaser.Loader.LoaderPlugin) {
+      const sheet = loader.textureManager.get(SHEETS.VolcanoBG);
+      const normalMap = loader.textureManager.get("volcanobg_n");
+      const normalMapSrcImg = normalMap.getSourceImage();
+
+      if (
+        normalMapSrcImg instanceof HTMLImageElement ||
+        normalMapSrcImg instanceof HTMLCanvasElement
+      ) {
+        sheet.setDataSource(normalMapSrcImg);
+      }
     });
 
     this.load.image(IMAGES.BlueGradBG, "assets/backgrounds/bluegradientbg.png");

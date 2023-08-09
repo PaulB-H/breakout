@@ -30,12 +30,13 @@ export default class Level_1_lava extends BaseScene {
     }
 
     const volcanobg = this.add
-      .sprite(80, 120, IMAGES.VolcanoBG)
+      .sprite(80, 120, SHEETS.VolcanoBG)
       .setDepth(-8)
       .setPipeline("Light2D");
+
     this.anims.create({
       key: ANIMS.VolcanoBG_Anim,
-      frames: this.anims.generateFrameNumbers(IMAGES.VolcanoBG, {
+      frames: this.anims.generateFrameNumbers(SHEETS.VolcanoBG, {
         start: 0,
         end: 5,
       }),
