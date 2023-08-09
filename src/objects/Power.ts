@@ -47,5 +47,7 @@ export default class Power extends Phaser.Physics.Arcade.Sprite {
     scene.addToPowerGrp(this);
 
     this.setVelocityY(Math.floor(Math.random() * 31) + 30);
+
+    this.setPipeline("Light2D");
   }
 }

@@ -277,6 +277,8 @@ Reloading page...`
         emitting: false,
       })
       .setDepth(100);
+      .setDepth(100)
+      .setPipeline("Light2D");
 
     /**********************************************/
     // _Groups

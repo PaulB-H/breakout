@@ -64,7 +64,7 @@ export default class Level_1_lava extends BaseScene {
         angle: { min: 180, max: 180 }, // Set angle to 180 (downwards)
       })
       .setDepth(-9)
-      .setPipeline("light2d");
+      .setPipeline("Light2D");
 
     const myfunc = () => {
       sceneEmitter.setEmitterFrame(Phaser.Math.Between(51, 52));
