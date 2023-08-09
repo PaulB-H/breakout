@@ -11,6 +11,7 @@ import { buildWall } from "../objects/LeafWall";
 // import { parseMap } from "./parseMap";
 
 export default class BaseScene extends Phaser.Scene {
+  cloudTimer!: CloudTimer;
   private balls = 0;
   increaseBallCnt() {
     this.balls++;
@@ -694,7 +695,8 @@ Reloading page...`
     /**********************************************/
     // _Background / Deco
     /**********************************************/
-    new CloudTimer(this, 1250).start();
+    this.cloudTimer = new CloudTimer(this, 1250);
+    this.cloudTimer.start();
 
     // const volcanobg = this.add
     //   .sprite(80, 120, "volcanobg")
