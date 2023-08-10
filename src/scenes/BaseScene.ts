@@ -36,11 +36,19 @@ export default class BaseScene extends Phaser.Scene {
   private lives = 3;
   private heartSprites: Phaser.GameObjects.Sprite[] = [];
 
-  addHeart() {
-    this.lives++;
-    this.heartSprites.push(
-      this.add.sprite(16 * this.lives - 1, 8, SHEETS.Tiles, 32)
-    );
+  addHeartSprite() {
+    do {
+      this.heartSprites.push(
+        this.add.sprite(16 * this.heartSprites.length - 8, 7, SHEETS.Tiles, 32)
+      );
+    } while (this.heartSprites.length < this.lives);
+  }
+
+  deleteHeartSprite() {
+    const targetHeart = this.heartSprites.pop();
+    if (targetHeart) {
+      targetHeart.destroy();
+    }
   }
 
   private clamped = true;
@@ -232,8 +240,8 @@ Reloading page...`
     };
 
     // add heart sprites for every life...
-    for (let i = 1; i < this.lives + 1; i++) {
-      this.heartSprites.push(this.add.sprite(16 * i - 8, 10, SHEETS.Tiles, 32));
+    for (let i = 1; i < this.lives; i++) {
+      this.addHeartSprite();
     }
 
     /**********************************************/
@@ -334,12 +342,7 @@ Reloading page...`
         switch ((projectile as iProjectile).type) {
           case "fireball":
             if (this.lives >= 1) {
-              const targetHeart = this.heartSprites.pop();
-
-              if (targetHeart) {
-                // createPuff(targetHeart.x, targetHeart.y, 32);
-                targetHeart.destroy();
-              }
+              this.deleteHeartSprite();
 
               this.cameras.main.shake(250, 0.01);
               this.sound.play(AUDIO.HURT);
@@ -490,9 +493,7 @@ Reloading page...`
             emitter.explode(10, myBlock.x, myBlock.y);
             this.sound.play(AUDIO.KISS, { volume: 2 });
             this.lives++;
-            this.heartSprites.push(
-              this.add.sprite(16 * this.lives - 1, 8, SHEETS.Tiles, 32)
-            );
+            this.addHeartSprite();
 
             break;
           case "purple":
@@ -663,15 +664,7 @@ Reloading page...`
 
           // Only lose a life if out of balls
           if (this.lives >= 1 && this.balls <= 0) {
-            // More than 1 life left, pop a heart
-            const targetHeart =
-              this.heartSprites.pop() as Phaser.GameObjects.Sprite;
-
-            // .. Just make sure targetHeart exists..
-            if (targetHeart) {
-              // createPuff(targetHeart.x, targetHeart.y, 32);
-              targetHeart.destroy();
-            }
+            this.deleteHeartSprite();
 
             // Larger shake and sound on life lost
             this.cameras.main.shake(250, 0.01);
