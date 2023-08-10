@@ -564,12 +564,12 @@
   </tile>
  </tileset>
  <objectgroup id="2" name="blocks">
-  <object id="147" gid="3" x="0" y="192" width="16" height="16"/>
+  <object id="147" gid="3" x="0" y="176" width="16" height="16"/>
   <object id="148" gid="3" x="32" y="160" width="16" height="16"/>
   <object id="149" gid="3" x="64" y="128" width="16" height="16"/>
   <object id="150" gid="3" x="96" y="96" width="16" height="16"/>
   <object id="151" gid="3" x="128" y="64" width="16" height="16"/>
-  <object id="152" gid="3" x="144" y="192" width="16" height="16"/>
+  <object id="152" gid="3" x="144" y="176" width="16" height="16"/>
   <object id="153" gid="3" x="112" y="160" width="16" height="16"/>
   <object id="154" gid="3" x="80" y="128" width="16" height="16"/>
   <object id="155" gid="3" x="48" y="96" width="16" height="16"/>
