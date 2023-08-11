@@ -18,8 +18,18 @@ import { FireBall, LaserBeam, LightningBolt } from "../objects/Projectiles";
 import { buildWall } from "../objects/LeafWall";
 // import { parseMap } from "./parseMap";
 
+import BaseUIDiv from "./BaseUIDiv";
+
+interface UIElements {
+  baseSceneUI: HTMLDivElement;
+  score: HTMLHeadElement;
+}
+
 export default class BaseScene extends Phaser.Scene {
+  private UIElements!: UIElements;
+
   cloudTimer!: CloudTimer;
+
   private balls = 0;
   increaseBallCnt() {
     this.balls++;
@@ -209,6 +219,7 @@ Reloading page...`
       _Contents
 
       _Default values
+      _UI
       _Lighting
       _Sound & Music
       _Particles
@@ -243,6 +254,39 @@ Reloading page...`
     for (let i = 1; i < this.lives; i++) {
       this.addHeartSprite();
     }
+
+    /**********************************************/
+    // _UI
+    /**********************************************/
+
+    const existingUI = document.getElementById(
+      "base-scene-ui"
+    ) as HTMLDivElement;
+
+    if (BaseUIDiv.getInstance(existingUI))
+      BaseUIDiv.getInstance(existingUI)!.customRemove();
+
+    const baseSceneUI = new BaseUIDiv("base-scene-ui").getDiv();
+    const score = document.createElement("h3");
+
+    this.UIElements = { baseSceneUI, score };
+
+    this.UIElements.score.innerText = "Blocks: 0";
+
+    score.style.cssText = `
+      // width: 100%;
+      font-size: 5cqw;
+      padding: 5px;
+      margin-top: 1%;
+      margin-left: 40%;
+      font-family: vcr-black;
+    `;
+
+    document
+      .querySelector("#app")
+      ?.insertAdjacentElement("beforeend", baseSceneUI);
+
+    baseSceneUI.insertAdjacentElement("beforeend", score);
 
     /**********************************************/
     // _Lighting
@@ -448,6 +492,12 @@ Reloading page...`
         const myBlock = block as iBlockSprite;
 
         const color = myBlock.properties.color;
+
+        const newScore = parseInt(this.registry.get(REGISTRY.score)) + 1;
+
+        this.UIElements.score.innerText = `Blocks: ${newScore}`;
+
+        this.registry.set(REGISTRY.score, newScore);
 
         // Create sound and spawn particles
         // depending on block color / properties

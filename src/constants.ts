@@ -66,6 +66,11 @@ export const BUTTONS = {
 export const ANIMS = {
   VolcanoBG_Anim: "volcanobg_anim",
 };
+
+export const REGISTRY = {
+  score: "score",
+};
+
 export const PIPELINES = {
   Light2D: "Light2D",
 };

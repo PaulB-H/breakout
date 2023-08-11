@@ -24,6 +24,7 @@ export default class BaseUIDiv {
       margin: auto;
       pointer-events: auto;
       container-type: inline-size;
+      user-select: none;
     `;
 
     this.newUIDiv.addEventListener("mousemove", this.mouseFunction.bind(this));

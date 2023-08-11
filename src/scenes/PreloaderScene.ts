@@ -6,6 +6,7 @@ import {
   ATLAS,
   IMAGES,
   BUTTONS,
+  REGISTRY,
 } from "../constants";
 
 export default class PreloaderScene extends Phaser.Scene {
@@ -134,6 +135,8 @@ export default class PreloaderScene extends Phaser.Scene {
 
     this.load.image(BUTTONS.MenuBTN, "assets/ui/menu-btn.png");
     this.load.image(BUTTONS.ResumeBTN, "assets/ui/resume-btn.png");
+
+    this.registry.set(REGISTRY.score, 0);
   }
 
   create() {
