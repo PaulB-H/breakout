@@ -1,7 +1,7 @@
 import { BUTTONS, SCENES, FONTS } from "../../constants";
 
 export default class PauseScene extends Phaser.Scene {
-  private pauseKey?: string;
+  private pausedSceneKey?: string;
 
   constructor() {
     super(SCENES.PauseScene);
@@ -9,8 +9,8 @@ export default class PauseScene extends Phaser.Scene {
 
   preload() {}
 
-  init(data: any) {
-    this.pauseKey = data.pauseKey;
+  init(data: { pausedSceneKey: string }) {
+    this.pausedSceneKey = data.pausedSceneKey;
 
     this.cameras.main.setBackgroundColor(0xbf87ceeb);
   }
@@ -28,7 +28,7 @@ export default class PauseScene extends Phaser.Scene {
       () => {
         setTimeout(() => {
           this.scene.stop();
-          this.scene.resume(this.pauseKey);
+          this.scene.resume(this.pausedSceneKey);
         }, 150);
       },
       this

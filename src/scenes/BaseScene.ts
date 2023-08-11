@@ -194,7 +194,7 @@ export default class BaseScene extends Phaser.Scene {
     // if (menuBtn.input) menuBtn.input.enabled = true;
     menuBtn.on("pointerdown", () => {
       this.scene.pause();
-      this.scene.launch(SCENES.PauseScene, { pauseKey: this.scene.key });
+      this.scene.launch(SCENES.PauseScene, { pausedSceneKey: this.scene.key });
     });
 
     // Emergency workaround to fix missing frame
