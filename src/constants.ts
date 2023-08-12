@@ -30,6 +30,7 @@ export const SCENES = {
   DemoScene: "DemoScene",
   StartScene: "StartScene",
   PauseScene: "PauseScene",
+  LevelSelect: "LevelSelect",
 };
 
 // Currently we are using the same key for

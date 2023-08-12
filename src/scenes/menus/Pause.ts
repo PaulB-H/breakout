@@ -1,7 +1,17 @@
-import { BUTTONS, SCENES, FONTS } from "../../constants";
+import { SCENES, FONTS } from "../../constants";
+
+import BaseUIDiv from "../BaseUIDiv";
+
+interface UIElements {
+  PauseUI: HTMLDivElement;
+  ResumeBtn: HTMLButtonElement;
+  LevelSelBtn: HTMLButtonElement;
+}
 
 export default class PauseScene extends Phaser.Scene {
   private pausedSceneKey?: string;
+
+  private UIElements!: UIElements;
 
   constructor() {
     super(SCENES.PauseScene);
@@ -21,19 +31,6 @@ export default class PauseScene extends Phaser.Scene {
     let gameHeight = this.sys.game.config.height;
     if (typeof gameHeight === "string") gameHeight = parseInt(gameHeight);
 
-    const resumeBtn = this.add.sprite(40, 100, BUTTONS.ResumeBTN).setDepth(10);
-    resumeBtn.setInteractive();
-    resumeBtn.on(
-      "pointerdown",
-      () => {
-        setTimeout(() => {
-          this.scene.stop();
-          this.scene.resume(this.pausedSceneKey);
-        }, 150);
-      },
-      this
-    );
-
     this.add.bitmapText(
       gameWidth / 2 - 63 / 2,
       60,
@@ -42,7 +39,60 @@ export default class PauseScene extends Phaser.Scene {
       21
     );
 
+    const PauseUI = new BaseUIDiv("pause-ui").getDiv();
+    PauseUI.style.cssText += `
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    `;
+
+    const ResumeBtn = document.createElement("button");
+    ResumeBtn.textContent = "Resume";
+    ResumeBtn.style.cssText = `
+      width: 40%;
+      font-size: 10cqw;
+
+      margin-top: 40%
+    `;
+    ResumeBtn.addEventListener("click", () => {
+      setTimeout(() => {
+        this.UIElements.PauseUI.remove();
+        this.scene.stop();
+        this.scene.resume(this.pausedSceneKey);
+      }, 150);
+    });
+
+    const LevelSelBtn = document.createElement("button");
+    LevelSelBtn.textContent = "Level Select";
+    LevelSelBtn.style.cssText = `
+      width: 40%;
+      font-size: 10cqw; 
+      margin-top: 10%;
+    `;
+    LevelSelBtn.addEventListener("click", () => {
+      setTimeout(() => {
+        setTimeout(() => {
+          this.scene.pause();
+          this.UIElements.PauseUI.style.display = "none";
+          this.scene.launch(SCENES.LevelSelect);
+        }, 150);
+      });
+    });
+
+    this.UIElements = { PauseUI, ResumeBtn, LevelSelBtn };
+
+    document.querySelector("#app")?.insertAdjacentElement("beforeend", PauseUI);
+
+    this.UIElements.PauseUI.insertAdjacentElement("beforeend", ResumeBtn);
+    this.UIElements.PauseUI.insertAdjacentElement("beforeend", LevelSelBtn);
+
     this.scene.bringToTop(SCENES.PauseScene);
+
+    this.events.on(
+      "showPauseUI",
+      () => (this.UIElements.PauseUI.style.display = "flex")
+    );
   }
 
   update() {}

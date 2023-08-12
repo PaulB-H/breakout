@@ -18,6 +18,11 @@ export default class StartScene extends BaseScene {
     let gameHeight = this.sys.game.config.height;
     if (typeof gameHeight === "string") gameHeight = parseInt(gameHeight);
 
+    const baseUi = document.getElementById("base-scene-ui") as HTMLDivElement;
+
+    if (BaseUIDiv.getInstance(baseUi))
+      BaseUIDiv.getInstance(baseUi)?.customRemove();
+
     const transitionManager = new TransitionManager(this);
 
     const title = this.add.bitmapText(

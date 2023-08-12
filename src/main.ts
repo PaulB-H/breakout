@@ -10,6 +10,7 @@ import Level_1_lava from "./scenes/levels/Level_1_lava";
 import StartScene from "./scenes/menus/Start";
 import PauseScene from "./scenes/menus/Pause";
 import Test_Nudge from "./scenes/levels/Test_Nudge";
+import LevelSelect from "./scenes/menus/LevelSelect";
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -30,13 +31,14 @@ const config: Phaser.Types.Core.GameConfig = {
     PreloaderScene,
     Test_Nudge,
     PauseScene,
+    LevelSelect,
     StartScene,
     Level_1,
     Level_2,
     Level_3,
     Level_4,
-    Level_1_lava,
     DemoScene,
+    Level_1_lava,
   ],
   scale: {
     zoom: 1,

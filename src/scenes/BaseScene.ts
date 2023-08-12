@@ -137,7 +137,7 @@ export default class BaseScene extends Phaser.Scene {
     this.newBall = sprite;
   }
   launchBall(num: number) {
-    if (this.newBall) this.newBall.setVelocityY(num);
+    if (this.newBall && this.newBall.body) this.newBall.setVelocityY(num);
   }
   private ballGroup!: Phaser.Physics.Arcade.Group;
   addBallToGroup(ball: Ball) {
@@ -195,6 +195,7 @@ export default class BaseScene extends Phaser.Scene {
     menuBtn.on("pointerdown", () => {
       this.scene.pause();
       this.scene.launch(SCENES.PauseScene, { pausedSceneKey: this.scene.key });
+      this.registry.set("pausedSceneKey", this.scene.key);
     });
 
     // Emergency workaround to fix missing frame
@@ -889,11 +890,15 @@ Reloading page...`
       } else {
         const nextSceneKey =
           this.scene.manager.scenes[currentIndex + 1].scene.key;
-        this.scene.start(nextSceneKey);
+
+        if (nextSceneKey === SCENES.PauseScene)
+          this.scene.start(SCENES.Level_1);
+        else this.scene.start(nextSceneKey);
       }
 
       // this.scene.switch(nextSceneKey);
       // this.scene.start(nextSceneKey);
+      // this.scene.launch(nextSceneKey)
     }
 
     /* Rough way to change sprite based on direction of player movement
