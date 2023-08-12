@@ -14,7 +14,9 @@ export default class LevelSelect extends Phaser.Scene {
     super(SCENES.LevelSelect);
   }
 
-  preload() {}
+  preload() {
+    this.cameras.main.setBackgroundColor("#87ceeb");
+  }
 
   init() {
     this.cameras.main.setBackgroundColor(0xbf87ceeb);
@@ -53,6 +55,9 @@ export default class LevelSelect extends Phaser.Scene {
       flex-direction: column;
       height: 100%
     `;
+    document
+      .querySelector("#app")
+      ?.insertAdjacentElement("beforeend", LevelSelectUI);
 
     const LevelsDiv = document.createElement("div");
     LevelsDiv.style.cssText = `
@@ -63,6 +68,7 @@ export default class LevelSelect extends Phaser.Scene {
       width: 100%;
       height: 20%;
     `;
+    LevelSelectUI.insertAdjacentElement("beforeend", LevelsDiv);
 
     const levelButtonArr = [
       { text: "Level 1", key: SCENES.Level_1 },
@@ -85,7 +91,7 @@ export default class LevelSelect extends Phaser.Scene {
       }, 150);
     };
 
-    levelButtonArr.forEach((level) => {
+    levelButtonArr.forEach((level, idx) => {
       const newBtn = document.createElement("button");
       newBtn.textContent = level.text;
       newBtn.style.cssText = `
@@ -95,22 +101,15 @@ export default class LevelSelect extends Phaser.Scene {
       `;
       newBtn.onmouseup = () => startLevel(level.key);
 
-      levelBtnElements.push(newBtn);
-    });
+      newBtn.setAttribute("data-aos", "fade-up");
+      newBtn.setAttribute("data-aos-delay", `${idx * 100}`);
 
-    levelBtnElements.forEach((button) => {
-      LevelsDiv.insertAdjacentElement("beforeend", button);
+      levelBtnElements.push(newBtn);
+
+      LevelsDiv.insertAdjacentElement("beforeend", newBtn);
     });
 
     this.UIElements = { LevelSelectUI, LevelsDiv };
-
-    document
-      .querySelector("#app")
-      ?.insertAdjacentElement("beforeend", LevelSelectUI);
-
-    LevelSelectUI.insertAdjacentElement("beforeend", LevelsDiv);
-
-    // this.scene.bringToTop(SCENES.PauseScene);
 
     this.scene.bringToTop(SCENES.PauseScene);
     this.scene.bringToTop(this);
