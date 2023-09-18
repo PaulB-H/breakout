@@ -45,7 +45,7 @@ export const SCENES = {
 
 export const SHEETS = {
   Tiles: "tiles",
-  VolcanoBG: "volcanobg",
+  // VolcanoBG: "volcanobg",
 };
 
 export const ATLAS = {
@@ -54,9 +54,11 @@ export const ATLAS = {
 
 export const IMAGES = {
   BlueGradBG: "bluegradientbg",
-  MountainBG: "mountainbg",
-  VolcanoBG: "volcanobg",
+  // MountainBG: "mountainbg",
+  // VolcanoBG: "volcanobg",
   BreakoutExtruded: "breakout-extruded",
+  NewMountainBG: "newmountainbg",
+  NewVolcanoBG: "newvolcanobg",
 };
 
 export const BUTTONS = {
@@ -65,7 +67,7 @@ export const BUTTONS = {
 };
 
 export const ANIMS = {
-  VolcanoBG_Anim: "volcanobg_anim",
+  // VolcanoBG_Anim: "volcanobg_anim",
 };
 
 export const REGISTRY = {

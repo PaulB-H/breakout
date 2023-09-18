@@ -107,31 +107,47 @@ export default class PreloaderScene extends Phaser.Scene {
       atlasURL: "assets/clouds/cloud-atlas.json",
     });
 
-    this.load.image("volcanobg_n", "assets/backgrounds/volcanobg_n.png");
-    this.load.spritesheet(
-      SHEETS.VolcanoBG,
-      "assets/backgrounds/volcanobg.png",
-      { frameWidth: 160, frameHeight: 240 }
-    );
-    this.load.once("complete", function (loader: Phaser.Loader.LoaderPlugin) {
-      const sheet = loader.textureManager.get(SHEETS.VolcanoBG);
-      const normalMap = loader.textureManager.get("volcanobg_n");
-      const normalMapSrcImg = normalMap.getSourceImage();
+    // this.load.image("volcanobg_n", "assets/backgrounds/volcanobg_n.png");
+    // this.load.spritesheet(
+    //   SHEETS.VolcanoBG,
+    //   "assets/backgrounds/volcanobg.png",
+    //   { frameWidth: 160, frameHeight: 240 }
+    // );
+    // this.load.once("complete", function (loader: Phaser.Loader.LoaderPlugin) {
+    //   const sheet = loader.textureManager.get(SHEETS.VolcanoBG);
+    //   const normalMap = loader.textureManager.get("volcanobg_n");
+    //   const normalMapSrcImg = normalMap.getSourceImage();
 
-      if (
-        normalMapSrcImg instanceof HTMLImageElement ||
-        normalMapSrcImg instanceof HTMLCanvasElement
-      ) {
-        sheet.setDataSource(normalMapSrcImg);
-      }
-    });
+    //   if (
+    //     normalMapSrcImg instanceof HTMLImageElement ||
+    //     normalMapSrcImg instanceof HTMLCanvasElement
+    //   ) {
+    //     sheet.setDataSource(normalMapSrcImg);
+    //   }
+    // });
 
     this.load.image(IMAGES.BlueGradBG, "assets/backgrounds/bluegradientbg.png");
 
-    this.load.image(IMAGES.MountainBG, [
-      "assets/backgrounds/mountainbg.png",
-      "assets/backgrounds/mountainbg_n.png",
+    // this.load.image(IMAGES.MountainBG, [
+    //   "assets/backgrounds/mountainbg.png",
+    //   "assets/backgrounds/mountainbg_n.png",
+    // ]);
     ]);
+
+    this.load.image(IMAGES.NewMountainBG, [
+      "assets/backgrounds/new-mountainbg.png",
+      "assets/backgrounds/new-mountainbg_n.png",
+    ]);
+
+    this.load.image(IMAGES.NewVolcanoBG, [
+      "assets/backgrounds/new-volcanobg.png",
+      "assets/backgrounds/new-volcanobg_n.png",
+    ]);
+
+    this.load.spritesheet("waterloop", "assets/videos/waterloop_sheet.png", {
+      frameWidth: 160,
+      frameHeight: 60,
+    });
 
     this.load.image(BUTTONS.MenuBTN, "assets/ui/menu-btn.png");
     this.load.image(BUTTONS.ResumeBTN, "assets/ui/resume-btn.png");

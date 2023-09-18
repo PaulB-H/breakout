@@ -1,6 +1,7 @@
 import BaseScene from "../BaseScene";
 import { parseMap } from "../../utility/parseMap";
-import { SCENES, IMAGES, SHEETS, ANIMS, PIPELINES } from "../../constants";
+import { SCENES, IMAGES, SHEETS, PIPELINES } from "../../constants";
+// ANIMS
 
 export default class Level_1_lava extends BaseScene {
   constructor() {
@@ -29,23 +30,28 @@ export default class Level_1_lava extends BaseScene {
       backgroundImage.destroy();
     }
 
-    const volcanobg = this.add
-      .sprite(80, 120, SHEETS.VolcanoBG)
-      .setDepth(-8)
-      .setPipeline(PIPELINES.Light2D);
+    // const volcanobg = this.add
+    //   .sprite(80, 120, SHEETS.VolcanoBG)
+    //   .setDepth(-8)
+    //   .setPipeline(PIPELINES.Light2D);
 
-    this.anims.create({
-      key: ANIMS.VolcanoBG_Anim,
-      frames: this.anims.generateFrameNumbers(SHEETS.VolcanoBG, {
-        start: 0,
-        end: 5,
-      }),
-      frameRate: 3,
-      repeat: -1,
-    });
-    volcanobg.anims.play(ANIMS.VolcanoBG_Anim);
+    // this.anims.create({
+    //   key: ANIMS.VolcanoBG_Anim,
+    //   frames: this.anims.generateFrameNumbers(SHEETS.VolcanoBG, {
+    //     start: 0,
+    //     end: 5,
+    //   }),
+    //   frameRate: 3,
+    //   repeat: -1,
+    // });
+    // volcanobg.anims.play(ANIMS.VolcanoBG_Anim);
 
     this.cloudTimer.stop();
+
+    this.add
+      .image(80, 180, IMAGES.NewVolcanoBG)
+      .setDepth(-10)
+      .setPipeline("Light2D");
 
     const sceneEmitter = this.add
       .particles(0, 0, SHEETS.Tiles, {

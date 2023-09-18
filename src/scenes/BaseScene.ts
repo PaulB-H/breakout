@@ -767,7 +767,7 @@ Reloading page...`
     // volcanobg.anims.play("volcanobg_anim");
 
     this.backgroundImage = this.add
-      .image(80, 120, IMAGES.MountainBG)
+      .image(80, 120, IMAGES.NewMountainBG)
       .setDepth(-10)
       .setPipeline("Light2D");
 
