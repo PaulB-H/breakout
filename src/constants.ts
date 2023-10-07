@@ -26,6 +26,7 @@ export const SCENES = {
   Level_3: "Level_3",
   Level_4: "Level_4",
   Level_1_lava: "Level_1_lava",
+  Level_1_ice: "Level_1_ice",
   Test_Nudge: "Test_Nudge",
   DemoScene: "DemoScene",
   StartScene: "StartScene",
@@ -46,6 +47,7 @@ export const SCENES = {
 export const SHEETS = {
   Tiles: "tiles",
   // VolcanoBG: "volcanobg",
+  WaterLoop: "waterloop",
 };
 
 export const ATLAS = {
@@ -57,6 +59,7 @@ export const IMAGES = {
   // MountainBG: "mountainbg",
   // VolcanoBG: "volcanobg",
   BreakoutExtruded: "breakout-extruded",
+  IcebergBG: "icebergbg",
   NewMountainBG: "newmountainbg",
   NewVolcanoBG: "newvolcanobg",
 };
@@ -68,6 +71,7 @@ export const BUTTONS = {
 
 export const ANIMS = {
   // VolcanoBG_Anim: "volcanobg_anim",
+  WaterLoopAnim: "waterloop_anim",
 };
 
 export const REGISTRY = {

@@ -14,7 +14,12 @@ import {
   PIPELINES,
 } from "../constants";
 
-import { FireBall, LaserBeam, LightningBolt } from "../objects/Projectiles";
+import {
+  FireBall,
+  IceSpike,
+  LaserBeam,
+  LightningBolt,
+} from "../objects/Projectiles";
 import { buildWall } from "../objects/LeafWall";
 // import { parseMap } from "./parseMap";
 
@@ -406,6 +411,17 @@ Reloading page...`
             projectile.destroy();
             this.scene.restart();
             break;
+          case "icespike":
+            if (this.lives >= 1) {
+              this.deleteHeartSprite();
+
+              this.cameras.main.shake(250, 0.01);
+              this.sound.play(AUDIO.HURT);
+
+              this.lives--;
+            }
+            projectile.destroy();
+            break;
           default:
             break;
         }
@@ -594,6 +610,10 @@ Reloading page...`
               default:
                 break;
             }
+            break;
+          case "icespike":
+            // this.sound.play(AUDIO.ELECTRIC);
+            new IceSpike(this, myBlock.x, myBlock.y);
             break;
           default:
             break;

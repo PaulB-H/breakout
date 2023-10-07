@@ -52,18 +52,18 @@ export default class PreloaderScene extends Phaser.Scene {
       }
     });
 
-    this.load.tilemapTiledJSON(SCENES.DemoScene, "assets/levels/breakout.json");
-    this.load.tilemapTiledJSON(SCENES.Level_1, "assets/levels/level-1.json");
-    this.load.tilemapTiledJSON(SCENES.Level_2, "assets/levels/level-2.json");
-    this.load.tilemapTiledJSON(SCENES.Level_3, "assets/levels/level-3.json");
-    this.load.tilemapTiledJSON(SCENES.Level_4, "assets/levels/level-4.json");
-    this.load.tilemapTiledJSON(
-      SCENES.Level_1_lava,
-      "assets/levels/level-1-lava.json"
-    );
     // prettier-ignore
-    this.load.tilemapTiledJSON(SCENES.Test_Nudge, 
-      "assets/levels/test-ai-nudge.json");
+    {
+      this.load.tilemapTiledJSON(SCENES.DemoScene, "assets/levels/breakout.json");
+      this.load.tilemapTiledJSON(SCENES.Level_1, "assets/levels/level-1.json");
+      this.load.tilemapTiledJSON(SCENES.Level_2, "assets/levels/level-2.json");
+      this.load.tilemapTiledJSON(SCENES.Level_3, "assets/levels/level-3.json");
+      this.load.tilemapTiledJSON(SCENES.Level_4, "assets/levels/level-4.json");
+      this.load.tilemapTiledJSON(SCENES.Level_1_lava, "assets/levels/level-1-lava.json");
+      this.load.tilemapTiledJSON(SCENES.Test_Nudge, "assets/levels/test-ai-nudge.json");
+      this.load.tilemapTiledJSON(SCENES.Test, "assets/levels/test.json");
+      this.load.tilemapTiledJSON(SCENES.Level_1_ice, "assets/levels/ice-1.json");
+    }
 
     const fonts = [
       {
@@ -132,6 +132,10 @@ export default class PreloaderScene extends Phaser.Scene {
     //   "assets/backgrounds/mountainbg.png",
     //   "assets/backgrounds/mountainbg_n.png",
     // ]);
+
+    this.load.image(IMAGES.IcebergBG, [
+      "assets/backgrounds/icebergbg.png",
+      "assets/backgrounds/icebergbg_n.png",
     ]);
 
     this.load.image(IMAGES.NewMountainBG, [

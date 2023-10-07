@@ -76,8 +76,10 @@ export default class LevelSelect extends Phaser.Scene {
       { text: "Level 3", key: SCENES.Level_3 },
       { text: "Level 4", key: SCENES.Level_4 },
       { text: "Level 5", key: SCENES.DemoScene },
-      { text: "Lava\xa0 1", key: SCENES.Level_1_lava },
-      { text: "~  Start  ~", key: SCENES.StartScene },
+      { text: "Lava 1", key: SCENES.Level_1_lava },
+      { text: "Ice 1", key: SCENES.Level_1_ice },
+      { text: "AI Test", key: SCENES.Test_Nudge },
+      { text: "Start", key: SCENES.StartScene },
     ];
 
     let levelBtnElements: Array<HTMLButtonElement> = [];

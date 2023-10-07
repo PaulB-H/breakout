@@ -1,6 +1,6 @@
 import BaseScene from "../scenes/BaseScene";
 
-import { SHEETS } from "../constants";
+import { PIPELINES, SHEETS } from "../constants";
 
 export class FireBall extends Phaser.Physics.Arcade.Sprite {
   type = "fireball";
@@ -69,5 +69,30 @@ export class LaserBeam extends Phaser.Physics.Arcade.Sprite {
     this.setSize(3, 14);
 
     this.setVelocityY(500);
+  }
+}
+
+export class IceSpike extends Phaser.Physics.Arcade.Sprite {
+  type = "icespike";
+  constructor(
+    scene: BaseScene,
+    x: number,
+    y: number,
+    texture = SHEETS.Tiles,
+    frame = 65
+  ) {
+    super(scene, x, y, texture, frame);
+
+    scene.physics.add.existing(this);
+    scene.add.existing(this);
+
+    scene.addToProjectileGrp(this);
+
+    this.setSize(3, 14);
+
+    this.setPipeline(PIPELINES.Light2D);
+
+    // this.setVelocityY(500);
+    this.setAccelerationY(100);
   }
 }

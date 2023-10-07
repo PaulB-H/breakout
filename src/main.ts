@@ -7,6 +7,7 @@ import Level_2 from "./scenes/levels/Level_2";
 import Level_3 from "./scenes/levels/Level_3";
 import Level_4 from "./scenes/levels/Level_4";
 import Level_1_lava from "./scenes/levels/Level_1_lava";
+import Level_1_ice from "./scenes/levels/Level_1_ice";
 import StartScene from "./scenes/menus/Start";
 import PauseScene from "./scenes/menus/Pause";
 import Test_Nudge from "./scenes/levels/Test_Nudge";
@@ -39,6 +40,7 @@ const config: Phaser.Types.Core.GameConfig = {
     Level_4,
     DemoScene,
     Level_1_lava,
+    Level_1_ice,
   ],
   scale: {
     zoom: 1,
