@@ -14,7 +14,6 @@ export default class BaseUIDiv {
 
     this.newUIDiv = document.createElement("div");
     this.newUIDiv.id = name;
-
     this.newUIDiv.style.cssText = `
       position: absolute;
       top: 0;
@@ -26,17 +25,15 @@ export default class BaseUIDiv {
       container-type: inline-size;
       user-select: none;
     `;
+    // We avoided the need to bind "this" by making the methods arrow functions
+    // this.newUIDiv.addEventListener("mousemove", this.mouseFunction.bind(this));
+    this.newUIDiv.addEventListener("mousemove", this.mouseFunction);
 
-    this.newUIDiv.addEventListener("mousemove", this.mouseFunction.bind(this));
+    window.addEventListener("resize", this.updateUISize);
 
-    window.addEventListener("resize", this.updateUISize.bind(this));
+    window.addEventListener("orientationchange", this.handleOrientationChange);
 
-    window.addEventListener(
-      "orientationchange",
-      this.handleOrientationChange.bind(this)
-    );
-
-    // Save a reference to the BaseUIDiv instance in the WeakMap
+    // Save a reference to the BaseUIDiv and its class instance in the WeakMap
     BaseUIDiv.elementMethodsMap.set(this.newUIDiv, this);
 
     this.updateUISize();
@@ -46,14 +43,14 @@ export default class BaseUIDiv {
     return this.newUIDiv;
   }
 
-  updateUISize() {
+  updateUISize = () => {
     window.setTimeout(() => {
       this.newUIDiv.style.height = this.canvas.clientHeight + "px";
       this.newUIDiv.style.width = this.canvas.clientWidth + "px";
     }, 10);
-  }
+  };
 
-  mouseFunction(event: MouseEvent) {
+  mouseFunction = (event: MouseEvent) => {
     const x = event.clientX;
     const y = event.clientY;
 
@@ -64,22 +61,18 @@ export default class BaseUIDiv {
       cancelable: true,
     });
     this.canvas.dispatchEvent(mouseMoveEvent);
-  }
+  };
 
   handleOrientationChange() {
-    if (screen.orientation.type.startsWith("portrait")) {
-      this.updateUISize();
-    } else if (screen.orientation.type.startsWith("landscape")) {
-      this.updateUISize();
-    }
+    this.updateUISize();
   }
 
   customRemove() {
-    window.removeEventListener("resize", this.updateUISize.bind(this));
+    window.removeEventListener("resize", this.updateUISize);
 
     window.removeEventListener(
       "orientationchange",
-      this.handleOrientationChange.bind(this)
+      this.handleOrientationChange
     );
 
     this.newUIDiv.remove();
