@@ -119,6 +119,7 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
       };
       scene.setTouchMoveFunc(touchMoveFunc);
       document.addEventListener("touchmove", touchMoveFunc);
+      const global1 = { event: "touchmove", function: touchMoveFunc };
 
       const clickListenFunc = () => {
         setTimeout(() => {
@@ -134,6 +135,9 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
       };
       scene.setClickFunc(clickListenFunc);
       document.addEventListener("mousedown", clickListenFunc);
+      const global2 = { event: "mousedown", function: clickListenFunc };
+
+      scene.registry.set("globals", [global1, global2]);
     });
   }
 
@@ -220,89 +224,71 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
 
   if (wallsLayer) {
     wallsLayer.objects.forEach((wall: Phaser.Types.Tilemaps.TiledObject) => {
-      // .log(ball.gid);
-      // .log(map.tilesets[0].getTileCollisionGroup(ball.gid!));
       const collisionGroup = map.tilesets[0].getTileCollisionGroup(
         wall.gid!
       ) as any;
 
-      // wall.x! += map.tileWidth * 0.5;
-      wall.y! -= map.tileHeight;
+      const collisionObjs = collisionGroup.objects;
 
-      var objects = collisionGroup.objects;
+      // This takes the wall.properties array, which is originally structured as:
+      // [ { name: "color", type: "string", value: "" }, { name: "useWallHeight", type: bool, value: true }]
+      // and changes it into this, so we can more easily access properties:
+      // { name: "color", value: "" , name: "useWallHeight", value: true }
+      const wallObjProps = wall.properties.reduce((acc: any, property: any) => {
+        acc[property.name] = property.value;
+        return acc;
+      }, {});
 
-      const debugGraphics = scene.add.graphics();
+      collisionObjs.forEach((collisionObj: any) => {
+        if (collisionObj.rectangle) {
+          const rectX = wall.x! + wall.width! / 2 + collisionObj.x;
+          const rectY = wall.y! - wall.height! / 2 + collisionObj.y;
 
-      if (
-        collisionGroup.properties &&
-        collisionGroup.properties.isInteractive
-      ) {
-        debugGraphics.lineStyle(2, 0x00ff00, 1);
-      } else {
-        debugGraphics.lineStyle(2, 0x00ffff, 1);
-      }
-
-      const debug = false;
-
-      for (var i = 0; i < objects.length; i++) {
-        var object = objects[i];
-        var objectX = wall.x + object.x;
-        var objectY = wall.y + object.y;
-
-        // When objects are parsed by Phaser, they will be guaranteed to have one of the
-        // following properties if they are a rectangle/ellipse/polygon/polyline.
-        if (object.rectangle) {
-          if (debug)
-            debugGraphics.strokeRect(
-              objectX,
-              objectY,
-              object.width,
-              object.height
-            );
-
-          const wallSprite = scene.physics.add.sprite(
-            (wall.x! += wall.width! / 2),
-            (wall.y! += wall.height! / 2),
-            SHEETS.Tiles,
-            wall.gid! - 1
+          const rectangleSprite = scene.physics.add.sprite(
+            rectX - wall.width! / 2,
+            rectY - wall.height! / 2,
+            "null"
           );
 
-          wallSprite.setSize(object.width, object.height);
-          scene.addToWallGroup(wallSprite);
-        } else if (object.ellipse) {
-          // Ellipses in Tiled have a top-left origin, while ellipses in Phaser have a center
-          // origin
-          if (debug)
-            debugGraphics.strokeEllipse(
-              objectX + object.width / 2,
-              objectY + object.height / 2,
-              object.width,
-              object.height
-            );
+          rectangleSprite.setOrigin(0);
 
-          // const newZone = scene.add.zone(
-          //   objectX + object.width / 2,
-          //   objectY + object.height / 2,
-          //   object.width,
-          //   object.height
-          // );
+          let spriteHeight = collisionObj.height;
+          if (wallObjProps.useWallHeight === true) {
+            spriteHeight = wall.height!;
+          }
 
-          const pos = (object.width / 2 + object.height / 2) / 2;
+          let spriteWidth = collisionObj.width;
+          if (wallObjProps.useWallWidth === true) {
+            spriteWidth = wall.width!;
+          }
 
-          // const myobj: any = scene.physics.add.existing(newZone, true);
+          rectangleSprite.setDisplaySize(spriteWidth, spriteHeight);
+          // rectangleSprite.setSize(tempWidth, tempHeight);
 
-          const wallSprite = scene.physics.add.sprite(
-            (wall.x! += wall.width! / 2),
-            (wall.y! += wall.height! / 2),
-            SHEETS.Tiles,
-            wall.gid! - 1
+          rectangleSprite.setTint(0x000000);
+
+          scene.addToWallGroup(rectangleSprite);
+        } else if (collisionObj.ellipse) {
+          const rectX = wall.x! + wall.width! / 2 + collisionObj.x;
+          const rectY = wall.y! - wall.height! / 2 + collisionObj.y;
+
+          const circleSprite = scene.physics.add.sprite(
+            rectX - wall.width! / 2,
+            rectY - wall.height! / 2,
+            "null"
           );
 
-          scene.addToWallGroup(wallSprite);
+          circleSprite.setOrigin(0);
 
-          wallSprite.setCircle(pos);
+          circleSprite.setDisplaySize(collisionObj.width, collisionObj.height);
+
+          circleSprite.setSize(collisionObj.width, collisionObj.height);
+          circleSprite.setCircle(collisionObj.width);
+          circleSprite.setTint(0x000000);
+
+          scene.addToWallGroup(circleSprite);
         }
-      }
+      });
     });
   }
 
