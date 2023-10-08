@@ -78,6 +78,7 @@ export default class LevelSelect extends Phaser.Scene {
       { text: "Level 5", key: SCENES.DemoScene },
       { text: "Lava 1", key: SCENES.Level_1_lava },
       { text: "Ice 1", key: SCENES.Level_1_ice },
+      { text: "Walls", key: SCENES.Test },
       { text: "AI Test", key: SCENES.Test_Nudge },
       { text: "Start", key: SCENES.StartScene },
     ];

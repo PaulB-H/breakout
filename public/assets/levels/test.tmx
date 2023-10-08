@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="54">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="298">
  <editorsettings>
-  <export target="level-1.json" format="json"/>
+  <export target="test.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="breakout-extruded" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="100" columns="10">
   <image source="../main-tileset/breakout-extruded.png" width="180" height="180"/>
@@ -842,6 +842,9 @@
    <properties>
     <property name="color" value=""/>
    </properties>
+   <objectgroup draworder="index" id="3">
+    <object id="2" x="5" y="6" width="6" height="5"/>
+   </objectgroup>
   </tile>
   <tile id="88">
    <properties>
@@ -972,35 +975,101 @@
    </properties>
   </tile>
  </tileset>
- <objectgroup id="3" name="blocks">
-  <object id="11" gid="19" x="128" y="128" width="16" height="16"/>
-  <object id="27" gid="2" x="96" y="128" width="16" height="16"/>
-  <object id="41" gid="19" x="48" y="128" width="16" height="16"/>
-  <object id="53" gid="2" x="16" y="128" width="16" height="16"/>
+ <objectgroup id="2" name="blocks">
+  <object id="168" gid="19" x="128" y="64" width="16" height="16"/>
+  <object id="169" gid="19" x="144" y="64" width="16" height="16"/>
+  <object id="170" gid="19" x="144" y="80" width="16" height="16"/>
+  <object id="171" gid="19" x="128" y="80" width="16" height="16"/>
  </objectgroup>
- <objectgroup id="6" name="walls">
-  <object id="39" gid="85" x="-1" y="127" width="16" height="16"/>
-  <object id="40" gid="86" x="145" y="127" width="16" height="16"/>
-  <object id="46" gid="76" x="0" y="117" width="160" height="16">
-   <properties>
-    <property name="useWallWidth" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="47" gid="76" x="0" y="119" width="160" height="16">
-   <properties>
-    <property name="useWallWidth" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="48" gid="85" x="79" y="127" width="16" height="16"/>
-  <object id="49" gid="86" x="65" y="127" width="16" height="16"/>
-  <object id="50" gid="85" x="79" y="124" width="16" height="16"/>
-  <object id="51" gid="86" x="65" y="124" width="16" height="16"/>
- </objectgroup>
- <objectgroup id="4" name="player">
+ <objectgroup id="8" name="deco-objects"/>
+ <objectgroup id="3" name="player">
   <object id="1" gid="11" x="72" y="218" width="16" height="16"/>
  </objectgroup>
- <objectgroup id="7" name="powers"/>
- <layer id="8" name="deco" width="10" height="15">
+ <objectgroup id="7" name="walls">
+  <object id="206" gid="75" x="119" y="82" width="16" height="36">
+   <properties>
+    <property name="useWallHeight" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="211" gid="76" x="124" y="89" width="36" height="16">
+   <properties>
+    <property name="useWallWidth" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="214" gid="76" x="128" y="55" width="32" height="16">
+   <properties>
+    <property name="useWallWidth" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="221" gid="85" x="-1" y="177" width="16" height="16"/>
+  <object id="222" gid="85" x="14" y="162" width="16" height="16"/>
+  <object id="223" gid="87" x="0" y="16" width="16" height="16"/>
+  <object id="225" gid="87" x="16" y="32" width="16" height="16"/>
+  <object id="227" gid="85" x="0" y="48" width="16" height="16"/>
+  <object id="232" gid="85" x="32" y="176" width="16" height="16"/>
+  <object id="233" gid="85" x="47" y="161" width="16" height="16"/>
+  <object id="234" gid="86" x="47" y="146" width="16" height="16"/>
+  <object id="235" gid="86" x="32" y="131" width="16" height="16"/>
+  <object id="236" gid="86" x="14" y="147" width="16" height="16"/>
+  <object id="237" gid="86" x="-1" y="132" width="16" height="16"/>
+  <object id="238" gid="85" x="-1" y="117" width="16" height="16"/>
+  <object id="239" gid="85" x="14" y="102" width="16" height="16"/>
+  <object id="240" gid="85" x="29" y="87" width="16" height="16"/>
+  <object id="241" gid="85" x="32" y="116" width="16" height="16"/>
+  <object id="242" gid="85" x="47" y="101" width="16" height="16"/>
+  <object id="248" gid="75" x="133" y="160" width="16" height="48">
+   <properties>
+    <property name="useWallHeight" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="249" gid="75" x="121" y="160" width="16" height="64">
+   <properties>
+    <property name="useWallHeight" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="250" gid="85" x="112" y="96" width="16" height="16"/>
+  <object id="251" gid="76" x="130" y="105" width="16" height="16"/>
+  <object id="252" gid="76" x="146" y="105" width="16" height="16"/>
+  <object id="253" gid="75" x="151" y="97" width="16" height="16"/>
+  <object id="255" gid="85" x="97" y="111" width="16" height="16"/>
+  <object id="258" gid="76" x="72" y="159" width="48" height="16">
+   <properties>
+    <property name="useWallWidth" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="262" gid="86" x="145" y="15" width="16" height="16"/>
+  <object id="277" gid="86" x="145" y="114" width="16" height="16"/>
+  <object id="278" gid="76" x="126" y="53" width="34" height="16">
+   <properties>
+    <property name="useWallWidth" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="281" gid="76" x="124" y="91" width="36" height="16">
+   <properties>
+    <property name="useWallWidth" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="282" gid="75" x="117" y="82" width="16" height="38">
+   <properties>
+    <property name="useWallHeight" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="292" gid="74" x="72" y="168" width="16" height="16"/>
+  <object id="293" gid="74" x="88" y="168" width="16" height="16"/>
+  <object id="294" gid="74" x="104" y="168" width="16" height="16"/>
+  <object id="295" gid="76" x="72" y="157" width="48" height="16">
+   <properties>
+    <property name="useWallWidth" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="296" gid="94" x="143" y="90" width="16" height="16"/>
+  <object id="297" gid="84" x="152" y="97" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="4" name="ball">
+  <object id="2" gid="12" x="72" y="212" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="5" name="power"/>
+ <layer id="6" name="deco" width="10" height="15">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
@@ -1008,7 +1077,7 @@
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
-35,35,35,35,35,35,35,35,35,35,
+0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
@@ -1019,7 +1088,4 @@
 63,63,63,63,63,63,63,63,63,63
 </data>
  </layer>
- <objectgroup id="5" name="ball">
-  <object id="2" gid="12" x="72" y="212" width="16" height="16"/>
- </objectgroup>
 </map>
