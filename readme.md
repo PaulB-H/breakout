@@ -10,6 +10,8 @@ Phaser 3 + TypeScript + Vite\
 
 ---
 
+### Tools
+
 **Aesprite**\
 Animated Sprite Editor & Pixel Art Tool\
 [https://www.aseprite.org](https://www.aseprite.org/)
@@ -34,13 +36,25 @@ Easy way to make & edit bitmap fonts\
 A tiny Node CLI (and library) to extrude tiles in tilesets\
 [https://github.com/sporadic-labs/tile-extruder](https://github.com/sporadic-labs/tile-extruder)
 
+**DaVinci Resolve**\
+Video Editor\
+[https://www.blackmagicdesign.com/products/davinciresolve](https://www.blackmagicdesign.com/products/davinciresolve)
+
+**FFmpeg**\
+CLI tool to convert audio and video\
+[https://ffmpeg.org/](https://ffmpeg.org/)
+
+**Free Crop Video**\
+Video Cropping Tool\
+[https://www.easymakevideo.com/freecropvideo.html](https://www.easymakevideo.com/freecropvideo.html)
+
 ---
+
+### Assets
 
 #### Fonts:
 
 [https://www.dafont.com/vcr-osd-mono.font (as "vcr-white" & "vcr-black)](https://www.dafont.com/vcr-osd-mono.font)
-
----
 
 #### Sounds:
 
@@ -60,5 +74,17 @@ A tiny Node CLI (and library) to extrude tiles in tilesets\
 [https://pixabay.com/sound-effects/bow-loading-38752 (as "woodcreak")](https://pixabay.com/sound-effects/bow-loading-38752/)
 
 <!-- [https://pixabay.com/sound-effects/2018-08-02-17971 (as "music")](https://pixabay.com/sound-effects/2018-08-02-17971/)\ -->
+
+#### Images:
+
+[https://unsplash.com/photos/7S21XSxKxVk (as "icebergbg")](https://unsplash.com/photos/7S21XSxKxVk)
+
+[https://pixabay.com/photos/mountain-peak-summit-alpine-alps-425134/ (as "newmountainbg")](https://pixabay.com/photos/mountain-peak-summit-alpine-alps-425134/)
+
+[https://pixabay.com/illustrations/volcano-lava-volcanic-eruption-7104380/ (as "newvolcanobg")](https://pixabay.com/illustrations/volcano-lava-volcanic-eruption-7104380/)
+
+#### Videos:
+
+[https://pixabay.com/videos/boat-boots-tourist-wave-waves-hot-23838/ (as "waterloop")](https://pixabay.com/videos/boat-boots-tourist-wave-waves-hot-23838/)
 
 ---
