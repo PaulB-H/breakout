@@ -46,7 +46,6 @@ export default class StartScene extends BaseScene {
       margin-top: 80%;
       margin-left: 25%;
     `;
-    startButton.setAttribute("data-aos", "fade-right");
 
     document
       .querySelector("#app")
@@ -61,7 +60,9 @@ export default class StartScene extends BaseScene {
         if (BaseUIDiv.getInstance(startUIDiv))
           BaseUIDiv.getInstance(startUIDiv)!.customRemove();
 
-        transitionManager.startTransition(SCENES.Level_1);
+        transitionManager.startTransition(SCENES.LevelSelect, {
+          resume: false,
+        });
       });
     });
   }

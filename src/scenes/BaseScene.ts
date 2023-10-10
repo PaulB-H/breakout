@@ -900,25 +900,10 @@ Reloading page...`
       document.removeEventListener("touchmove", this.touchMoveFunc);
       document.removeEventListener("mousedown", this.clickFunc);
 
-      const currentIndex = this.scene.getIndex();
+      if (BaseUIDiv.getInstance(this.UIElements.baseSceneUI))
+        BaseUIDiv.getInstance(this.UIElements.baseSceneUI)!.customRemove();
 
-      const scenesLength = this.scene.manager.getScenes(false).length - 1;
-
-      if (currentIndex === scenesLength) {
-        // Last Scene, start scene 1
-        this.scene.start(SCENES.Level_1);
-      } else {
-        const nextSceneKey =
-          this.scene.manager.scenes[currentIndex + 1].scene.key;
-
-        if (nextSceneKey === SCENES.PauseScene)
-          this.scene.start(SCENES.Level_1);
-        else this.scene.start(nextSceneKey);
-      }
-
-      // this.scene.switch(nextSceneKey);
-      // this.scene.start(nextSceneKey);
-      // this.scene.launch(nextSceneKey)
+      this.scene.start(SCENES.LevelSelect, { resume: false });
     }
 
     /* Rough way to change sprite based on direction of player movement

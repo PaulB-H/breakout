@@ -19,9 +19,12 @@ export default class PauseScene extends Phaser.Scene {
 
   preload() {}
 
+  // We need to make sure when we call PauseScene
+  // we tell it which scene was paused
   init(data: { pausedSceneKey: string }) {
     this.pausedSceneKey = data.pausedSceneKey;
 
+    // Slight fade
     this.cameras.main.setBackgroundColor(0xbf87ceeb);
   }
 
@@ -57,7 +60,9 @@ export default class PauseScene extends Phaser.Scene {
     `;
     ResumeBtn.addEventListener("click", () => {
       setTimeout(() => {
-        this.UIElements.PauseUI.remove();
+        if (BaseUIDiv.getInstance(this.UIElements.PauseUI))
+          BaseUIDiv.getInstance(this.UIElements.PauseUI)!.customRemove();
+
         this.scene.stop();
         this.scene.resume(this.pausedSceneKey);
       }, 150);
@@ -76,7 +81,13 @@ export default class PauseScene extends Phaser.Scene {
         setTimeout(() => {
           this.scene.pause();
           this.UIElements.PauseUI.style.display = "none";
-          this.scene.launch(SCENES.LevelSelect);
+
+          // // We are not removing it here because we only remove it
+          // // when a different scene is picked from Level Select
+          // if (BaseUIDiv.getInstance(this.UIElements.PauseUI))
+          //   BaseUIDiv.getInstance(this.UIElements.PauseUI)!.customRemove();
+
+          this.scene.launch(SCENES.LevelSelect, { resume: true });
         }, 150);
       });
     });
@@ -92,6 +103,7 @@ export default class PauseScene extends Phaser.Scene {
 
     this.scene.bringToTop(SCENES.PauseScene);
 
+    // // The event we get from level select's "resume" button...
     this.events.on(
       "showPauseUI",
       () => (this.UIElements.PauseUI.style.display = "flex")

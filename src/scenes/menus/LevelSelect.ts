@@ -1,5 +1,7 @@
 import { BUTTONS, SCENES, FONTS } from "../../constants";
 
+import TransitionManager from "../TransitionManager";
+
 import BaseUIDiv from "../BaseUIDiv";
 
 interface UIElements {
@@ -22,13 +24,15 @@ export default class LevelSelect extends Phaser.Scene {
     this.cameras.main.setBackgroundColor(0xbf87ceeb);
   }
 
-  create() {
+  create(data: any) {
+    const transitionManager = new TransitionManager(this);
+
     let gameWidth = this.sys.game.config.width;
     if (typeof gameWidth === "string") gameWidth = parseInt(gameWidth);
     let gameHeight = this.sys.game.config.height;
     if (typeof gameHeight === "string") gameHeight = parseInt(gameHeight);
 
-    this.add.bitmapText(10, 50, FONTS.VCR_BLACK, "LEVEL SELECT", 21);
+    this.add.bitmapText(5, 50, FONTS.VCR_BLACK, "LEVEL SELECT", 21);
 
     const resumeBtn = this.add.sprite(40, 200, BUTTONS.ResumeBTN).setDepth(10);
     resumeBtn.setInteractive();
@@ -36,16 +40,23 @@ export default class LevelSelect extends Phaser.Scene {
       "pointerdown",
       () => {
         setTimeout(() => {
-          this.scene.resume(SCENES.PauseScene);
+          if (SCENES.PauseScene) {
+            this.scene.resume(SCENES.PauseScene);
+            this.scene.get(SCENES.PauseScene).events.emit("showPauseUI");
+          }
 
-          this.scene.get(SCENES.PauseScene).events.emit("showPauseUI");
+          if (BaseUIDiv.getInstance(this.UIElements.LevelSelectUI))
+            BaseUIDiv.getInstance(
+              this.UIElements.LevelSelectUI
+            )!.customRemove();
 
-          this.UIElements.LevelSelectUI.remove();
           this.scene.stop();
         }, 150);
       },
       this
     );
+
+    if (data && data.resume === false) resumeBtn.destroy();
 
     const LevelSelectUI = new BaseUIDiv("level-select-ui").getDiv();
     LevelSelectUI.style.cssText += `
@@ -65,8 +76,12 @@ export default class LevelSelect extends Phaser.Scene {
       flex-wrap: wrap;
       justify-content: space-evenly;
       align-items: center;
-      width: 100%;
+      width: 80%;
       height: 20%;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 10px; 
     `;
     LevelSelectUI.insertAdjacentElement("beforeend", LevelsDiv);
 
@@ -89,8 +104,15 @@ export default class LevelSelect extends Phaser.Scene {
       setTimeout(() => {
         this.scene.stop(SCENES.PauseScene);
         this.scene.stop(this.registry.get("pausedSceneKey"));
-        this.scene.start(sceneKey);
-        this.UIElements.LevelSelectUI.remove();
+
+        const pauseUI = document.getElementById("pause-ui") as HTMLDivElement;
+        if (BaseUIDiv.getInstance(pauseUI))
+          BaseUIDiv.getInstance(pauseUI)!.customRemove();
+
+        if (BaseUIDiv.getInstance(this.UIElements.LevelSelectUI))
+          BaseUIDiv.getInstance(this.UIElements.LevelSelectUI)!.customRemove();
+
+        transitionManager.startTransition(sceneKey, null);
       }, 150);
     };
 
@@ -101,11 +123,12 @@ export default class LevelSelect extends Phaser.Scene {
         font-size: 5cqw;
         margin: 0.5%;
         padding: 0.5% 2% 0.5% 2%;
+        min-width: 105px;
       `;
       newBtn.onmouseup = () => startLevel(level.key);
 
       newBtn.setAttribute("data-aos", "fade-up");
-      newBtn.setAttribute("data-aos-delay", `${idx * 100}`);
+      newBtn.setAttribute("data-aos-delay", `${idx * 50}`);
 
       levelBtnElements.push(newBtn);
 
