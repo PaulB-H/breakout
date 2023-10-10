@@ -4,7 +4,20 @@ export default class TransitionManager {
     this.scene = scene;
   }
 
-  startTransition(nextSceneKey: string) {
-    this.scene.scene.start(nextSceneKey);
+  startTransition(nextSceneKey: string, data: any) {
+    if (this.scene.registry.get("globals")) {
+      this.scene.registry
+        .get("globals")
+        .forEach(
+          (eventListener: { event: string; function: EventListener }) => {
+            document.removeEventListener(
+              eventListener.event,
+              eventListener.function
+            );
+          }
+        );
+    }
+
+    this.scene.scene.start(nextSceneKey, data);
   }
 }
