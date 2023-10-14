@@ -98,7 +98,7 @@ export default class LevelSelect extends Phaser.Scene {
     ///// https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type
     /* */
     const levelGroups: Record<string, { text: string; key: string }[]> = {
-      mountan: [
+      mountain: [
         { text: "Level 1", key: SCENES.Level_1 },
         { text: "Level 2", key: SCENES.Level_2 },
         { text: "Level 3", key: SCENES.Level_3 },
