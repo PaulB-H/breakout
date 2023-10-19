@@ -80,6 +80,7 @@ export default class LevelSelect extends Phaser.Scene {
       align-items: center;
       width: 100%;
     `;
+    LevelsDiv.setAttribute("data-aos", "fade-up");
     LevelSelectUI.insertAdjacentElement("beforeend", LevelsDiv);
 
     /* */
@@ -93,7 +94,12 @@ export default class LevelSelect extends Phaser.Scene {
         { text: "Level 4", key: SCENES.Level_4 },
       ],
       lava: [{ text: "Lava 1", key: SCENES.Level_1_lava }],
-      ice: [{ text: "Ice 1", key: SCENES.Level_1_ice }],
+      ice: [
+        { text: "Ice 1", key: SCENES.Level_1_ice },
+        { text: "Ice 2", key: SCENES.ice_2 },
+        { text: "Ice 3", key: SCENES.ice_3 },
+        { text: "Ice 4", key: SCENES.ice_4 },
+      ],
       debug: [
         { text: "Walls", key: SCENES.Test },
         { text: "AI Test", key: SCENES.Test_Nudge },

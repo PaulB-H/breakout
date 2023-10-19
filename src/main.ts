@@ -13,6 +13,9 @@ import PauseScene from "./scenes/menus/Pause";
 import Test_Nudge from "./scenes/levels/Test_Nudge";
 import LevelSelect from "./scenes/menus/LevelSelect";
 import Test from "./scenes/levels/Test";
+import ice_2 from "./scenes/levels/ice_2";
+import ice_3 from "./scenes/levels/ice_3";
+import ice_4 from "./scenes/levels/ice_4";
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -42,6 +45,9 @@ const config: Phaser.Types.Core.GameConfig = {
     DemoScene,
     Level_1_lava,
     Level_1_ice,
+    ice_2,
+    ice_3,
+    ice_4,
     Test,
   ],
   scale: {

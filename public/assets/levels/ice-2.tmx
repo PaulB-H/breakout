@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="200">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="227">
  <editorsettings>
-  <export target="ice-1.json" format="json"/>
+  <export target="ice-2.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="breakout-extruded" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="100" columns="10">
   <image source="../main-tileset/breakout-extruded.png" width="180" height="180"/>
@@ -976,25 +976,42 @@
   </tile>
  </tileset>
  <objectgroup id="2" name="blocks">
-  <object id="193" gid="65" x="16" y="144" width="16" height="16"/>
-  <object id="196" gid="65" x="128" y="144" width="16" height="16"/>
-  <object id="199" gid="65" x="72" y="144" width="16" height="16"/>
+  <object id="193" gid="65" x="16" y="96" width="16" height="16"/>
+  <object id="196" gid="65" x="128" y="96" width="16" height="16"/>
+  <object id="199" gid="65" x="80" y="112" width="16" height="16"/>
+  <object id="200" gid="9" x="64" y="112" width="16" height="16"/>
+  <object id="201" gid="9" x="112" y="96" width="16" height="16"/>
+  <object id="202" gid="9" x="32" y="96" width="16" height="16"/>
+  <object id="205" gid="19" x="96" y="96" width="16" height="16"/>
+  <object id="206" gid="19" x="64" y="96" width="16" height="16"/>
+  <object id="208" gid="19" x="128" y="112" width="16" height="16"/>
+  <object id="210" gid="65" x="80" y="96" width="16" height="16"/>
+  <object id="215" gid="49" x="16" y="112" width="16" height="16"/>
+  <object id="217" gid="65" x="48" y="112" width="16" height="16"/>
+  <object id="223" gid="65" x="112" y="112" width="16" height="16"/>
+  <object id="224" gid="65" x="48" y="96" width="16" height="16"/>
+  <object id="225" gid="65" x="32" y="112" width="16" height="16"/>
+  <object id="226" gid="9" x="96" y="112" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="8" name="deco-objects"/>
  <objectgroup id="3" name="player">
   <object id="1" gid="11" x="72" y="218" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="7" name="walls">
-  <object id="197" gid="76" x="0" y="135" width="160" height="16">
+  <object id="197" gid="76" x="0" y="87" width="160" height="16">
    <properties>
     <property name="useWallWidth" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="198" gid="76" x="0" y="133" width="160" height="16">
+  <object id="198" gid="76" x="0" y="85" width="160" height="16">
    <properties>
     <property name="useWallWidth" type="bool" value="true"/>
    </properties>
   </object>
+  <object id="218" gid="86" x="145" y="95" width="16" height="16"/>
+  <object id="219" gid="86" x="146" y="94" width="16" height="16"/>
+  <object id="220" gid="85" x="-1" y="95" width="16" height="16"/>
+  <object id="221" gid="85" x="-2" y="94" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="4" name="ball">
   <object id="2" gid="12" x="72" y="212" width="16" height="16"/>

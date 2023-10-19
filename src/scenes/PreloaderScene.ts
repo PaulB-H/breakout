@@ -63,6 +63,9 @@ export default class PreloaderScene extends Phaser.Scene {
       this.load.tilemapTiledJSON(SCENES.Test_Nudge, "assets/levels/test-ai-nudge.json");
       this.load.tilemapTiledJSON(SCENES.Test, "assets/levels/test.json");
       this.load.tilemapTiledJSON(SCENES.Level_1_ice, "assets/levels/ice-1.json");
+      this.load.tilemapTiledJSON(SCENES.ice_2, "assets/levels/ice-2.json");
+      this.load.tilemapTiledJSON(SCENES.ice_3, "assets/levels/ice-3.json");
+      this.load.tilemapTiledJSON(SCENES.ice_4, "assets/levels/ice-4.json");
     }
 
     const fonts = [
