@@ -157,6 +157,37 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image(BUTTONS.ResumeBTN, "assets/ui/resume-btn.png");
 
     this.registry.set(REGISTRY.score, 0);
+
+    const checkSavedGame = (savegame: Set<string>) => {
+      savegame.forEach((item: string) => {
+        if (!SCENES.hasOwnProperty(item)) {
+          savegame.delete(item);
+        }
+      });
+    };
+
+    if (localStorage.getItem("savegame")) {
+      let foundSave: Set<string> = new Set();
+
+      try {
+        foundSave = JSON.parse(localStorage.getItem("savegame") as string);
+        if (!Array.isArray(foundSave)) {
+          console.error("Found save not array...");
+        } else {
+          foundSave = new Set(foundSave);
+        }
+      } catch (err) {
+        console.error("Error parsing existing save...");
+      }
+
+      if (foundSave.size > 0) checkSavedGame(foundSave);
+
+      localStorage.setItem("savegame", JSON.stringify(Array.from(foundSave)));
+      this.game.registry.set("savegame", JSON.stringify(Array.from(foundSave)));
+    } else {
+      localStorage.setItem("savegame", JSON.stringify([]));
+      this.game.registry.set("savegame", JSON.stringify([]));
+    }
   }
 
   create() {

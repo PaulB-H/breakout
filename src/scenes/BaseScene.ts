@@ -896,7 +896,29 @@ Reloading page...`
       this.player.x = newX;
     }
 
-    if (this.blocks <= 0 || this.lives <= 0) {
+    if (this.blocks <= 0) {
+      const currentSave = new Set(
+        JSON.parse(this.game.registry.get("savegame"))
+      );
+
+      currentSave.add(this.scene.key);
+
+      this.game.registry.set(
+        "savegame",
+        JSON.stringify(Array.from(currentSave))
+      );
+      localStorage.setItem("savegame", JSON.stringify(Array.from(currentSave)));
+
+      document.removeEventListener("touchmove", this.touchMoveFunc);
+      document.removeEventListener("mousedown", this.clickFunc);
+
+      if (BaseUIDiv.getInstance(this.UIElements.baseSceneUI))
+        BaseUIDiv.getInstance(this.UIElements.baseSceneUI)!.customRemove();
+
+      this.scene.start(SCENES.LevelSelect, { resume: false });
+    }
+
+    if (this.lives <= 0) {
       document.removeEventListener("touchmove", this.touchMoveFunc);
       document.removeEventListener("mousedown", this.clickFunc);
 
