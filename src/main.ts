@@ -2,10 +2,10 @@ import Phaser from "phaser";
 
 import DemoScene from "./scenes/DemoScene";
 import PreloaderScene from "./scenes/PreloaderScene";
-import Level_1 from "./scenes/levels/Level_1";
-import Level_2 from "./scenes/levels/Level_2";
-import Level_3 from "./scenes/levels/Level_3";
-import Level_4 from "./scenes/levels/Level_4";
+import Mountain_1 from "./scenes/levels/Mountain_1";
+import Mountain_2 from "./scenes/levels/Mountain_2";
+import Mountain_3 from "./scenes/levels/Mountain_3";
+import Mountain_4 from "./scenes/levels/Mountain_4";
 import Level_1_lava from "./scenes/levels/Level_1_lava";
 import Level_1_ice from "./scenes/levels/Level_1_ice";
 import StartScene from "./scenes/menus/Start";
@@ -38,10 +38,10 @@ const config: Phaser.Types.Core.GameConfig = {
     PauseScene,
     LevelSelect,
     StartScene,
-    Level_1,
-    Level_2,
-    Level_3,
-    Level_4,
+    Mountain_1,
+    Mountain_2,
+    Mountain_3,
+    Mountain_4,
     DemoScene,
     Level_1_lava,
     Level_1_ice,

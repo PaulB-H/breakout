@@ -21,10 +21,10 @@ export const FONTS = {
 };
 
 export const SCENES = {
-  Level_1: "Level_1",
-  Level_2: "Level_2",
-  Level_3: "Level_3",
-  Level_4: "Level_4",
+  mountain_1: "mountain_1",
+  mountain_2: "mountain_2",
+  mountain_3: "mountain_3",
+  mountain_4: "mountain_4",
   Level_1_lava: "Level_1_lava",
   Level_1_ice: "Level_1_ice",
   ice_2: "ice_2",

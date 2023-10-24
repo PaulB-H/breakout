@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="66">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="88">
  <editorsettings>
-  <export target="level-2.json" format="json"/>
+  <export target="level-3.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="breakout-extruded" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="100" columns="10">
   <image source="../main-tileset/breakout-extruded.png" width="180" height="180"/>
@@ -973,12 +973,46 @@
   </tile>
  </tileset>
  <objectgroup id="2" name="player">
-  <object id="3" gid="11" x="72" y="218" width="16" height="16"/>
+  <object id="2" gid="11" x="72" y="218" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="3" name="ball">
-  <object id="1" gid="12" x="72" y="212" width="16" height="16"/>
+  <object id="3" gid="12" x="72" y="212" width="16" height="16"/>
  </objectgroup>
- <layer id="4" name="deco" width="10" height="15">
+ <objectgroup id="4" name="blocks">
+  <object id="53" gid="19" x="16" y="144" width="16" height="16"/>
+  <object id="54" gid="19" x="16" y="128" width="16" height="16"/>
+  <object id="55" gid="19" x="16" y="112" width="16" height="16"/>
+  <object id="56" gid="19" x="16" y="96" width="16" height="16"/>
+  <object id="57" gid="19" x="80" y="48" width="16" height="16"/>
+  <object id="58" gid="19" x="22" y="56" width="16" height="16"/>
+  <object id="59" gid="19" x="32" y="48" width="16" height="16"/>
+  <object id="60" gid="19" x="48" y="48" width="16" height="16"/>
+  <object id="61" gid="19" x="64" y="48" width="16" height="16"/>
+  <object id="62" gid="19" x="96" y="48" width="16" height="16"/>
+  <object id="63" gid="19" x="112" y="48" width="16" height="16"/>
+  <object id="64" gid="19" x="120" y="56" width="16" height="16"/>
+  <object id="67" gid="19" x="128" y="96" width="16" height="16"/>
+  <object id="68" gid="19" x="128" y="112" width="16" height="16"/>
+  <object id="69" gid="19" x="128" y="128" width="16" height="16"/>
+  <object id="70" gid="19" x="128" y="144" width="16" height="16"/>
+  <object id="71" gid="9" x="128" y="64" width="16" height="16"/>
+  <object id="72" gid="9" x="128" y="80" width="16" height="16"/>
+  <object id="73" gid="9" x="16" y="80" width="16" height="16"/>
+  <object id="74" gid="9" x="16" y="64" width="16" height="16"/>
+  <object id="75" gid="4" x="39" y="64" width="16" height="16"/>
+  <object id="76" gid="4" x="51" y="81" width="16" height="16"/>
+  <object id="77" gid="4" x="67" y="96" width="16" height="16"/>
+  <object id="78" gid="4" x="52" y="111" width="16" height="16"/>
+  <object id="79" gid="4" x="36" y="127" width="16" height="16"/>
+  <object id="80" gid="4" x="89" y="63" width="16" height="16"/>
+  <object id="81" gid="4" x="100" y="77" width="16" height="16"/>
+  <object id="82" gid="4" x="109" y="89" width="16" height="16"/>
+  <object id="83" gid="4" x="96" y="101" width="16" height="16"/>
+  <object id="84" gid="4" x="109" y="113" width="16" height="16"/>
+  <object id="86" gid="4" x="98" y="127" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="5" name="walls"/>
+ <layer id="6" name="deco" width="10" height="15">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
@@ -986,7 +1020,7 @@
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
-35,35,35,35,35,35,35,35,35,35,
+0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
@@ -997,28 +1031,4 @@
 63,63,63,63,63,63,63,63,63,63
 </data>
  </layer>
- <objectgroup id="5" name="walls">
-  <object id="29" gid="76" x="0" y="119" width="160" height="16">
-   <properties>
-    <property name="useWallWidth" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="59" gid="86" x="145" y="127" width="16" height="16"/>
-  <object id="60" gid="85" x="-1" y="127" width="16" height="16"/>
-  <object id="61" gid="85" x="79" y="127" width="16" height="16"/>
-  <object id="62" gid="86" x="65" y="127" width="16" height="16"/>
-  <object id="63" gid="85" x="79" y="124" width="16" height="16"/>
-  <object id="64" gid="86" x="65" y="124" width="16" height="16"/>
-  <object id="65" gid="76" x="0" y="117" width="160" height="16">
-   <properties>
-    <property name="useWallWidth" type="bool" value="true"/>
-   </properties>
-  </object>
- </objectgroup>
- <objectgroup id="6" name="blocks">
-  <object id="24" gid="4" x="16" y="128" width="16" height="16"/>
-  <object id="25" gid="4" x="96" y="128" width="16" height="16"/>
-  <object id="40" gid="9" x="128" y="128" width="16" height="16"/>
-  <object id="42" gid="9" x="48" y="128" width="16" height="16"/>
- </objectgroup>
 </map>

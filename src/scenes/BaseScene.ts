@@ -627,7 +627,7 @@ Reloading page...`
             myBlock.y,
             undefined,
             Math.floor(Math.random() * 4) + 12,
-            this.cache.tilemap.get(SCENES.Level_1)
+            this.cache.tilemap.get(SCENES.mountain_1)
           );
         }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="54">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="56">
  <editorsettings>
-  <export target="level-1.json" format="json"/>
+  <export target="mountain-1.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="breakout-extruded" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="100" columns="10">
   <image source="../main-tileset/breakout-extruded.png" width="180" height="180"/>
@@ -973,10 +973,10 @@
   </tile>
  </tileset>
  <objectgroup id="3" name="blocks">
-  <object id="11" gid="19" x="128" y="128" width="16" height="16"/>
-  <object id="27" gid="2" x="96" y="128" width="16" height="16"/>
-  <object id="41" gid="19" x="48" y="128" width="16" height="16"/>
-  <object id="53" gid="2" x="16" y="128" width="16" height="16"/>
+  <object id="11" gid="19" x="119" y="128" width="16" height="16"/>
+  <object id="41" gid="19" x="40" y="128" width="16" height="16"/>
+  <object id="54" gid="4" x="24" y="128" width="16" height="16"/>
+  <object id="55" gid="4" x="103" y="128" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="6" name="walls">
   <object id="39" gid="85" x="-1" y="127" width="16" height="16"/>

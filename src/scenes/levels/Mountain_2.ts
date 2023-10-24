@@ -2,9 +2,9 @@ import BaseScene from "../BaseScene";
 import { parseMap } from "../../utility/parseMap";
 import { SCENES, IMAGES, SHEETS } from "../../constants";
 
-export default class Level_1 extends BaseScene {
+export default class Mountain_2 extends BaseScene {
   constructor() {
-    super(SCENES.Level_1);
+    super(SCENES.mountain_2);
   }
 
   preload() {
@@ -16,7 +16,7 @@ export default class Level_1 extends BaseScene {
 
     // Create Tilemap
     const map = this.make.tilemap({
-      key: SCENES.Level_1,
+      key: SCENES.mountain_2,
       tileWidth: 16,
       tileHeight: 16,
     });

@@ -88,10 +88,10 @@ export default class LevelSelect extends Phaser.Scene {
     /* */
     const levelGroups: Record<string, { text: string; key: string }[]> = {
       mountain: [
-        { text: "Level 1", key: SCENES.Level_1 },
-        { text: "Level 2", key: SCENES.Level_2 },
-        { text: "Level 3", key: SCENES.Level_3 },
-        { text: "Level 4", key: SCENES.Level_4 },
+        { text: "Level 1", key: SCENES.mountain_1 },
+        { text: "Level 2", key: SCENES.mountain_2 },
+        { text: "Level 3", key: SCENES.mountain_3 },
+        { text: "Level 4", key: SCENES.mountain_4 },
       ],
       lava: [{ text: "Lava 1", key: SCENES.Level_1_lava }],
       ice: [

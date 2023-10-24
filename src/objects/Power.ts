@@ -21,7 +21,7 @@ export default class Power extends Phaser.Physics.Arcade.Sprite {
 
     // We are hardcoding the tileset used to get a power here, but could
     // pass in any tileset and it would get properties from that
-    tileset = scene.cache.tilemap.get(SCENES.Level_1).data.tilesets[0];
+    tileset = scene.cache.tilemap.get(SCENES.mountain_1).data.tilesets[0];
 
     // this.tileset = tileset;
     this.gid = frame;
