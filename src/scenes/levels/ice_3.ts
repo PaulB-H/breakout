@@ -2,7 +2,7 @@ import BaseScene from "../BaseScene";
 import { parseMap } from "../../utility/parseMap";
 import { SCENES, IMAGES, SHEETS, ANIMS } from "../../constants";
 
-export default class ice_3 extends BaseScene {
+export default class Ice_3 extends BaseScene {
   constructor() {
     super(SCENES.ice_3);
   }

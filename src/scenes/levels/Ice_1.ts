@@ -2,9 +2,9 @@ import BaseScene from "../BaseScene";
 import { parseMap } from "../../utility/parseMap";
 import { SCENES, IMAGES, SHEETS, ANIMS } from "../../constants";
 
-export default class Level_1_ice extends BaseScene {
+export default class Ice_1 extends BaseScene {
   constructor() {
-    super(SCENES.Level_1_ice);
+    super(SCENES.ice_1);
   }
 
   preload() {
@@ -16,7 +16,7 @@ export default class Level_1_ice extends BaseScene {
 
     // Create Tilemap
     const map = this.make.tilemap({
-      key: SCENES.Level_1_ice,
+      key: SCENES.ice_1,
       tileWidth: 16,
       tileHeight: 16,
     });

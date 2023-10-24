@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="285">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="286">
  <editorsettings>
   <export target="ice-4.json" format="json"/>
  </editorsettings>
@@ -1002,14 +1002,14 @@
   <object id="266" gid="19" x="142" y="62" width="16" height="16"/>
   <object id="267" gid="9" x="-5" y="99" width="16" height="16"/>
   <object id="268" gid="9" x="32" y="87" width="16" height="16"/>
-  <object id="269" gid="9" x="58" y="83" width="16" height="16"/>
+  <object id="269" gid="9" x="58" y="90" width="16" height="16"/>
   <object id="270" gid="9" x="82" y="86" width="16" height="16"/>
   <object id="271" gid="9" x="94" y="88" width="16" height="16"/>
-  <object id="272" gid="9" x="116" y="89" width="16" height="16"/>
+  <object id="272" gid="9" x="117" y="85" width="16" height="16"/>
   <object id="273" gid="9" x="129" y="92" width="16" height="16"/>
   <object id="274" gid="9" x="143" y="98" width="16" height="16"/>
-  <object id="275" gid="9" x="14" y="98" width="16" height="16"/>
-  <object id="276" gid="9" x="45" y="87" width="16" height="16"/>
+  <object id="275" gid="9" x="9" y="96" width="16" height="16"/>
+  <object id="276" gid="9" x="45" y="83" width="16" height="16"/>
   <object id="277" gid="9" x="69" y="83" width="16" height="16"/>
   <object id="278" gid="9" x="105" y="91" width="16" height="16"/>
   <object id="279" gid="65" x="48" y="53" width="16" height="16"/>
@@ -1018,6 +1018,7 @@
   <object id="282" gid="65" x="32" y="144" width="16" height="16"/>
   <object id="283" gid="19" x="78" y="40" width="16" height="16"/>
   <object id="284" gid="9" x="23" y="92" width="16" height="16"/>
+  <object id="285" gid="7" x="74" y="72" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="8" name="deco-objects"/>
  <objectgroup id="3" name="player">

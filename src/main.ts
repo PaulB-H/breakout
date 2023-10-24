@@ -6,16 +6,19 @@ import Mountain_1 from "./scenes/levels/Mountain_1";
 import Mountain_2 from "./scenes/levels/Mountain_2";
 import Mountain_3 from "./scenes/levels/Mountain_3";
 import Mountain_4 from "./scenes/levels/Mountain_4";
-import Level_1_lava from "./scenes/levels/Level_1_lava";
-import Level_1_ice from "./scenes/levels/Level_1_ice";
+import Lava_1 from "./scenes/levels/Lava_1";
+import Lava_2 from "./scenes/levels/Lava_2";
+import Lava_3 from "./scenes/levels/Lava_3";
+import Lava_4 from "./scenes/levels/Lava_4";
 import StartScene from "./scenes/menus/Start";
 import PauseScene from "./scenes/menus/Pause";
 import Test_Nudge from "./scenes/levels/Test_Nudge";
 import LevelSelect from "./scenes/menus/LevelSelect";
 import Test from "./scenes/levels/Test";
-import ice_2 from "./scenes/levels/ice_2";
-import ice_3 from "./scenes/levels/ice_3";
-import ice_4 from "./scenes/levels/ice_4";
+import Ice_1 from "./scenes/levels/Ice_1";
+import Ice_2 from "./scenes/levels/Ice_2";
+import Ice_3 from "./scenes/levels/Ice_3";
+import Ice_4 from "./scenes/levels/Ice_4";
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -43,11 +46,14 @@ const config: Phaser.Types.Core.GameConfig = {
     Mountain_3,
     Mountain_4,
     DemoScene,
-    Level_1_lava,
-    Level_1_ice,
-    ice_2,
-    ice_3,
-    ice_4,
+    Lava_1,
+    Lava_2,
+    Lava_3,
+    Lava_4,
+    Ice_1,
+    Ice_2,
+    Ice_3,
+    Ice_4,
     Test,
   ],
   scale: {

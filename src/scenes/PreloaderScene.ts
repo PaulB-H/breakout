@@ -59,10 +59,13 @@ export default class PreloaderScene extends Phaser.Scene {
       this.load.tilemapTiledJSON(SCENES.mountain_2, "assets/levels/mountain-2.json");
       this.load.tilemapTiledJSON(SCENES.mountain_3, "assets/levels/mountain-3.json");
       this.load.tilemapTiledJSON(SCENES.mountain_4, "assets/levels/mountain-4.json");
-      this.load.tilemapTiledJSON(SCENES.Level_1_lava, "assets/levels/level-1-lava.json");
+      this.load.tilemapTiledJSON(SCENES.lava_1, "assets/levels/lava-1.json");
+      this.load.tilemapTiledJSON(SCENES.lava_2, "assets/levels/lava-2.json");
+      this.load.tilemapTiledJSON(SCENES.lava_3, "assets/levels/lava-3.json");
+      this.load.tilemapTiledJSON(SCENES.lava_4, "assets/levels/lava-4.json");
       this.load.tilemapTiledJSON(SCENES.Test_Nudge, "assets/levels/test-ai-nudge.json");
       this.load.tilemapTiledJSON(SCENES.Test, "assets/levels/test.json");
-      this.load.tilemapTiledJSON(SCENES.Level_1_ice, "assets/levels/ice-1.json");
+      this.load.tilemapTiledJSON(SCENES.ice_1, "assets/levels/ice-1.json");
       this.load.tilemapTiledJSON(SCENES.ice_2, "assets/levels/ice-2.json");
       this.load.tilemapTiledJSON(SCENES.ice_3, "assets/levels/ice-3.json");
       this.load.tilemapTiledJSON(SCENES.ice_4, "assets/levels/ice-4.json");

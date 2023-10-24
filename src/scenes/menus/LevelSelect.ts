@@ -93,9 +93,14 @@ export default class LevelSelect extends Phaser.Scene {
         { text: "Level 3", key: SCENES.mountain_3 },
         { text: "Level 4", key: SCENES.mountain_4 },
       ],
-      lava: [{ text: "Lava 1", key: SCENES.Level_1_lava }],
+      lava: [
+        { text: "Lava 1", key: SCENES.lava_1 },
+        { text: "Lava 2", key: SCENES.lava_2 },
+        { text: "Lava 3", key: SCENES.lava_3 },
+        { text: "Lava 4", key: SCENES.lava_4 },
+      ],
       ice: [
-        { text: "Ice 1", key: SCENES.Level_1_ice },
+        { text: "Ice 1", key: SCENES.ice_1 },
         { text: "Ice 2", key: SCENES.ice_2 },
         { text: "Ice 3", key: SCENES.ice_3 },
         { text: "Ice 4", key: SCENES.ice_4 },
@@ -135,7 +140,8 @@ export default class LevelSelect extends Phaser.Scene {
     ///// Loop through level groups and create a row & buttons for each group
     /* */
     for (const levelGroup of Object.keys(levelGroups)) {
-      if (levelGroup === "debug" || levelGroup === "start") continue;
+      if (levelGroup === "debug") continue;
+      if (levelGroup === "start") continue;
 
       const row: HTMLDivElement = document.createElement("div");
       row.id = `${levelGroup}`;

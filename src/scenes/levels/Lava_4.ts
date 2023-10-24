@@ -3,9 +3,9 @@ import { parseMap } from "../../utility/parseMap";
 import { SCENES, IMAGES, SHEETS, PIPELINES } from "../../constants";
 // ANIMS
 
-export default class Level_1_lava extends BaseScene {
+export default class Lava_4 extends BaseScene {
   constructor() {
-    super(SCENES.Level_1_lava);
+    super(SCENES.lava_4);
   }
 
   preload() {
@@ -17,7 +17,7 @@ export default class Level_1_lava extends BaseScene {
 
     // Create Tilemap
     const map = this.make.tilemap({
-      key: SCENES.Level_1_lava,
+      key: SCENES.lava_4,
       tileWidth: 16,
       tileHeight: 16,
     });
