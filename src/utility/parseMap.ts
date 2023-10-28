@@ -1,5 +1,5 @@
 import BaseScene from "../scenes/BaseScene";
-import { iPlayer } from "../objects/Player";
+import { iPlayer, PlayerSprite } from "../objects/Player";
 
 import { Ball, iBall } from "../objects/Ball";
 
@@ -23,21 +23,6 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
 
       myPlayer.x += map.tileWidth * 0.5;
       myPlayer.y -= map.tileHeight * 0.5;
-
-      class PlayerSprite extends Phaser.Physics.Arcade.Sprite {
-        shiplight: Phaser.GameObjects.Light | null;
-
-        constructor(scene: BaseScene, x: number, y: number) {
-          super(scene, x, y, SHEETS.Tiles, 10);
-
-          // this.shiplight = scene.lights.addLight(80, 120, 1000, 0x7f0000, 1);
-          this.shiplight = null;
-        }
-
-        preUpdate() {
-          if (this.shiplight) this.shiplight.setPosition(this.x, this.y);
-        }
-      }
 
       const sprite = new PlayerSprite(scene, myPlayer.x, myPlayer.y);
 
