@@ -122,6 +122,9 @@ export default class BaseScene extends Phaser.Scene {
   setPlayer(sprite: Phaser.Physics.Arcade.Sprite) {
     this.player = sprite;
   }
+  getPlayer() {
+    return this.player;
+  }
   getPlayerX() {
     return this.player.x;
   }
