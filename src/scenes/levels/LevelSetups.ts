@@ -64,7 +64,7 @@ export const lavaSetup = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
         source: scene.getPlayer() as PlayerSprite,
       },
     })
-    .setDepth(-9)
+    .setDepth(100)
     .setPipeline(PIPELINES.Light2D);
 
   const myfunc = () => {
