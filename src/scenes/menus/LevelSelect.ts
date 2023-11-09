@@ -182,6 +182,15 @@ export default class LevelSelect extends Phaser.Scene {
           newBtn.setAttribute("disabled", "true");
         }
 
+        if (savegameSet.has(level.key)) {
+          const check = document.createElement("p");
+          check.innerText = "✓";
+          check.style.position = "absolute";
+          check.style.top = `-50%`;
+          check.style.marginLeft = "50%";
+          newBtn.insertAdjacentElement("beforeend", check);
+        }
+
         levelBtnElements.push(newBtn);
 
         row.insertAdjacentElement("beforeend", newBtn);
