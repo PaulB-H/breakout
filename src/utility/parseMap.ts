@@ -5,7 +5,7 @@ import { Ball, iBall } from "../objects/Ball";
 
 import { iBlock, iBlockSprite } from "../objects/Block";
 
-import { IMAGES, SHEETS } from "../constants";
+import { IMAGES, PIPELINES, SHEETS } from "../constants";
 
 export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
   // Get object layers
@@ -234,8 +234,25 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
             rectY - wall.height! / 2,
             "null"
           );
-
           rectangleSprite.setOrigin(0);
+
+          /*  
+            We generate the graphics texture for the sprite after the 
+            sprite is created so the generated texture fits the sprite
+          */
+          scene.make
+            .graphics()
+            .fillStyle(0x202020, 1)
+            .fillRect(0, 0, rectangleSprite.width, rectangleSprite.height)
+            .generateTexture(
+              "wallTexture",
+              rectangleSprite.width,
+              rectangleSprite.height
+            );
+
+          rectangleSprite.setTexture("wallTexture");
+
+          rectangleSprite.setPipeline(PIPELINES.Light2D);
 
           let spriteHeight = collisionObj.height;
           if (wallObjProps.useWallHeight === true) {
@@ -247,10 +264,11 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
             spriteWidth = wall.width!;
           }
 
-          rectangleSprite.setDisplaySize(spriteWidth, spriteHeight);
-          // rectangleSprite.setSize(tempWidth, tempHeight);
+          if (wallObjProps.doubleHeight === true) {
+            spriteHeight *= 2;
+          }
 
-          rectangleSprite.setTint(0x000000);
+          rectangleSprite.setDisplaySize(spriteWidth, spriteHeight);
 
           scene.addToWallGroup(rectangleSprite);
         } else if (collisionObj.ellipse) {
@@ -269,7 +287,20 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
 
           circleSprite.setSize(collisionObj.width, collisionObj.height);
           circleSprite.setCircle(collisionObj.width);
-          circleSprite.setTint(0x000000);
+
+          scene.make
+            .graphics()
+            .fillStyle(0x202020, 1)
+            .fillCircle(0, 0, circleSprite.width)
+            .generateTexture(
+              "wallTexture",
+              circleSprite.width,
+              circleSprite.height
+            );
+
+          circleSprite.setTexture("wallTexture");
+
+          circleSprite.setPipeline(PIPELINES.Light2D);
 
           scene.addToWallGroup(circleSprite);
         }
