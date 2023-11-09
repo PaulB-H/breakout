@@ -44,21 +44,13 @@ export const lavaSetup = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
     .setDepth(-10)
     .setPipeline("Light2D");
 
-  const sceneEmitter = scene.add
+  const emberEmitter = scene.add
     .particles(0, 0, SHEETS.Tiles, {
-      lifespan: 10000,
-      speed: { min: 0.2, max: 5 },
+      lifespan: 30000,
       scale: { start: 1, end: 1 },
-      rotate: {
-        min: 0,
-        max: 0,
-      },
-      radial: false,
-      gravityY: 10,
-      gravityX: 0,
       emitting: false,
       frame: 52,
-      angle: { min: 180, max: 180 }, // Set angle to 180 (downwards)
+      angle: 180,
       deathZone: {
         type: "onEnter", // 'onEnter', or 'onLeave'
         source: scene.getPlayer() as PlayerSprite,
@@ -67,15 +59,21 @@ export const lavaSetup = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
     .setDepth(100)
     .setPipeline(PIPELINES.Light2D);
 
-  const myfunc = () => {
-    sceneEmitter.setEmitterFrame(Phaser.Math.Between(51, 52));
-    sceneEmitter.setParticleGravity(Phaser.Math.Between(-1, 0.2), 10);
+  const createEmber = () => {
+    emberEmitter.setEmitterFrame(Phaser.Math.Between(51, 52));
 
-    const newParticle = sceneEmitter.emitParticle(
+    // This seems to affects EVERY particle from the emitter / currently active just the same
+    emberEmitter.setParticleGravity(Phaser.Math.Between(-2, 2), 12);
+
+    // We emit the particles horizontally on both sides past the camera bounds slightly
+    // so if gravity is pushing them to one side, there is less of an empty area
+    const newParticle = emberEmitter.emitParticle(
       1,
-      Phaser.Math.Between(0, scene.game.config.width as number),
+      Phaser.Math.Between(-80, (scene.game.config.width as number) + 80),
       -10
     );
+
+    newParticle.maxVelocityY = Phaser.Math.Between(7, 12);
 
     class ParticleLightPair extends Phaser.Physics.Arcade.Sprite {
       private particle: Phaser.GameObjects.Particles.Particle;
@@ -83,29 +81,34 @@ export const lavaSetup = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
 
       constructor(
         scene: Phaser.Scene,
-        x: number,
-        y: number,
-        textureKey: string,
-        particle: any
+        particle: Phaser.GameObjects.Particles.Particle
       ) {
-        // Call the constructor of the parent class
+        const x = 0;
+        const y = 0;
+        const textureKey = "null";
+
         super(scene, x, y, textureKey);
 
         this.particle = particle;
-        // console.log(this.particle);
+
+        // Glow only works on specific things
+        // Maybe I somehow to get it to work with a particle...
+        // this.preFX.addGlow();
 
         this.light = scene.lights.addLight(
           particle.x,
           particle.y,
           10,
           0xff3333,
-          2.5
+          3
         );
 
+        // The particle is already visible, and so is the light
+        // we don't actually want the sprite visible though...
         this.visible = false;
 
-        // We need to add the sprite to the scene
-        // or the preUpdate method on the class wont run
+        // BUT we do need to add the sprite to the scene
+        // or the preUpdate method on it wont run
         scene.add.existing(this);
       }
 
@@ -120,49 +123,38 @@ export const lavaSetup = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
       }
     }
 
-    new ParticleLightPair(scene, 80, 50, "null", newParticle);
+    new ParticleLightPair(scene, newParticle);
 
-    myTimer.reset(timerConfig);
+    emberTimer.reset(emberTimerConfig);
   };
 
-  const timerConfig: Phaser.Types.Time.TimerEventConfig = {
-    delay: Phaser.Math.Between(50, 100), // ms
-    callback: myfunc,
-    //args: [],
-    callbackScope: this,
+  const emberTimerConfig: Phaser.Types.Time.TimerEventConfig = {
+    delay: 250,
+    callback: createEmber,
     loop: true,
   };
 
-  let myTimer = scene.time.addEvent(timerConfig);
+  const emberTimer = scene.time.addEvent(emberTimerConfig);
 
-  scene.lights.setAmbientColor(0x5f4f4f);
+  // scene.lights.setAmbientColor(0);
+  scene.lights.setAmbientColor(0x2f2f2f);
 
-  const darkGrayColor = 0x222222; // Dark gray color in hexadecimal
+  // Black background
+  scene.add.graphics().fillStyle(0, 1).fillRect(0, 0, 160, 240).setDepth(-99);
 
-  // Create a Graphics object
-  const graphics = scene.make.graphics();
+  // Add light near top of volcano
+  const volcanoLight = scene.lights.addLight(80, 100, 110, 0x6f3f3f, 4);
 
-  // Set the fill color
-  graphics.fillStyle(darkGrayColor, 1);
-
-  // Draw a rectangle with the fill color
-  graphics.fillRect(0, 0, 800, 600); // Adjust the dimensions as needed
-
-  // Generate a texture from the Graphics object
-  graphics.generateTexture("darkGray", 800, 600);
-
-  // Add the dark gray texture as an image to the scene
-  scene.add.image(80, 120, "darkGray").setDepth(-99).setPipeline("Light2D");
-
-  //////
-  //////
-  //////
-
-  // this.lights.addLight(80, 50, 10, 0x3fffff, 1);
-
-  scene.lights.addLight(80, 100, 110, 0x4f4f4f, 1);
-
-  //////
-  //////
-  //////
+  // Make volcano light pulse
+  scene.tweens.add({
+    targets: volcanoLight,
+    intensity: 7,
+    duration: 5000,
+    yoyo: true,
+    repeat: -1,
+    repeatDelay: 2000,
+    // onYoyo: function () {
+    //   console.log("Yoyo");
+    // },
+  });
 };
