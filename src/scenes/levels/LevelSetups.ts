@@ -77,7 +77,9 @@ export const lavaSetup = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
 
     class ParticleLightPair extends Phaser.Physics.Arcade.Sprite {
       private particle: Phaser.GameObjects.Particles.Particle;
-      private light: Phaser.GameObjects.Light;
+      // private light: Phaser.GameObjects.Light;
+
+      private light: Phaser.GameObjects.PointLight;
 
       constructor(
         scene: Phaser.Scene,
@@ -95,12 +97,21 @@ export const lavaSetup = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
         // Maybe I somehow to get it to work with a particle...
         // this.preFX.addGlow();
 
-        this.light = scene.lights.addLight(
+        // this.light = scene.lights.addLight(
+        //   particle.x,
+        //   particle.y,
+        //   10,
+        //   0xff3333,
+        //   3
+        // );
+
+        this.light = scene.lights.addPointLight(
           particle.x,
           particle.y,
-          10,
           0xff3333,
-          3
+          10,
+          0.1,
+          0.05
         );
 
         // The particle is already visible, and so is the light
@@ -116,7 +127,8 @@ export const lavaSetup = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
         this.light.setPosition(this.particle.x, this.particle.y);
 
         if (!this.particle.isAlive()) {
-          this.scene.lights.removeLight(this.light);
+          // this.scene.lights.removeLight(this.light);
+          this.light.destroy();
 
           this.destroy();
         }
