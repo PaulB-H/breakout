@@ -6,6 +6,7 @@ import Mountain_1 from "./scenes/levels/Mountain_1";
 import Mountain_2 from "./scenes/levels/Mountain_2";
 import Mountain_3 from "./scenes/levels/Mountain_3";
 import Mountain_4 from "./scenes/levels/Mountain_4";
+import Lava_blank from "./scenes/levels/Lava_blank";
 import Lava_1 from "./scenes/levels/Lava_1";
 import Lava_2 from "./scenes/levels/Lava_2";
 import Lava_3 from "./scenes/levels/Lava_3";
@@ -46,6 +47,7 @@ const config: Phaser.Types.Core.GameConfig = {
     Mountain_3,
     Mountain_4,
     DemoScene,
+    Lava_blank,
     Lava_1,
     Lava_2,
     Lava_3,

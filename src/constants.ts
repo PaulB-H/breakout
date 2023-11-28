@@ -25,6 +25,7 @@ export const SCENES = {
   mountain_2: "mountain_2",
   mountain_3: "mountain_3",
   mountain_4: "mountain_4",
+  lava_blank: "lava_blank",
   lava_1: "lava_1",
   lava_2: "lava_2",
   lava_3: "lava_3",
