@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="227">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="270">
  <editorsettings>
   <export target="ice-2.json" format="json"/>
  </editorsettings>
@@ -976,43 +976,42 @@
   </tile>
  </tileset>
  <objectgroup id="2" name="blocks">
-  <object id="193" gid="65" x="16" y="96" width="16" height="16"/>
-  <object id="196" gid="65" x="128" y="96" width="16" height="16"/>
-  <object id="199" gid="65" x="80" y="112" width="16" height="16"/>
-  <object id="200" gid="9" x="64" y="112" width="16" height="16"/>
-  <object id="201" gid="9" x="112" y="96" width="16" height="16"/>
-  <object id="202" gid="9" x="32" y="96" width="16" height="16"/>
-  <object id="205" gid="19" x="96" y="96" width="16" height="16"/>
-  <object id="206" gid="19" x="64" y="96" width="16" height="16"/>
-  <object id="208" gid="19" x="128" y="112" width="16" height="16"/>
-  <object id="210" gid="65" x="80" y="96" width="16" height="16"/>
-  <object id="215" gid="49" x="16" y="112" width="16" height="16"/>
-  <object id="217" gid="65" x="48" y="112" width="16" height="16"/>
-  <object id="223" gid="65" x="112" y="112" width="16" height="16"/>
-  <object id="224" gid="65" x="48" y="96" width="16" height="16"/>
-  <object id="225" gid="65" x="32" y="112" width="16" height="16"/>
-  <object id="226" gid="9" x="96" y="112" width="16" height="16"/>
+  <object id="227" gid="65" x="48" y="112" width="16" height="16"/>
+  <object id="228" gid="65" x="48" y="96" width="16" height="16"/>
+  <object id="230" gid="65" x="48" y="64" width="16" height="16"/>
+  <object id="233" gid="65" x="96" y="64" width="16" height="16"/>
+  <object id="234" gid="65" x="112" y="64" width="16" height="16"/>
+  <object id="235" gid="65" x="112" y="80" width="16" height="16"/>
+  <object id="236" gid="65" x="112" y="96" width="16" height="16"/>
+  <object id="237" gid="65" x="112" y="112" width="16" height="16"/>
+  <object id="238" gid="65" x="96" y="112" width="16" height="16"/>
+  <object id="239" gid="65" x="80" y="112" width="16" height="16"/>
+  <object id="240" gid="65" x="64" y="112" width="16" height="16"/>
+  <object id="245" gid="65" x="96" y="96" width="16" height="16"/>
+  <object id="247" gid="65" x="32" y="112" width="16" height="16"/>
+  <object id="248" gid="65" x="32" y="96" width="16" height="16"/>
+  <object id="249" gid="65" x="32" y="80" width="16" height="16"/>
+  <object id="250" gid="65" x="32" y="64" width="16" height="16"/>
+  <object id="251" gid="65" x="32" y="48" width="16" height="16"/>
+  <object id="252" gid="65" x="48" y="48" width="16" height="16"/>
+  <object id="253" gid="65" x="64" y="48" width="16" height="16"/>
+  <object id="254" gid="65" x="80" y="48" width="16" height="16"/>
+  <object id="255" gid="65" x="96" y="48" width="16" height="16"/>
+  <object id="256" gid="65" x="112" y="48" width="16" height="16"/>
+  <object id="257" gid="59" x="40" y="120" width="16" height="16"/>
+  <object id="258" gid="59" x="56" y="120" width="16" height="16"/>
+  <object id="259" gid="59" x="72" y="120" width="16" height="16"/>
+  <object id="260" gid="59" x="88" y="120" width="16" height="16"/>
+  <object id="261" gid="59" x="104" y="120" width="16" height="16"/>
+  <object id="262" gid="59" x="24" y="120" width="16" height="16"/>
+  <object id="263" gid="59" x="120" y="120" width="16" height="16"/>
+  <object id="269" gid="2" x="72" y="80" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="8" name="deco-objects"/>
  <objectgroup id="3" name="player">
   <object id="1" gid="11" x="72" y="218" width="16" height="16"/>
  </objectgroup>
- <objectgroup id="7" name="walls">
-  <object id="197" gid="76" x="0" y="87" width="160" height="16">
-   <properties>
-    <property name="useWallWidth" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="198" gid="76" x="0" y="85" width="160" height="16">
-   <properties>
-    <property name="useWallWidth" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="218" gid="86" x="145" y="95" width="16" height="16"/>
-  <object id="219" gid="86" x="146" y="94" width="16" height="16"/>
-  <object id="220" gid="85" x="-1" y="95" width="16" height="16"/>
-  <object id="221" gid="85" x="-2" y="94" width="16" height="16"/>
- </objectgroup>
+ <objectgroup id="7" name="walls"/>
  <objectgroup id="4" name="ball">
   <object id="2" gid="12" x="72" y="212" width="16" height="16"/>
  </objectgroup>

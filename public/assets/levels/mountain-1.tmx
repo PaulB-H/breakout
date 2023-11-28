@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="56">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="57">
  <editorsettings>
   <export target="mountain-1.json" format="json"/>
  </editorsettings>
@@ -981,20 +981,16 @@
  <objectgroup id="6" name="walls">
   <object id="39" gid="85" x="-1" y="127" width="16" height="16"/>
   <object id="40" gid="86" x="145" y="127" width="16" height="16"/>
-  <object id="46" gid="76" x="0" y="117" width="160" height="16">
-   <properties>
-    <property name="useWallWidth" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="47" gid="76" x="0" y="119" width="160" height="16">
-   <properties>
-    <property name="useWallWidth" type="bool" value="true"/>
-   </properties>
-  </object>
   <object id="48" gid="85" x="79" y="127" width="16" height="16"/>
   <object id="49" gid="86" x="65" y="127" width="16" height="16"/>
   <object id="50" gid="85" x="79" y="124" width="16" height="16"/>
   <object id="51" gid="86" x="65" y="124" width="16" height="16"/>
+  <object id="56" gid="76" x="-1" y="119" width="161" height="16">
+   <properties>
+    <property name="doubleHeight" type="bool" value="true"/>
+    <property name="useWallWidth" type="bool" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="4" name="player">
   <object id="1" gid="11" x="72" y="218" width="16" height="16"/>

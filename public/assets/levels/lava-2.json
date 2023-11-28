@@ -576,27 +576,9 @@
                          "value":""
                         }, 
                         {
-                         "name":"useWallWidth",
+                         "name":"doubleHeight",
                          "type":"bool",
                          "value":true
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":160,
-                 "x":0,
-                 "y":39
-                }, 
-                {
-                 "gid":76,
-                 "height":16,
-                 "id":269,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":""
                         }, 
                         {
                          "name":"useWallWidth",
@@ -608,7 +590,7 @@
                  "visible":true,
                  "width":160,
                  "x":0,
-                 "y":37
+                 "y":39
                 }],
          "opacity":1,
          "type":"objectgroup",

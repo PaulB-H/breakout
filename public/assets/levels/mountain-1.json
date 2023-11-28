@@ -127,52 +127,6 @@
                  "y":127
                 }, 
                 {
-                 "gid":76,
-                 "height":16,
-                 "id":46,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":""
-                        }, 
-                        {
-                         "name":"useWallWidth",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":160,
-                 "x":0,
-                 "y":117
-                }, 
-                {
-                 "gid":76,
-                 "height":16,
-                 "id":47,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":""
-                        }, 
-                        {
-                         "name":"useWallWidth",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":160,
-                 "x":0,
-                 "y":119
-                }, 
-                {
                  "gid":85,
                  "height":16,
                  "id":48,
@@ -243,6 +197,34 @@
                  "width":16,
                  "x":65,
                  "y":124
+                }, 
+                {
+                 "gid":76,
+                 "height":16,
+                 "id":56,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":""
+                        }, 
+                        {
+                         "name":"doubleHeight",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"useWallWidth",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":161,
+                 "x":-1,
+                 "y":119
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -346,7 +328,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":56,
+ "nextobjectid":57,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.2",

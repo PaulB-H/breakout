@@ -8,45 +8,9 @@
          "name":"blocks",
          "objects":[
                 {
-                 "gid":49,
-                 "height":16,
-                 "id":171,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"rock"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":25,
-                 "y":128
-                }, 
-                {
-                 "gid":49,
-                 "height":16,
-                 "id":172,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"rock"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":121,
-                 "y":128
-                }, 
-                {
                  "gid":3,
                  "height":16,
-                 "id":173,
+                 "id":180,
                  "name":"",
                  "properties":[
                         {
@@ -58,13 +22,13 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":105,
-                 "y":128
+                 "x":56,
+                 "y":104
                 }, 
                 {
                  "gid":3,
                  "height":16,
-                 "id":174,
+                 "id":181,
                  "name":"",
                  "properties":[
                         {
@@ -76,8 +40,26 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":41,
-                 "y":128
+                 "x":72,
+                 "y":104
+                }, 
+                {
+                 "gid":3,
+                 "height":16,
+                 "id":182,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"red"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":88,
+                 "y":104
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -131,51 +113,20 @@
          "name":"walls",
          "objects":[
                 {
-                 "gid":85,
-                 "height":16,
-                 "id":159,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":""
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":-1,
-                 "y":127
-                }, 
-                {
-                 "gid":86,
-                 "height":16,
-                 "id":160,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":""
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":145,
-                 "y":127
-                }, 
-                {
                  "gid":76,
                  "height":16,
-                 "id":161,
+                 "id":183,
                  "name":"",
                  "properties":[
                         {
                          "name":"color",
                          "type":"string",
                          "value":""
+                        }, 
+                        {
+                         "name":"doubleHeight",
+                         "type":"bool",
+                         "value":true
                         }, 
                         {
                          "name":"useWallWidth",
@@ -187,102 +138,7 @@
                  "visible":true,
                  "width":160,
                  "x":0,
-                 "y":117
-                }, 
-                {
-                 "gid":76,
-                 "height":16,
-                 "id":162,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":""
-                        }, 
-                        {
-                         "name":"useWallWidth",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":160,
-                 "x":0,
-                 "y":119
-                }, 
-                {
-                 "gid":85,
-                 "height":16,
-                 "id":163,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":""
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":79,
-                 "y":127
-                }, 
-                {
-                 "gid":86,
-                 "height":16,
-                 "id":164,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":""
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":65,
-                 "y":127
-                }, 
-                {
-                 "gid":85,
-                 "height":16,
-                 "id":165,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":""
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":79,
-                 "y":124
-                }, 
-                {
-                 "gid":86,
-                 "height":16,
-                 "id":166,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":""
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":65,
-                 "y":124
+                 "y":95
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -357,7 +213,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":175,
+ "nextobjectid":184,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.2",
@@ -1050,7 +906,7 @@
                         {
                          "name":"color",
                          "type":"string",
-                         "value":""
+                         "value":"icespike"
                         }]
                 }, 
                 {

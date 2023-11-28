@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="214">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="223">
  <editorsettings>
-  <export target="level-4.json" format="json"/>
+  <export target="mountain-4.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="breakout-extruded" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="100" columns="10">
   <image source="../main-tileset/breakout-extruded.png" width="180" height="180"/>
@@ -1026,24 +1026,29 @@
  </objectgroup>
  <objectgroup id="7" name="walls">
   <object id="27" gid="75" x="71" y="64" width="16" height="16"/>
-  <object id="30" gid="76" x="80" y="71" width="16" height="16"/>
-  <object id="31" gid="76" x="96" y="71" width="16" height="16"/>
-  <object id="35" gid="76" x="80" y="57" width="16" height="16"/>
-  <object id="36" gid="76" x="96" y="57" width="16" height="16"/>
-  <object id="38" gid="75" x="25" y="112" width="16" height="16"/>
-  <object id="41" gid="76" x="16" y="119" width="16" height="16"/>
-  <object id="42" gid="76" x="0" y="119" width="16" height="16"/>
-  <object id="44" gid="76" x="16" y="105" width="16" height="16"/>
-  <object id="45" gid="76" x="0" y="105" width="16" height="16"/>
+  <object id="42" gid="76" x="0" y="117" width="29" height="16">
+   <properties>
+    <property name="doubleHeight" type="bool" value="true"/>
+    <property name="useWallWidth" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="45" gid="76" x="0" y="105" width="29" height="16">
+   <properties>
+    <property name="doubleHeight" type="bool" value="true"/>
+    <property name="useWallWidth" type="bool" value="true"/>
+   </properties>
+  </object>
   <object id="74" gid="75" x="105" y="64" width="16" height="16"/>
-  <object id="85" gid="76" x="144" y="159" width="16" height="16"/>
-  <object id="86" gid="76" x="144" y="177" width="16" height="16"/>
-  <object id="87" gid="75" x="135" y="172" width="16" height="16"/>
-  <object id="89" gid="76" x="144" y="179" width="16" height="16"/>
-  <object id="90" gid="76" x="144" y="157" width="16" height="16"/>
-  <object id="91" gid="75" x="135" y="164" width="16" height="16"/>
-  <object id="92" gid="75" x="133" y="164" width="16" height="16"/>
-  <object id="93" gid="75" x="133" y="172" width="16" height="16"/>
+  <object id="89" gid="76" x="148" y="172" width="12" height="16">
+   <properties>
+    <property name="doubleHeight" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="90" gid="76" x="148" y="163" width="12" height="16">
+   <properties>
+    <property name="doubleHeight" type="bool" value="true"/>
+   </properties>
+  </object>
   <object id="147" gid="74" x="0" y="13" width="16" height="16"/>
   <object id="148" gid="74" x="16" y="13" width="16" height="16"/>
   <object id="149" gid="74" x="32" y="13" width="16" height="16"/>
@@ -1054,12 +1059,28 @@
   <object id="154" gid="74" x="112" y="13" width="16" height="16"/>
   <object id="155" gid="74" x="128" y="13" width="16" height="16"/>
   <object id="156" gid="74" x="144" y="13" width="16" height="16"/>
+  <object id="215" gid="76" x="80" y="57" width="32" height="16">
+   <properties>
+    <property name="doubleHeight" type="bool" value="true"/>
+    <property name="useWallWidth" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="216" gid="76" x="80" y="69" width="32" height="16">
+   <properties>
+    <property name="doubleHeight" type="bool" value="true"/>
+    <property name="useWallWidth" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="218" gid="84" x="27" y="112" width="16" height="16"/>
+  <object id="219" gid="94" x="19" y="104" width="16" height="16"/>
+  <object id="220" gid="84" x="142" y="161" width="16" height="16"/>
+  <object id="221" gid="94" x="134" y="167" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="4" name="ball">
   <object id="2" gid="12" x="72" y="212" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="5" name="power"/>
- <layer id="6" name="deco" width="10" height="15">
+ <layer id="6" name="deco" width="10" height="15" visible="0">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,

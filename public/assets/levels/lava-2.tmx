@@ -1009,11 +1009,7 @@
  <objectgroup id="7" name="walls">
   <object id="268" gid="76" x="0" y="39" width="160" height="16">
    <properties>
-    <property name="useWallWidth" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="269" gid="76" x="0" y="37" width="160" height="16">
-   <properties>
+    <property name="doubleHeight" type="bool" value="true"/>
     <property name="useWallWidth" type="bool" value="true"/>
    </properties>
   </object>

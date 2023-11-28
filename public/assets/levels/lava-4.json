@@ -8,6 +8,42 @@
          "name":"blocks",
          "objects":[
                 {
+                 "gid":5,
+                 "height":16,
+                 "id":233,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"pink"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":45,
+                 "y":64
+                }, 
+                {
+                 "gid":5,
+                 "height":16,
+                 "id":234,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"pink"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":106,
+                 "y":55
+                }, 
+                {
                  "gid":3,
                  "height":16,
                  "id":175,
@@ -150,7 +186,8 @@
                  "width":16,
                  "x":112,
                  "y":80
-                }, 
+                },
+            
                 {
                  "gid":3,
                  "height":16,
@@ -186,8 +223,7 @@
                  "width":16,
                  "x":112,
                  "y":48
-                },
-            
+                }, 
                 {
                  "gid":3,
                  "height":16,
@@ -331,7 +367,8 @@
                  "width":16,
                  "x":100,
                  "y":57
-                }, 
+                },
+            
                 {
                  "gid":3,
                  "height":16,
@@ -367,8 +404,7 @@
                  "width":16,
                  "x":62,
                  "y":55
-                },
-            
+                }, 
                 {
                  "gid":3,
                  "height":16,
@@ -512,7 +548,8 @@
                  "width":16,
                  "x":21,
                  "y":53
-                }, 
+                },
+            
                 {
                  "gid":3,
                  "height":16,
@@ -548,8 +585,7 @@
                  "width":16,
                  "x":122,
                  "y":68
-                },
-            
+                }, 
                 {
                  "gid":3,
                  "height":16,
@@ -693,7 +729,8 @@
                  "width":16,
                  "x":74,
                  "y":55
-                }, 
+                },
+            
                 {
                  "gid":3,
                  "height":16,
@@ -729,8 +766,7 @@
                  "width":16,
                  "x":40,
                  "y":90
-                },
-            
+                }, 
                 {
                  "gid":3,
                  "height":16,
@@ -891,7 +927,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":233,
+ "nextobjectid":235,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.2",
