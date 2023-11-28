@@ -73,7 +73,7 @@ export default class LevelSelect extends Phaser.Scene {
     const LevelsDiv = document.createElement("div");
     LevelsDiv.style.cssText = `
       padding: 0 5%;
-      margin-top: 20%;
+      margin-top: 15%;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -84,6 +84,7 @@ export default class LevelSelect extends Phaser.Scene {
 
     /* */
     ///// https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type
+    ///// Another way to define: { [key: string]: { text: string; key: string }[] } = {
     /* */
     const levelGroups: Record<string, { text: string; key: string }[]> = {
       mountain: [
@@ -169,6 +170,7 @@ export default class LevelSelect extends Phaser.Scene {
           font-size: 7cqw;
           margin: 0.5% 2%;
           padding: 0.5% 2%;
+          position: relative;
         `;
         newBtn.onmouseup = () => startLevel(level.key);
 
