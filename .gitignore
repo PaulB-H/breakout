@@ -25,3 +25,8 @@ dist-ssr
 
 # Personal
 notes
+.$breakout.drawio.bkp
+breakout.drawio
+level-change-flow.drawio
+/electron/
+/android/
