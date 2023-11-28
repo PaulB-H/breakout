@@ -139,7 +139,12 @@ export default class LevelSelect extends Phaser.Scene {
     ///// Loop through level groups and create a row & buttons for each group
     /* */
     for (const levelGroup of Object.keys(levelGroups)) {
-      if (levelGroup === "debug") continue;
+      // If we are in production and its debug level, skip adding the button
+      if (process.env.NODE_ENV === "production" && levelGroup === "debug") {
+        continue;
+      }
+
+      // Skip back-to-start button for now
       if (levelGroup === "start") continue;
 
       const row: HTMLDivElement = document.createElement("div");
@@ -169,7 +174,8 @@ export default class LevelSelect extends Phaser.Scene {
 
         if (
           levelGroups[levelGroup].indexOf(level) > 0 &&
-          !savegameSet.has(levelGroups[levelGroup][currentLevelIdx - 1].key)
+          !savegameSet.has(levelGroups[levelGroup][currentLevelIdx - 1].key) &&
+          levelGroup !== "debug"
         ) {
           newBtn.setAttribute("disabled", "true");
         }
