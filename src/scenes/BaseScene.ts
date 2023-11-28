@@ -362,8 +362,8 @@ Reloading page...`
       collideWorldBounds: true,
       bounceX: 1,
       bounceY: 1,
-      maxVelocityX: 199,
-      maxVelocityY: 200,
+      maxVelocityX: 250,
+      maxVelocityY: 250,
     });
 
     this.playerGroup = this.physics.add.group({
