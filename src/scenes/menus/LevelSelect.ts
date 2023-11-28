@@ -80,7 +80,6 @@ export default class LevelSelect extends Phaser.Scene {
       align-items: center;
       width: 100%;
     `;
-    // LevelsDiv.setAttribute("data-aos", "fade-up");
     LevelSelectUI.insertAdjacentElement("beforeend", LevelsDiv);
 
     /* */
@@ -145,7 +144,6 @@ export default class LevelSelect extends Phaser.Scene {
 
       const row: HTMLDivElement = document.createElement("div");
       row.id = `${levelGroup}`;
-      // row.setAttribute("data-aos", "fade-up");
       row.style.cssText = `
         width: 100%;
         container-type: inline-size;
@@ -168,12 +166,6 @@ export default class LevelSelect extends Phaser.Scene {
           padding: 0.5% 2%;
         `;
         newBtn.onmouseup = () => startLevel(level.key);
-
-        newBtn.setAttribute("data-aos", "fade-up");
-        newBtn.setAttribute(
-          "data-aos-delay",
-          `${levelGroups[levelGroup].indexOf(level) * 50}`
-        );
 
         if (
           levelGroups[levelGroup].indexOf(level) > 0 &&

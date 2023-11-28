@@ -67,7 +67,6 @@ export default class PauseScene extends Phaser.Scene {
         this.scene.resume(this.pausedSceneKey);
       }, 150);
     });
-    // ResumeBtn.setAttribute("data-aos", "fade-up");
 
     const LevelSelBtn = document.createElement("button");
     LevelSelBtn.textContent = "Level Select";
@@ -91,8 +90,6 @@ export default class PauseScene extends Phaser.Scene {
         }, 150);
       });
     });
-    // LevelSelBtn.setAttribute("data-aos", "fade-up");
-    // LevelSelBtn.setAttribute("data-aos-delay", "200");
 
     this.UIElements = { PauseUI, ResumeBtn, LevelSelBtn };
 
