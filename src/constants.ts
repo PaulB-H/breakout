@@ -53,8 +53,9 @@ export const SCENES = {
 
 export const SHEETS = {
   Tiles: "tiles",
-  // VolcanoBG: "volcanobg",
   WaterLoop: "waterloop",
+  lavafall: "lavafall",
+  lavafall_top: "lavafall_top",
 };
 
 export const ATLAS = {
@@ -63,12 +64,10 @@ export const ATLAS = {
 
 export const IMAGES = {
   BlueGradBG: "bluegradientbg",
-  // MountainBG: "mountainbg",
-  // VolcanoBG: "volcanobg",
   BreakoutExtruded: "breakout-extruded",
   IcebergBG: "icebergbg",
   NewMountainBG: "newmountainbg",
-  NewVolcanoBG: "newvolcanobg",
+  volcano: "volcano",
 };
 
 export const BUTTONS = {
@@ -77,8 +76,9 @@ export const BUTTONS = {
 };
 
 export const ANIMS = {
-  // VolcanoBG_Anim: "volcanobg_anim",
   WaterLoopAnim: "waterloop_anim",
+  lavafall: "lavafall",
+  lavafall_top: "lavafall_top",
 };
 
 export const REGISTRY = {
