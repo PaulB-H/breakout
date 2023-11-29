@@ -273,3 +273,86 @@ export const lavaSetup = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
     placeLavafall(x, y);
   }
 };
+
+export const iceSetup = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
+  parseMap(scene, map);
+
+  /********************************************/
+  // Remove existing background image
+  /********************************************/
+  const backgroundImage = scene.backgroundImage;
+  if (backgroundImage) backgroundImage.destroy();
+
+  /********************************************/
+  // Add new background
+  /********************************************/
+  const iceBergBG = scene.add
+    .image(80, 130, IMAGES.IcebergBG)
+    .setDepth(-1)
+    .setPipeline("Light2D");
+  // Make the iceberg float gently
+  scene.tweens.add({
+    targets: iceBergBG,
+    y: "+=2",
+    ease: "Sine.easeInOut",
+    duration: 3000,
+    yoyo: true,
+    repeat: -1,
+  });
+
+  /********************************************/
+  // Stop animated clouds that BaseScene started
+  /********************************************/
+  scene.cloudTimer.stop();
+  // Create snow particle emitter
+  const snowEmitter = scene.add
+    .particles(0, 0, SHEETS.Tiles, {
+      lifespan: 10000,
+      speed: { min: 0.2, max: 5 },
+      radial: false,
+      gravityY: 10,
+      gravityX: 0,
+      emitting: false,
+      frame: 61,
+      alpha: 0.75,
+      angle: 180,
+    })
+    .setDepth(10);
+  // Function to drop a random snowflake along x axis
+  const dropSnowflake = () => {
+    snowEmitter.setEmitterFrame(Phaser.Math.RND.pick([61, 71, 72]));
+    snowEmitter.setParticleGravity(Phaser.Math.Between(-1, 0.2), 5);
+
+    snowEmitter.emitParticle(
+      1,
+      Phaser.Math.Between(0, scene.game.config.width as number),
+      -10
+    );
+
+    snowTimer.reset(snowTimerConfig);
+  };
+  // We need to make a config object because we reference it
+  // when calling TimerEvent.reset(timerConfig)
+  const snowTimerConfig = {
+    delay: Phaser.Math.Between(500, 500),
+    callback: dropSnowflake,
+    loop: true,
+  };
+  // Start snowing
+  const snowTimer = scene.time.addEvent(snowTimerConfig);
+
+  /********************************************/
+  // Animated water
+  /********************************************/
+  const water = scene.add.sprite(80, 215, SHEETS.WaterLoop).setDepth(-2);
+  scene.anims.create({
+    key: ANIMS.WaterLoopAnim,
+    frames: scene.anims.generateFrameNumbers(SHEETS.WaterLoop, {
+      start: 0,
+      end: 38,
+    }),
+    frameRate: 10,
+    repeat: -1,
+  });
+  water.anims.play(ANIMS.WaterLoopAnim);
+};
