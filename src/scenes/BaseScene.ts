@@ -206,24 +206,6 @@ export default class BaseScene extends Phaser.Scene {
       this.registry.set("pausedSceneKey", this.scene.key);
     });
 
-    // Emergency workaround to fix missing frame
-    // https://github.com/PaulB-H/breakout/issues/1
-    if (this.textures.get(SHEETS.Tiles).frameTotal < 101) {
-      console.log(
-        `ERR
-Spritesheet should have 101 frames but only has: ${
-          this.textures.get(SHEETS.Tiles).frameTotal
-        }
-Reloading page...`
-      );
-
-      // Removing cache and re-running preloader didn't
-      // resolve, but I like the idea of this over a page reload...
-      // this.cache.destroy();
-      // this.scene.start("PreloaderScene");
-
-      location.reload();
-    }
     /*
       _Contents
 
