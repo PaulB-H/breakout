@@ -289,6 +289,7 @@ Reloading page...`
       margin-top: 1%;
       margin-left: 40%;
       font-family: vcr-black;
+      visibility: hidden;
     `;
 
     document
