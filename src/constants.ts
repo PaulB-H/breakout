@@ -54,6 +54,7 @@ export const SCENES = {
 
 export const SHEETS = {
   Tiles: "tiles",
+  ships: "ships",
   WaterLoop: "waterloop",
   lavafall: "lavafall",
   lavafall_top: "lavafall_top",

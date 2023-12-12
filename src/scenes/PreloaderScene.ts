@@ -28,6 +28,17 @@ export default class PreloaderScene extends Phaser.Scene {
       },
     });
 
+    // SHEETS.ships
+    this.load.spritesheet({
+      key: SHEETS.ships,
+      url: "assets/ships/ships.png",
+      normalMap: "assets/ships/ships_n.png",
+      frameConfig: {
+        frameWidth: 16,
+        frameHeight: 16,
+      },
+    });
+
     ///////////////////
     // Load Tilemaps
     // prettier-ignore

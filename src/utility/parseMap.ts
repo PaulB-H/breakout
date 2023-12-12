@@ -45,7 +45,7 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
           y: number,
           platform: Phaser.Physics.Arcade.Sprite
         ) {
-          super(scene, x, y + 10, SHEETS.Tiles, 40);
+          super(scene, x, y + 10, SHEETS.ships, 0);
 
           this.platform = platform;
 

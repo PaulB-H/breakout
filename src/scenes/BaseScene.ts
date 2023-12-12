@@ -929,12 +929,12 @@ export default class BaseScene extends Phaser.Scene {
 
       if (distance > 0) {
         if (currentPosition.x > this.playerStatus.lastPos!.x) {
-          this.ship.setFrame(60);
+          this.ship.setFrame(20);
         } else if (currentPosition.x < this.playerStatus.lastPos!.x) {
-          this.ship.setFrame(50);
+          this.ship.setFrame(10);
         }
       } else {
-        this.ship.setFrame(40);
+        this.ship.setFrame(0);
       }
       this.playerStatus.lastPos!.copy(currentPosition);
     }
