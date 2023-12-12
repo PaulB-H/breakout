@@ -1,6 +1,6 @@
 import BaseScene from "../BaseScene";
 import { SCENES, IMAGES, SHEETS } from "../../constants";
-import { lavaSetup } from "./LevelSetups";
+import { lavaSetup } from "../../utility/LevelSetups";
 
 export default class Lava_blank extends BaseScene {
   constructor() {

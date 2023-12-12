@@ -1,6 +1,6 @@
 import BaseScene from "../BaseScene";
 import { SCENES, IMAGES, SHEETS } from "../../constants";
-import { iceSetup } from "./LevelSetups";
+import { iceSetup } from "../../utility/LevelSetups";
 
 export default class Ice_1 extends BaseScene {
   constructor() {

@@ -1,10 +1,10 @@
-import BaseScene from "../BaseScene";
+import BaseScene from "../scenes/BaseScene";
 
-import { IMAGES, SHEETS, PIPELINES, ANIMS } from "../../constants";
+import { IMAGES, SHEETS, PIPELINES, ANIMS } from "../constants";
 
-import { PlayerSprite } from "../../objects/Player";
+import { PlayerSprite } from "../objects/Player";
 
-import { parseMap } from "../../utility/parseMap";
+import { parseMap } from "./parseMap";
 
 export const lavaSetup = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
   // Remove existing lights
