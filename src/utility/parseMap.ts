@@ -7,6 +7,8 @@ import { iBlock, iBlockSprite } from "../objects/Block";
 
 import { IMAGES, PIPELINES, SHEETS } from "../constants";
 
+import Ship from "../objects/Ship";
+
 export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
   // Get object layers
   const blocksLayer = map.getObjectLayer("blocks");
@@ -35,26 +37,6 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
 
       sprite.setPipeline("Light2D");
 
-      // This ship sprite (non physics) "attaches" to the
-      // platform by matching its x position in preUpdate(){}
-      class Ship extends Phaser.GameObjects.Sprite {
-        platform: Phaser.Physics.Arcade.Sprite;
-        constructor(
-          scene: Phaser.Scene,
-          x: number,
-          y: number,
-          platform: Phaser.Physics.Arcade.Sprite
-        ) {
-          super(scene, x, y + 10, SHEETS.ships, 0);
-
-          this.platform = platform;
-
-          scene.add.existing(this);
-        }
-        preUpdate() {
-          this.x = this.platform.x;
-        }
-      }
       scene.setShip(
         new Ship(scene, myPlayer.x, myPlayer.y, sprite).setPipeline("Light2D")
       );

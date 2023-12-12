@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 
+import Ship from "../objects/Ship";
 import { Ball } from "../objects/Ball";
 import { iBlockSprite } from "../objects/Block";
 import { CloudTimer } from "../objects/Deco/Clouds";
@@ -133,8 +134,8 @@ export default class BaseScene extends Phaser.Scene {
     this.playerGroup.add(sprite);
   }
 
-  private ship!: Phaser.GameObjects.Sprite;
-  setShip(sprite: Phaser.GameObjects.Sprite) {
+  private ship!: Ship;
+  setShip(sprite: Ship) {
     this.ship = sprite;
   }
   private newBall!: Phaser.Physics.Arcade.Sprite | null;
@@ -929,12 +930,12 @@ export default class BaseScene extends Phaser.Scene {
 
       if (distance > 0) {
         if (currentPosition.x > this.playerStatus.lastPos!.x) {
-          this.ship.setFrame(20);
+          this.ship.setFrame(this.ship.shipFrames.right);
         } else if (currentPosition.x < this.playerStatus.lastPos!.x) {
-          this.ship.setFrame(10);
+          this.ship.setFrame(this.ship.shipFrames.left);
         }
       } else {
-        this.ship.setFrame(0);
+        this.ship.setFrame(this.ship.shipFrames.stopped);
       }
       this.playerStatus.lastPos!.copy(currentPosition);
     }
