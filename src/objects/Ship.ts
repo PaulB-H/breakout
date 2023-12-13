@@ -18,7 +18,7 @@ export default class Ship extends Phaser.GameObjects.Sprite {
   shipFrames: { stopped: number; left: number; right: number } =
     this.ships.base;
 
-  set shipType(type: "base" | "vanu" | "orb" | "snowflake" | "lightning") {
+  setShipType(type: "base" | "vanu" | "orb" | "snowflake" | "lightning") {
     this.shipFrames = this.ships[type];
   }
 
@@ -32,7 +32,7 @@ export default class Ship extends Phaser.GameObjects.Sprite {
 
     this.platform = platform;
 
-    this.shipType = "base";
+    this.setShipType(scene.registry.get("shipType"));
 
     this.scene.add.existing(this);
   }

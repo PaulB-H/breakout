@@ -138,6 +138,8 @@ export default class BaseScene extends Phaser.Scene {
   setShip(sprite: Ship) {
     this.ship = sprite;
   }
+  getShip = () => this.ship;
+
   private newBall!: Phaser.Physics.Arcade.Sprite | null;
   getNewBall() {
     return this.newBall;

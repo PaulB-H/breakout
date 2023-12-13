@@ -35,6 +35,7 @@ export default class StartScene extends BaseScene {
     title.setX(title.x - title.width / 2);
 
     const startUIDiv = new BaseUIDiv("start-ui").getDiv();
+    startUIDiv.classList.add("animate__animated", "animate__fadeIn");
 
     const startButton = document.createElement("button");
     startButton.innerText = "START";

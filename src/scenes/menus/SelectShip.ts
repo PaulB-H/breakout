@@ -2,7 +2,11 @@ import { SCENES, FONTS } from "../../constants";
 
 import BaseUIDiv from "../BaseUIDiv";
 
-import { ships } from "../../objects/Ship";
+// import { ships } from "../../objects/Ship";
+
+import PauseScene from "./Pause";
+
+import BaseScene from "../BaseScene";
 
 // interface UIElements {
 //   LevelSelectUI: HTMLDivElement;
@@ -34,7 +38,7 @@ export default class ShipSelect extends Phaser.Scene {
 
     this.add.bitmapText(5, 15, FONTS.VCR_WHITE, "SHIP SELECT", 21);
 
-    console.log(ships);
+    // console.log(ships);
 
     const ShipSelectUI = new BaseUIDiv("ship-select-ui").getDiv();
     ShipSelectUI.style.cssText += `
@@ -44,19 +48,23 @@ export default class ShipSelect extends Phaser.Scene {
       flex-direction: column;
       height: 100%;
     `;
+    ShipSelectUI.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "animate__faster"
+    );
     document
       .querySelector("#app")
       ?.insertAdjacentElement("beforeend", ShipSelectUI);
 
-    const OutOfStockHeader = document.createElement("p");
-    OutOfStockHeader.innerText = "OUT OF STOCK";
-    OutOfStockHeader.style.cssText = `
-      font-size: 10cqw;
-      font-family: vcr-black;
-      color: white;
-    `;
-
-    ShipSelectUI.insertAdjacentElement("afterbegin", OutOfStockHeader);
+    // const OutOfStockHeader = document.createElement("p");
+    // OutOfStockHeader.innerText = "OUT OF STOCK";
+    // OutOfStockHeader.style.cssText = `
+    //   font-size: 10cqw;
+    //   font-family: vcr-black;
+    //   color: white;
+    // `;
+    // ShipSelectUI.insertAdjacentElement("afterbegin", OutOfStockHeader);
 
     const ShipsDiv = document.createElement("div");
     ShipsDiv.style.cssText = `
@@ -69,6 +77,80 @@ export default class ShipSelect extends Phaser.Scene {
       width: 100%;
     `;
     ShipSelectUI.insertAdjacentElement("beforeend", ShipsDiv);
+
+    const setNewShip = (
+      shiptype: "base" | "vanu" | "orb" | "snowflake" | "lightning"
+    ) => {
+      const pausedSceneKey = (
+        this.scene.manager.getScene(SCENES.PauseScene) as PauseScene
+      ).getPausedSceneKey();
+
+      if (pausedSceneKey !== undefined) {
+        // There is a paused scene, update ship there AND in registry
+        (this.scene.manager.getScene(pausedSceneKey) as BaseScene)
+          .getShip()
+          .setShipType(shiptype);
+
+        this.registry.set("shipType", shiptype);
+      }
+      this.registry.set("shipType", shiptype);
+    };
+
+    // So much for using the ship list we exported from Ships.ts...
+    // for now this works fine...
+    const shipTypes: ("base" | "vanu" | "orb" | "snowflake" | "lightning")[] = [
+      "base",
+      "vanu",
+      "orb",
+      "snowflake",
+      "lightning",
+    ];
+    shipTypes.reverse();
+
+    const shipSelectBtns = document.createElement("div");
+    shipSelectBtns.style.cssText = `
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    `;
+    ShipSelectUI.insertAdjacentElement("afterbegin", shipSelectBtns);
+
+    const renderShipBtns = () => {
+      shipSelectBtns.innerHTML = "";
+
+      shipTypes.forEach((shipType) => {
+        const btn = document.createElement("button");
+        btn.innerText = shipType;
+        btn.innerText =
+          btn.innerText.charAt(0).toUpperCase() + btn.innerText.slice(1);
+        btn.style.cssText = `
+          font-family: vcr-black;
+          font-size: 7cqw;
+          margin: 5% 0;
+          padding: 0 2%;
+          position: relative;
+        `;
+        shipSelectBtns.insertAdjacentElement("afterbegin", btn);
+
+        if (shipType === this.registry.get("shipType")) {
+          const check = document.createElement("p");
+          check.innerText = "✓";
+          check.style.position = "absolute";
+          check.style.top = `-60%`;
+          check.style.marginLeft = "75%";
+          check.style.color = "red";
+          check.style.fontWeight = "bold";
+          btn.insertAdjacentElement("beforeend", check);
+        }
+
+        btn.onclick = () => {
+          setNewShip(shipType);
+          renderShipBtns();
+        };
+      });
+    };
+    renderShipBtns();
 
     const resumeBtn = document.createElement("button");
     resumeBtn.innerText = "Resume";

@@ -157,6 +157,10 @@ export default class PreloaderScene extends Phaser.Scene {
 
     this.registry.set(REGISTRY.score, 0);
 
+    // We might work this into the save game file
+    // but for now game will start with base ship selected
+    this.registry.set("shipType", "base");
+
     const checkSavedGame = (savegame: Set<string>) => {
       savegame.forEach((item: string) => {
         if (!SCENES.hasOwnProperty(item)) {
