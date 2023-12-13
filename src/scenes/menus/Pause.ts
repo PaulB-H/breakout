@@ -1,4 +1,4 @@
-import { SCENES, FONTS } from "../../constants";
+import { SCENES } from "../../constants";
 
 import BaseUIDiv from "../BaseUIDiv";
 
@@ -23,9 +23,6 @@ export default class PauseScene extends Phaser.Scene {
   // we tell it which scene was paused
   init(data: { pausedSceneKey: string }) {
     this.pausedSceneKey = data.pausedSceneKey;
-
-    // Slight fade
-    this.cameras.main.setBackgroundColor(0xbf87ceeb);
   }
 
   create() {
@@ -34,28 +31,41 @@ export default class PauseScene extends Phaser.Scene {
     let gameHeight = this.sys.game.config.height;
     if (typeof gameHeight === "string") gameHeight = parseInt(gameHeight);
 
-    this.add.bitmapText(
-      gameWidth / 2 - 63 / 2,
-      60,
-      FONTS.VCR_BLACK,
-      "PAUSED",
-      21
-    );
-
     const PauseUI = new BaseUIDiv("pause-ui").getDiv();
     PauseUI.style.cssText += `
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+
+      background-color: #87ceeb80;
     `;
+    PauseUI.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "animate__faster"
+    );
+    document.querySelector("#app")?.insertAdjacentElement("beforeend", PauseUI);
+
+    const PausedHeader = document.createElement("p");
+    PausedHeader.innerText = "PAUSED";
+    PausedHeader.style.cssText = `
+      font-family: vcr-black;
+      font-size: 12cqw;
+
+      background-color: rgba(255, 255, 255);
+
+      -webkit-box-shadow: 0px 0px 20px 30px rgba(255, 255, 255);
+      box-shadow: 0px 0px 20px 30px rgba(255, 255, 255);
+    `;
+    PauseUI.insertAdjacentElement("afterbegin", PausedHeader);
 
     const ResumeBtn = document.createElement("button");
     ResumeBtn.textContent = "Resume";
     ResumeBtn.style.cssText = `
       width: 40%;
       font-size: 8cqw;
-      margin-top: 40%
+      margin-top: 40%;
     `;
     ResumeBtn.addEventListener("click", () => {
       setTimeout(() => {
@@ -78,7 +88,7 @@ export default class PauseScene extends Phaser.Scene {
       setTimeout(() => {
         setTimeout(() => {
           this.scene.pause();
-          this.UIElements.PauseUI.style.display = "none";
+          // this.UIElements.PauseUI.style.display = "none";
 
           // // We are not removing it here because we only remove it
           // // when a different scene is picked from Level Select
@@ -91,8 +101,6 @@ export default class PauseScene extends Phaser.Scene {
     });
 
     this.UIElements = { PauseUI, ResumeBtn, LevelSelBtn };
-
-    document.querySelector("#app")?.insertAdjacentElement("beforeend", PauseUI);
 
     this.UIElements.PauseUI.insertAdjacentElement("beforeend", ResumeBtn);
     this.UIElements.PauseUI.insertAdjacentElement("beforeend", LevelSelBtn);

@@ -1,4 +1,4 @@
-import { SCENES, FONTS } from "../../constants";
+import { SCENES } from "../../constants";
 
 import TransitionManager from "../TransitionManager";
 
@@ -17,22 +17,21 @@ export default class LevelSelect extends Phaser.Scene {
   }
 
   preload() {
-    this.cameras.main.setBackgroundColor("#87ceeb");
+    // this.cameras.main.setBackgroundColor("#87ceeb");
   }
 
   init() {
-    this.cameras.main.setBackgroundColor(0xbf87ceeb);
+    // this.cameras.main.setBackgroundColor(0xbf87ceeb);
   }
 
   create(data: any) {
+    // this.cameras.main.setBackgroundColor(0xbf87ceeb);
     const transitionManager = new TransitionManager(this);
 
     let gameWidth = this.sys.game.config.width;
     if (typeof gameWidth === "string") gameWidth = parseInt(gameWidth);
     let gameHeight = this.sys.game.config.height;
     if (typeof gameHeight === "string") gameHeight = parseInt(gameHeight);
-
-    this.add.bitmapText(5, 15, FONTS.VCR_BLACK, "LEVEL SELECT", 21);
 
     const LevelSelectUI = new BaseUIDiv("level-select-ui").getDiv();
     LevelSelectUI.style.cssText += `
@@ -41,10 +40,25 @@ export default class LevelSelect extends Phaser.Scene {
       align-items: center;
       flex-direction: column;
       height: 100%;
+      
+      background-color: #87ceebcc;
     `;
+    LevelSelectUI.classList.add(
+      "animate__fadeIn",
+      "animate__animated",
+      "animate__faster"
+    );
     document
       .querySelector("#app")
       ?.insertAdjacentElement("beforeend", LevelSelectUI);
+
+    const LevelSelectHeader = document.createElement("p");
+    LevelSelectHeader.innerText = "Level Select";
+    LevelSelectHeader.style.cssText = `
+      font-family: vcr-black;
+      font-size: 12cqw;
+    `;
+    LevelSelectUI.insertAdjacentElement("afterbegin", LevelSelectHeader);
 
     const LevelsDiv = document.createElement("div");
     LevelsDiv.style.cssText = `
