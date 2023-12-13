@@ -55,8 +55,8 @@ export default class PauseScene extends Phaser.Scene {
 
       background-color: rgba(255, 255, 255);
 
-      -webkit-box-shadow: 0px 0px 20px 30px rgba(255, 255, 255);
-      box-shadow: 0px 0px 20px 30px rgba(255, 255, 255);
+      -webkit-box-shadow: 0px 0px 15px 15px rgba(255, 255, 255);
+      box-shadow: 0px 0px 15px 15px rgba(255, 255, 255);
     `;
     PauseUI.insertAdjacentElement("afterbegin", PausedHeader);
 
