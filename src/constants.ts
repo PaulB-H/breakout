@@ -39,6 +39,7 @@ export const SCENES = {
   StartScene: "StartScene",
   PauseScene: "PauseScene",
   LevelSelect: "LevelSelect",
+  ShipSelect: "ShipSelect",
   Test: "Test",
 };
 

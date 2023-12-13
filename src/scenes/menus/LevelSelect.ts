@@ -236,6 +236,9 @@ export default class LevelSelect extends Phaser.Scene {
       font-size: 6cqw;
       padding: 1%;
     `;
+    shipSelectBtn.onclick = () => {
+      this.scene.start(SCENES.ShipSelect);
+    };
     LevelSelectUI.insertAdjacentElement("beforeend", shipSelectBtn);
 
     this.UIElements = { LevelSelectUI, LevelsDiv };

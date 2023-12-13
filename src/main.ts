@@ -20,6 +20,7 @@ import Ice_1 from "./scenes/levels/Ice_1";
 import Ice_2 from "./scenes/levels/Ice_2";
 import Ice_3 from "./scenes/levels/Ice_3";
 import Ice_4 from "./scenes/levels/Ice_4";
+import ShipSelect from "./scenes/menus/SelectShip";
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -41,6 +42,7 @@ const config: Phaser.Types.Core.GameConfig = {
     Test_Nudge,
     PauseScene,
     LevelSelect,
+    ShipSelect,
     StartScene,
     Mountain_1,
     Mountain_2,
