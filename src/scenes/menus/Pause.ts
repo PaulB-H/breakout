@@ -54,8 +54,7 @@ export default class PauseScene extends Phaser.Scene {
     ResumeBtn.textContent = "Resume";
     ResumeBtn.style.cssText = `
       width: 40%;
-      font-size: 10cqw;
-
+      font-size: 8cqw;
       margin-top: 40%
     `;
     ResumeBtn.addEventListener("click", () => {
@@ -72,7 +71,7 @@ export default class PauseScene extends Phaser.Scene {
     LevelSelBtn.textContent = "Level Select";
     LevelSelBtn.style.cssText = `
       width: 40%;
-      font-size: 10cqw; 
+      font-size: 8cqw; 
       margin-top: 10%;
     `;
     LevelSelBtn.addEventListener("click", () => {

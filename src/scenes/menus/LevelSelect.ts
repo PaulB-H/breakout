@@ -1,4 +1,4 @@
-import { BUTTONS, SCENES, FONTS } from "../../constants";
+import { SCENES, FONTS } from "../../constants";
 
 import TransitionManager from "../TransitionManager";
 
@@ -32,31 +32,7 @@ export default class LevelSelect extends Phaser.Scene {
     let gameHeight = this.sys.game.config.height;
     if (typeof gameHeight === "string") gameHeight = parseInt(gameHeight);
 
-    this.add.bitmapText(5, 50, FONTS.VCR_BLACK, "LEVEL SELECT", 21);
-
-    const resumeBtn = this.add.sprite(40, 200, BUTTONS.ResumeBTN).setDepth(10);
-    resumeBtn.setInteractive();
-    resumeBtn.on(
-      "pointerdown",
-      () => {
-        setTimeout(() => {
-          if (SCENES.PauseScene) {
-            this.scene.resume(SCENES.PauseScene);
-            this.scene.get(SCENES.PauseScene).events.emit("showPauseUI");
-          }
-
-          if (BaseUIDiv.getInstance(this.UIElements.LevelSelectUI))
-            BaseUIDiv.getInstance(
-              this.UIElements.LevelSelectUI
-            )!.customRemove();
-
-          this.scene.stop();
-        }, 150);
-      },
-      this
-    );
-
-    if (data && data.resume === false) resumeBtn.destroy();
+    this.add.bitmapText(5, 15, FONTS.VCR_BLACK, "LEVEL SELECT", 21);
 
     const LevelSelectUI = new BaseUIDiv("level-select-ui").getDiv();
     LevelSelectUI.style.cssText += `
@@ -134,7 +110,6 @@ export default class LevelSelect extends Phaser.Scene {
     /* */
     ///// Get the savegame set from the registry
     /* */
-
     const savegameSet = new Set(JSON.parse(this.game.registry.get("savegame")));
 
     /* */
@@ -212,6 +187,42 @@ export default class LevelSelect extends Phaser.Scene {
 
       row.insertAdjacentElement("beforebegin", textElem);
     }
+
+    const resumeBtn = document.createElement("button");
+    resumeBtn.innerText = "Resume";
+    resumeBtn.style.cssText = `
+      margin-top: 5%;
+      font-size: 6cqw;
+      padding: 1%;
+    `;
+    resumeBtn.onclick = () => {
+      setTimeout(() => {
+        if (SCENES.PauseScene) {
+          this.scene.resume(SCENES.PauseScene);
+          this.scene.get(SCENES.PauseScene).events.emit("showPauseUI");
+        }
+
+        if (BaseUIDiv.getInstance(this.UIElements.LevelSelectUI))
+          BaseUIDiv.getInstance(this.UIElements.LevelSelectUI)!.customRemove();
+
+        this.scene.stop();
+      }, 150);
+    };
+
+    if (!data || (data && data.resume !== false))
+      LevelSelectUI.insertAdjacentElement("beforeend", resumeBtn);
+
+    /* */
+    ///// Create "Ship Select" button
+    /* */
+    const shipSelectBtn = document.createElement("button");
+    shipSelectBtn.innerText = "Select Ship";
+    shipSelectBtn.style.cssText = `
+      margin-top: 5%;
+      font-size: 6cqw;
+      padding: 1%;
+    `;
+    LevelSelectUI.insertAdjacentElement("beforeend", shipSelectBtn);
 
     this.UIElements = { LevelSelectUI, LevelsDiv };
 
