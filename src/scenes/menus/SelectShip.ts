@@ -48,6 +48,9 @@ export default class ShipSelect extends Phaser.Scene {
       align-items: center;
       flex-direction: column;
       height: 100%;
+      background-color: black;
+      box-shadow: rgb(0, 0, 0) 0px 0px 0px 10px;
+      -webkit-box-shadow: rgb(0, 0, 0) 0px 0px 0px 10px;
     `;
     ShipSelectUI.classList.add(
       "animate__animated",
@@ -185,8 +188,6 @@ export default class ShipSelect extends Phaser.Scene {
       }, 150);
     };
     ShipSelectUI.insertAdjacentElement("beforeend", resumeBtn);
-
-    ShipSelectUI.style.backgroundColor = "black";
 
     // this.scene.setVisible(false, SCENES.LevelSelect);
     // this.scene.setVisible(false, SCENES.PauseScene);
