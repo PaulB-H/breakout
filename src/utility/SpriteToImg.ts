@@ -33,6 +33,7 @@ export const SpriteToImg = (
   const img = document.createElement("img");
   img.src = dataURL;
 
+  sprite.destroy();
   canvas.remove();
 
   return img;
