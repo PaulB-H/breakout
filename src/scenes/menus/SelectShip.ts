@@ -1,12 +1,13 @@
-import { SCENES, FONTS } from "../../constants";
+import { SCENES, FONTS, SHEETS } from "../../constants";
 
 import BaseUIDiv from "../BaseUIDiv";
 
-// import { ships } from "../../objects/Ship";
+import { ships } from "../../objects/Ship";
 
 import PauseScene from "./Pause";
 
 import BaseScene from "../BaseScene";
+import { SpriteToImg } from "../../utility/SpriteToImg";
 
 // interface UIElements {
 //   LevelSelectUI: HTMLDivElement;
@@ -111,7 +112,6 @@ export default class ShipSelect extends Phaser.Scene {
     shipSelectBtns.style.cssText = `
       display: flex;
       justify-content: center;
-      align-items: center;
       flex-direction: column;
     `;
     ShipSelectUI.insertAdjacentElement("afterbegin", shipSelectBtns);
@@ -127,20 +127,36 @@ export default class ShipSelect extends Phaser.Scene {
         btn.style.cssText = `
           font-family: vcr-black;
           font-size: 7cqw;
-          margin: 5% 0;
+          margin: 5% -5%;
           padding: 0 2%;
           position: relative;
+          flex: 1;
         `;
         shipSelectBtns.insertAdjacentElement("afterbegin", btn);
+        const spriteImg = SpriteToImg(
+          this,
+          SHEETS.ships,
+          ships[shipType].stopped
+        );
+        spriteImg.style.cssText = `
+          image-rendering: pixelated;
+          position: absolute;
+          top: 0;
+          left: -18%;
+          width: 10cqw;
+        `;
+        btn.insertAdjacentElement("beforeend", spriteImg);
 
         if (shipType === this.registry.get("shipType")) {
           const check = document.createElement("p");
           check.innerText = "✓";
-          check.style.position = "absolute";
-          check.style.top = `-60%`;
-          check.style.marginLeft = "75%";
-          check.style.color = "red";
-          check.style.fontWeight = "bold";
+          check.style.cssText = `
+            position: absolute;
+            top: -60%;
+            right: -5%;
+            color: red;
+            font-weight: bold;
+          `;
           btn.insertAdjacentElement("beforeend", check);
         }
 
