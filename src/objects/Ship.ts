@@ -6,7 +6,25 @@ export const ships = {
   orb: { stopped: 2, left: 12, right: 22 },
   snowflake: { stopped: 3, left: 13, right: 23 },
   lightning: { stopped: 4, left: 14, right: 24 },
+  fireball: { stopped: 5, left: 15, right: 25 },
 };
+
+export type validShipTypes =
+  | "base"
+  | "vanu"
+  | "orb"
+  | "snowflake"
+  | "lightning"
+  | "fireball";
+
+export const shipTypeArray = [
+  "base",
+  "vanu",
+  "orb",
+  "snowflake",
+  "lightning",
+  "fireball",
+] as const;
 
 // This ship sprite (non physics) "attaches" to the
 // platform by matching its x position in preUpdate(){}
@@ -18,7 +36,7 @@ export default class Ship extends Phaser.GameObjects.Sprite {
   shipFrames: { stopped: number; left: number; right: number } =
     this.ships.base;
 
-  setShipType(type: "base" | "vanu" | "orb" | "snowflake" | "lightning") {
+  setShipType(type: validShipTypes) {
     this.shipFrames = this.ships[type];
   }
 

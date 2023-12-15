@@ -1,8 +1,8 @@
-import { SCENES, FONTS, SHEETS } from "../../constants";
+import { SCENES, SHEETS } from "../../constants";
 
 import BaseUIDiv from "../BaseUIDiv";
 
-import { ships } from "../../objects/Ship";
+import { ships, validShipTypes, shipTypeArray } from "../../objects/Ship";
 
 import PauseScene from "./Pause";
 
@@ -21,13 +21,9 @@ export default class ShipSelect extends Phaser.Scene {
     super(SCENES.ShipSelect);
   }
 
-  preload() {
-    // this.cameras.main.setBackgroundColor("#87ceeb");
-  }
+  preload() {}
 
-  init() {
-    // this.cameras.main.setBackgroundColor(0xbf87ceeb);
-  }
+  init() {}
 
   create() {
     // const transitionManager = new TransitionManager(this);
@@ -36,10 +32,6 @@ export default class ShipSelect extends Phaser.Scene {
     if (typeof gameWidth === "string") gameWidth = parseInt(gameWidth);
     let gameHeight = this.sys.game.config.height;
     if (typeof gameHeight === "string") gameHeight = parseInt(gameHeight);
-
-    this.add.bitmapText(5, 15, FONTS.VCR_WHITE, "SHIP SELECT", 21);
-
-    // console.log(ships);
 
     const ShipSelectUI = new BaseUIDiv("ship-select-ui").getDiv();
     ShipSelectUI.style.cssText += `
@@ -82,9 +74,7 @@ export default class ShipSelect extends Phaser.Scene {
     `;
     ShipSelectUI.insertAdjacentElement("beforeend", ShipsDiv);
 
-    const setNewShip = (
-      shiptype: "base" | "vanu" | "orb" | "snowflake" | "lightning"
-    ) => {
+    const setNewShip = (shiptype: validShipTypes) => {
       const pausedSceneKey = (
         this.scene.manager.getScene(SCENES.PauseScene) as PauseScene
       ).getPausedSceneKey();
@@ -100,29 +90,18 @@ export default class ShipSelect extends Phaser.Scene {
       this.registry.set("shipType", shiptype);
     };
 
-    // So much for using the ship list we exported from Ships.ts...
-    // for now this works fine...
-    const shipTypes: ("base" | "vanu" | "orb" | "snowflake" | "lightning")[] = [
-      "base",
-      "vanu",
-      "orb",
-      "snowflake",
-      "lightning",
-    ];
-    shipTypes.reverse();
-
-    const shipSelectBtns = document.createElement("div");
-    shipSelectBtns.style.cssText = `
+    const shipSelectBtnDiv = document.createElement("div");
+    shipSelectBtnDiv.style.cssText = `
       display: flex;
       justify-content: center;
-      flex-direction: column;
+      flex-direction: column-reverse;
     `;
-    ShipSelectUI.insertAdjacentElement("afterbegin", shipSelectBtns);
+    ShipSelectUI.insertAdjacentElement("afterbegin", shipSelectBtnDiv);
 
     const renderShipBtns = () => {
-      shipSelectBtns.innerHTML = "";
+      shipSelectBtnDiv.innerHTML = "";
 
-      shipTypes.forEach((shipType) => {
+      shipTypeArray.forEach((shipType) => {
         const btn = document.createElement("button");
         btn.innerText = shipType;
         btn.innerText =
@@ -135,7 +114,8 @@ export default class ShipSelect extends Phaser.Scene {
           position: relative;
           flex: 1;
         `;
-        shipSelectBtns.insertAdjacentElement("afterbegin", btn);
+        shipSelectBtnDiv.insertAdjacentElement("afterbegin", btn);
+
         const spriteImg = SpriteToImg(
           this,
           SHEETS.ships,
@@ -182,15 +162,11 @@ export default class ShipSelect extends Phaser.Scene {
       setTimeout(() => {
         BaseUIDiv.getInstance(ShipSelectUI)?.customRemove();
         this.scene.stop();
-        // this.scene.setVisible(true, SCENES.PauseScene);
-        // this.scene.setVisible(true, SCENES.LevelSelect);
         this.scene.resume(SCENES.LevelSelect);
       }, 150);
     };
     ShipSelectUI.insertAdjacentElement("beforeend", resumeBtn);
 
-    // this.scene.setVisible(false, SCENES.LevelSelect);
-    // this.scene.setVisible(false, SCENES.PauseScene);
     this.scene.bringToTop(this);
   }
 

@@ -380,35 +380,46 @@ export default class BaseScene extends Phaser.Scene {
         }
         switch ((projectile as iProjectile).type) {
           case "fireball":
-            if (this.lives >= 1) {
-              this.deleteHeartSprite();
+            if (this.registry.get("shipType") !== "fireball") {
+              if (this.lives >= 1) {
+                this.deleteHeartSprite();
 
-              this.cameras.main.shake(250, 0.01);
-              this.sound.play(AUDIO.HURT);
+                this.cameras.main.shake(250, 0.01);
+                this.sound.play(AUDIO.HURT);
 
-              this.lives--;
+                this.lives--;
+              }
             }
+
             projectile.destroy();
             break;
           case "lightningbolt":
-            this.playerStatus.isStunned = true;
-            this.playerStatus.lastStunned = this.time.now;
-            myPlayer.setFrame(20);
+            if (this.registry.get("shipType") !== "lightning") {
+              this.playerStatus.isStunned = true;
+              this.playerStatus.lastStunned = this.time.now;
+              myPlayer.setFrame(20);
+            }
             projectile.destroy();
             break;
           case "laserbeam":
+            if (this.registry.get("shipType") !== "vanu") {
+              this.scene.restart();
+            }
             projectile.destroy();
-            this.scene.restart();
+
             break;
           case "icespike":
-            if (this.lives >= 1) {
-              this.deleteHeartSprite();
+            if (this.registry.get("shipType") !== "snowflake") {
+              if (this.lives >= 1) {
+                this.deleteHeartSprite();
 
-              this.cameras.main.shake(250, 0.01);
-              this.sound.play(AUDIO.HURT);
+                this.cameras.main.shake(250, 0.01);
+                this.sound.play(AUDIO.HURT);
 
-              this.lives--;
+                this.lives--;
+              }
             }
+
             projectile.destroy();
             break;
           default:
