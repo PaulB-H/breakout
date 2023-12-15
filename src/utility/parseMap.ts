@@ -159,6 +159,17 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
         blockSprite.setCircle(8);
       }
 
+      // // If we wanted to turn every block into a circle...
+      // blockSprite.setCircle(8);
+      // // Make a circular mask
+      // const maskGraphics = scene.make.graphics();
+      // maskGraphics.fillStyle(0xffffff);
+      // maskGraphics.fillCircle(blockSprite.width / 2, blockSprite.height / 2, 8);
+      // maskGraphics.x = blockSprite.x - blockSprite.width / 2;
+      // maskGraphics.y = blockSprite.y - blockSprite.height / 2;
+      // const mask = maskGraphics.createGeometryMask();
+      // blockSprite.setMask(mask);
+
       blockSprite.setPipeline("Light2D");
 
       scene.increaseBlockCnt();
