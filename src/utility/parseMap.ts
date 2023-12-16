@@ -265,22 +265,25 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
 
           scene.addToWallGroup(rectangleSprite);
         } else if (collisionObj.ellipse) {
+          // The X/Y position we should place the new wall
+          // We need to get the locations of the tile, and then
+          // include the position of the collision object within that tile
           const rectX = wall.x! + wall.width! / 2 + collisionObj.x;
           const rectY = wall.y! - wall.height! / 2 + collisionObj.y;
 
-          const circleSprite = scene.physics.add.sprite(
-            rectX - wall.width! / 2,
-            rectY - wall.height! / 2,
-            "null"
-          );
-
-          circleSprite.setOrigin(0);
+          // We create a sprite with no texture, set it to a circle
+          const circleSprite = scene.physics.add
+            .sprite(rectX - wall.width! / 2, rectY - wall.height! / 2, "null")
+            .setCircle(collisionObj.width)
+            .setOrigin(0.5, -1)
+            .setDepth(20);
 
           circleSprite.setDisplaySize(collisionObj.width, collisionObj.height);
+          // Okay what really are the different ways to set sizes...
+          // circleSprite.setSize(circleSprite.width, circleSprite.width);
 
-          circleSprite.setSize(collisionObj.width, collisionObj.height);
-          circleSprite.setCircle(collisionObj.width);
-
+          // We create a graphics object based on the size of the created
+          // sprite, and then generate a texture to fit it
           scene.make
             .graphics()
             .fillStyle(0x202020, 1)
@@ -291,10 +294,10 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
               circleSprite.height
             );
 
+          // Now apply the texture to the sprite
           circleSprite.setTexture("wallTexture");
 
-          circleSprite.setPipeline(PIPELINES.Light2D);
-
+          // Add it to wall group as before
           scene.addToWallGroup(circleSprite);
         }
       });
