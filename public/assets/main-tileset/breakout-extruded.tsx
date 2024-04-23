@@ -544,142 +544,49 @@
    <property name="color" value=""/>
   </properties>
   <objectgroup draworder="index" id="2">
-   <object id="17" x="14" y="0" width="1" height="1">
+   <object id="63" x="14" y="0" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="18" x="13" y="1" width="1" height="1">
+   <object id="64" x="13" y="1" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="19" x="12" y="2" width="1" height="1">
+   <object id="65" x="12" y="2" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="20" x="11" y="3" width="1" height="1">
+   <object id="66" x="11" y="3" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="21" x="10" y="4" width="1" height="1">
+   <object id="67" x="10" y="4" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="22" x="9" y="5" width="1" height="1">
+   <object id="68" x="9" y="5" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="23" x="8" y="6" width="1" height="1">
+   <object id="69" x="8" y="6" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="24" x="7" y="7" width="1" height="1">
+   <object id="70" x="7" y="7" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="25" x="6" y="8" width="1" height="1">
+   <object id="71" x="6" y="8" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="26" x="5" y="9" width="1" height="1">
+   <object id="72" x="5" y="9" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="27" x="4" y="10" width="1" height="1">
+   <object id="73" x="4" y="10" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="28" x="3" y="11" width="1" height="1">
+   <object id="74" x="3" y="11" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="29" x="2" y="12" width="1" height="1">
+   <object id="75" x="2" y="12" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="30" x="1" y="13" width="1" height="1">
+   <object id="76" x="1" y="13" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="31" x="0" y="14" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="32" x="0" y="15" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="33" x="1" y="14" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="34" x="14" y="1" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="35" x="13" y="2" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="36" x="12" y="3" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="37" x="11" y="4" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="38" x="10" y="5" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="39" x="9" y="6" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="40" x="8" y="7" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="41" x="7" y="8" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="42" x="6" y="9" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="43" x="5" y="10" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="44" x="4" y="11" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="45" x="3" y="12" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="46" x="2" y="13" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="47" x="13" y="3" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="48" x="12" y="4" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="49" x="11" y="5" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="50" x="10" y="6" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="51" x="9" y="7" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="52" x="8" y="8" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="53" x="7" y="9" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="54" x="6" y="10" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="55" x="5" y="11" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="56" x="4" y="12" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="57" x="3" y="13" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="58" x="2" y="14" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="59" x="1" y="15" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="60" x="14" y="2" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="61" x="15" y="1" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="62" x="15" y="0" width="1" height="1">
+   <object id="77" x="0" y="14" width="2" height="2">
     <ellipse/>
    </object>
   </objectgroup>
@@ -689,142 +596,49 @@
    <property name="color" value=""/>
   </properties>
   <objectgroup draworder="index" id="3">
-   <object id="19" x="1" y="0" width="1" height="1">
+   <object id="65" x="0" y="0" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="20" x="2" y="1" width="1" height="1">
+   <object id="66" x="1" y="1" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="21" x="3" y="2" width="1" height="1">
+   <object id="67" x="2" y="2" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="22" x="4" y="3" width="1" height="1">
+   <object id="68" x="3" y="3" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="23" x="5" y="4" width="1" height="1">
+   <object id="69" x="4" y="4" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="24" x="6" y="5" width="1" height="1">
+   <object id="70" x="5" y="5" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="25" x="7" y="6" width="1" height="1">
+   <object id="71" x="6" y="6" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="26" x="8" y="7" width="1" height="1">
+   <object id="72" x="7" y="7" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="27" x="9" y="8" width="1" height="1">
+   <object id="73" x="8" y="8" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="28" x="10" y="9" width="1" height="1">
+   <object id="74" x="9" y="9" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="29" x="11" y="10" width="1" height="1">
+   <object id="75" x="10" y="10" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="30" x="12" y="11" width="1" height="1">
+   <object id="76" x="11" y="11" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="31" x="13" y="12" width="1" height="1">
+   <object id="77" x="12" y="12" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="32" x="14" y="13" width="1" height="1">
+   <object id="78" x="13" y="13" width="2" height="2">
     <ellipse/>
    </object>
-   <object id="33" x="15" y="14" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="34" x="15" y="15" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="35" x="14" y="14" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="36" x="1" y="1" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="37" x="2" y="2" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="38" x="3" y="3" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="39" x="4" y="4" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="40" x="5" y="5" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="41" x="6" y="6" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="42" x="7" y="7" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="43" x="8" y="8" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="44" x="9" y="9" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="45" x="10" y="10" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="46" x="11" y="11" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="47" x="12" y="12" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="48" x="13" y="13" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="49" x="2" y="3" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="50" x="3" y="4" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="51" x="4" y="5" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="52" x="5" y="6" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="53" x="6" y="7" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="54" x="7" y="8" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="55" x="8" y="9" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="56" x="9" y="10" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="57" x="10" y="11" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="58" x="11" y="12" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="59" x="12" y="13" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="60" x="13" y="14" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="61" x="14" y="15" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="62" x="1" y="2" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="63" x="0" y="1" width="1" height="1">
-    <ellipse/>
-   </object>
-   <object id="64" x="0" y="0" width="1" height="1">
+   <object id="79" x="14" y="14" width="2" height="2">
     <ellipse/>
    </object>
   </objectgroup>
@@ -838,9 +652,6 @@
   <properties>
    <property name="color" value=""/>
   </properties>
-  <objectgroup draworder="index" id="3">
-   <object id="2" x="5" y="6" width="6" height="5"/>
-  </objectgroup>
  </tile>
  <tile id="88">
   <properties>
