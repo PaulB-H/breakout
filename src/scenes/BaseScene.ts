@@ -26,6 +26,8 @@ import { buildWall } from "../objects/LeafWall";
 
 import BaseUIDiv from "./BaseUIDiv";
 
+import SaveGame from "../utility/SaveGame";
+
 interface UIElements {
   baseSceneUI: HTMLDivElement;
   score: HTMLHeadElement;
@@ -897,17 +899,16 @@ export default class BaseScene extends Phaser.Scene {
     }
 
     if (this.blocks <= 0) {
-      const currentSave = new Set(
-        JSON.parse(this.game.registry.get("savegame"))
+      const currentSaveParsed = JSON.parse(this.game.registry.get("savegame"));
+      const currentSave = new SaveGame(
+        currentSaveParsed.completedLevels,
+        currentSaveParsed.blocksBroke
       );
 
-      currentSave.add(this.scene.key);
+      currentSave.updateCompletedLevels(this.scene.key);
 
-      this.game.registry.set(
-        "savegame",
-        JSON.stringify(Array.from(currentSave))
-      );
-      localStorage.setItem("savegame", JSON.stringify(Array.from(currentSave)));
+      this.game.registry.set("savegame", JSON.stringify(currentSave));
+      localStorage.setItem("savegame", JSON.stringify(currentSave));
 
       document.removeEventListener("touchmove", this.touchMoveFunc);
       document.removeEventListener("mousedown", this.clickFunc);

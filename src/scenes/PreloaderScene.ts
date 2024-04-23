@@ -9,6 +9,8 @@ import {
   REGISTRY,
 } from "../constants";
 
+import SaveGame from "../utility/SaveGame";
+
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
     super("PreloaderScene");
@@ -161,35 +163,40 @@ export default class PreloaderScene extends Phaser.Scene {
     // but for now game will start with base ship selected
     this.registry.set("shipType", "base");
 
-    const checkSavedGame = (savegame: Set<string>) => {
-      savegame.forEach((item: string) => {
-        if (!SCENES.hasOwnProperty(item)) {
-          savegame.delete(item);
-        }
-      });
-    };
+    const mySave = new SaveGame();
+    console.log(mySave);
+
+    // const checkSavedGame = (savegame: Set<string>) => {
+    //   savegame.forEach((item: string) => {
+    //     if (!SCENES.hasOwnProperty(item)) {
+    //       savegame.delete(item);
+    //     }
+    //   });
+    // };
 
     if (localStorage.getItem("savegame")) {
-      let foundSave: Set<string> = new Set();
+      const foundSave = JSON.parse(localStorage.getItem("savegame") as string);
 
-      try {
-        foundSave = JSON.parse(localStorage.getItem("savegame") as string);
-        if (!Array.isArray(foundSave)) {
-          console.error("Found save not array...");
-        } else {
-          foundSave = new Set(foundSave);
-        }
-      } catch (err) {
-        console.error("Error parsing existing save...");
-      }
+      // try {
+      //   foundSave = JSON.parse(localStorage.getItem("savegame") as string);
+      //   if (!Array.isArray(foundSave)) {
+      //     console.error("Found save not array...");
+      //   } else {
+      //     foundSave = new Set(foundSave);
+      //   }
+      // } catch (err) {
+      //   console.error("Error parsing existing save...");
+      // }
 
-      if (foundSave.size > 0) checkSavedGame(foundSave);
+      // if (foundSave.size > 0) checkSavedGame(foundSave);
 
-      localStorage.setItem("savegame", JSON.stringify(Array.from(foundSave)));
+      // localStorage.setItem("savegame", JSON.stringify(Array.from(foundSave)));
       this.game.registry.set("savegame", JSON.stringify(Array.from(foundSave)));
     } else {
-      localStorage.setItem("savegame", JSON.stringify([]));
-      this.game.registry.set("savegame", JSON.stringify([]));
+      const mySave = new SaveGame();
+
+      localStorage.setItem("savegame", JSON.stringify(mySave));
+      this.game.registry.set("savegame", JSON.stringify(mySave));
     }
   }
 

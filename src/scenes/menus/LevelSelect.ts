@@ -4,6 +4,8 @@ import TransitionManager from "../TransitionManager";
 
 import BaseUIDiv from "../BaseUIDiv";
 
+import SaveGame from "../../utility/SaveGame";
+
 interface UIElements {
   LevelSelectUI: HTMLDivElement;
   LevelsDiv: HTMLDivElement;
@@ -122,9 +124,16 @@ export default class LevelSelect extends Phaser.Scene {
     };
 
     /* */
-    ///// Get the savegame set from the registry
+    ///// Get the savegame
     /* */
-    const savegameSet = new Set(JSON.parse(this.game.registry.get("savegame")));
+    const currentSaveParsed = JSON.parse(
+      localStorage.getItem("savegame") as string
+    );
+
+    const currentSave = new SaveGame(
+      currentSaveParsed.completedLevels,
+      currentSaveParsed.blocksBroke
+    );
 
     /* */
     ///// Loop through level groups and create a row & buttons for each group
@@ -166,13 +175,15 @@ export default class LevelSelect extends Phaser.Scene {
 
         if (
           levelGroups[levelGroup].indexOf(level) > 0 &&
-          !savegameSet.has(levelGroups[levelGroup][currentLevelIdx - 1].key) &&
+          !currentSave.checkForCompletedLevel(
+            levelGroups[levelGroup][currentLevelIdx - 1].key
+          ) &&
           levelGroup !== "debug"
         ) {
           newBtn.setAttribute("disabled", "true");
         }
 
-        if (savegameSet.has(level.key)) {
+        if (currentSave.checkForCompletedLevel(level.key)) {
           const check = document.createElement("p");
           check.innerText = "✓";
           check.style.position = "absolute";
