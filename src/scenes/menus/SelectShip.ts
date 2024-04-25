@@ -80,13 +80,12 @@ export default class ShipSelect extends Phaser.Scene {
       ).getPausedSceneKey();
 
       if (pausedSceneKey !== undefined) {
-        // There is a paused scene, update ship there AND in registry
+        // There is a paused scene, also update ship there
         (this.scene.manager.getScene(pausedSceneKey) as BaseScene)
           .getShip()
           .setShipType(shiptype);
-
-        this.registry.set("shipType", shiptype);
       }
+
       this.registry.set("shipType", shiptype);
     };
 
