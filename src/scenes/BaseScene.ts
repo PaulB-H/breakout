@@ -28,6 +28,8 @@ import BaseUIDiv from "./BaseUIDiv";
 
 import SaveGame from "../utility/SaveGame";
 
+import { BlockTypes } from "../utility/SaveGame";
+
 interface UIElements {
   baseSceneUI: HTMLDivElement;
   score: HTMLHeadElement;
@@ -191,6 +193,61 @@ export default class BaseScene extends Phaser.Scene {
   destroyleafWallTimer() {
     this.leafWallTimer.remove();
   }
+
+  private blocksBroken: {
+    green: number;
+    red: number;
+    blue: number;
+    yellow: number;
+    pink: number;
+    purple: number;
+    wood: number;
+    glass: number;
+    rock: number;
+    armored: number;
+    icespike: number;
+  } = {
+    green: 0,
+    red: 0,
+    blue: 0,
+    yellow: 0,
+    pink: 0,
+    purple: 0,
+    wood: 0,
+    glass: 0,
+    rock: 0,
+    armored: 0,
+    icespike: 0,
+  };
+  increaseBlocksBroken(blockType: BlockTypes) {
+    this.blocksBroken[blockType]++;
+  }
+  resetBlocksBroken() {
+    for (const property in this.blocksBroken) {
+      // instead of ```keyof typeof``` we could have also asserted: ```as "generic" | "yellow" | "blue" | "red";```
+      this.blocksBroken[property as keyof typeof this.blocksBroken] = 0;
+    }
+  }
+
+  updateSaveBlocksBroken = () => {
+    const parsedSave = JSON.parse(this.registry.get("savegame"));
+    const currentSave = new SaveGame(
+      parsedSave.completedLevels,
+      parsedSave.blocksBroken
+    );
+
+    for (const property in this.blocksBroken) {
+      // instead of ```keyof typeof``` we could have also asserted: ```as "generic" | "yellow" | "blue" | "red";```
+      currentSave.increaseBlocksBroken(
+        property as keyof typeof this.blocksBroken,
+        this.blocksBroken[property as keyof typeof this.blocksBroken]
+      );
+    }
+
+    this.registry.set("savegame", JSON.stringify(currentSave));
+    localStorage.setItem("savegame", JSON.stringify(currentSave));
+    this.resetBlocksBroken();
+  };
 
   constructor(key: any) {
     super(key);
@@ -522,18 +579,24 @@ export default class BaseScene extends Phaser.Scene {
         // depending on block color / properties
         switch (color) {
           case "green":
+            this.increaseBlocksBroken("green");
+
             emitter.setEmitterFrame(94);
             emitter.explode(10, myBlock.x, myBlock.y);
             this.sound.play(AUDIO.LEAF);
             buildWall(this);
             break;
           case "red":
+            this.increaseBlocksBroken("red");
+
             emitter.setEmitterFrame(42);
             emitter.explode(10, myBlock.x, myBlock.y);
             this.sound.play(AUDIO.FIRE);
             new FireBall(this, myBlock.x, myBlock.y);
             break;
           case "blue":
+            this.increaseBlocksBroken("blue");
+
             this.sound.play(AUDIO.BUBBLE, {
               name: AUDIO.BUBBLE,
               start: 0.5,
@@ -554,10 +617,14 @@ export default class BaseScene extends Phaser.Scene {
 
             break;
           case "yellow":
+            this.increaseBlocksBroken("yellow");
+
             this.sound.play(AUDIO.ELECTRIC);
             new LightningBolt(this, myBlock.x, myBlock.y);
             break;
           case "pink":
+            this.increaseBlocksBroken("pink");
+
             emitter.setEmitterFrame(43);
             emitter.explode(10, myBlock.x, myBlock.y);
             this.sound.play(AUDIO.KISS, { volume: 2 });
@@ -566,15 +633,21 @@ export default class BaseScene extends Phaser.Scene {
 
             break;
           case "purple":
+            this.increaseBlocksBroken("purple");
+
             this.sound.play(AUDIO.LASER);
             new LaserBeam(this, myBlock.x, myBlock.y);
             break;
           case "wood":
+            this.increaseBlocksBroken("wood");
+
             emitter.setEmitterFrame(19);
             emitter.explode(10, myBlock.x, myBlock.y);
             this.sound.play(AUDIO.PLANK);
             break;
           case "glass":
+            this.increaseBlocksBroken("glass");
+
             emitter.setEmitterFrame(9);
             emitter.setAlpha(0.75);
             emitter.explode(4, myBlock.x, myBlock.y);
@@ -582,11 +655,15 @@ export default class BaseScene extends Phaser.Scene {
             emitter.setAlpha(1);
             break;
           case "rock":
+            this.increaseBlocksBroken("rock");
+
             emitter.setEmitterFrame(59);
             emitter.explode(5, myBlock.x, myBlock.y);
             this.sound.play(AUDIO.ROCK);
             break;
           case "armored":
+            this.increaseBlocksBroken("armored");
+
             myBlock.properties.health--;
             switch (myBlock.properties.health) {
               case 0:
@@ -614,6 +691,8 @@ export default class BaseScene extends Phaser.Scene {
             }
             break;
           case "icespike":
+            this.increaseBlocksBroken("icespike");
+
             // this.sound.play(AUDIO.ELECTRIC);
             new IceSpike(this, myBlock.x, myBlock.y);
             break;
@@ -795,6 +874,13 @@ export default class BaseScene extends Phaser.Scene {
 
     const gradient = this.add.image(80, 120, IMAGES.BlueGradBG);
     gradient.setDepth(-100);
+
+    this.time.addEvent({
+      callback: this.updateSaveBlocksBroken,
+      callbackScope: this,
+      delay: 5000,
+      loop: true,
+    });
   }
 
   update(t: number) {
@@ -899,10 +985,12 @@ export default class BaseScene extends Phaser.Scene {
     }
 
     if (this.blocks <= 0) {
-      const currentSaveParsed = JSON.parse(this.game.registry.get("savegame"));
+      this.updateSaveBlocksBroken();
+
+      const currentSaveParsed = JSON.parse(this.registry.get("savegame"));
       const currentSave = new SaveGame(
         currentSaveParsed.completedLevels,
-        currentSaveParsed.blocksBroke
+        currentSaveParsed.blocksBroken
       );
 
       currentSave.updateCompletedLevels(this.scene.key);
@@ -920,6 +1008,8 @@ export default class BaseScene extends Phaser.Scene {
     }
 
     if (this.lives <= 0) {
+      this.updateSaveBlocksBroken();
+
       document.removeEventListener("touchmove", this.touchMoveFunc);
       document.removeEventListener("mousedown", this.clickFunc);
 
