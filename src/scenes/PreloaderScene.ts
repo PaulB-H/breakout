@@ -190,8 +190,7 @@ export default class PreloaderScene extends Phaser.Scene {
 
       // if (foundSave.size > 0) checkSavedGame(foundSave);
 
-      // localStorage.setItem("savegame", JSON.stringify(Array.from(foundSave)));
-      this.game.registry.set("savegame", JSON.stringify(Array.from(foundSave)));
+      this.game.registry.set("savegame", JSON.stringify(foundSave));
     } else {
       const mySave = new SaveGame();
 
