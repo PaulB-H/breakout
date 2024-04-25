@@ -19,11 +19,11 @@ export type validShipTypes =
 
 export const shipTypeArray = [
   "base",
-  "vanu",
   "orb",
-  "snowflake",
   "lightning",
   "fireball",
+  "snowflake",
+  "vanu",
 ] as const;
 
 // This ship sprite (non physics) "attaches" to the

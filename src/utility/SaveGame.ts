@@ -26,6 +26,9 @@ export default class SaveGame {
     armored: number;
     icespike: number;
   };
+  getBlocksBroken() {
+    return this.blocksBroken;
+  }
 
   constructor(
     completedLevels: string[] = [],

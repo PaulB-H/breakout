@@ -9,6 +9,8 @@ import PauseScene from "./Pause";
 import BaseScene from "../BaseScene";
 import { SpriteToImg } from "../../utility/SpriteToImg";
 
+import SaveGame from "../../utility/SaveGame";
+
 // interface UIElements {
 //   LevelSelectUI: HTMLDivElement;
 //   LevelsDiv: HTMLDivElement;
@@ -100,7 +102,62 @@ export default class ShipSelect extends Phaser.Scene {
     const renderShipBtns = () => {
       shipSelectBtnDiv.innerHTML = "";
 
+      const currentSaveParsed = JSON.parse(this.registry.get("savegame"));
+      const currentSave = new SaveGame(
+        currentSaveParsed.completedLevels,
+        currentSaveParsed.blocksBroken
+      );
+
       shipTypeArray.forEach((shipType) => {
+        let shipLocked = false;
+        const requirements = {
+          color: "",
+          remaining: 0,
+        };
+
+        switch (shipType) {
+          case "base":
+            break;
+          case "vanu":
+            if (currentSave.getBlocksBroken().purple < 50) {
+              shipLocked = true;
+              requirements.color = "Laser";
+              requirements.remaining =
+                50 - currentSave.getBlocksBroken().purple;
+            }
+
+            break;
+          case "orb":
+            break;
+          case "snowflake":
+            if (currentSave.getBlocksBroken().icespike < 50) {
+              shipLocked = true;
+              requirements.color = "Icespike";
+              requirements.remaining =
+                50 - currentSave.getBlocksBroken().icespike;
+            }
+
+            break;
+          case "lightning":
+            if (currentSave.getBlocksBroken().yellow < 50) {
+              shipLocked = true;
+              requirements.color = "Yellow";
+              requirements.remaining =
+                50 - currentSave.getBlocksBroken().yellow;
+            }
+            break;
+
+          case "fireball":
+            if (currentSave.getBlocksBroken().red < 50) {
+              shipLocked = true;
+              requirements.color = "Red";
+              requirements.remaining = 50 - currentSave.getBlocksBroken().red;
+            }
+            break;
+
+          default:
+            break;
+        }
         const btn = document.createElement("button");
         btn.innerText = shipType;
         btn.innerText =
@@ -113,6 +170,18 @@ export default class ShipSelect extends Phaser.Scene {
           position: relative;
           flex: 1;
         `;
+        if (shipLocked) {
+          btn.innerText = `Break ${requirements.remaining} ${requirements.color} blocks`;
+          btn.style.cssText += `
+            color: #ff872f;
+            font-size: 5cqw;
+            max-width: 35cqw;
+            margin-left: 20cqw;
+            padding-left: 5cqw;
+            margin: 5% auto;
+          `;
+          btn.disabled = true;
+        }
         shipSelectBtnDiv.insertAdjacentElement("afterbegin", btn);
 
         const spriteImg = SpriteToImg(
