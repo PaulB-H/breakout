@@ -170,6 +170,11 @@ export default class LevelSelect extends Phaser.Scene {
           margin: 0.5% 2%;
           padding: 0.5% 2%;
           position: relative;
+          background-color: white;
+          color: black;
+          padding: 1cqw 2cqw;
+          border-radius: 5px;
+          border: none;
         `;
         newBtn.onmouseup = () => startLevel(level.key);
 
@@ -181,6 +186,11 @@ export default class LevelSelect extends Phaser.Scene {
           levelGroup !== "debug"
         ) {
           newBtn.setAttribute("disabled", "true");
+          newBtn.style.cssText += `
+            background-color: #444;
+            color: gray;
+            filter: opacity(70%);
+          `;
         }
 
         if (currentSave.checkForCompletedLevel(level.key)) {
@@ -218,7 +228,10 @@ export default class LevelSelect extends Phaser.Scene {
     resumeBtn.style.cssText = `
       margin-top: 5%;
       font-size: 6cqw;
-      padding: 1%;
+      padding: 2%;
+      background-color: #e9e9ed;
+      border-radius: 5px;
+      color: black;
     `;
     resumeBtn.onclick = () => {
       setTimeout(() => {
@@ -245,7 +258,11 @@ export default class LevelSelect extends Phaser.Scene {
     shipSelectBtn.style.cssText = `
       margin-top: 5%;
       font-size: 6cqw;
-      padding: 1%;
+      padding: 2%;
+      background-color: #e9e9ed;
+      border-radius: 5px;
+      color: black;
+
     `;
     shipSelectBtn.onclick = () => {
       this.scene.start(SCENES.ShipSelect);

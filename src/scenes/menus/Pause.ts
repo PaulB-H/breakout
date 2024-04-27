@@ -67,6 +67,9 @@ export default class PauseScene extends Phaser.Scene {
       width: 40%;
       font-size: 8cqw;
       margin-top: 40%;
+      background-color: #e9e9ed;
+      border-radius: 5px;
+      color: black;
     `;
     ResumeBtn.addEventListener("click", () => {
       setTimeout(() => {
@@ -84,6 +87,9 @@ export default class PauseScene extends Phaser.Scene {
       width: 40%;
       font-size: 8cqw; 
       margin-top: 10%;
+      background-color: #e9e9ed;
+      border-radius: 5px;
+      color: black;
     `;
     LevelSelBtn.addEventListener("click", () => {
       setTimeout(() => {

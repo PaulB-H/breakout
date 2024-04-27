@@ -71,10 +71,12 @@ export default class ShipSelect extends Phaser.Scene {
     };
 
     const shipSelectBtnDiv = document.createElement("div");
+    shipSelectBtnDiv.id = "shipSelectBtnDiv";
     shipSelectBtnDiv.style.cssText = `
       display: flex;
       justify-content: center;
       flex-direction: column-reverse;
+      align-items: center;
     `;
     ShipSelectUI.insertAdjacentElement("afterbegin", shipSelectBtnDiv);
 
@@ -143,21 +145,24 @@ export default class ShipSelect extends Phaser.Scene {
           btn.innerText.charAt(0).toUpperCase() + btn.innerText.slice(1);
         btn.style.cssText = `
           font-family: vcr-black;
-          font-size: 7cqw;
+          font-size: 5cqw;
           margin: 5% -5%;
-          padding: 0 2%;
+          padding: 0.3em;
           position: relative;
-          flex: 1;
+          color: black;
+          width: max-content;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          border-radius: 10px;
+          border: none;
         `;
         if (shipLocked) {
           btn.innerText = `Break ${requirements.remaining} ${requirements.color} blocks`;
           btn.style.cssText += `
-            color: #ff872f;
+            background-color: rgb(53, 53, 53);
             font-size: 5cqw;
-            max-width: 35cqw;
-            margin-left: 20cqw;
-            padding-left: 5cqw;
-            margin: 5% auto;
+            color: orange;
           `;
           btn.disabled = true;
         }
@@ -170,12 +175,10 @@ export default class ShipSelect extends Phaser.Scene {
         );
         spriteImg.style.cssText = `
           image-rendering: pixelated;
-          position: absolute;
-          top: 0;
-          left: -18%;
           width: 10cqw;
+          margin-right: 1em;
         `;
-        btn.insertAdjacentElement("beforeend", spriteImg);
+        btn.insertAdjacentElement("afterbegin", spriteImg);
 
         if (shipType === this.registry.get("shipType")) {
           const check = document.createElement("p");
@@ -204,6 +207,7 @@ export default class ShipSelect extends Phaser.Scene {
       margin-top: 5%;
       font-size: 6cqw;
       padding: 1%;
+      color: black;
     `;
     resumeBtn.onclick = () => {
       setTimeout(() => {

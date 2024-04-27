@@ -46,6 +46,9 @@ export default class StartScene extends BaseScene {
       padding: 5px;
       margin-top: 80%;
       margin-left: 25%;
+      background-color: #e9e9ed;
+      border-radius: 5px;
+      color: black;
     `;
 
     document
