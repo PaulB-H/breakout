@@ -55,27 +55,6 @@ export default class ShipSelect extends Phaser.Scene {
       .querySelector("#app")
       ?.insertAdjacentElement("beforeend", ShipSelectUI);
 
-    // const OutOfStockHeader = document.createElement("p");
-    // OutOfStockHeader.innerText = "OUT OF STOCK";
-    // OutOfStockHeader.style.cssText = `
-    //   font-size: 10cqw;
-    //   font-family: vcr-black;
-    //   color: white;
-    // `;
-    // ShipSelectUI.insertAdjacentElement("afterbegin", OutOfStockHeader);
-
-    const ShipsDiv = document.createElement("div");
-    ShipsDiv.style.cssText = `
-      padding: 0 5%;
-      margin-top: 15%;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      width: 100%;
-    `;
-    ShipSelectUI.insertAdjacentElement("beforeend", ShipsDiv);
-
     const setNewShip = (shiptype: validShipTypes) => {
       const pausedSceneKey = (
         this.scene.manager.getScene(SCENES.PauseScene) as PauseScene
