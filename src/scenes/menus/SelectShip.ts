@@ -181,14 +181,11 @@ export default class ShipSelect extends Phaser.Scene {
         btn.insertAdjacentElement("afterbegin", spriteImg);
 
         if (shipType === this.registry.get("shipType")) {
-          const check = document.createElement("p");
-          check.innerText = "✓";
+          const check = document.createElement("img");
+          check.src = "./assets/ui/check_red.svg";
           check.style.cssText = `
-            position: absolute;
-            top: -60%;
-            right: -5%;
-            color: red;
-            font-weight: bold;
+            width: 2em;
+            margin-left: 1em;
           `;
           btn.insertAdjacentElement("beforeend", check);
         }

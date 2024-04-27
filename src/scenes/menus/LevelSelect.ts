@@ -194,11 +194,16 @@ export default class LevelSelect extends Phaser.Scene {
         }
 
         if (currentSave.checkForCompletedLevel(level.key)) {
-          const check = document.createElement("p");
-          check.innerText = "✓";
+          const check = document.createElement("img");
+          check.src = "./assets/ui/check_green.svg";
+          check.style.cssText += `
+            position: absolute;
+            top: -20%;
+            margin-left: 10%;
+            width: 1em;
+            left: 50%;
+          `;
           check.style.position = "absolute";
-          check.style.top = `-50%`;
-          check.style.marginLeft = "50%";
           newBtn.insertAdjacentElement("beforeend", check);
         }
 
