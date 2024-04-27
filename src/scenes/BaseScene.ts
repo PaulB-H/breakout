@@ -263,6 +263,7 @@ export default class BaseScene extends Phaser.Scene {
     // menuBtn.setActive(true);
     // if (menuBtn.input) menuBtn.input.enabled = true;
     menuBtn.on("pointerdown", () => {
+      this.updateSaveBlocksBroken();
       this.scene.pause();
       this.scene.launch(SCENES.PauseScene, { pausedSceneKey: this.scene.key });
       this.registry.set("pausedSceneKey", this.scene.key);
