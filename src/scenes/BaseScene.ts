@@ -194,6 +194,8 @@ export default class BaseScene extends Phaser.Scene {
     this.leafWallTimer.remove();
   }
 
+  menuBtn!: Phaser.GameObjects.Sprite;
+
   private blocksBroken: {
     green: number;
     red: number;
@@ -258,11 +260,12 @@ export default class BaseScene extends Phaser.Scene {
   preload() {}
 
   create() {
-    const menuBtn = this.add.sprite(140, 10, BUTTONS.MenuBTN).setDepth(2);
-    menuBtn.setInteractive();
+    this.menuBtn = this.add.sprite(140, 10, BUTTONS.MenuBTN);
+    this.menuBtn.setDepth(2);
+    this.menuBtn.setInteractive();
     // menuBtn.setActive(true);
     // if (menuBtn.input) menuBtn.input.enabled = true;
-    menuBtn.on("pointerdown", () => {
+    this.menuBtn.on("pointerdown", () => {
       this.updateSaveBlocksBroken();
       this.scene.pause();
       this.scene.launch(SCENES.PauseScene, { pausedSceneKey: this.scene.key });
