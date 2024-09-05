@@ -115,6 +115,8 @@ export const parseMap = (scene: BaseScene, map: Phaser.Tilemaps.Tilemap) => {
       myBall.x += map.tileWidth * 0.5;
       myBall.y -= map.tileHeight * 0.5;
 
+      myBall.y -= 2;
+
       const newBall = new Ball(
         scene,
         myBall.x,
